@@ -6,6 +6,16 @@
       "includeFiles": "reports/cms-blog-import-baseline.json"
     }
   },
+  "headers": [
+    {
+      "source": "/admin",
+      "headers": [{ "key": "Cache-Control", "value": "no-store" }]
+    },
+    {
+      "source": "/admin/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "no-store" }]
+    }
+  ],
   "rewrites": [
     {
       "source": "/resources/blogs/:slug",
