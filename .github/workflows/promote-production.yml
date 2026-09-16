@@ -1,0 +1,43 @@
+name: Promote production
+
+on:
+  workflow_dispatch:
+    inputs:
+      preview_url:
+        description: Exact Vercel preview URL already reviewed on staging
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-promotion
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    name: Promote reviewed staging deployment
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://network-consultancy.com
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    steps:
+      - name: Validate deployment URL
+        shell: bash
+        env:
+          PREVIEW_URL: ${{ inputs.preview_url }}
+        run: |
+          set -euo pipefail
+          case "$PREVIEW_URL" in
+            https://*.vercel.app) ;;
+            *) echo 'Provide the exact Vercel preview URL, not a production domain.' >&2; exit 1 ;;
+          esac
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@50.10.1
+
+      - name: Promote exact reviewed deployment
+        run: vercel promote "${{ inputs.preview_url }}" --token "$VERCEL_TOKEN"
