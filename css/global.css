@@ -1345,10 +1345,9 @@ body.industry-detail-page #main > #contact {
   .nc-service-lane, .nc-service-track { animation:none !important; transform:none !important; }
 }
 
-/* ============================================================
-   CMS TESTIMONIALS SLIDER — shared across all pages
-   Rendered by js/cms.js into [data-cms="testimonials"]
-============================================================ */
+/* ------------------------------------------------------------
+   Something
+   ------------------------------------------------------------ */
 .testimonials { padding:40px var(--px); max-width:var(--section-w); margin:0 auto; background:linear-gradient(91deg,rgba(241,244,249,.5) 0%,rgba(173,217,243,.5) 15%,rgba(160,182,229,.5) 33%,rgba(8,173,252,.2) 49%,rgba(160,182,229,.5) 68%,rgba(173,217,243,.5) 83%,rgba(245,248,253,.5) 100%); }
 .testimonials__layout { display:flex; gap:166px; align-items:flex-start; }
 .testimonials__left { width:421px; flex-shrink:0; display:flex; flex-direction:column; justify-content:space-between; min-height:400px; }
