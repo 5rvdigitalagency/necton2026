@@ -42,13 +42,14 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@50.10.1
 
+  
+
       - name: Verify Vercel authentication
         run: |
           set -euo pipefail
 
           vercel whoami \
-            --token "$VERCEL_TOKEN" \
-            --scope "$VERCEL_ORG_ID"
+            --token "$VERCEL_TOKEN"
 
       - name: Deploy preview
         id: deploy
