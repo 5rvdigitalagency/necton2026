@@ -21,9 +21,9 @@ jobs:
     name: Deploy preview and alias staging
     needs: checks
     runs-on: ubuntu-latest
+
     environment:
       name: staging
-      url: ${{ steps.deploy.outputs.preview_url }}
 
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -48,23 +48,12 @@ jobs:
         run: |
           set -euo pipefail
 
-      - name: Deploy preview
-  id: deploy
-  shell: bash
-  run: |
-    set -euo pipefail
-
-    vercel deploy \
-      --yes \
-      --token "$VERCEL_TOKEN" \
-      --scope "$VERCEL_ORG_ID" \
-      --project "$VERCEL_PROJECT_ID" \
-      2>&1 | tee vercel-deploy.log
-
-          test -n "$preview_url"
-
-          echo "preview_url=$preview_url" >> "$GITHUB_OUTPUT"
-          echo "Preview deployment: $preview_url"
+          vercel deploy \
+            --yes \
+            --token "$VERCEL_TOKEN" \
+            --scope "$VERCEL_ORG_ID" \
+            --project "$VERCEL_PROJECT_ID" \
+            2>&1 | tee vercel-deploy.log
 
       - name: Point permanent staging URL at preview
         run: |
