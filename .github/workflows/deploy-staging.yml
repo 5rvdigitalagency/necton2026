@@ -42,21 +42,47 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@50.10.1
 
+      - name: Verify Vercel authentication
+        run: |
+          set -euo pipefail
+
+          vercel whoami \
+            --token "$VERCEL_TOKEN" \
+            --scope "$VERCEL_ORG_ID"
+
       - name: Deploy preview
         id: deploy
         shell: bash
         run: |
           set -euo pipefail
 
-          vercel deploy \
-            --yes \
-            --token "$VERCEL_TOKEN" \
-            --scope "$VERCEL_ORG_ID" \
-            --project "$VERCEL_PROJECT_ID" \
-            2>&1 | tee vercel-deploy.log
+          output="$(
+            vercel deploy \
+              --yes \
+              --token "$VERCEL_TOKEN" \
+              --scope "$VERCEL_ORG_ID" \
+              --project "$VERCEL_PROJECT_ID"
+          )"
+
+          printf '%s\n' "$output"
+
+          preview_url="$(
+            printf '%s\n' "$output" |
+            grep -Eo 'https://[^[:space:]]+' |
+            tail -n 1
+          )"
+
+          if [[ -z "$preview_url" ]]; then
+            echo "Could not determine the Vercel deployment URL"
+            exit 1
+          fi
+
+          echo "preview_url=$preview_url" >> "$GITHUB_OUTPUT"
 
       - name: Point permanent staging URL at preview
         run: |
+          set -euo pipefail
+
           vercel alias set \
             "${{ steps.deploy.outputs.preview_url }}" \
             netcon-ivory.vercel.app \
