@@ -48,12 +48,18 @@ jobs:
         run: |
           set -euo pipefail
 
-          preview_url="$(vercel deploy \
-            --yes \
-            --token "$VERCEL_TOKEN" \
-            --scope "$VERCEL_ORG_ID" \
-            --project "$VERCEL_PROJECT_ID" \
-            2>&1 | tee vercel-deploy.log | grep -Eo 'https://[^[:space:]]+\.vercel\.app' | tail -1)"
+      - name: Deploy preview
+  id: deploy
+  shell: bash
+  run: |
+    set -euo pipefail
+
+    vercel deploy \
+      --yes \
+      --token "$VERCEL_TOKEN" \
+      --scope "$VERCEL_ORG_ID" \
+      --project "$VERCEL_PROJECT_ID" \
+      2>&1 | tee vercel-deploy.log
 
           test -n "$preview_url"
 
