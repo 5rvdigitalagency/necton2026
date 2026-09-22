@@ -344,8 +344,8 @@
       var mark     = item.open ? '\u2212' : '+';
       var hidden   = item.open ? '' : ' hidden';
       return [
-        '<button type="button" class="nd-faq__item' + openAttr + '"><span>' + escHtml(item.question) + '</span><strong>' + mark + '</strong></button>',
-        '<div class="nd-faq__panel"' + hidden + '>' + escHtml(item.answer) + '</div>'
+        '<h3 class="nd-faq__item' + openAttr + '"><span>' + escHtml(item.question) + '</span><strong>' + mark + '</strong></h3>',
+        '<p class="nd-faq__panel"' + hidden + '>' + escHtml(item.answer) + '</p>'
       ].join('\n');
     }).join('\n');
 
