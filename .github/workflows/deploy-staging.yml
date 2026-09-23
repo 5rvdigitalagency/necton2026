@@ -76,4 +76,3 @@ jobs:
             netcon-ivory.vercel.app \
             --token "$VERCEL_TOKEN" \
             --scope "$VERCEL_ORG_ID" \
-            --yes
