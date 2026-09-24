@@ -753,35 +753,35 @@
       </div>
       <div class="aif-overview__inner">
         <div class="aif-overview__list animate-fade-up" role="tablist" aria-label="Core pillars of AI-ready infrastructure">
-          <button type="button" role="tab" aria-selected="true" class="aif-overview__list-item aif-overview__list-item--active"
+          <h3 class="aif-overview__list-item aif-overview__list-item--active"
             data-title="Connection Speed (Bandwidth)"
             data-copy="Your file operations need sustained throughput. Stable transfer speeds let applications and tools process data quickly without delay."
-            data-img="/images/pages/unique/Connection-Speed.webp">Connection Speed (Bandwidth)</button>
-          <button type="button" role="tab" aria-selected="false" class="aif-overview__list-item"
+            data-img="/images/pages/unique/Connection-Speed.webp">Connection Speed (Bandwidth)</h3>
+          <h3 class="aif-overview__list-item"
             data-title="Traffic Separation (Segmentation)"
             data-copy="A separate virtual network for AI applications ensures your primary business systems continue to operate reliably without disruption or resource contention."
-            data-img="/images/pages/unique/Traffic-Separation.webp">Traffic Separation (Segmentation)</button>
-          <button type="button" role="tab" aria-selected="false" class="aif-overview__list-item"
+            data-img="/images/pages/unique/Traffic-Separation.webp">Traffic Separation (Segmentation)</h3>
+          <h3 class="aif-overview__list-item"
             data-title="Hardware Capability (Routers &amp; Switches)"
             data-copy="Your core switches should be equipped with adequate uplink capacity to efficiently manage high volumes of network traffic and avoid performance bottlenecks."
-            data-img="/images/pages/unique/Hardware-Capability.webp">Hardware Capability (Routers &amp; Switches)</button>
-          <button type="button" role="tab" aria-selected="false" class="aif-overview__list-item"
+            data-img="/images/pages/unique/Hardware-Capability.webp">Hardware Capability (Routers &amp; Switches)</h3>
+          <h3 class="aif-overview__list-item"
             data-title="File Retrieval Speed (Storage Access)"
             data-copy="Fast-performing storage systems with latency under 5ms ensure automated platforms can access and process large amounts of data without delays."
-            data-img="/images/pages/unique/File-Retrieval-Speed.webp">File Retrieval Speed (Storage Access)</button>
-          <button type="button" role="tab" aria-selected="false" class="aif-overview__list-item"
+            data-img="/images/pages/unique/File-Retrieval-Speed.webp">File Retrieval Speed (Storage Access)</h3>
+          <h3 class="aif-overview__list-item"
             data-title="Power Reliability (Electrical Capacity)"
             data-copy="Reliable power and clean failover keep systems stable when high computational demand increases infrastructure stress."
-            data-img="/images/pages/unique/Power-Reliability.webp">Power Reliability (Electrical Capacity)</button>
-          <button type="button" role="tab" aria-selected="false" class="aif-overview__list-item"
+            data-img="/images/pages/unique/Power-Reliability.webp">Power Reliability (Electrical Capacity)</h3>
+          <h3 class="aif-overview__list-item"
             data-title="Data Protection (Firewall Throughput)"
             data-copy="Effective security requires your firewall to continuously inspect all incoming data, ensuring confidential information remains protected at all times."
-            data-img="/images/pages/unique/Data-Protection.webp">Data Protection (Firewall Throughput)</button>
+            data-img="/images/pages/unique/Data-Protection.webp">Data Protection (Firewall Throughput)</h3>
         </div>
         <div class="aif-overview__feature animate-fade-up">
           <img id="aif-tab-img" src="/images/pages/unique/Connection-Speed.webp" alt="Connection Speed (Bandwidth)" loading="lazy">
           <div class="aif-overview__panel" role="tabpanel">
-            <h3 id="aif-overview-title">Connection Speed (Bandwidth)</h3>
+            <h4 id="aif-overview-title">Connection Speed (Bandwidth)</h4>
             <p>Your file operations need sustained throughput. Stable transfer speeds let applications and tools process data quickly without delay.</p>
           </div>
         </div>
@@ -1062,7 +1062,7 @@
       var panel = document.querySelector('.aif-overview__panel');
       var img = document.getElementById('aif-tab-img');
       if (tabs.length === 0 || panel === null) return;
-      var title = panel.querySelector('h3');
+      var title = panel.querySelector('h4');
       var copy = panel.querySelector('p');
       tabs.forEach(function (tab) {
         tab.addEventListener('click', function () {
@@ -1071,7 +1071,7 @@
             t.classList.remove('aif-overview__list-item--active');
             t.setAttribute('aria-selected', 'false');
           });
-          tab.classList.add('aif-overview__list-item--active');
+          tab.classList.add('--active');
           tab.setAttribute('aria-selected', 'true');
           panel.classList.add('is-switching');
           setTimeout(function () {
