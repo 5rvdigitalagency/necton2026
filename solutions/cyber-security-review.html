@@ -537,96 +537,81 @@
 <section class="csr-overview" aria-labelledby="csr-overview-title">
   <div class="csr-overview__inner">
 
-    <div class="csr-overview__list animate-fade-up"
+      <div class="csr-overview__list animate-fade-up"
          role="tablist"
          aria-label="Areas covered during a cyber security audit">
 
       <!-- 1. Security Controls Review -->
-      <button
-        type="button"
-        role="tab"
+      <h3
         aria-selected="true"
         class="csr-overview__list-item csr-overview__list-item--active"
         data-title="Security Controls Review"
         data-copy="A cybersecurity review measures whether existing security controls reduce operational risk or leave infrastructure exposed through configuration weaknesses."
         data-img="/images/pages/unique/Security-Controls-Review.jpg">
         Security Controls Review
-      </button>
+      </h3>
 
       <!-- 2. Access & Permissions Analysis -->
-      <button
-        type="button"
-        role="tab"
+      <h3
         aria-selected="false"
         class="csr-overview__list-item"
         data-title="Access &amp; Permissions Analysis"
         data-copy="By analysing infrastructure security, user permissions, administrative access, and network services, the assessment uncovers potential weaknesses that could affect operational stability and resilience."
         data-img="/images/pages/unique/solutions-cyber-security-review-nc-hero-person.webp">
         Access &amp; Permissions Analysis
-      </button>
+      </h3>
 
       <!-- 3. Key Security Controls -->
-      <button
-        type="button"
-        role="tab"
+      <h3
         aria-selected="false"
         class="csr-overview__list-item"
         data-title="Key Security Controls"
         data-copy="Key security controls - including firewall policies, network segmentation, user authentication, endpoint configurations, and privileged access - are reviewed to identify risks that could impact business operations."
         data-img="/images/pages/unique/Key-Security-Controls.jpg">
         Key Security Controls
-      </button>
+      </h3>
 
       <!-- 4. Configuration & Exposure Assessment -->
-      <button
-        type="button"
-        role="tab"
+      <h3
         aria-selected="false"
         class="csr-overview__list-item"
         data-title="Configuration &amp; Exposure Assessment"
         data-copy="Configuration drift, unnecessary system exposure, inherited permissions, and policy inconsistencies are assessed against operational and business risk."
         data-img="/images/pages/unique/solutions-cyber-security-review-nc-hero-person.webp">
         Configuration &amp; Exposure Assessment
-      </button>
+      </h3>
 
       <!-- 5. Service Disruption Risks -->
-      <button
-        type="button"
-        role="tab"
+      <h3
         aria-selected="false"
         class="csr-overview__list-item"
         data-title="Service Disruption Risks"
         data-copy="The review identifies weaknesses that could disrupt critical services, increase attack paths, or delay incident containment during security events."
         data-img="/images/pages/unique/Service-Disruption-Risks.jpg">
         Service Disruption Risks
-      </button>
+      </h3>
 
       <!-- 6. Business Impact Ranking -->
-      <button
-        type="button"
-        role="tab"
+      <h3
         aria-selected="false"
         class="csr-overview__list-item"
         data-title="Business Impact Ranking"
         data-copy="Findings are ranked by business impact, allowing remediation work to focus on security issues with the highest operational and governance risk."
         data-img="/images/pages/unique/Business-Impact-Ranking.jpg">
         Business Impact Ranking
-      </button>
+      </h3>
 
       <!-- 7. Framework-Aligned Recommendations -->
-      <button
-        type="button"
-        role="tab"
+      <h3
         aria-selected="false"
         class="csr-overview__list-item"
         data-title="Framework-Aligned Recommendations"
         data-copy="Recommendations reflect recognised security frameworks, regulatory expectations, and implementation priorities suited to existing infrastructure constraints."
         data-img="/images/pages/unique/Framework-Aligned-Recommendations.jpg">
         Framework-Aligned Recommendations
-      </button>
+      </h3>
 
     </div>
-
 
     <!-- FEATURE / IMAGE -->
     <div class="csr-overview__feature animate-fade-up">
@@ -642,9 +627,9 @@
       <!-- CONTENT PANEL -->
       <div class="csr-overview__panel" role="tabpanel">
 
-        <h2 id="csr-overview-title">
+        <h4 id="csr-overview-title">
           Security Controls Review
-        </h2>
+        </h4>
 
         <p id="csr-overview-copy">
           A cybersecurity review measures whether existing security controls
@@ -765,7 +750,7 @@
 
   if (tabs.length === 0 || panel === null || image === null) return;
 
-  var title = panel.querySelector('h2');
+  var title = panel.querySelector('h4');
   var copy = panel.querySelector('p');
 
   tabs.forEach(function (tab) {
