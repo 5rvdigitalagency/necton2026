@@ -21,9 +21,8 @@
   ]
 }
   </script>
-    <meta name="google-site-verification" content="UMvzdXxOFVqZL5BV0Z31FdlaoXjKmD450rZ5TB-qWXI" />
+ <meta name="google-site-verification" content="UMvzdXxOFVqZL5BV0Z31FdlaoXjKmD450rZ5TB-qWXI" />
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PVKBZV7');</script>
-
 <meta charset="UTF-8">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/misc/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/misc/favicon-180.png">
@@ -40,14 +39,13 @@
   <link rel="stylesheet" href="/css/accessibility.css">
   <style>
   /* ── Page Section Rhythm ────────────────────────────────────── */
-  main .nd-faq { margin-bottom:100px; }
-  #main { display:flex; flex-direction:column; gap:clamp(72px, 7vw, 100px); }
+  /* main .nd-faq { margin-bottom:100px; } */
+  /* #main { display:flex; flex-direction:column; gap:clamp(72px, 7vw, 100px); } */
   #main > .svcs-hero { padding-bottom:0; width:100%; margin-left:0; margin-right:0; align-self:stretch; }
-  #main > .svl-overview { margin:0 auto; }
+  /* #main > .svl-overview { margin:0 auto; } */
   #main > .svc-cta-band,
   #main > [data-cms],
   #main > #site-contact { margin:0; }
-
   /* ── Services Landing Hero ─────────────────────────────────── */
   .svcs-hero { padding:0; }
   main#main > section.svcs-hero > .svcs-hero__wrap {
@@ -95,8 +93,8 @@
   @media(max-width:480px){ .svcs-hero__title{font-size:28px;} }
 
   /* Services We Offer — bordered tab overview (shared component: solutions family) */
-  .svl-overview { width: calc(100% - (var(--px) * 2)); max-width:var(--max-w); margin:0 auto; }
-  .svl-overview__title { margin:0 0 40px; color:var(--navy); }
+  /* .svl-overview { width: calc(100% - (var(--px) * 2)); max-width:var(--max-w); margin:0 auto; } */
+  /* .svl-overview__title { margin:0 0 40px; color:var(--navy); } */
   .btn-blue-lg { background:var(--blue); color:#fff; font-family:'Google Sans Flex',sans-serif; font-size:15px; font-weight:700; letter-spacing:.08em; padding:16px 40px; min-height:50px; border-radius:9999px; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s,transform .2s; text-decoration:none; border:none; }
   .btn-blue-lg:hover { background:#0771a5; transform:scale(1.02); }
   .svl-overview__inner { display:grid; grid-template-columns:minmax(0,386px) minmax(0,1fr); gap:56px; align-items:start; background:#fff; border:1px solid #353535; border-radius:30px; padding:40px; }
@@ -233,7 +231,9 @@
   </section>
 
   <!-- ======== SERVICES WE OFFER (bordered tab overview) ======== -->
-  <section class="svl-overview animate-fade-up" aria-labelledby="svc-listing-h">
+  <section class="svl-overview   section-shell animate-fade-up" aria-labelledby="svc-listing-h">
+    <div class="ab-inner">
+
     <h2 class="section-title svl-overview__title" id="svc-listing-h">Services We Offer</h2>
     <div class="svl-overview__inner">
       <div class="svl-overview__list" role="tablist" aria-label="Services We Offer">
@@ -312,6 +312,8 @@
           <a id="svl-overview-cta" href="/services/network-consultancy" class="btn-blue-lg hover-btn">Get To Know More</a>
         </div>
       </div>
+    </div>
+    
     </div>
   </section>
 
