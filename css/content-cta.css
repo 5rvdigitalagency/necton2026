@@ -1,18 +1,14 @@
 .content-cta {
   background: var(--blue);
   color: #fff;
-  max-width: 1440px;
-  margin: 42px auto;
-  padding: 52px 80px;
+  padding: 40px;
 }
 
 .content-cta__inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
+  gap: 25px;
 }
 
 .content-cta__copy {
@@ -20,22 +16,9 @@
 }
 
 .content-cta__title {
-  margin: 0 0 8px;
-  color: #fff;
-  font-family: 'Google Sans Flex', sans-serif;
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 1.1;
+  font-size: var(--home-type-heading-lg);
 }
 
-.content-cta__text {
-  margin: 0;
-  color: #fff;
-  font-family: 'Google Sans Flex', sans-serif;
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 1.45;
-}
 
 .content-cta__button {
   display: inline-flex;
@@ -47,7 +30,7 @@
   border-radius: 8px;
   background: #fff;
   color: var(--navy);
-  font-family: 'Google Sans Flex', sans-serif;
+ 
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;

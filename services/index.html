@@ -37,93 +37,29 @@
   <script src="/js/schema.js" defer></script>
   <link rel="stylesheet" href="/css/animations.css">
   <link rel="stylesheet" href="/css/accessibility.css">
-  <style>
-  /* ── Page Section Rhythm ────────────────────────────────────── */
-  /* main .nd-faq { margin-bottom:100px; } */
-  /* #main { display:flex; flex-direction:column; gap:clamp(72px, 7vw, 100px); } */
-  #main > .svcs-hero { padding-bottom:0; width:100%; margin-left:0; margin-right:0; align-self:stretch; }
-  /* #main > .svl-overview { margin:0 auto; } */
-  #main > .svc-cta-band,
-  #main > [data-cms],
-  #main > #site-contact { margin:0; }
+<style>
+/* ── Page Section Rhythm ────────────────────────────────────── */
+  /* #main > .nc-hero { padding-bottom:0; width:100%; margin-left:0; margin-right:0; align-self:stretch; } */
   /* ── Services Landing Hero ─────────────────────────────────── */
-  .svcs-hero { padding:0; }
-  main#main > section.svcs-hero > .svcs-hero__wrap {
+  /* .nc-hero { padding:0; } */
+  /* main#main > section.nc-hero > .nc-hero-wrap {
     max-width:none;
     width:100%;
     margin:0;
-  }
-  .svcs-hero__wrap { position:relative; width:100%; max-width:none; height:467px; min-height:467px; margin:0; border-radius:0; overflow:hidden; background-color:#02172F; background-image:url(/images/pages/unique/services-banner.webp); background-repeat:no-repeat; background-position:right center; background-size:cover; }
-  .svcs-hero__bg,
-  .svcs-hero__overlay { display:none; }
-  main#main > section.svcs-hero > .svcs-hero__wrap > .svcs-hero__content {
+  } */
+ 
+  /* main#main > section.nc-hero > .nc-hero-wrap > .nc-hero__content {
     max-width:none;
     width:100%;
-  }
-  .svcs-hero__content { position:relative; z-index:2; padding:117px 145px 178px var(--px); width:100%; min-width:100%; max-width:none; display:flex; flex-direction:column; gap:24px; align-items:flex-start; }
-  .svcs-hero__text { display:flex; flex-direction:column; gap:16px; max-width:908px; }
-  .svcs-hero__title { font-family:'Google Sans Flex',sans-serif; font-size:64px; font-weight:600; color:#fff; line-height:1.08; }
-  .svcs-hero__sub { font-family:'Google Sans Flex',sans-serif; font-size:24px; font-weight:500; line-height:1.35; color:#fff; }
-  .svcs-hero__cta {
-    margin-top:0;
-    background:#fff !important;
-    color:#353535 !important;
-    border:0;
-    border-radius:2px !important;
-    font-family:'Google Sans Flex',sans-serif;
-    font-size:20px;
-    font-style:normal;
-    font-weight:600;
-    letter-spacing:0;
-    text-transform:none;
-    min-width:170px;
-    width:auto;
-    min-height:50px;
-    padding:0 12px;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    white-space:nowrap;
-    line-height:normal;
-    transition:background .2s ease;
-  }
-  .svcs-hero__cta:hover { background:#f0f0f0 !important; transform:none; }
-  @media(max-width:1200px){ .svcs-hero__title{font-size:46px;} .svcs-hero__content{padding:80px 60px 120px var(--px);} }
-  @media(max-width:768px){ .svcs-hero__title{font-size:42px;} .svcs-hero__sub{font-size:20px;} .svcs-hero__content{padding:60px var(--px) 80px var(--px);} .svcs-hero__wrap{height:auto;min-height:0;background-image:url(/images/pages/unique/banner-icons/services-icon.svg);background-repeat:no-repeat;background-size:250px auto;background-position:right -24px top -24px;} }
-  @media(max-width:480px){ .svcs-hero__title{font-size:28px;} }
+  } */
 
   /* Services We Offer — bordered tab overview (shared component: solutions family) */
   /* .svl-overview { width: calc(100% - (var(--px) * 2)); max-width:var(--max-w); margin:0 auto; } */
   /* .svl-overview__title { margin:0 0 40px; color:var(--navy); } */
   .btn-blue-lg { background:var(--blue); color:#fff; font-family:'Google Sans Flex',sans-serif; font-size:15px; font-weight:700; letter-spacing:.08em; padding:16px 40px; min-height:50px; border-radius:9999px; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s,transform .2s; text-decoration:none; border:none; }
   .btn-blue-lg:hover { background:#0771a5; transform:scale(1.02); }
-  .svl-overview__inner { display:grid; grid-template-columns:minmax(0,386px) minmax(0,1fr); gap:56px; align-items:start; background:#fff; border:1px solid #353535; border-radius:30px; padding:40px; }
-  .svl-overview__list {
-    display:flex;
-    flex-direction:column;
-    gap:36px;
-    max-height:600px;
-    overflow-y:auto;
-    padding-right:10px;
-  }
-  .svl-overview__list::-webkit-scrollbar { width:8px; }
-  .svl-overview__list::-webkit-scrollbar-track { background:transparent; }
-  .svl-overview__list::-webkit-scrollbar-thumb { background:#b7b7b7; border-radius:999px; }
-  .svl-overview__list::-webkit-scrollbar-thumb:hover { background:#9f9f9f; }
-  .svl-overview__list-item { appearance:none; background:transparent; border:0; width:100%; text-align:left; cursor:pointer; padding-bottom:24px; border-bottom:1px solid #353535; color:#585151; font-size:28px; font-weight:700; line-height:1.25; transition:color .2s ease-out, background .25s ease-out, padding .25s ease-out; }
-  .svl-overview__list-item:hover { color:var(--blue); }
-  .svl-overview__list-item--active,
-  .svl-overview__list-item--active:hover { padding:24px; border-radius:20px; border-bottom:0; background:var(--blue); color:#fff; }
-  .svl-overview__feature { position:relative; min-height:600px; border-radius:20px; overflow:hidden; background:#0c1b3d; display:flex; align-items:flex-end; padding:28px; }
-  .svl-overview__feature img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; transition:opacity .25s ease-out; }
-  .svl-overview__feature::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(9,130,197,.18) 0%, rgba(9,130,197,.88) 100%); }
-  .svl-overview__panel { position:relative; z-index:2; width:735px; max-width:100%; padding:28px; background:#fff; border-radius:10px; display:flex; flex-direction:column; gap:16px; align-items:flex-start; transition:opacity .25s ease-out, transform .25s ease-out; }
-  .svl-overview__panel.is-switching { opacity:0; transform:translateY(12px); }
-  .svl-overview__panel h3 { margin:0; color:#585151; font-size:24px; font-weight:600; line-height:1.25; }
-  .svl-overview__panel p { margin:0; color:#353535; font-size:18px; font-weight:400; line-height:1.55; }
-  @media(max-width:1200px){ .svl-overview__inner{ grid-template-columns:1fr; padding:24px; gap:32px; } .svl-overview__feature{ order:-1; } .svl-overview__list{ gap:24px; max-height:none; overflow:visible; padding-right:0; } }
-  @media(max-width:768px){ .svl-overview__feature{ min-height:480px; padding:16px; } .svl-overview__list-item{ font-size:22px; } .svl-overview__panel{ padding:20px; } }
-
+  
+ 
   /* ── Figma-style Testimonials ───────────────────────────────── */
   .figma-testimonial { padding:80px var(--px); background:linear-gradient(91deg,rgba(241,244,249,.5) 0%,rgba(173,217,243,.5) 15%,rgba(160,182,229,.5) 33%,rgba(8,173,252,.2) 49%,rgba(160,182,229,.5) 68%,rgba(173,217,243,.5) 83%,rgba(245,248,253,.5) 100%); }
   .figma-testimonial__inner { max-width:1440px; margin:0 auto; display:flex; align-items:center; gap:80px; }
@@ -145,67 +81,7 @@
   @media(max-width:1200px){ .figma-testimonial__inner{flex-direction:column;} .figma-testimonial__left{width:100%;} .figma-testimonial__heading{font-size:48px;} }
   @media(max-width:768px){ .figma-testimonial__quote{font-size:19px;} .figma-testimonial__heading{font-size:36px;} }
 
-  /* ── CTA Band ───────────────────────────────────────────────── */
-  .svc-cta-band { background:var(--blue); padding:80px 0; position:relative; overflow:hidden; }
-  .svc-cta-band__tags { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; gap:24px; padding:0 var(--px); pointer-events:none; }
-  .svc-cta-band__row { display:flex; gap:20px; flex-wrap:wrap; }
-  .svc-cta-band__row span { background:#fff; color:var(--blue); opacity:.5; font-family:'Google Sans Flex',sans-serif; font-size:18px; font-weight:500; padding:12px 32px; border-radius:20px; white-space:nowrap; }
-  .svc-cta-band__card { position:relative; z-index:2; background:#fff; border-radius:20px; padding:46px 84px; max-width:660px; margin:0 auto; text-align:center; box-shadow:0 10px 24px rgba(7, 63, 111, .22); }
-  .svc-cta-band__text { font-family:'Google Sans Flex',sans-serif; font-size:20px; font-weight:500; color:var(--sub); line-height:1.55; margin-bottom:32px; }
-  .svc-cta-band__btn { display:inline-flex; align-items:center; justify-content:center; background:var(--navy); color:#fff; font-family:'Google Sans Flex',sans-serif; font-size:20px; font-weight:500; padding:16px 50px; border-radius:20px; transition:background .2s, transform .2s; }
-  .svc-cta-band__btn:hover { background:#0f1c5a; transform:translateY(-1px); }
-  @media(max-width:768px){ .svc-cta-band__card{padding:32px 28px; margin:0 var(--px);} .svc-cta-band__text{font-size:18px;} .svc-cta-band__row span{white-space:normal;text-align:center;padding:10px 20px;font-size:16px;} .svc-cta-band__btn{width:100%;max-width:420px;} }
 
-  @media(max-width:768px){
-    .svcs-hero__content { gap:20px; }
-    .svl-overview__title { margin-bottom:24px; }
-  }
-
-  @media(max-width:768px){
-    #site-contact input,
-    #site-contact select,
-    #site-contact textarea { min-height:44px; }
-  }
-
-  /* ===== Mobile — solutions-family treatment (≤768px) ===== */
-  .svl-overview__caret, .svl-overview__bar { display:none; }
-  @media(max-width:768px){
-    #main { gap:40px; }
-    /* Hero */
-    .svcs-hero__wrap { height:auto; min-height:0; }
-    .svcs-hero__content { padding:48px var(--px) 56px; gap:18px; }
-    .svcs-hero__title { font-size:26px; font-weight:700; line-height:1.22; }
-    .svcs-hero__sub { font-size:16.5px; font-weight:400; line-height:1.5; }
-    .svcs-hero__cta { font-size:14px; min-height:44px; min-width:0; padding:0 24px; }
-    /* Services We Offer — tap-to-expand accordion */
-    .svl-overview__title { font-size:22px; font-weight:700; margin-bottom:18px; }
-    .svl-overview__inner { display:block; padding:0; border:1px solid #e7e7e7; border-radius:10px; overflow:hidden; }
-    .svl-overview__list { display:block; }
-    .svl-overview__list-item { font-size:15px; font-weight:600; color:#1c1c1c; line-height:1.3; padding:16px 18px; border-bottom:1px solid #ececec; display:flex; justify-content:space-between; align-items:center; gap:12px; }
-    .svl-overview__list-item:hover { color:#1c1c1c; }
-    .svl-overview__list-item--active,
-    .svl-overview__list-item--active:hover { background:var(--blue); color:#fff; padding:16px 18px; border-radius:0; font-size:16px; border-bottom:1px solid #ececec; }
-    .svl-overview__list > :last-child { border-bottom:0; }
-    .svl-overview__feature { min-height:0; padding:18px; border-radius:0; background:#fff; display:block; border-bottom:1px solid #ececec; order:0; }
-    .svl-overview__feature picture, .svl-overview__feature img { display:none; }
-    .svl-overview__feature::after { display:none; }
-    .svl-overview__panel { width:100%; padding:0; gap:12px; }
-    .svl-overview__panel h3 { display:none; }
-    .svl-overview__panel p { font-size:15.5px; color:#4a4a4a; line-height:1.65; }
-    .btn-blue-lg { font-size:13px; padding:12px 28px; min-height:44px; }
-    .svl-overview__caret { display:inline-block; font-size:18px; line-height:1; color:currentColor; }
-    .svl-overview__bar { display:block; margin-top:14px; height:4px; border-radius:2px; background:#e0e0e0; overflow:hidden; width:100%; }
-    .svl-overview__bar span { display:block; height:100%; background:var(--blue); border-radius:2px; transition:width .3s ease; }
-    /* CTA band */
-    .svc-cta-band { padding:56px 0; }
-    .svc-cta-band__text { font-size:16px; margin-bottom:24px; }
-    .svc-cta-band__btn { font-size:16px; padding:13px 34px; border-radius:14px; }
-    /* FAQ heading — family scale */
-    .nd-faq__title { font-size:22px; color:var(--blue); font-weight:700; }
-  }
-  @media(max-width:480px){
-    .svcs-hero__title { font-size:26px; }
-  }
   </style>
 </head>
 <body>
@@ -218,14 +94,14 @@
   <main id="main">
 
   <!-- ======== HERO ======== -->
-  <section class="svcs-hero" aria-label="Services hero">
-    <div class="svcs-hero__wrap">
-      <div class="svcs-hero__content">
-        <div class="svcs-hero__text">
-          <h1 class="svcs-hero__title animate-fade-up">Scalable Business Networks</h1>
-          <p class="svcs-hero__sub animate-fade-up">Designed to Improve Connectivity, Security &amp; Operational Performance by optimising your networks and IT systems.</p>
+  <section class="nc-hero" aria-label="Services hero">
+    <div class="nc-hero-wrap">
+      <div class="nc-hero__content">
+        <div class="nc-hero__text">
+          <h1 class="nc-hero__title animate-fade-up">Scalable Business Networks</h1>
+          <p class="nc-hero__sub animate-fade-up">Designed to Improve Connectivity, Security &amp; Operational Performance by optimising your networks and IT systems.</p>
         </div>
-        <a href="/contact" class="btn-blue svcs-hero__cta animate-fade-up">Discuss Your Service Needs</a>
+        <a href="/contact" class="btn-blue nc-hero__cta animate-fade-up">Discuss Your Service Needs</a>
       </div>
     </div>
   </section>
@@ -233,7 +109,6 @@
   <!-- ======== SERVICES WE OFFER (bordered tab overview) ======== -->
   <section class="svl-overview   section-shell animate-fade-up" aria-labelledby="svc-listing-h">
     <div class="ab-inner">
-
     <h2 class="section-title svl-overview__title" id="svc-listing-h">Services We Offer</h2>
     <div class="svl-overview__inner">
       <div class="svl-overview__list" role="tablist" aria-label="Services We Offer">
@@ -321,7 +196,7 @@
   <div data-cms="testimonials" data-title="What Our Client Says"></div>
 
   <!-- ======== CTA BAND ======== -->
-  <section class="svc-cta-band" aria-label="Network support CTA">
+  <section class="svc-cta-band my-lg-100" aria-label="Network support CTA">
     <div class="svc-cta-band__tags" aria-hidden="true">
       <div class="svc-cta-band__row">
         <span>Network Consultancy</span>
@@ -351,11 +226,11 @@
     { question:'Can you support hybrid and remote work environments?', answer:'Yes. We set up encrypted connections for office, remote, and hybrid teams. This stops data leaks on public Wi-Fi and prevents unauthorised outsiders from hacking into your company files.', open:false }
   ];
   </script>
-  <div data-cms="faq"></div>
+  <div class="mb-lg-100">
+      <div data-cms="faq"></div>
+  </div>
 
-  <!-- ======== CONTACT ======== -->
 
-  <div id="site-contact"></div>
   <script src="/js/form-source-tracking.js"></script>
   <script src="/js/contact.js"></script>
   </main>
