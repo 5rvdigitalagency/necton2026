@@ -102,6 +102,7 @@
 
     container.innerHTML = [
       '<section class="nd-trusted section-shell">',
+      '  <div class="ab-inner">',
       '  <div class="nd-trusted__head">',
       '    <h2 class="nd-trusted__title">' + escHtml(testimonialsTitle) + '</h2>',
       '    <div class="nd-trusted__controls">',
@@ -115,6 +116,7 @@
       '    </div>',
       '  </div>',
       '  <div class="nd-trusted__dots" aria-hidden="true"></div>',
+       '  </div>',
       '</section>'
     ].join('\n');
 

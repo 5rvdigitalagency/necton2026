@@ -50,36 +50,10 @@
       background: #fff;
     }
 
-    .ab-page,
-    .ab-page * {
-      font-family: "Google Sans Flex", "Google Sans Flex", sans-serif !important;
-    }
-
-    .ab-page > section + section {
-      margin-top: 100px;
-    }
-
-    .ab-intro + .ab-cap {
-      margin-top: 44px;
-    }
-
     .ab-shell {
       max-width: 1920px;
       margin: 0 auto;
       padding: 0 var(--px);
-    }
-
-    .ab-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-
-    :root {
-      --ab-type-heading-xl: clamp(1.8rem, 0.9vw + 1.45rem, 2.4rem);
-      --ab-type-heading-lg: clamp(1.5rem, 0.65vw + 1.24rem, 1.95rem);
-      --ab-type-heading-md: clamp(1.2rem, 0.4vw + 1.05rem, 1.45rem);
-      --ab-type-body: clamp(1rem, 0.14vw + 0.95rem, 1.0625rem);
-      --ab-type-body-sm: clamp(0.93rem, 0.12vw + 0.89rem, 0.98rem);
     }
 
     .ab-button {
@@ -90,7 +64,7 @@
       border-radius: 10px;
       background: var(--blue);
       color: #fff;
-      font-family: "Google Sans Flex", sans-serif;
+     
       font-size: 16px;
       font-weight: 600;
       line-height: 1.1;
@@ -170,7 +144,7 @@
     .ab-hero__kicker {
       margin: 0 0 18px;
       color: #fff;
-      font-family: "Google Sans Flex", sans-serif;
+     
       font-size: 64px;
       font-weight: 600;
       line-height: 1.02;
@@ -179,34 +153,19 @@
     .ab-hero__sub {
       margin: 0 0 28px;
       color: #ebebeb;
-      font-family: "Google Sans Flex", sans-serif;
+     
       font-size: clamp(1.08rem, 0.32vw + 0.95rem, 1.28rem);
       font-weight: 400;
       line-height: 1.35;
       max-width: 860px;
     }
-
-    .ab-intro {
-      padding: 0;
-    }
-
-    .ab-intro__grid {
+.ab-intro__grid {
       display: grid;
       grid-template-columns: 485px 1fr;
       gap: 45px;
       align-items: start;
     }
-
-    @media (min-width: 1201px) {
-      .ab-intro__grid,
-      .ab-cap > .ab-inner,
-      .ab-pro__card,
-      .ab-test {
-        width: min(var(--max-w), calc(100% - (2 * var(--px))));
-      }
-    }
-
-    .ab-intro__media {
+.ab-intro__media {
       border-radius: 19.47px;
       overflow: hidden;
       height: 378px;
@@ -223,7 +182,7 @@
     .ab-intro__title {
       margin: 0 0 20px;
       color: var(--dark);
-      font-family: "Google Sans Flex", sans-serif;
+     
       font-size: var(--ab-type-heading-lg);
       font-weight: 600;
       line-height: 1.1;
@@ -233,7 +192,6 @@
       margin: 0;
       max-width: 906px;
       color: var(--dark);
-      font-family: "Google Sans Flex", sans-serif;
       font-size: var(--ab-type-body);
       font-weight: 400;
       line-height: 1.65;
@@ -252,15 +210,10 @@
       color: var(--blue);
       text-decoration: underline;
     }
-
-    .ab-cap {
-      padding: 0;
-    }
-
-    .ab-cap__head {
+.ab-cap__head {
       margin: 0 0 28px;
       color: var(--navy);
-      font-family: "Google Sans Flex", sans-serif;
+     
       font-size: var(--ab-type-heading-xl);
       font-weight: 600;
       line-height: 1;
@@ -323,7 +276,7 @@
 
     .ab-cap-card__title {
       margin: 0;
-      font-family: "Google Sans Flex", sans-serif;
+     
       font-size: var(--ab-type-heading-md);
       font-weight: 500;
       line-height: 1.25;
@@ -334,7 +287,7 @@
 
     .ab-cap-card__body {
       margin: 0;
-      font-family: "Google Sans Flex", sans-serif;
+     
       font-size: var(--ab-type-body-sm);
       line-height: 1.55;
       max-width: 320px;
@@ -394,16 +347,7 @@
       opacity: 1;
       transform: translateY(0);
     }
-
-    .ab-highlight {
-      padding: 0;
-    }
-
-    .ab-highlight .ab-inner {
-      width: calc(100% - (2 * var(--px)));
-    }
-
-    .ab-highlight__row {
+.ab-highlight__row {
       display: flex;
       align-items: end;
       justify-content: space-between;
@@ -414,7 +358,7 @@
     .ab-highlight__title {
       margin: 0;
       color: var(--navy);
-      font-family: "Google Sans Flex", sans-serif;
+     
       font-size: var(--ab-type-heading-xl);
       font-weight: 600;
       line-height: 1;
@@ -424,37 +368,19 @@
       margin: 0;
       max-width: 900px;
       color: var(--dark);
-      font-family: "Google Sans Flex", sans-serif;
+     
       font-size: var(--ab-type-body);
       font-weight: 400;
       line-height: 1.65;
       max-width: 62ch;
     }
-
-    .ab-story {
-      padding: 0;
-      display: grid;
-      gap: 36px;
-    }
-
-    .ab-story > .ab-inner {
-      max-width: 1360px;
-    }
-
-    .ab-story-card {
-      position: relative;
-      border-radius: 29.22px;
-      display: flex;
-      align-items: center;
-      min-height: 578px;
+.ab-story-card {
+    margin-top: 60px;
+    margin-bottom: 60px;
     }
 
     .ab-story-card--blue {
       background: var(--blue);
-    }
-
-    .ab-story-card--light {
-      background: #0982C9;
     }
 
     .ab-story-card__media {
@@ -463,18 +389,9 @@
       transform: translateY(-50%);
       z-index: 2;
       width: 485px;
-      height: 487px;
+      /* height: 487px; */
     }
-
-    .ab-story-card--blue .ab-story-card__media {
-      left: -170px;
-    }
-
-    .ab-story-card--light .ab-story-card__media {
-      right: -170px;
-    }
-
-    .ab-story-card__media img {
+.ab-story-card__media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -482,38 +399,46 @@
       display: block;
     }
 
-    .ab-story-card__content {
+.ab-story-card__content {
       position: relative;
       z-index: 1;
-      padding: 58px 64px;
       display: flex;
       flex-direction: column;
-      gap: 26px;
+      gap:12px;
+          width: 80%;
+ 
+    border-radius:20px;
     }
-
-    .ab-story-card--blue .ab-story-card__content {
-      padding-left: 360px;
+  
+    .ab-story-card--left{
+      max-width: 85%;
+      margin-right: auto;
     }
-
-    .ab-story-card--light .ab-story-card__content {
-      padding-right: 360px;
+     
+    .ab-story-card--right{
+      max-width: 85%;
+      margin-left: auto;
     }
+     .ab-story-card--left  .ab-story-card__content{
+    padding: 70px 70px 70px 300px;
+       margin-left: 20%;
+     }
+.ab-story-card--right .ab-story-card__content{
+      padding: 65px 65px 65px 300px;
+        margin-left: 20%;
+}
 
     .ab-story-card__title {
       margin: 0;
-      font-family: "Google Sans Flex", sans-serif;
+     
       font-size: var(--ab-type-heading-xl);
       font-weight: 600;
       line-height: 1;
     }
 
     .ab-story-card__body {
-      margin: 0;
-      font-family: "Google Sans Flex", sans-serif;
       font-size: var(--ab-type-body);
-      font-weight: 400;
       line-height: 1.65;
-      max-width: 56ch;
     }
 
     .ab-story-card__list {
@@ -527,7 +452,7 @@
     }
 
     .ab-story-card__list li {
-      font-family: "Google Sans Flex", sans-serif;
+     
       font-size: var(--ab-type-body);
       font-weight: 400;
       line-height: 1.65;
@@ -549,14 +474,7 @@
     .ab-story-card--blue .ab-story-card__list li {
       color: #fff;
     }
-
-    .ab-story-card--light .ab-story-card__title,
-    .ab-story-card--light .ab-story-card__body,
-    .ab-story-card--light .ab-story-card__list li {
-      color: #fff;
-    }
-
-    .ab-pro {
+.ab-pro {
       padding: 0;
     }
 
@@ -566,7 +484,7 @@
       background: #0982C9;
       display: grid;
       grid-template-columns: 37% 1fr;
-      gap: 36px;
+      gap: 100px;
       padding: 64px;
       align-items: center;
     }
@@ -633,7 +551,7 @@
     .ab-pro__title {
       margin: 0;
       color: #fff;
-      font-family: "Google Sans Flex", sans-serif;
+     
       font-size: var(--ab-type-heading-xl);
       font-weight: 600;
       line-height: 1;
@@ -642,7 +560,7 @@
     .ab-pro__body {
       margin: 0;
       color: #fff;
-      font-family: "Google Sans Flex", sans-serif;
+     
       font-size: var(--ab-type-body);
       font-weight: 400;
       line-height: 1.65;
@@ -652,604 +570,16 @@
     .ab-pro__body + .ab-pro__body {
       margin-top: 16px;
     }
-
-    .ab-test {
-      max-width: var(--max-w);
-      position: relative;
-      z-index: 3;
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-    .ab-test__head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 50px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .ab-test__title {
-      margin: 0;
-      max-width: 620px;
-      color: var(--navy);
-      font-family: var(--font-display);
-      font-size: var(--home-type-heading-xl);
-      font-weight: 600;
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-    }
-
-    .ab-test__controls {
-      display: flex;
-      gap: 16px;
-      padding-top: 2px;
-      flex-shrink: 0;
-      pointer-events: auto;
-    }
-
-    .ab-test__nav {
-      position: relative;
-      z-index: 6;
-      width: 48px;
-      height: 48px;
-      border-radius: 6px;
-      border: 1px solid #d2d2d2;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 42px;
-      line-height: 1;
-      font-family: var(--font-heading);
-      cursor: pointer;
-      transition: opacity 0.2s ease;
-    }
-
-    .ab-test__nav:disabled {
-      opacity: 0.45;
-      cursor: not-allowed;
-    }
-
-    .ab-test__nav span { transform: translateY(-2px); }
-    .ab-test__nav--prev {
-      background: #f0f0f0;
-      color: #464646;
-    }
-
-    .ab-test__nav--next {
-      background: #000000;
-      border-color: #000000;
-      color: #ffffff;
-    }
-
-    .ab-test__viewport {
-      overflow: hidden;
-      width: 100%;
-    }
-
-    @media (max-width: 1024px) {
-      /* Mobile/tablet: swipeable testimonial carousel */
-      .ab-test__controls,
-      .ab-test__dots {
-        display: none;
-      }
-
-      .ab-test__viewport {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        scrollbar-width: none;
-        padding-bottom: 4px;
-      }
-
-      .ab-test__viewport::-webkit-scrollbar { display: none; }
-
-      .ab-test__track {
-        transform: none !important;
-      }
-
-      .ab-test__track .ab-test-card {
-        width: min(420px, calc(100vw - 2 * var(--px) - 24px));
-        scroll-snap-align: start;
-      }
-    }
-
-    .ab-test__track {
-      display: flex;
-      gap: 26px;
-      width: max-content;
-      transform: translateX(-175px);
-      transition: transform 420ms cubic-bezier(0.22, 0.61, 0.36, 1);
-      will-change: transform;
-    }
-
-    .ab-test-card {
-      width: 420px;
-      min-height: 282px;
-      border: 1px solid #0982c5;
-      background: transparent;
-      padding: 30px 24px 24px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .ab-test-card__quote {
-      margin: 0;
-      color: #353535;
-      font-family: var(--font-heading);
-      font-size: var(--home-type-body);
-      font-weight: 400;
-      line-height: 1.65;
-      max-width: 40ch;
-    }
-
-    .ab-test-card__sub {
-      margin: 16px 0 0;
-      color: #585151;
-      font-family: var(--font-body);
-      font-size: var(--home-type-body-sm);
-      font-weight: 400;
-      line-height: 1.55;
-    }
-
-    .ab-test-card__person {
-      margin-top: auto;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding-top: 24px;
-    }
-
-    .ab-test-card__avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 1px solid #e0e0e0;
-      background: #f5f5f5;
-      flex-shrink: 0;
-    }
-
-    .ab-test-card__avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .ab-test-card__name {
-      margin: 0;
-      color: #141a28;
-      font-family: var(--font-body);
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 28px;
-    }
-
-    .ab-test-card__role {
-      margin: 4px 0 0;
-      color: #585151;
-      font-family: var(--font-body);
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 28px;
-    }
-
-    .ab-test__dots {
-      margin-top: 26px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .ab-test__dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #c6c6c6;
-      display: block;
-      opacity: 0.55;
-      transform: scale(0.9);
-      transition: background-color 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
-    }
-
-    .ab-test__dot--active {
-      background: #0982c5;
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .nd-faq {
-      margin-bottom: 100px;
-      display: grid;
-      grid-template-columns: 500px 1fr;
-      gap: 28px;
-      background: #ebebeb;
-      border-radius: 8px;
-      padding: 42px 58px 40px 58px;
-      min-height: 432px;
-    }
-
-    .nd-faq__left {
-      padding-top: 26px;
-      max-width: 420px;
-    }
-
-    .nd-faq__left .section-title {
-      color: var(--navy);
-      font-size: clamp(1.75rem, 0.9vw + 1.4rem, 2.3rem);
-      font-weight: 600;
-      font-family: var(--font-display);
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-      margin-bottom: 18px;
-    }
-
-    .nd-faq__left p {
-      margin: 0 0 28px;
-      color: #585151;
-      font-family: var(--font-body);
-      font-size: var(--home-type-body-sm);
-      font-weight: 400;
-      line-height: 1.65;
-      max-width: 38ch;
-    }
-
-    .nd-faq__cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 108px;
-      height: 44px;
-      background: #353535;
-      color: #ffffff;
-      border-radius: 0;
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: none;
-      text-decoration: none;
-      padding: 0 18px;
-    }
-
-    .nd-faq__right {
-      padding: 10px 0 0;
-      max-width: 628px;
-      justify-self: end;
-      width: 100%;
-    }
-
-    .nd-faq__item {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border: 1px solid #c6c6c6;
-      border-top: 0;
-      background: #d5d5d5;
-      border-radius: 0;
-      padding: 15px 20px;
-      margin: 0;
-      font-family: var(--font-body);
-      font-size: 17px;
-      font-weight: 400;
-    }
-
-    .nd-faq__item.is-open {
-      background: #ffffff;
-    }
-
-    .nd-faq__item strong {
-      font-family: var(--font-heading);
-      font-size: 20px;
-      line-height: 1;
-      font-weight: 400;
-      color: #353535;
-      margin-left: 14px;
-    }
-
-    .nd-faq__panel {
-      background: #ffffff;
-      border: 1px solid #c6c6c6;
-      border-top: 0;
-      margin: 0;
-      padding: 0 20px 18px;
-      font-family: var(--font-body);
-      font-size: 16px;
-      color: #585151;
-      line-height: 1.55;
-    }
-
-    @media (max-width: 1024px) {
-      .nd-faq {
-        grid-template-columns: 1fr;
-        padding: 32px 20px 28px;
-      }
-
-      .nd-faq__left,
-      .nd-faq__right {
-        min-width: 0;
-        max-width: 100%;
-      }
-    }
-
-
-    @media (max-width: 1440px) {
-      .ab-hero__kicker,
-      .ab-cap__head,
-      .ab-highlight__title,
-      .ab-story-card__title,
-      .ab-pro__title,
-      .ab-test__title,
-      .ab-contact__title {
-        font-size: 38px;
-      }
-
-      .ab-hero__kicker {
-        font-size: 64px;
-      }
-
-      .ab-story-card__body,
-      .ab-pro__body {
-        font-size: 18px;
-      }
-    }
-
-    @media (max-width: 1200px) {
-      .ab-highlight .ab-inner {
-        width: 100%;
-      }
-
-      .ab-hero {
-        grid-template-columns: 1fr;
-      }
-
-      .ab-intro__grid,
-      .ab-pro__card,
-      .ab-contact__panel {
-        grid-template-columns: 1fr;
-      }
-
-      .ab-story-card {
-        flex-direction: column;
-        align-items: stretch;
-        min-height: 0;
-        padding-top: 32px;
-      }
-
-      .ab-story-card__media {
-        min-height: 320px;
-        width: 100%;
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 32px 32px;
-        order: -1;
-      }
-
-      .ab-story-card--blue .ab-story-card__media,
-      .ab-story-card--light .ab-story-card__media {
-        position: relative;
-        top: auto;
-        left: auto;
-        right: auto;
-        transform: none;
-      }
-      .ab-story-card__media img {
-        width: 280px;
-        height: 281px;
-        max-width: 100%;
-        border-radius: 19.47px;
-        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
-      }
-
-      .ab-story-card--blue .ab-story-card__content,
-      .ab-story-card--light .ab-story-card__content {
-        padding: 0 48px 48px;
-      }
-
-      .ab-cap__row,
-      .ab-contact__tiles,
-      .ab-form__row {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .ab-shell {
-        padding: 0 var(--px);
-      }
-
-      /* Hero stays full-bleed on mobile like other page heros */
-      .ab-shell--hero {
-        padding: 0;
-      }
-
-      .ab-hero-wrap {
-        margin-top: 0;
-        background-image: url(/images/pages/unique/banner-icons/about-icon.svg);
-        background-repeat: no-repeat;
-        background-size: 250px auto;
-        background-position: right -24px top -24px;
-      }
-
-      .ab-hero {
-        min-height: 0;
-        padding: 40px var(--px);
-      }
-
-      /* Hero CTA: prevent nowrap 20px button overflowing the viewport */
-      .ab-hero .ab-button {
-        width: auto;
-        max-width: 100%;
-        min-width: 0;
-        white-space: normal;
-        text-align: center;
-        font-size: 16px;
-        min-height: 44px;
-        padding: 10px 20px;
-      }
-
-      .ab-hero__kicker,
-      .ab-cap__head,
-      .ab-highlight__title,
-      .ab-story-card__title,
-      .ab-pro__title,
-      .ab-test__title,
-      .ab-contact__title,
-      .ab-intro__title {
-        font-size: 29px;
-      }
-
-      .ab-hero__kicker {
-        max-width: 260px;
-      }
-
-      .ab-hero__sub,
-      .ab-highlight__body,
-      .ab-intro__body,
-      .ab-story-card__body,
-      .ab-pro__body,
-      .ab-contact__sub {
-        font-size: 16px;
-      }
-
-      /* Keep gutters so text/cards never touch screen edges */
-      .ab-intro,
-      .ab-cap,
-      .ab-story,
-      .ab-pro,
-      .ab-test,
-      .ab-contact {
-        padding: 0 var(--px);
-      }
-
-      .ab-cap__row,
-      .ab-contact__tiles,
-      .ab-form__row {
-        grid-template-columns: 1fr;
-      }
-
-      .ab-test-card {
-        max-width: none;
-      }
-
-     
-
-      .ab-story-card__content,
-      .ab-pro__card,
-      .ab-contact__panel {
-        padding: 24px;
-      }
-
-      .ab-pro__bars {
-        justify-content: flex-start;
-        gap: 14px;
-      }
-
-      .ab-pro__bar {
-        width: 74px;
-        height: 8px;
-      }
-
-      /* Beat the two-class desktop override (0 48px 48px) */
-      .ab-story-card--blue .ab-story-card__content,
-      .ab-story-card--light .ab-story-card__content {
-        padding: 0 24px 32px;
-      }
-
-      .ab-story-card__media {
-        min-height: 0;
-        padding: 0 20px 24px;
-      }
-
-      /* Pro video: fill the frame instead of letterboxing */
-      .ab-pro__video {
-        min-height: 0;
-        height: 220px;
-      }
-
-      .ab-pro__video picture {
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
-
-      .ab-highlight__row {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .ab-button {
-        width: 100%;
-        font-size: 16px;
-      }
-
-      .ab-contact__panel {
-        gap: 26px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .ab-hero__kicker,
-      .ab-cap__head,
-      .ab-highlight__title,
-      .ab-story-card__title,
-      .ab-pro__title,
-      .ab-test__title,
-      .ab-contact__title,
-      .ab-intro__title {
-        font-size: 25px;
-      }
-
-      .ab-hero__sub,
-      .ab-highlight__body,
-      .ab-intro__body,
-      .ab-story-card__body,
-      .ab-pro__body,
-      .ab-contact__sub {
-        font-size: 15px;
-      }
-
-      .ab-cap-card {
-        min-height: 300px;
-      }
-
-      .ab-cap-card__title {
-        font-size: 20px;
-      }
-
-      .ab-test-card__quote {
-        font-size: 16px;
-        line-height: 1.6;
-      }
-
-      .ab-cap-card__title,
-      .ab-cap-card__body {
-        opacity: 1;
-        transform: none;
-      }
-
-      .ab-contact__panel,
-      .ab-pro__card,
-      .ab-story-card__content {
-        padding: 20px;
-      }
-    }
-  </style>
+</style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVKBZV7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
 <a class="skip-link" href="#main">Skip to main content</a>
   <div id="site-navbar"></div>
   <script src="/js/navbar.js"></script>
 
   <main id="main" class="ab-page">
-    <section class="ab-shell ab-shell--hero">
+    <section class="ab-shell ab-shell--hero ">
       <div class="ab-hero-wrap animate-fade-up">
         <div class="ab-hero">
           <div>
@@ -1261,7 +591,7 @@
       </div>
     </section>
 
-    <section class="ab-shell ab-intro">
+    <section class="section-shell">
       <div class="ab-inner ab-intro__grid animate-fade-up">
         <div class="ab-intro__media">
           <picture>
@@ -1277,7 +607,7 @@
       </div>
     </section>
 
-    <section class="ab-shell ab-cap">
+    <section class="ab-shell-remove ab-cap-remove section-shell">
       <div class="ab-inner">
         <h2 class="ab-cap__head animate-fade-up">Our Capabilities</h2>
         <div class="ab-cap__rule animate-fade-up" aria-hidden="true"></div>
@@ -1342,7 +672,7 @@
       </div>
     </section>
 
-    <section class="ab-shell ab-highlight">
+    <section class="ab-shell-remove  ab-highligh  section-shell">
       <div class="ab-inner animate-fade-up">
         <div class="ab-highlight__row">
           <h2 class="ab-highlight__title">Network Consultancy Overview</h2>
@@ -1352,23 +682,24 @@
       </div>
     </section>
 
-    <section class="ab-shell ab-story" aria-label="How Network Consultancy works">
-      <article class="ab-inner ab-story-card ab-story-card--blue animate-fade-up">
+    <section class="ab-shell-remove  section-shell pt-0" aria-label="How Network Consultancy works">
+      <div class="ab-inner">
+      <article class="ab-story-card--left ab-story-card  animate-fade-up">
         <div class="ab-story-card__media">
           <picture>
             <source srcset="/images/pages/flexible-network-consultancy.avif" type="image/avif">
             <img src="/images/pages/about-origin.jpg" alt="IT consultants reviewing network architecture and configuration data on tablet and laptop screens." loading="lazy" width="485" height="487">
           </picture>
         </div>
-        <div class="ab-story-card__content">
+        <div class="ab-story-card__content  ab-story-card--blue ab-story-remove">
           <h2 class="ab-story-card__title">The Origin of Network Consultancy</h2>
           <p class="ab-story-card__body">Since 1995, Network Consultancy has operated as a specialised IT and network engineering brand. We built this company to bring mid-sized businesses out of basic infrastructure and cybersecurity limitations to enterprise-level technical expertise at a price that doesn't restrict their growth.</p>
           <p class="ab-story-card__body">From the public to the private sectors across the UK, our deep expertise in networks, security, and infrastructure supports operations to eliminate downtime and vulnerabilities that disrupt daily business.</p>
         </div>
       </article>
 
-      <article class="ab-inner ab-story-card ab-story-card--light animate-fade-up">
-        <div class="ab-story-card__content">
+      <article class="ab-story-card--right ab-story-card animate-fade-up">
+        <div class="ab-story-card__content  ab-story-card--blue">
           <h2 class="ab-story-card__title">How We Operate</h2>
           <p class="ab-story-card__body">Our company operates with a business-focused mindset to give clients a partner-like experience rather than ticketing queues.</p>
           <p class="ab-story-card__body">We approach your network with:</p>
@@ -1385,6 +716,7 @@
           </picture>
         </div>
       </article>
+      </div>
     </section>
 
     <section class="ab-shell ab-pro">
@@ -1410,83 +742,91 @@
       </div>
     </section>
 
-    <section class="ab-shell ab-test section-shell">
-      <div class="ab-test__head">
-        <h2 class="ab-test__title">What Our Client Says</h2>
-        <div class="ab-test__controls">
-          <button type="button" class="ab-test__nav ab-test__nav--prev" aria-label="Previous testimonial">
-            <span>&lsaquo;</span>
-          </button>
-          <button type="button" class="ab-test__nav ab-test__nav--next" aria-label="Next testimonial">
-            <span>&rsaquo;</span>
-          </button>
+ <section class="nd-trusted section-shell">
+  <div class="ab-inner">
+    <div class="nd-trusted__head">
+      <h2 class="nd-trusted__title">What Our Client Says</h2>
+      <div class="nd-trusted__controls">
+        <button type="button" class="nd-trusted__nav nd-trusted__nav--prev" aria-label="Previous testimonial">
+          <span aria-hidden="true">&#8249;</span>
+        </button>
+        <button type="button" class="nd-trusted__nav nd-trusted__nav--next" aria-label="Next testimonial">
+          <span aria-hidden="true">&#8250;</span>
+        </button>
+      </div>
+    </div>
+      <div class="nd-trusted__viewport">
+        <div class="nd-trusted__track">
+
+          <article class="nd-t-card">
+            <p class="nd-t-card__quote">“The network consultancy services delivered by the team improved uptime across sites in London. Their network consultancy approach strengthened security and performance across hybrid systems. Highly recommended by CTO.”</p>
+            <div class="nd-t-card__person">
+              <span class="nd-t-card__avatar" aria-hidden="true"><img src="/images/misc/avatars/testimonial-avatar-managing-director.jpg" alt="" loading="lazy"></span>
+              <div>
+                <p class="nd-t-card__name">James Carter</p>
+                <p class="nd-t-card__role">IT Manager, TechLtd, London</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="nd-t-card">
+            <p class="nd-t-card__quote">“Expert network consultancy services helped us modernise infrastructure. The network consultancy delivery reduced downtime and improved secure remote access for teams globally.”</p>
+            <div class="nd-t-card__person">
+              <span class="nd-t-card__avatar" aria-hidden="true"><img src="/images/misc/avatars/testimonial-avatar-it-director.jpg" alt="" loading="lazy"></span>
+              <div>
+                <p class="nd-t-card__name">Sarah Mitchell</p>
+                <p class="nd-t-card__role">IT Infrastructure, Manchester</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="nd-t-card">
+            <p class="nd-t-card__quote">“Outstanding network consultancy and network consultancy services supported our Cisco environment upgrade. The team ensured resilience, scalability, and compliance across financial systems seamlessly.”</p>
+            <div class="nd-t-card__person">
+              <span class="nd-t-card__avatar" aria-hidden="true"><img src="/images/misc/avatars/testimonial-avatar-head-of-operations.jpg" alt="" loading="lazy"></span>
+              <div>
+                <p class="nd-t-card__name">David Brown</p>
+                <p class="nd-t-card__role">Network Architect, Birmingham</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="nd-t-card">
+            <p class="nd-t-card__quote">“Reliable network consultancy helped streamline operations across multiple sites. Their network consultancy services improved security posture and supported critical healthcare connectivity across regions.”</p>
+            <div class="nd-t-card__person">
+              <span class="nd-t-card__avatar" aria-hidden="true"><img src="/images/misc/avatars/testimonial-avatar-managing-partner.jpg" alt="" loading="lazy"></span>
+              <div>
+                <p class="nd-t-card__name">Emily Watson</p>
+                <p class="nd-t-card__role">IT Director, Leeds</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="nd-t-card">
+            <p class="nd-t-card__quote">“The network consultancy team delivered robust infrastructure improvements. Their network consultancy services enhanced performance, security, and multi-site retail connectivity. Highly effective solution delivered today.”</p>
+            <div class="nd-t-card__person">
+              <span class="nd-t-card__avatar" aria-hidden="true"><img src="/images/misc/avatars/testimonial-avatar-operations-director.jpg" alt="" loading="lazy"></span>
+              <div>
+                <p class="nd-t-card__name">Michael Patel</p>
+                <p class="nd-t-card__role">CTO, Retail Group, Bristol</p>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
+    <div class="nd-trusted__dots" aria-hidden="true">
+      <span class="nd-trusted__dot nd-trusted__dot--active"></span>
+      <span class="nd-trusted__dot"></span>
+      <span class="nd-trusted__dot"></span>
+    </div>
+    </div>
+  </section>
 
-      <div class="ab-test__viewport">
-        <div class="ab-test__track">
-          <article class="ab-test-card">
-            <p class="ab-test-card__quote">“The network consultancy services delivered by the team improved uptime across sites in London. Their network consultancy approach strengthened security and performance across hybrid systems. Highly recommended by CTO.”</p>
-            <div class="ab-test-card__person">
-              <span class="ab-test-card__avatar" aria-hidden="true"><img src="/images/misc/avatars/testimonial-avatar-managing-director.jpg" alt="" loading="lazy"></span>
-              <div>
-                <p class="ab-test-card__name">James Carter</p>
-                <p class="ab-test-card__role">IT Manager, TechLtd, London</p>
-              </div>
-            </div>
-          </article>
 
-          <article class="ab-test-card">
-            <p class="ab-test-card__quote">“Expert network consultancy services helped us modernise infrastructure. The network consultancy delivery reduced downtime and improved secure remote access for teams globally.”</p>
-            <div class="ab-test-card__person">
-              <span class="ab-test-card__avatar" aria-hidden="true"><img src="/images/misc/avatars/testimonial-avatar-it-director.jpg" alt="" loading="lazy"></span>
-              <div>
-                <p class="ab-test-card__name">Sarah Mitchell</p>
-                <p class="ab-test-card__role">IT Infrastructure, Manchester</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="ab-test-card">
-            <p class="ab-test-card__quote">“Outstanding network consultancy and network consultancy services supported our Cisco environment upgrade. The team ensured resilience, scalability, and compliance across financial systems seamlessly.”</p>
-            <div class="ab-test-card__person">
-              <span class="ab-test-card__avatar" aria-hidden="true"><img src="/images/misc/avatars/testimonial-avatar-head-of-operations.jpg" alt="" loading="lazy"></span>
-              <div>
-                <p class="ab-test-card__name">David Brown</p>
-                <p class="ab-test-card__role">Network Architect, Birmingham</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="ab-test-card">
-            <p class="ab-test-card__quote">“Reliable network consultancy helped streamline operations across multiple sites. Their network consultancy services improved security posture and supported critical healthcare connectivity across regions.”</p>
-            <div class="ab-test-card__person">
-              <span class="ab-test-card__avatar" aria-hidden="true"><img src="/images/misc/avatars/testimonial-avatar-managing-partner.jpg" alt="" loading="lazy"></span>
-              <div>
-                <p class="ab-test-card__name">Emily Watson</p>
-                <p class="ab-test-card__role">IT Director, Leeds</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="ab-test-card">
-            <p class="ab-test-card__quote">“The network consultancy team delivered robust infrastructure improvements. Their network consultancy services enhanced performance, security, and multi-site retail connectivity. Highly effective solution delivered today.”</p>
-            <div class="ab-test-card__person">
-              <span class="ab-test-card__avatar" aria-hidden="true"><img src="/images/misc/avatars/testimonial-avatar-operations-director.jpg" alt="" loading="lazy"></span>
-              <div>
-                <p class="ab-test-card__name">Michael Patel</p>
-                <p class="ab-test-card__role">CTO, Retail Group, Bristol</p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="ab-test__dots" aria-hidden="true"></div>
-    </section>
-
-    <section class="ab-shell">
-      <div class="ab-inner nd-faq">
+      <section class="section-shell ">
+         <div class="ab-inner">
+       <div class="nd-faq">
         <div class="nd-faq__left">
           <h2 class="section-title">Frequently asked questions</h2>
           <p>Still have questions? Get connected to our support team.</p>
@@ -1502,9 +842,11 @@
           <p class="nd-faq__panel" hidden>Yes. We frequently act as a specialised extension for in-house IT departments. Your team handles day-to-day user support, while we handle complex infrastructure management, advanced troubleshooting, and major network deployments.</p>
         </div>
       </div>
+      </div>
     </section>
 
     <section class="nd-contact section-shell" id="contact">
+        <div class="ab-inner">
       <div class="nd-contact__surface">
         <div class="nd-contact__layout">
           <div class="nd-contact__intro">
@@ -1603,6 +945,7 @@ Edgbaston, B15 3BE</p>
             <div id="form-error" class="form-error" role="alert" aria-live="assertive">Something went wrong. Please try again or call us directly on +44 (0) 203 150 1401.</div>
           </form>
         </div>
+      </div>
       </div>
     </section>
   </main>
