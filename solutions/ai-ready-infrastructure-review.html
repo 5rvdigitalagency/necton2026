@@ -51,625 +51,7 @@
   <link rel="stylesheet" href="/css/animations.css">
   <link rel="stylesheet" href="/css/content-cta.css">
   <link rel="stylesheet" href="/css/accessibility.css">
-  <style>
-    .aif-page {
-      width: 100%;
-      max-width: var(--section-w);
-      margin: 0 auto;
-    }
 
-    .aif-page > section {
-      width: 100%;
-      align-self: stretch;
-    }
-
-    .aif-hero {
-      max-width: var(--section-w);
-      margin: 0 auto;
-      background-color: #13203f;
-      background-image: url(/images/pages/unique/solutions-banner.webp);
-      background-repeat: no-repeat; background-position: right center; background-size: cover;
-      padding: 135px var(--px) 48px;
-    }
-
-    .aif-hero__inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 24px;
-      align-items: end;
-    }
-
-    .aif-hero__copy {
-      max-width: 901px;
-    }
-
-    .aif-hero__copy h1 {
-      margin: 0 0 15px;
-      max-width: 804px;
-      color: #fff;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 64px;
-      font-weight: 600;
-      line-height: 1.08;
-    }
-
-    .aif-hero__copy p {
-      margin: 0 0 16px;
-      max-width: 860px;
-      color: #fff;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 22px;
-      font-weight: 400;
-      line-height: 1.35;
-    }
-
-    .aif-hero__btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 180px;
-      min-height: 50px;
-      padding: 0 12px;
-      background: #fff;
-      color: #353535;
-      border-radius: 2px;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 20px;
-      font-weight: 600;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .aif-hero__art {
-      width: 735px;
-      max-width: 100%;
-      height: 332px;
-      border-radius: 10px;
-      overflow: hidden;
-      justify-self: end;
-    }
-
-    .aif-hero__art img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .aif-overview {
-      max-width: var(--section-w);
-      margin: 0 auto;
-      padding: 48px var(--px) 0;
-    }
-
-    .aif-overview__head {
-      max-width: var(--max-w);
-      margin: 0 auto 32px;
-    }
-
-    .aif-overview__head h2 {
-      margin: 0 0 16px;
-      color: #0982c5;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 48px;
-      font-weight: 600;
-      line-height: 1.08;
-    }
-
-    .aif-overview__head p {
-      margin: 0;
-      color: #585151;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.35;
-      max-width: 980px;
-    }
-
-    .aif-overview__inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 386px) minmax(0, 822px);
-      gap: 56px;
-      align-items: start;
-      background: #fff;
-      border: 1px solid #353535;
-      border-radius: 30px;
-      padding: 40px;
-    }
-
-    .aif-overview__feature {
-      position: relative;
-      aspect-ratio: 822 / 678;
-      min-height: 0;
-      border-radius: 20px;
-      overflow: hidden;
-      background: #0c1b3d;
-      display: flex;
-      align-items: flex-end;
-      padding: 28px;
-    }
-
-    .aif-overview__feature img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .aif-overview__feature::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(9,130,197,0.18) 0%, rgba(9,130,197,0.88) 100%);
-    }
-
-    .aif-overview__panel {
-      position: relative;
-      z-index: 2;
-      width: 735px;
-      max-width: 100%;
-      padding: 28px;
-      background: #fff;
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      transition: opacity 0.25s ease-out, transform 0.25s ease-out;
-    }
-
-    .aif-overview__panel.is-switching {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-
-    .aif-overview__panel h3 {
-      margin: 0;
-      color: #585151;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 24px;
-      font-weight: 600;
-      line-height: 1.25;
-    }
-
-    .aif-overview__panel p {
-      margin: 0;
-      color: #353535;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.55;
-    }
-
-    .aif-overview__list {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 36px;
-    }
-
-    .aif-overview__list-item {
-      appearance: none;
-      background: transparent;
-      border: 0;
-      width: 100%;
-      text-align: left;
-      cursor: pointer;
-      padding-bottom: 24px;
-      border-bottom: 1px solid #353535;
-      color: #585151;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1.25;
-      transition: color 0.2s ease-out, background 0.25s ease-out, padding 0.25s ease-out;
-    }
-
-    .aif-overview__list-item:hover {
-      color: #0982c5;
-    }
-
-    .aif-overview__list-item--active,
-    .aif-overview__list-item--active:hover {
-      padding: 24px;
-      border-radius: 20px;
-      border-bottom: 0;
-      background: #0982c5;
-      color: #fff;
-    }
-
-    .aif-gains {
-      max-width: var(--section-w);
-      margin: 0 auto;
-      padding: 50px var(--px) 0;
-    }
-
-    .aif-gains__inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 680px 680px;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .aif-gains__intro {
-      position: sticky;
-      top: 140px;
-    }
-
-    .aif-gains__intro h2 {
-      margin: 0 0 16px;
-      color: #0982c5;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 48px;
-      font-weight: 600;
-      line-height: 1.08;
-    }
-
-    .aif-gains__intro p {
-      margin: 0 0 14px;
-      color: #585151;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.35;
-    }
-
-    .aif-gains__stack {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .aif-gains__card {
-      position: sticky;
-      padding: 28px;
-      border: 1px solid #d9d9d9;
-      border-radius: 10px;
-      background: #fff;
-      min-height: 266px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      box-shadow: 0 -14px 32px -12px rgba(0, 0, 0, 0.14);
-    }
-
-    .aif-gains__card:nth-child(1) { top: 140px; z-index: 1; }
-    .aif-gains__card:nth-child(2) { top: 168px; z-index: 2; margin-top: 150px; }
-    .aif-gains__card:nth-child(3) { top: 196px; z-index: 3; margin-top: 150px; }
-    .aif-gains__card:nth-child(4) { top: 224px; z-index: 4; margin-top: 150px; }
-    .aif-gains__card:nth-child(5) { top: 252px; z-index: 5; margin-top: 150px; }
-
-    .aif-gains__card h3,
-    .aif-gains__card .aif-gains__count {
-      margin: 0;
-      color: #0982c5;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 1.25;
-    }
-
-    .aif-gains__card p {
-      margin: 0;
-      color: #353535;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.35;
-    }
-
-    .aif-risk {
-      max-width: var(--section-w);
-      margin: 0 auto;
-      padding: 50px var(--px) 0;
-    }
-
-    .aif-risk__inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      background: #0982c5;
-      border-radius: 30px;
-      padding: 64px 80px 80px;
-    }
-
-    .aif-risk__inner h2 {
-      margin: 0 0 64px;
-      color: #fff;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 48px;
-      font-weight: 600;
-      line-height: 1.08;
-    }
-
-    .aif-risk__grid {
-      display: grid;
-      grid-template-columns: 400px 1fr;
-      gap: 96px;
-      align-items: center;
-    }
-
-    .aif-risk__media img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      display: block;
-      border-radius: 12px;
-    }
-
-    .aif-risk__copy {
-      margin: 0;
-      padding-left: 20px;
-      list-style: disc;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .aif-risk__copy li {
-      margin: 0;
-      color: #fff;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.5;
-    }
-
-    .aif-why {
-      max-width: var(--section-w);
-      margin: 0 auto;
-      padding: 50px var(--px) 0;
-    }
-
-    .aif-why__inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 675px 689px;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .aif-why__copy h2 {
-      margin: 0 0 36px;
-      color: #0982c5;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 48px;
-      font-weight: 600;
-      line-height: 1.08;
-    }
-
-    .aif-why__copy p {
-      margin: 0 0 18px;
-      color: #585151;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.35;
-    }
-
-    .aif-why__media img {
-      width: 100%;
-      height: 517px;
-      object-fit: cover;
-      display: block;
-      border-radius: 20px;
-    }
-
-    .aif-cta-band {
-      max-width: var(--section-w);
-      margin: 0 auto;
-      background: #0982c5;
-      padding: 80px 140px;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .aif-cta-band__grid {
-      max-width: 1552px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px 24px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .aif-cta-band__chip {
-      padding: 16px 48px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.5);
-      color: #0982c5;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 20px;
-      font-weight: 500;
-    }
-
-    .aif-cta-band__card {
-      width: 658px;
-      margin: 40px auto 0;
-      padding: 46px 84px;
-      border-radius: 20px;
-      background: #fff;
-      text-align: center;
-    }
-
-    .aif-cta-band__card p {
-      margin: 0 0 28px;
-      color: #585151;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.35;
-    }
-
-    @media (max-width: 1200px) {
-      .aif-hero__inner,
-      .aif-overview__inner,
-      .aif-gains__inner,
-      .aif-why__inner {
-        grid-template-columns: 1fr;
-      }
-
-      .aif-risk__grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .aif-risk__inner {
-        padding: 40px 32px;
-      }
-
-      .aif-hero {
-        padding-top: 112px;
-      }
-
-      .aif-hero__art {
-        justify-self: start;
-      }
-
-      .aif-overview__feature {
-        order: -1;
-      }
-
-      .aif-overview__inner {
-        padding: 24px;
-      }
-
-      .aif-overview__list {
-        gap: 24px;
-      }
-
-      .aif-gains__intro {
-        position: static;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .aif-hero__copy h1,
-      .aif-overview__head h2,
-      .aif-gains__intro h2,
-      .aif-risk__inner h2,
-      .aif-why__copy h2 {
-        font-size: 36px;
-      }
-
-      .aif-hero__copy p {
-        font-size: 20px;
-      }
-
-      .aif-overview__head p,
-      .aif-gains__intro p,
-      .aif-risk__copy p,
-      .aif-why__copy p,
-      .aif-gains__card p,
-      .aif-cta-band__card p {
-        font-size: 16px;
-      }
-
-      .aif-overview__feature {
-        aspect-ratio: 4 / 3;
-      }
-
-      .aif-overview__list-item {
-        font-size: 22px;
-      }
-
-      .aif-gains__card,
-      .aif-risk__media img,
-      .aif-why__media img {
-        min-height: 0;
-        height: auto;
-      }
-
-      .aif-cta-band {
-        padding: 48px 32px;
-      }
-
-      .aif-cta-band__card {
-        width: 100%;
-        padding: 32px 24px;
-      }
-    }
-
-    /* ===== Mobile AIF (Solutions mobile landing.png design) ===== */
-    .maif { display: none; }
-
-    @media (max-width: 768px) {
-      .maif { display: block; }
-      .aif-hero, .aif-overview, .aif-gains, .aif-risk, .aif-why { display: none; }
-
-      .maif-hero { background-color: #02172f; background-image: url(/images/pages/unique/banner-icons/solutions-icon.svg); background-repeat: no-repeat; background-position: right -24px top -24px; background-size: 250px auto; padding: 40px 22px; color: #fff; }
-      .maif-hero h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin: 0 0 14px; color: #fff; }
-      .maif-hero p { font-size: 17px; line-height: 1.5; color: rgba(255,255,255,.92); margin: 0 0 22px; }
-      .maif-hero__btn {
-        display: inline-flex; align-items: center; justify-content: center;
-        background: #f2f2f2; color: #1c1c1c; font-size: 13px; font-weight: 600;
-        padding: 10px 24px; border-radius: 4px; min-height: 40px; text-decoration: none;
-      }
-
-      .maif-sec { padding: 26px 22px 6px; }
-      .maif-h { color: #0982c5; font-size: 22px; font-weight: 700; line-height: 1.25; margin: 0 0 12px; }
-      .maif-p { font-size: 16px; line-height: 1.6; color: #353535; margin: 0 0 16px; }
-      .maif-img { width: 100%; height: auto; border-radius: 12px; display: block; margin: 6px 0 12px; object-fit: cover; }
-
-      .maif-acc { border: 1px solid #e7e7e7; border-radius: 10px; overflow: hidden; }
-      .maif-acc__head {
-        background: #0982c5; color: #fff; font-size: 16px; font-weight: 600;
-        padding: 16px 18px; display: flex; justify-content: space-between; align-items: center;
-      }
-      .maif-acc__panel { padding: 18px; border-bottom: 1px solid #e7e7e7; }
-      .maif-acc__panel p { font-size: 14.5px; line-height: 1.6; color: #353535; margin: 0 0 12px; }
-      .maif-acc__panel img { width: 100%; height: auto; border-radius: 6px; display: block; }
-      .maif-acc__bar { margin-top: 12px; height: 4px; border-radius: 2px; background: #e0e0e0; overflow: hidden; }
-      .maif-acc__bar span { display: block; width: 25%; height: 100%; background: #0982c5; border-radius: 2px; }
-      .maif-acc__item {
-        appearance: none; border: 0; background: #fff; width: 100%; text-align: left; cursor: pointer;
-        padding: 16px 18px; font-size: 15px; font-weight: 600; color: #1c1c1c;
-        border-bottom: 1px solid #ececec; display: flex; justify-content: space-between; align-items: center;
-      }
-      .maif-acc__item:last-child { border-bottom: 0; }
-      .maif-acc__item--active { background: #0982c5; color: #fff; font-size: 16px; }
-      .maif-acc__item span, .maif-acc__head span { color: currentColor; font-size: 18px; line-height: 1; }
-
-      .maif-card {
-        position: relative; background: #fff; border: 1px solid #e7e7e7; border-radius: 8px;
-        padding: 22px 18px 40px; margin-bottom: 18px;
-      }
-      .maif-card h3 { color: #0982c5; font-size: 17px; font-weight: 700; margin: 0 0 10px; }
-      .maif-card p { font-size: 15px; line-height: 1.55; color: #4a4a4a; margin: 0; }
-      .maif-card__count { position: absolute; left: 18px; bottom: 14px; font-size: 13px; font-weight: 600; color: #6d76a6; }
-
-      .maif-process { background: #0982c5; border-radius: 12px; padding: 24px 18px; color: #fff; }
-      .maif-process h2 { color: #fff; font-size: 19px; font-weight: 700; line-height: 1.3; margin: 0 0 16px; }
-      .maif-process img { width: 100%; height: auto; border-radius: 8px; display: block; margin-bottom: 16px; }
-      .maif-process ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 14px; }
-      .maif-process li { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.94); }
-
-      /* FAQ clean white accordion + trusted heading color per design */
-      .nd-faq { background: #fff; border: 0; padding: 6px 22px 10px; margin-bottom: 100px; }
-      .nd-faq__left .section-title { color: #0982c5; font-size: 22px; font-weight: 700; }
-      .nd-faq__left p { font-size: 14px; color: #4a4a4a; margin-bottom: 14px; }
-      .nd-faq__cta { display: none; }
-      .nd-faq__item {
-        background: #fff; border: 0; border-bottom: 1px solid #e4e4e4;
-        padding: 18px 4px; text-align: left; font-size: 17px; font-weight: 500; color: #1c1c1c;
-      }
-      .nd-faq__item span { text-align: left; }
-      .nd-faq__item.is-open { background: #f5f5f6; border-bottom: 0; padding: 18px 14px 6px; }
-      .nd-faq__panel {
-        background: #f5f5f6; border: 0; padding: 0 14px 18px; margin-bottom: 6px;
-        font-size: 15.5px; line-height: 1.65; color: #4a4a4a;
-      }
-      .nd-trusted__title { color: #0982c5; }
-    }
-  </style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVKBZV7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -678,186 +60,128 @@
   <div id="site-navbar"></div>
   <script src="/js/navbar.js"></script>
   <main id="main" class="sol-detail-page aif-page">
-    <div class="maif">
 
-      <section class="maif-hero">
-        <h1>Accelerate AI with Modern Infrastructure</h1>
-        <p>Prepare your infrastructure for new technologies. Network Consultancy conducts AI-ready infrastructure reviews to support AI adoption and demanding workloads.</p>
-        <a href="/contact" class="maif-hero__btn" data-source-cta="solution_hero_health_check">Assess AI Readiness</a>
-      </section>
-
-      <section class="maif-sec animate-fade-up">
-        <h2 class="maif-h">Core Pillars of AI-Ready Infrastructure</h2>
-        <p class="maif-p">The infrastructure that supports AI thrives on reliable connection speed and power. It requires bandwidth that can sustain heavy workloads, hardware that performs consistently, and protection that keeps data secure as systems evolve.</p>
-        <div class="maif-acc">
-          <button type="button" class="maif-acc__item maif-acc__item--active" aria-expanded="true" data-title="Connection Speed (Bandwidth)" data-copy="Your file operations need sustained throughput. Stable transfer speeds let applications and tools process data quickly without delay." data-img="/images/pages/unique/solutions-ai-ready-infrastructure-nc-hero-person.webp">Connection Speed (Bandwidth) <span aria-hidden="true">&#94;</span></button>
-          <div class="maif-acc__panel">
-            <p>Your file operations need sustained throughput. Stable transfer speeds let applications and tools process data quickly without delay.</p>
-            <div class="maif-acc__bar" aria-hidden="true"><span></span></div>
-          </div>
-          <button type="button" class="maif-acc__item" aria-expanded="false" data-title="Traffic Separation (Segmentation)" data-copy="A separate virtual network for AI applications ensures your primary business systems continue to operate reliably without disruption or resource contention." data-img="/images/pages/unique/Traffic-Separation.webp">Traffic Separation (Segmentation) <span aria-hidden="true">&#8964;</span></button>
-          <button type="button" class="maif-acc__item" aria-expanded="false" data-title="Hardware Capability (Routers &amp; Switches)" data-copy="Your core switches should be equipped with adequate uplink capacity to efficiently manage high volumes of network traffic and avoid performance bottlenecks." data-img="/images/pages/unique/solutions-ai-ready-infrastructure-servers.webp">Hardware Capability (Routers &amp; Switches) <span aria-hidden="true">&#8964;</span></button>
-          <button type="button" class="maif-acc__item" aria-expanded="false" data-title="File Retrieval Speed (Storage Access)" data-copy="Fast-performing storage systems with latency under 5ms ensure automated platforms can access and process large amounts of data without delays." data-img="/images/pages/unique/solutions-ai-ready-infrastructure-managed-support.webp">File Retrieval Speed (Storage Access) <span aria-hidden="true">&#8964;</span></button>
-          <button type="button" class="maif-acc__item" aria-expanded="false" data-title="Power Reliability (Electrical Capacity)" data-copy="Reliable power and clean failover keep systems stable when high computational demand increases infrastructure stress." data-img="/images/pages/unique/solutions-ai-ready-infrastructure-professional.webp">Power Reliability (Electrical Capacity) <span aria-hidden="true">&#8964;</span></button>
-          <button type="button" class="maif-acc__item" aria-expanded="false" data-title="Data Protection (Firewall Throughput)" data-copy="Effective security requires your firewall to continuously inspect all incoming data, ensuring confidential information remains protected at all times." data-img="/images/pages/unique/solutions-ai-ready-infrastructure-cyber-security.webp">Data Protection (Firewall Throughput) <span aria-hidden="true">&#8964;</span></button>
+ <section class="nc-hero">
+    <div class="nc-hero-wrap">
+      <div class="nc-hero__content">
+        <div class="nc-hero__text">
+          <h1  class="nc-hero__title animate-fade-up">Accelerate AI with Modern Infrastructure</h1>
+                     <p class="nc-hero__sub animate-fade-up">Prepare your infrastructure for new technologies. Network Consultancy conducts AI-ready infrastructure reviews to support AI adoption and demanding workloads.</p>
         </div>
-      </section>
-
-      <section class="maif-sec animate-fade-up">
-        <h2 class="maif-h">How We Assess Your IT Readiness for Successful AI Adoption</h2>
-        <p class="maif-p">Our process evaluates how your current environment behaves under realistic pressure. We review connection speed, segmentation, hardware capability, storage retrieval, power reliability, and data protection.</p>
-        <p class="maif-p">This gives you a clear picture of whether your foundations can support high-volume AI workloads without instability or performance loss.</p>
-        <article class="maif-card"><h3>Bandwidth Capacity Testing</h3><p>Testing your internet and internal transfer speeds under pressure reveals whether large AI file operations will freeze or lag during real workloads.</p><span class="maif-card__count">1/5</span></article>
-        <article class="maif-card"><h3>Core Switch Evaluation</h3><p>Assessing your network switching infrastructure to ensure large volumes of data can be transferred reliably without impacting system performance.</p><span class="maif-card__count">2/5</span></article>
-        <article class="maif-card"><h3>Storage Latency Analysis</h3><p>Evaluating storage responsiveness to ensure business-critical applications operate smoothly and efficiently, even under heavy workloads.</p><span class="maif-card__count">3/5</span></article>
-        <article class="maif-card"><h3>Power Infrastructure Review</h3><p>Verifying that your power infrastructure can accommodate growing hardware demands without risking outages or operational disruptions.</p><span class="maif-card__count">4/5</span></article>
-        <article class="maif-card"><h3>Firewall Throughput Inspection</h3><p>Ensuring your firewall delivers strong threat protection without creating bottlenecks that slow business operations</p><span class="maif-card__count">5/5</span></article>
-      </section>
-
-      <section class="maif-sec animate-fade-up">
-        <div class="maif-process">
-          <h2>Business Impact of Ensuring AI-Ready Infrastructure</h2>
-          <img src="/images/pages/unique/business-impact-AI-Ready-Infrastructure.webp" alt="Business impact of AI-ready infrastructure" loading="lazy">
-          <ul>
-            <li>Building an AI-ready infrastructure guarantees predictable operational costs and faster product delivery.</li>
-            <li>High-throughput networks ensure data moves instantly to live applications without causing system lag or application timeouts.</li>
-            <li>This architecture stabilises your computing spend, protects client-facing service agreements, and allows your enterprise to scale automated services safely without exponential cost increases.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="maif-sec animate-fade-up">
-        <h2 class="maif-h">Why Choose Us</h2>
-        <p class="maif-p">Our AI-Ready Infrastructure Review provides useful, business-focused insights that go beyond simple evaluations. In comparison to real-world AI requirements, we assess infrastructure performance, resilience, governance, security, and scalability.</p>
-        <p class="maif-p">We identify where your existing setup will struggle and where structured improvement will create the biggest advantage for long-term scalability and protection.</p>
-        <p class="maif-p">We assist organisations in lowering risk, optimising investments, and confidently preparing for AI-enabled operations by providing a clear, attainable roadmap for future success.</p>
-        <img class="maif-img" src="/images/pages/unique/Why-choose-us-3.webp" alt="Infrastructure cabling and servers" loading="lazy">
-      </section>
-
+        <a href="/contact" class="btn-blue nc-hero__cta animate-fade-up" data-source-cta="solutions_landing_book_health_check">Assess AI Readiness</a>
+      </div>
     </div>
+  </section>
+<section class="section-shell" aria-labelledby="ai-pillars-h">
+  <div class="ab-inner">
+    <div class="ksa__card">
+        <div class="ksa__tabs animate-fade-up"
+            role="tablist"
+            aria-label="Core pillars of AI-ready infrastructure">
 
-    <section class="aif-hero" aria-label="AI-Ready Infrastructure hero">
-      <div class="aif-hero__inner">
-        <div class="aif-hero__copy animate-fade-up">
-          <h1>Accelerate AI with Modern Infrastructure</h1>
-          <p>Prepare your infrastructure for new technologies. Network Consultancy conducts AI-ready infrastructure reviews to support AI adoption and demanding workloads.</p>
-          <a href="/contact" class="aif-hero__btn" data-source-cta="solution_hero_health_check">Assess AI Readiness</a>
-        </div>
-      </div>
-    </section>
+                 <h3 class="ksa__tab ksa__tab--active" data-title="Connection Speed (Bandwidth)" data-copy="Your file operations need sustained throughput. Stable transfer speeds let applications and tools process data quickly without delay." data-image="/images/pages/unique/Connection-Speed.webp">Connection Speed (Bandwidth)</h3>
+          <h3 class="ksa__tab" data-title="Traffic Separation (Segmentation)" data-copy="A separate virtual network for AI applications ensures your primary business systems continue to operate reliably without disruption or resource contention."data-image="/images/pages/unique/Traffic-Separation.webp">Traffic Separation (Segmentation)</h3>
 
-    <section class="aif-overview" aria-labelledby="ai-pillars-h">
-      <div class="aif-overview__head animate-fade-up">
-        <h2 id="ai-pillars-h">Core Pillars of AI-Ready Infrastructure</h2>
-        <p>The infrastructure that supports AI thrives on reliable connection speed and power. It requires bandwidth that can sustain heavy workloads, hardware that performs consistently, and protection that keeps data secure as systems evolve.</p>
-      </div>
-      <div class="aif-overview__inner">
-        <div class="aif-overview__list animate-fade-up" role="tablist" aria-label="Core pillars of AI-ready infrastructure">
-          <h3 class="aif-overview__list-item aif-overview__list-item--active"
-            data-title="Connection Speed (Bandwidth)"
-            data-copy="Your file operations need sustained throughput. Stable transfer speeds let applications and tools process data quickly without delay."
-            data-img="/images/pages/unique/Connection-Speed.webp">Connection Speed (Bandwidth)</h3>
-          <h3 class="aif-overview__list-item"
-            data-title="Traffic Separation (Segmentation)"
-            data-copy="A separate virtual network for AI applications ensures your primary business systems continue to operate reliably without disruption or resource contention."
-            data-img="/images/pages/unique/Traffic-Separation.webp">Traffic Separation (Segmentation)</h3>
-          <h3 class="aif-overview__list-item"
-            data-title="Hardware Capability (Routers &amp; Switches)"
-            data-copy="Your core switches should be equipped with adequate uplink capacity to efficiently manage high volumes of network traffic and avoid performance bottlenecks."
-            data-img="/images/pages/unique/Hardware-Capability.webp">Hardware Capability (Routers &amp; Switches)</h3>
-          <h3 class="aif-overview__list-item"
-            data-title="File Retrieval Speed (Storage Access)"
-            data-copy="Fast-performing storage systems with latency under 5ms ensure automated platforms can access and process large amounts of data without delays."
-            data-img="/images/pages/unique/File-Retrieval-Speed.webp">File Retrieval Speed (Storage Access)</h3>
-          <h3 class="aif-overview__list-item"
-            data-title="Power Reliability (Electrical Capacity)"
-            data-copy="Reliable power and clean failover keep systems stable when high computational demand increases infrastructure stress."
-            data-img="/images/pages/unique/Power-Reliability.webp">Power Reliability (Electrical Capacity)</h3>
-          <h3 class="aif-overview__list-item"
-            data-title="Data Protection (Firewall Throughput)"
-            data-copy="Effective security requires your firewall to continuously inspect all incoming data, ensuring confidential information remains protected at all times."
-            data-img="/images/pages/unique/Data-Protection.webp">Data Protection (Firewall Throughput)</h3>
+          <h3 class="ksa__tab" data-title="Hardware Capability (Routers &amp; Switches)" data-copy="Your core switches should be equipped with adequate uplink capacity to efficiently manage high volumes of network traffic and avoid performance bottlenecks." data-img="/images/pages/unique/Hardware-Capability.webp">Hardware Capability (Routers &amp; Switches)</h3>
+
+          <h3 class="ksa__tab" data-title="File Retrieval Speed (Storage Access)" data-copy="Fast-performing storage systems with latency under 5ms ensure automated platforms can access and process large amounts of data without delays." data-image="/images/pages/unique/File-Retrieval-Speed.webp">File Retrieval Speed (Storage Access)</h3>
+
+          <h3 class="ksa__tab" data-title="Power Reliability (Electrical Capacity)" data-copy="Reliable power and clean failover keep systems stable when high computational demand increases infrastructure stress." data-image="/images/pages/unique/Power-Reliability.webp">Power Reliability (Electrical Capacity)</h3>
+
+          <h3 class="ksa__tab" data-title="Data Protection (Firewall Throughput)" data-copy="Effective security requires your firewall to continuously inspect all incoming data, ensuring confidential information remains protected at all times." data-image="/images/pages/unique/Data-Protection.webp">Data Protection (Firewall Throughput)</h3>
+
         </div>
-        <div class="aif-overview__feature animate-fade-up">
-          <img id="aif-tab-img" src="/images/pages/unique/Connection-Speed.webp" alt="Connection Speed (Bandwidth)" loading="lazy">
-          <div class="aif-overview__panel" role="tabpanel">
-            <h4 id="aif-overview-title">Connection Speed (Bandwidth)</h4>
-            <p>Your file operations need sustained throughput. Stable transfer speeds let applications and tools process data quickly without delay.</p>
+
+     <div class="ksa__panel animate-fade-up">
+            <picture>
+                  <img id="ksa-img" src="/images/pages/unique/Connection-Speed.webp" alt="Connection Speed (Bandwidth)" loading="lazy">
+
+      </picture>
+          <div class="ksa__panel-card" role="tabpanel">
+            <h4 id="ksa-title">Connection Speed (Bandwidth)</h4>
+            <p class="ksa-desc">Your file operations need sustained throughput. Stable transfer speeds let applications and tools process data quickly without delay.</p>
           </div>
         </div>
-      </div>
-    </section>
+</div>
+  </div>
+</section>
 
-    <section class="aif-gains" aria-labelledby="ai-assess-h">
-      <div class="aif-gains__inner">
-        <div class="aif-gains__intro animate-fade-up">
-          <h2 id="ai-assess-h">How We Assess Your IT Readiness for Successful AI Adoption</h2>
+    <section class="nhc-gains section-shell" aria-labelledby="nhc-gains-title">
+      <div class="nhc-gains__inner">
+        <div class="nhc-gains__intro animate-fade-up">
+          <h2 id="nhc-gains-title">How We Assess Your IT Readiness for Successful AI Adoption</h2>
           <p>Our process evaluates how your current environment behaves under realistic pressure. We review connection speed, segmentation, hardware capability, storage retrieval, power reliability, and data protection.</p>
           <p>This gives you a clear picture of whether your foundations can support high-volume AI workloads without instability or performance loss.</p>
         </div>
-        <div class="aif-gains__stack animate-fade-up">
-          <article class="aif-gains__card">
+        <div class="nhc-gains__stack animate-fade-up">
+          <article class="nhc-gains__card">
             <h3>Bandwidth Capacity Testing</h3>
-            <p class="aif-gains__count">1/5</p>
+            <p class="nhc-gains__count">1/5</p>
             <p>Testing your internet and internal transfer speeds under pressure reveals whether large AI file operations will freeze or lag during real workloads.</p>
           </article>
-          <article class="aif-gains__card">
+          <article class="nhc-gains__card">
             <h3>Core Switch Evaluation</h3>
-            <p class="aif-gains__count">2/5</p>
+            <p class="nhc-gains__count">2/5</p>
             <p>Assessing your network switching infrastructure to ensure large volumes of data can be transferred reliably without impacting system performance.</p>
           </article>
-          <article class="aif-gains__card">
+          <article class="nhc-gains__card">
             <h3>Storage Latency Analysis</h3>
-            <p class="aif-gains__count">3/5</p>
+            <p class="nhc-gains__count">3/5</p>
             <p>Evaluating storage responsiveness to ensure business-critical applications operate smoothly and efficiently, even under heavy workloads.</p>
           </article>
-          <article class="aif-gains__card">
+          <article class="nhc-gains__card">
             <h3>Power Infrastructure Review</h3>
-            <p class="aif-gains__count">4/5</p>
+            <p class="nhc-gains__count">4/5</p>
             <p>Verifying that your power infrastructure can accommodate growing hardware demands without risking outages or operational disruptions.</p>
           </article>
-          <article class="aif-gains__card">
+          <article class="nhc-gains__card">
             <h3>Firewall Throughput Inspection</h3>
-            <p class="aif-gains__count">5/5</p>
+            <p class="nhc-gains__count">5/5</p>
             <p>Ensuring your firewall delivers strong threat protection without creating bottlenecks that slow business operations</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="content-cta" aria-label="Contact Network Consultancy">
+    <section class="section-shell" aria-label="Contact Network Consultancy">
+    <div class="content-cta ab-inner">
       <div class="content-cta__inner">
-        <div class="content-cta__copy"><h2 class="content-cta__title">Planning for successful AI adoption?</h2><p class="content-cta__text">Speak with our infrastructure specialists about your readiness priorities.</p></div>
-        <a class="content-cta__button" href="/contact" data-source-cta="solution_ai_readiness_assessment_contact">Contact Us</a>
-      </div>
-    </section>
+      <div class="content-cta__copy"><h2 class="content-cta__title">Planning for successful AI adoption?</h2><p class="content-cta__text">Speak with our infrastructure specialists about your readiness priorities</p></div>
+      <a class="content-cta__button" href="/contact" data-source-cta="solution_ai_readiness_assessment_contact">Contact Us</a>
+    </div>
+    </div>
+  </section>
 
-    <section class="aif-risk" aria-labelledby="ai-banner-h">
-      <div class="aif-risk__inner animate-fade-up">
-        <h2 id="ai-banner-h">Business Impact of Ensuring AI-Ready Infrastructure</h2>
-        <div class="aif-risk__grid">
-          <div class="aif-risk__media">
+<section class="section-shell" aria-labelledby="whyc-h">
+    <div class="ab-inner">
+      <div class="whyc__card animate-fade-up is-visible">
+        <div class="whyc__media" aria-hidden="true">
             <img src="/images/pages/unique/business-impact-AI-Ready-Infrastructure.webp" alt="Business impact of AI-ready infrastructure" loading="lazy">
-          </div>
-          <ul class="aif-risk__copy">
+        </div>
+        <div class="whyc__content">
+          <h2 id="whyc-h">Business Impact of Ensuring AI-Ready Infrastructure</h2>
+             <ul class="nhc-risk__copy">
             <li>Building an AI-ready infrastructure guarantees predictable operational costs and faster product delivery.</li>
             <li>High-throughput networks ensure data moves instantly to live applications without causing system lag or application timeouts.</li>
             <li>This architecture stabilises your computing spend, protects client-facing service agreements, and allows your enterprise to scale automated services safely without exponential cost increases.</li>
           </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="aif-why" aria-labelledby="ai-why-h">
-      <div class="aif-why__inner">
-        <div class="aif-why__copy animate-fade-up">
-          <h2 id="ai-why-h">Why Choose Us</h2>
-          <p>Our AI-Ready Infrastructure Review provides useful, business-focused insights that go beyond simple evaluations. In comparison to real-world AI requirements, we assess infrastructure performance, resilience, governance, security, and scalability.</p>
+    
+
+    <section class="nhc-why section-shell" aria-labelledby="nhc-why-title">
+      <div class="nhc-why__inner ab-inner">
+        <div class="nhc-why__copy animate-fade-up">
+          <h2 id="nhc-why-title">Why Choose Us</h2>
+              <p>Our AI-Ready Infrastructure Review provides useful, business-focused insights that go beyond simple evaluations. In comparison to real-world AI requirements, we assess infrastructure performance, resilience, governance, security, and scalability.</p>
           <p>We identify where your existing setup will struggle and where structured improvement will create the biggest advantage for long-term scalability and protection.</p>
           <p>We assist organisations in lowering risk, optimising investments, and confidently preparing for AI-enabled operations by providing a clear, attainable roadmap for future success.</p>
         </div>
-        <div class="aif-why__media animate-fade-up">
-          <picture>
+        <div class="nhc-why__media animate-fade-up">
+           <picture>
             <source srcset="/images/pages/unique/Why-choose-us-3.webp" type="image/webp">
             <img src="/images/pages/unique/Why-choose-us-3.webp" alt="Infrastructure cabling and servers" loading="lazy">
           </picture>
@@ -865,170 +189,135 @@
       </div>
     </section>
 
-<section class="section-shell">
-  <div class="nd-trusted">
 
-    <div class="nd-trusted__head">
-      <h2 class="nd-trusted__title">What Our Client Says</h2>
 
-      <div class="nd-trusted__controls">
-        <button type="button" class="nd-trusted__nav nd-trusted__nav--prev" aria-label="Previous testimonial">
-          <span aria-hidden="true">&#8249;</span>
-        </button>
-        <button type="button" class="nd-trusted__nav nd-trusted__nav--next" aria-label="Next testimonial">
-          <span aria-hidden="true">&#8250;</span>
-        </button>
+      <section class="section-shell">
+        <div class="ab-inner">
+        <div class="nd-trusted">
+
+          <div class="nd-trusted__head">
+            <h2 class="nd-trusted__title">What Our Client Says</h2>
+
+            <div class="nd-trusted__controls">
+              <button type="button" class="nd-trusted__nav nd-trusted__nav--prev" aria-label="Previous testimonial">
+                <span aria-hidden="true">&#8249;</span>
+              </button>
+              <button type="button" class="nd-trusted__nav nd-trusted__nav--next" aria-label="Next testimonial">
+                <span aria-hidden="true">&#8250;</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="nd-trusted__viewport">
+            <div class="nd-trusted__track">
+
+              <article class="nd-t-card">
+                <p class="nd-t-card__quote">&ldquo;The review provided a clear understanding of our infrastructure capabilities and highlighted key improvements needed before launching AI initiatives. The recommendations were practical and highly valuable.&rdquo;</p>
+                <div class="nd-t-card__person">
+                  <span class="nd-t-card__avatar" aria-hidden="true">
+                    <img src="/images/misc/avatars/testimonial-avatar-managing-director.jpg" alt="" loading="lazy">
+                  </span>
+                  <div>
+                    <p class="nd-t-card__name">James Carter</p>
+                    <p class="nd-t-card__role">IT Director, NorthStar Logistics, Manchester</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="nd-t-card">
+                <p class="nd-t-card__quote">&ldquo;Their assessment helped us identify network bottlenecks and strengthen our data governance strategy. We now have greater confidence in our AI adoption plans.&rdquo;</p>
+                <div class="nd-t-card__person">
+                  <span class="nd-t-card__avatar" aria-hidden="true">
+                    <img src="/images/misc/avatars/testimonial-avatar-it-director.jpg" alt="" loading="lazy">
+                  </span>
+                  <div>
+                    <p class="nd-t-card__name">Sarah Mitchell</p>
+                    <p class="nd-t-card__role">Operations Manager, Horizon Manufacturing, Birmingham</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="nd-t-card">
+                <p class="nd-t-card__quote">&ldquo;The team delivered a thorough review that balanced technical detail with business priorities. The roadmap has become a vital part of our digital transformation programme.&rdquo;</p>
+                <div class="nd-t-card__person">
+                  <span class="nd-t-card__avatar" aria-hidden="true">
+                    <img src="/images/misc/avatars/testimonial-avatar-head-of-operations.jpg" alt="" loading="lazy">
+                  </span>
+                  <div>
+                    <p class="nd-t-card__name">David Thompson</p>
+                    <p class="nd-t-card__role">Head of Technology, Apex Financial Services, Leeds</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="nd-t-card">
+                <p class="nd-t-card__quote">&ldquo;Excellent expertise and clear guidance throughout the engagement.&rdquo;</p>
+                <div class="nd-t-card__person">
+                  <span class="nd-t-card__avatar" aria-hidden="true">
+                    <img src="/images/misc/avatars/testimonial-avatar-managing-partner.jpg" alt="" loading="lazy">
+                  </span>
+                  <div>
+                    <p class="nd-t-card__name">Rebecca Wilson</p>
+                    <p class="nd-t-card__role">Infrastructure Manager, Sterling Healthcare, Bristol</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="nd-t-card">
+                <p class="nd-t-card__quote">&ldquo;The review gave us a comprehensive view of our current infrastructure risks and opportunities. The actionable insights have significantly improved our planning for future scalability and AI readiness.&rdquo;</p>
+                <div class="nd-t-card__person">
+                  <span class="nd-t-card__avatar" aria-hidden="true">
+                    <img src="/images/misc/avatars/testimonial-avatar-operations-director.jpg" alt="" loading="lazy">
+                  </span>
+                  <div>
+                    <p class="nd-t-card__name">Michael Brown</p>
+                    <p class="nd-t-card__role">IT Manager, Retail Solutions, London</p>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <div class="nd-trusted__dots" aria-hidden="true">
+            <span class="nd-trusted__dot nd-trusted__dot--active"></span>
+            <span class="nd-trusted__dot"></span>
+            <span class="nd-trusted__dot"></span>
+          </div>
+
+        </div>
+        </div>
+      </section>
+
+
+
+
+
+  <!-- ===== CTA BAND ===== -->
+  <section class="svc-cta-band" aria-label="Firewall and network security CTA">
+    <div class="svc-cta-band__tags" aria-hidden="true">
+      <div class="svc-cta-band__row">
+        <span>Network Health Check</span><span>Cyber Security Review</span><span>AI-Ready Infrastructure</span>
+      </div>
+      <div class="svc-cta-band__row">
+        <span>Network Health Check</span><span>Cyber Security Review</span><span>AI-Ready Infrastructure</span>
       </div>
     </div>
-
-    <div class="nd-trusted__viewport">
-      <div class="nd-trusted__track">
-
-        <article class="nd-t-card">
-          <p class="nd-t-card__quote">&ldquo;The review provided a clear understanding of our infrastructure capabilities and highlighted key improvements needed before launching AI initiatives. The recommendations were practical and highly valuable.&rdquo;</p>
-          <div class="nd-t-card__person">
-            <span class="nd-t-card__avatar" aria-hidden="true">
-              <img src="/images/misc/avatars/testimonial-avatar-managing-director.jpg" alt="" loading="lazy">
-            </span>
-            <div>
-              <p class="nd-t-card__name">James Carter</p>
-              <p class="nd-t-card__role">IT Director, NorthStar Logistics, Manchester</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="nd-t-card">
-          <p class="nd-t-card__quote">&ldquo;Their assessment helped us identify network bottlenecks and strengthen our data governance strategy. We now have greater confidence in our AI adoption plans.&rdquo;</p>
-          <div class="nd-t-card__person">
-            <span class="nd-t-card__avatar" aria-hidden="true">
-              <img src="/images/misc/avatars/testimonial-avatar-it-director.jpg" alt="" loading="lazy">
-            </span>
-            <div>
-              <p class="nd-t-card__name">Sarah Mitchell</p>
-              <p class="nd-t-card__role">Operations Manager, Horizon Manufacturing, Birmingham</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="nd-t-card">
-          <p class="nd-t-card__quote">&ldquo;The team delivered a thorough review that balanced technical detail with business priorities. The roadmap has become a vital part of our digital transformation programme.&rdquo;</p>
-          <div class="nd-t-card__person">
-            <span class="nd-t-card__avatar" aria-hidden="true">
-              <img src="/images/misc/avatars/testimonial-avatar-head-of-operations.jpg" alt="" loading="lazy">
-            </span>
-            <div>
-              <p class="nd-t-card__name">David Thompson</p>
-              <p class="nd-t-card__role">Head of Technology, Apex Financial Services, Leeds</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="nd-t-card">
-          <p class="nd-t-card__quote">&ldquo;Excellent expertise and clear guidance throughout the engagement.&rdquo;</p>
-          <div class="nd-t-card__person">
-            <span class="nd-t-card__avatar" aria-hidden="true">
-              <img src="/images/misc/avatars/testimonial-avatar-managing-partner.jpg" alt="" loading="lazy">
-            </span>
-            <div>
-              <p class="nd-t-card__name">Rebecca Wilson</p>
-              <p class="nd-t-card__role">Infrastructure Manager, Sterling Healthcare, Bristol</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="nd-t-card">
-          <p class="nd-t-card__quote">&ldquo;The review gave us a comprehensive view of our current infrastructure risks and opportunities. The actionable insights have significantly improved our planning for future scalability and AI readiness.&rdquo;</p>
-          <div class="nd-t-card__person">
-            <span class="nd-t-card__avatar" aria-hidden="true">
-              <img src="/images/misc/avatars/testimonial-avatar-operations-director.jpg" alt="" loading="lazy">
-            </span>
-            <div>
-              <p class="nd-t-card__name">Michael Brown</p>
-              <p class="nd-t-card__role">IT Manager, Retail Solutions, London</p>
-            </div>
-          </div>
-        </article>
-
-      </div>
+    <div class="svc-cta-band__card">
+      <p class="svc-cta-band__text">If your team is unsure whether your infrastructure can handle AI workloads, our review gives you the bandwidth, security, storage, and resilience insights needed to plan confidently.</p>
+      <a href="#contact" class="svc-cta-band__btn">Get a Network Security Review</a>
     </div>
+  </section>
 
-    <div class="nd-trusted__dots" aria-hidden="true">
-      <span class="nd-trusted__dot nd-trusted__dot--active"></span>
-      <span class="nd-trusted__dot"></span>
-      <span class="nd-trusted__dot"></span>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-<section class="section-shell">
-  <div class="nd-faq">
-    <div class="nd-faq__left">
+    <section class="section-shell mb-lg-100">
+      <div class="ab-inner">
+      <div class="nd-faq"><div class="nd-faq__left">
       <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
-      <p>Still have questions? Get connected to our support team.</p>
-      <a href="/contact" class="nd-faq__cta">Contact us</a>
-    </div>
-
-<div class="nd-faq__right" id="nd-faq-list">
-
-  <h3 class="nd-faq__item is-open">
-    <span>What is an AI-Ready Infrastructure Review?</span>
-    <strong>&minus;</strong>
-  </h3>
-
-  <p class="nd-faq__panel">
-    It is a technical audit of existing networks, hardware, and security protocols. The assessment checks if the current setup can handle the high data throughput and processing demands of machine learning workloads without crashing or slowing down.
-  </p>
-
-  <h3 class="nd-faq__item">
-    <span>Why do companies need an AI readiness assessment review before deploying AI tools?</span>
-    <strong>+</strong>
-  </h3>
-
-  <p class="nd-faq__panel" hidden>
-    Standard architecture often faces immediate limits like system timeouts, unexpected cloud costs, and security vulnerabilities when running heavy automation. Finding these infrastructure bottlenecks early prevents project delays and wasted budget.
-  </p>
-
-  <h3 class="nd-faq__item">
-    <span>What results can we anticipate from the review?</span>
-    <strong>+</strong>
-  </h3>
-
-  <p class="nd-faq__panel" hidden>
-    A thorough assessment of infrastructure preparedness, areas for improvement, and a workable plan in line with corporate goals will be provided to you. This helps ensure your environment can support current and future AI requirements while preserving operational efficiency, security, and resilience.
-  </p>
-
-</div>
-
-  </div>
-</section>
-
-
-    <section class="section-shell"><div class="nd-faq"><div class="nd-faq__left">
-      <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
-      <p>Still have questions? Get connected to our support team.</p><a href="/contact" class="nd-faq__cta">Contact us</a></div><div class="nd-faq__right" id="nd-faq-list"><button class="nd-faq__item is-open"><span>What is an AI-Ready Infrastructure Review?</span><strong>&minus;</strong></button><div class="nd-faq__panel">The effectiveness of your systems, networks, security measures, and operational underpinnings in supporting AI-enabled workloads and automation projects is assessed by an AI-Ready Infrastructure Review.</div><button class="nd-faq__item"><span>Why should companies perform an AI readiness assessment before using AI solutions?</span><strong>+</strong></button><div class="nd-faq__panel" hidden>Enterprises need it to identify infrastructure weaknesses before rollout, so they can avoid performance issues, unexpected costs, and security gaps when AI workloads are introduced.</div><button class="nd-faq__item"><span>What results can we anticipate from the review?</span><strong>+</strong></button><div class="nd-faq__panel" hidden>You can expect clearer visibility into bottlenecks, practical improvement priorities, and a more realistic roadmap for preparing your environment to support AI adoption confidently.</div></div></div></section>
-
-    <section class="aif-cta-band" aria-label="AI Infrastructure CTA">
-      <div class="aif-cta-band__grid" aria-hidden="true">
-        <span class="aif-cta-band__chip">AI-Ready Infrastructure</span>
-        <span class="aif-cta-band__chip">Network Health Check</span>
-        <span class="aif-cta-band__chip">Cyber Security Review</span>
-        <span class="aif-cta-band__chip">Microsoft 365 &amp; Network</span>
-        <span class="aif-cta-band__chip">AI-Ready Infrastructure</span>
-        <span class="aif-cta-band__chip">Network Health Check</span>
-        <span class="aif-cta-band__chip">Cyber Security Review</span>
-        <span class="aif-cta-band__chip">Microsoft 365 &amp; Network</span>
-      </div>
-      <div class="aif-cta-band__card">
-        <p>If your team is unsure whether your infrastructure can handle AI workloads, our review gives you the bandwidth, security, storage, and resilience insights needed to plan confidently.</p>
-        <a href="/contact" class="btn-dark" data-source-cta="solution_secondary_review">Get a Network Security Review</a>
-      </div>
+      <p>Still have questions? Get connected to our support team.</p><a href="/contact" class="nd-faq__cta">Contact us</a></div><div class="nd-faq__right" id="nd-faq-list"><button class="nd-faq__item is-open"><span>What is an AI-Ready Infrastructure Review?</span><strong>&minus;</strong></button><div class="nd-faq__panel">The effectiveness of your systems, networks, security measures, and operational underpinnings in supporting AI-enabled workloads and automation projects is assessed by an AI-Ready Infrastructure Review.</div><button class="nd-faq__item"><span>Why should companies perform an AI readiness assessment before using AI solutions?</span><strong>+</strong></button><div class="nd-faq__panel" hidden>Enterprises need it to identify infrastructure weaknesses before rollout, so they can avoid performance issues, unexpected costs, and security gaps when AI workloads are introduced.</div><button class="nd-faq__item"><span>What results can we anticipate from the review?</span><strong>+</strong></button><div class="nd-faq__panel" hidden>You can expect clearer visibility into bottlenecks, practical improvement priorities, and a more realistic roadmap for preparing your environment to support AI adoption confidently.</div></div></div></div>
     </section>
 
-    <div id="site-contact"></div>
+
+
     <script src="/js/form-source-tracking.js"></script>
   <script src="/js/contact.js?v=home-sections-20260715"></script>
   </main>
@@ -1038,54 +327,7 @@
   <script src="/js/search-index.js" defer></script>
   <script src="/js/search.js" defer></script>
   <script>
-    (function maifDots() {
-      var vp = document.querySelector('.nd-trusted__viewport');
-      var dots = Array.prototype.slice.call(document.querySelectorAll('.nd-trusted__dots .nd-trusted__dot'));
-      if (vp === null || dots.length === 0) return;
-      var ticking = false;
-      function sync() {
-        ticking = false;
-        var card = vp.querySelector('.nd-t-card');
-        if (card === null) return;
-        var step = card.offsetWidth + 18;
-        var idx = Math.round(vp.scrollLeft / step);
-        idx = Math.max(0, Math.min(dots.length - 1, idx % dots.length));
-        dots.forEach(function (d, i) { d.classList.toggle('nd-trusted__dot--active', i === idx); });
-      }
-      vp.addEventListener('scroll', function () {
-        if (ticking === false) { ticking = true; requestAnimationFrame(sync); }
-      }, { passive: true });
-    })();
-
-    (function aifOverviewTabs() {
-      var tabs = Array.prototype.slice.call(document.querySelectorAll('.aif-overview__list-item'));
-      var panel = document.querySelector('.aif-overview__panel');
-      var img = document.getElementById('aif-tab-img');
-      if (tabs.length === 0 || panel === null) return;
-      var title = panel.querySelector('h4');
-      var copy = panel.querySelector('p');
-      tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          if (tab.classList.contains('aif-overview__list-item--active')) return;
-          tabs.forEach(function (t) {
-            t.classList.remove('aif-overview__list-item--active');
-            t.setAttribute('aria-selected', 'false');
-          });
-          tab.classList.add('--active');
-          tab.setAttribute('aria-selected', 'true');
-          panel.classList.add('is-switching');
-          setTimeout(function () {
-            title.textContent = tab.getAttribute('data-title');
-            copy.textContent = tab.getAttribute('data-copy');
-            if (img !== null && tab.getAttribute('data-img')) {
-              img.src = tab.getAttribute('data-img');
-              img.alt = tab.getAttribute('data-title');
-            }
-            panel.classList.remove('is-switching');
-          }, 250);
-        });
-      });
-    })();
+   
 
     (function maifAccordion() {
       var acc = document.querySelector('.maif-acc');

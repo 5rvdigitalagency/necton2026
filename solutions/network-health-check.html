@@ -50,705 +50,93 @@
   <script src="/js/schema.js" defer></script>
   <link rel="stylesheet" href="/css/animations.css">
   <link rel="stylesheet" href="/css/accessibility.css">
-  <style>
-    .nhc-page {
-      width: 100%;
-      max-width: var(--section-w);
-      margin: 0 auto;
-    }
-
-    .nhc-page > section {
-      width: 100%;
-      align-self: stretch;
-    }
-
-    .nhc-hero {
-      max-width: var(--section-w);
-      margin: 0 auto;
-      background-color: #13203f;
-      background-image: url(/images/pages/unique/solutions-banner.webp);
-      background-repeat: no-repeat; background-position: right center; background-size: cover;
-      padding: 135px var(--px) 48px;
-    }
-
-    .nhc-hero__inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 24px;
-      align-items: end;
-    }
-
-    .nhc-hero__copy {
-      max-width: 901px;
-    }
-
-    .nhc-hero__copy h1 {
-      margin: 0 0 15px;
-      max-width: 804px;
-      color: #fff;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 64px;
-      font-weight: 600;
-      line-height: 1.08;
-    }
-
-    .nhc-hero__copy p {
-      margin: 0 0 16px;
-      max-width: 860px;
-      color: #fff;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 22px;
-      font-weight: 400;
-      line-height: 1.35;
-    }
-
-    .nhc-hero__btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 180px;
-      min-height: 50px;
-      padding: 0 12px;
-      background: #fff;
-      color: #353535;
-      border-radius: 2px;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 20px;
-      font-weight: 600;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .nhc-overview {
-      max-width: var(--section-w);
-      margin: 0 auto;
-      padding: 48px var(--px) 0;
-    }
-
-    .nhc-overview__inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 386px) minmax(0, 822px);
-      gap: 56px;
-      align-items: start;
-      background: #fff;
-      border: 1px solid #353535;
-      border-radius: 30px;
-      padding: 40px;
-    }
-
-    .nhc-overview__feature {
-      position: relative;
-      aspect-ratio: 822 / 678;
-      min-height: 0;
-      border-radius: 20px;
-      overflow: hidden;
-      background: #0c1b3d;
-      display: flex;
-      align-items: flex-end;
-      padding: 28px;
-    }
-
-    .nhc-overview__feature img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .nhc-overview__feature::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(9,130,197,0.18) 0%, rgba(9,130,197,0.88) 100%);
-    }
-
-    .nhc-overview__panel {
-      position: relative;
-      z-index: 2;
-      width: 735px;
-      max-width: 100%;
-      padding: 28px;
-      background: #fff;
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      transition: opacity 0.25s ease-out, transform 0.25s ease-out;
-    }
-
-    .nhc-overview__panel.is-switching {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-
-    .nhc-overview__panel h2 {
-      margin: 0;
-      color: #585151;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 24px;
-      font-weight: 600;
-      line-height: 1.25;
-    }
-
-    .nhc-overview__panel p {
-      margin: 0;
-      color: #353535;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.55;
-    }
-
-    .nhc-overview__list {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 36px;
-    }
-
-    .nhc-overview__list-item {
-      appearance: none;
-      background: transparent;
-      border: 0;
-      width: 100%;
-      text-align: left;
-      cursor: pointer;
-      padding-bottom: 24px;
-      border-bottom: 1px solid #353535;
-      color: #585151;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1.25;
-      transition: color 0.2s ease-out, background 0.25s ease-out, padding 0.25s ease-out;
-    }
-
-    .nhc-overview__list-item:hover {
-      color: #0982c5;
-    }
-
-    .nhc-overview__list-item--active,
-    .nhc-overview__list-item--active:hover {
-      padding: 24px;
-      border-radius: 20px;
-      border-bottom: 0;
-      background: #0982c5;
-      color: #fff;
-    }
-
-    .nhc-gains {
-      max-width: var(--section-w);
-      margin: 0 auto;
-      padding: 50px var(--px) 0;
-    }
-
-    .nhc-gains__inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 680px 680px;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .nhc-gains__intro {
-      position: sticky;
-      top: 140px;
-    }
-
-    .nhc-gains__intro h2 {
-      margin: 0 0 16px;
-      color: #0982c5;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 48px;
-      font-weight: 600;
-      line-height: 1.08;
-    }
-
-    .nhc-gains__intro p {
-      margin: 0;
-      color: #585151;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.35;
-    }
-
-    .nhc-gains__stack {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .nhc-gains__card {
-      position: sticky;
-      padding: 28px;
-      border: 1px solid #d9d9d9;
-      border-radius: 10px;
-      background: #fff;
-      min-height: 266px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      box-shadow: 0 -14px 32px -12px rgba(0, 0, 0, 0.14);
-    }
-
-    .nhc-gains__card:nth-child(1) { top: 140px; z-index: 1; }
-    .nhc-gains__card:nth-child(2) { top: 168px; z-index: 2; margin-top: 150px; }
-    .nhc-gains__card:nth-child(3) { top: 196px; z-index: 3; margin-top: 150px; }
-
-    .nhc-gains__card h3,
-    .nhc-gains__card .nhc-gains__count {
-      margin: 0;
-      color: #0982c5;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 1.25;
-    }
-
-    .nhc-gains__card p {
-      margin: 0;
-      color: #353535;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.35;
-    }
-
-    .nhc-risk,
-    .nhc-why {
-      max-width: var(--section-w);
-      margin: 0 auto;
-      padding: 50px var(--px) 0;
-    }
-
-    .nhc-risk__inner,
-    .nhc-why__inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 675px 689px;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .nhc-risk__copy h2,
-    .nhc-why__copy h2 {
-      margin: 0 0 36px;
-      color: #0982c5;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 48px;
-      font-weight: 600;
-      line-height: 1.08;
-    }
-
-    .nhc-risk__copy p,
-    .nhc-why__copy p {
-      margin: 0 0 18px;
-      color: #585151;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.35;
-    }
-
-    .nhc-risk__media img,
-    .nhc-why__media img {
-      width: 100%;
-      height: 517px;
-      object-fit: cover;
-      display: block;
-      border-radius: 20px;
-    }
-
-    .nhc-process {
-      max-width: var(--section-w);
-      margin: 0 auto;
-      padding: 50px var(--px) 0;
-    }
-
-    .nhc-process__inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 80px;
-      background: #ebebeb;
-    }
-
-    .nhc-process__copy {
-      max-width: 1105px;
-    }
-
-    .nhc-process__copy h2 {
-      margin: 0 0 44px;
-      max-width: 807px;
-      color: #353535;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 48px;
-      font-weight: 600;
-      line-height: 1.08;
-    }
-
-    .nhc-process__copy p {
-      margin: 0 0 22px;
-      max-width: 801px;
-      color: #353535;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.45;
-    }
-
-    .nhc-cta-band {
-      max-width: var(--section-w);
-      margin: 0 auto;
-      background: #0982c5;
-      padding: 80px 140px;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .nhc-cta-band__grid {
-      max-width: 1552px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px 24px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .nhc-cta-band__chip {
-      padding: 16px 48px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.5);
-      color: #0982c5;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 20px;
-      font-weight: 500;
-    }
-
-    .nhc-cta-band__card {
-      width: 658px;
-      margin: 40px auto 0;
-      padding: 46px 84px;
-      border-radius: 20px;
-      background: #fff;
-      text-align: center;
-    }
-
-    .nhc-cta-band__card p {
-      margin: 0 0 28px;
-      color: #585151;
-      font-family: "Google Sans Flex", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.35;
-    }
-
-    @media (max-width: 1200px) {
-      .nhc-hero__inner,
-      .nhc-overview__inner,
-      .nhc-gains__inner,
-      .nhc-risk__inner,
-      .nhc-why__inner {
-        grid-template-columns: 1fr;
-      }
-
-      .nhc-hero {
-        padding-top: 112px;
-      }
-
-      .nhc-overview__feature {
-        order: -1;
-      }
-
-      .nhc-overview__inner {
-        padding: 24px;
-      }
-
-      .nhc-overview__list {
-        gap: 24px;
-      }
-
-      .nhc-gains__intro {
-        position: static;
-      }
-
-      .nhc-process__inner {
-        padding: 48px 36px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .nhc-hero__copy h1,
-      .nhc-gains__intro h2,
-      .nhc-risk__copy h2,
-      .nhc-process__copy h2,
-      .nhc-why__copy h2 {
-        font-size: 36px;
-      }
-
-      .nhc-hero__copy p {
-        font-size: 20px;
-      }
-
-      .nhc-gains__intro p,
-      .nhc-risk__copy p,
-      .nhc-why__copy p,
-      .nhc-process__copy p,
-      .nhc-gains__card p,
-      .nhc-cta-band__card p {
-        font-size: 16px;
-      }
-
-      .nhc-overview__feature {
-        aspect-ratio: 4 / 3;
-      }
-
-      .nhc-overview__list-item {
-        font-size: 22px;
-      }
-
-      .nhc-gains__card,
-      .nhc-risk__media img,
-      .nhc-why__media img {
-        min-height: 0;
-        height: auto;
-      }
-
-      .nhc-process__inner {
-        padding: 36px 24px;
-      }
-
-      .nhc-cta-band {
-        padding: 48px 32px;
-      }
-
-      .nhc-cta-band__card {
-        width: 100%;
-        padding: 32px 24px;
-      }
-    }
-
-    /* ===== Mobile NHC (Solutions mobile landing.png design) ===== */
-    .mnhc { display: none; }
-
-    @media (max-width: 768px) {
-      .mnhc { display: block; }
-      .nhc-hero, .nhc-overview, .nhc-gains, .nhc-risk, .nhc-process, .nhc-why { display: none; }
-
-      .mnhc-hero { background-color: #02172f; background-image: url(/images/pages/unique/banner-icons/solutions-icon.svg); background-repeat: no-repeat; background-position: right -24px top -24px; background-size: 250px auto; padding: 40px 22px; color: #fff; }
-      .mnhc-hero h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin: 0 0 14px; color: #fff; }
-      .mnhc-hero p { font-size: 17px; line-height: 1.5; color: rgba(255,255,255,.92); margin: 0 0 22px; }
-      .mnhc-hero__btn {
-        display: inline-flex; align-items: center; justify-content: center;
-        background: #f2f2f2; color: #1c1c1c; font-size: 13px; font-weight: 600;
-        padding: 10px 24px; border-radius: 4px; min-height: 40px; text-decoration: none;
-      }
-
-      .mnhc-sec { padding: 26px 22px 6px; }
-      .mnhc-h { color: #0982c5; font-size: 22px; font-weight: 700; line-height: 1.25; margin: 0 0 12px; }
-      .mnhc-p { font-size: 16px; line-height: 1.6; color: #353535; margin: 0 0 16px; }
-      .mnhc-img { width: 100%; height: auto; border-radius: 12px; display: block; margin: 6px 0 12px; object-fit: cover; }
-
-      .mnhc-acc { border: 1px solid #e7e7e7; border-radius: 10px; overflow: hidden; }
-      .mnhc-acc__head {
-        background: #0982c5; color: #fff; font-size: 16px; font-weight: 600;
-        padding: 16px 18px; display: flex; justify-content: space-between; align-items: center;
-      }
-      .mnhc-acc__panel { padding: 18px; border-bottom: 1px solid #e7e7e7; }
-      .mnhc-acc__panel p { font-size: 14.5px; line-height: 1.6; color: #353535; margin: 0 0 12px; }
-      .mnhc-acc__panel img { width: 100%; height: auto; border-radius: 6px; display: block; }
-      .mnhc-acc__bar { margin-top: 12px; height: 4px; border-radius: 2px; background: #e0e0e0; overflow: hidden; }
-      .mnhc-acc__bar span { display: block; width: 25%; height: 100%; background: #0982c5; border-radius: 2px; }
-      .mnhc-acc__item {
-        appearance: none; border: 0; background: #fff; width: 100%; text-align: left; cursor: pointer;
-        padding: 16px 18px; font-size: 15px; font-weight: 600; color: #1c1c1c;
-        border-bottom: 1px solid #ececec; display: flex; justify-content: space-between; align-items: center;
-      }
-      .mnhc-acc__item:last-child { border-bottom: 0; }
-      .mnhc-acc__item--active { background: #0982c5; color: #fff; font-size: 16px; }
-      .mnhc-acc__item span, .mnhc-acc__head span { color: currentColor; font-size: 18px; line-height: 1; }
-
-      .mnhc-card {
-        position: relative; background: #fff; border: 1px solid #e7e7e7; border-radius: 8px;
-        padding: 22px 18px 40px; margin-bottom: 18px;
-      }
-      .mnhc-card h3 { color: #0982c5; font-size: 17px; font-weight: 700; margin: 0 0 10px; }
-      .mnhc-card p { font-size: 15px; line-height: 1.55; color: #4a4a4a; margin: 0; }
-      .mnhc-card__count { position: absolute; left: 18px; bottom: 14px; font-size: 13px; font-weight: 600; color: #6d76a6; }
-
-      .mnhc-process { background: #0982c5; border-radius: 12px; padding: 24px 18px; color: #fff; }
-      .mnhc-process h2 { color: #fff; font-size: 19px; font-weight: 700; line-height: 1.3; margin: 0 0 16px; }
-      .mnhc-process img { width: 100%; height: auto; border-radius: 8px; display: block; margin-bottom: 16px; }
-      .mnhc-process p { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.94); margin: 0 0 14px; }
-      .mnhc-process p:last-child { margin-bottom: 0; }
-
-      /* FAQ clean white accordion + trusted heading color per design */
-      .nd-faq { background: #fff; border: 0; padding: 6px 22px 10px; }
-      .nd-faq__left .section-title { color: #0982c5; font-size: 22px; font-weight: 700; }
-      .nd-faq__left p { font-size: 14px; color: #4a4a4a; margin-bottom: 14px; }
-      .nd-faq__cta { display: none; }
-      .nd-faq__item {
-        background: #fff; border: 0; border-bottom: 1px solid #e4e4e4;
-        padding: 18px 4px; text-align: left; font-size: 17px; font-weight: 500; color: #1c1c1c;
-      }
-      .nd-faq__item span { text-align: left; }
-      .nd-faq__item.is-open { background: #f5f5f6; border-bottom: 0; padding: 18px 14px 6px; }
-      .nd-faq__panel {
-        background: #f5f5f6; border: 0; padding: 0 14px 18px; margin-bottom: 6px;
-        font-size: 15.5px; line-height: 1.65; color: #4a4a4a;
-      }
-      .nd-trusted__title { color: #0982c5; }
-    }
-  </style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVKBZV7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
 <a class="skip-link" href="#main">Skip to main content</a>
   <div id="site-navbar"></div>
   <script src="/js/navbar.js"></script>
   <main id="main" class="sol-detail-page nhc-page">
-    <div class="mnhc">
 
-      <section class="mnhc-hero">
-        <h1>Network Health Check Services</h1>
-        <p>Understand how your network is performing with a professional assessment that helps improve connectivity, strengthen</p>
-        <a href="/contact" class="mnhc-hero__btn" data-source-cta="solution_hero_health_check">Book Network Health Check</a>
-      </section>
 
-      <section class="mnhc-sec animate-fade-up">
-        <div class="mnhc-acc">
-          <button type="button" class="mnhc-acc__item mnhc-acc__item--active" aria-expanded="true" data-copy="A regular diagnostic scan across your entire IT infrastructure to find hidden system issues. This evaluation helps in finding and fixing performance flaws before they can slow down your daily business operations.">Network Health Check <span aria-hidden="true">&#94;</span></button>
-          <div class="mnhc-acc__panel">
-            <p>A regular diagnostic scan across your entire IT infrastructure to find hidden system issues. This evaluation helps in finding and fixing performance flaws before they can slow down your daily business operations.</p>
-            <div class="mnhc-acc__bar" aria-hidden="true"><span></span></div>
-          </div>
-          <button type="button" class="mnhc-acc__item" aria-expanded="false" data-copy="A structured investigation that traces recurring network problems back to their underlying cause. We fix the source of the issue rather than the symptoms, so the same faults stop coming back.">Root Cause Analysis (RCA) <span aria-hidden="true">&#8964;</span></button>
-          <button type="button" class="mnhc-acc__item" aria-expanded="false" data-copy="We analyse bandwidth usage across your infrastructure to identify performance bottlenecks. You get actionable recommendations to enhance speed, strengthen reliability, and keep your connection stable.">Bandwidth &amp; Traffic Review <span aria-hidden="true">&#8964;</span></button>
-          <button type="button" class="mnhc-acc__item" aria-expanded="false" data-copy="We check your hardware to find the specific cables, switches, or equipment limiting your performance, and flag random upgrades that will not solve the real problem.">Hardware &amp; Equipment Audit <span aria-hidden="true">&#8964;</span></button>
-          <button type="button" class="mnhc-acc__item" aria-expanded="false" data-copy="We review your network design, identify vulnerabilities, and analyse operational risks to assess your security posture and protect your data.">Security Boundary Scan <span aria-hidden="true">&#8964;</span></button>
-          <button type="button" class="mnhc-acc__item" aria-expanded="false" data-copy="Our engineering experts translate complex infrastructure data into a clear, prioritised action plan — every recommendation designed to prevent costly downtime and keep your operations stable.">Performance Recommendations by Testing Experts <span aria-hidden="true">&#8964;</span></button>
+
+ <section class="nc-hero">
+    <div class="nc-hero-wrap">
+      <div class="nc-hero__content">
+        <div class="nc-hero__text">
+          <h1  class="nc-hero__title animate-fade-up">Network Health Check Services</h1>
+                     <p class="nc-hero__sub animate-fade-up">Understand how your network is performing with a professional assessment that helps improve connectivity, strengthen</p>
         </div>
-      </section>
-
-      <section class="mnhc-sec animate-fade-up">
-        <h2 class="mnhc-h">What you'll gain</h2>
-        <p class="mnhc-p">Our thorough network audit provides deeper insights into your infrastructure performance, stability for future expansions, and security posture.</p>
-        <article class="mnhc-card"><h3>Guaranteed System Resilience</h3><p>Your network gains the capacity to handle heavy data loads without crashing.</p><span class="mnhc-card__count">1/3</span></article>
-        <article class="mnhc-card"><h3>Simplified Supportability</h3><p>Your internal IT team can easily manage, monitor, and troubleshoot the entire solution.</p><span class="mnhc-card__count">2/3</span></article>
-        <article class="mnhc-card"><h3>Predictable Technology Growth</h3><p>Gain the accurate insights needed to confidently plan and support future office expansions or renovations.</p><span class="mnhc-card__count">3/3</span></article>
-      </section>
-
-      <section class="mnhc-sec animate-fade-up">
-        <h2 class="mnhc-h">Operating Without a Network Health Check in 2026 is Risky</h2>
-        <p class="mnhc-p">Cisco warns that the cost of operating blind without a network health assessment is staggering. A report from Splunk shows that unexpected network disruptions cost Global 2000 companies an average of $15,000 per minute in lost productivity and downtime.</p>
-        <p class="mnhc-p">Common operational failures include wasted staff hours when the network drops or lags, hidden configuration mistakes that trigger outages, and random hardware upgrades that do not solve the real problem.</p>
-        <img class="mnhc-img" src="/images/pages/unique/solutions-network-health-check-servers.webp" alt="Network infrastructure review" loading="lazy">
-      </section>
-
-      <section class="mnhc-sec animate-fade-up">
-        <div class="mnhc-process">
-          <h2>How the Network Performance Optimisation Works</h2>
-          <img src="/images/pages/unique/solutions-network-health-check-technician.webp" alt="Network performance optimisation" loading="lazy">
-          <p>Network Consultancy reviews your infrastructure to identify where your connection slows down. We check your hardware to find the specific cables or switches limiting your speed.</p>
-          <p>Once identified, our engineering experts initiate a Network Performance Optimisation Review to adjust your router settings, resolve traffic issues, and keep your connection stable.</p>
-        </div>
-      </section>
-
-      <section class="mnhc-sec animate-fade-up">
-        <h2 class="mnhc-h">Why Choose Us</h2>
-        <p class="mnhc-p">Most IT providers just hand you a 100-page automated report full of technical jargon you don&rsquo;t have time to read. We do things differently.</p>
-        <p class="mnhc-p">We translate complex infrastructure data into a clear, prioritised action plan. Every recommendation we provide is designed to ensure your business growth.</p>
-        <p class="mnhc-p">This includes preventing costly downtime, protecting your data, and keeping your operations stable.</p>
-        <img class="mnhc-img" src="/images/pages/unique/solutions-network-health-check-professional.webp" alt="Network Health Check expertise" loading="lazy">
-      </section>
-
-    </div>
-
-    <section class="nhc-hero" aria-label="Network Health Check hero">
-      <div class="nhc-hero__inner">
-        <div class="nhc-hero__copy animate-fade-up">
-          <h1>Network Health Check Services</h1>
-          <p>Understand how your network is performing with a professional assessment that helps improve connectivity, strengthen</p>
-          <a href="/contact" class="nhc-hero__btn" data-source-cta="solution_hero_health_check">Book Network Health Check</a>
-        </div>
+        <a href="/contact" class="btn-blue nc-hero__cta animate-fade-up" data-source-cta="solutions_landing_book_health_check">Book Health Check</a>
       </div>
-    </section>
-
-<section class="nhc-overview" aria-labelledby="nhc-overview-title">
-  <div class="nhc-overview__inner">
-
-    <div class="nhc-overview__list animate-fade-up"
-         role="tablist"
-         aria-label="Network Health Check services">
-
-      <h3 class="nhc-overview__list-item nhc-overview__list-item--active"
-        data-title="Network Health Check"
-        data-copy="A regular diagnostic scan across your entire IT infrastructure to find hidden system issues. This evaluation helps in finding and fixing performance flaws before they can slow down your daily business operations."
-        data-image="/images/pages/unique/solutions-network-health-check-nc-hero-person.webp">
-        Network Health Check
-  </h3>
-
-       <h3 class="nhc-overview__list-item"
-        data-title="Root Cause Analysis (RCA)"
-        data-copy="A structured investigation that traces recurring network problems back to their underlying cause. We fix the source of the issue rather than the symptoms, so the same faults stop coming back."
-        data-image="/images/pages/unique/root-cause-analysis.webp">
-        Root Cause Analysis (RCA)
-</h3>
-
-     <h3 class="nhc-overview__list-item"
-        data-title="Bandwidth &amp; Traffic Review"
-        data-copy="We analyse bandwidth usage across your infrastructure to identify performance bottlenecks. You get actionable recommendations to enhance speed, strengthen reliability, and keep your connection stable."
-        data-image="/images/pages/unique/bandwidth-traffic-review.webp">
-        Bandwidth &amp; Traffic Review
-</h3>
-
-      <h3 class="nhc-overview__list-item"
-        data-title="Hardware &amp; Equipment Audit"
-        data-copy="We check your hardware to find the specific cables, switches, or equipment limiting your performance, and flag random upgrades that will not solve the real problem."
-        data-image="/images/pages/unique/hardware-equipment-audit.webp">
-        Hardware &amp; Equipment Audit
-</h3>
-
- <h3 class="nhc-overview__list-item"
-        data-title="Security Boundary Scan"
-        data-copy="We review your network design, identify vulnerabilities, and analyse operational risks to assess your security posture and protect your data."
-        data-image="/images/pages/unique/security-boundary-scan.webp">
-        Security Boundary Scan
-</h3>
-
-     <h3 class="nhc-overview__list-item"
-        data-title="Performance Recommendations by Testing Experts"
-        data-copy="Our engineering experts translate complex infrastructure data into a clear, prioritised action plan — every recommendation designed to prevent costly downtime and keep your operations stable."
-        data-image="/images/pages/unique/performance-recommendations.webp">
-        Performance Recommendations by Testing Experts
-</h3>
-
     </div>
+  </section>
 
-    <div class="nhc-overview__feature animate-fade-up">
+<section class="section-shell" aria-labelledby="nhc-overview-title">
+  <div class="ab-inner">
+    <div class="ksa__card">
+        <div class="ksa__tabs animate-fade-up"
+            role="tablist"
+            aria-label="Network Health Check services">
+
+          <h3 class="ksa__tab ksa__tab--active"
+            data-title="Network Health Check"
+            data-copy="A regular diagnostic scan across your entire IT infrastructure to find hidden system issues. This evaluation helps in finding and fixing performance flaws before they can slow down your daily business operations."
+            data-image="/images/pages/unique/solutions-network-health-check-nc-hero-person.webp">
+            Network Health Check
+      </h3>
+
+          <h3 class="ksa__tab"
+            data-title="Root Cause Analysis (RCA)"
+            data-copy="A structured investigation that traces recurring network problems back to their underlying cause. We fix the source of the issue rather than the symptoms, so the same faults stop coming back."
+            data-image="/images/pages/unique/root-cause-analysis.webp">
+            Root Cause Analysis (RCA)
+    </h3>
+
+        <h3 class="ksa__tab"
+            data-title="Bandwidth &amp; Traffic Review"
+            data-copy="We analyse bandwidth usage across your infrastructure to identify performance bottlenecks. You get actionable recommendations to enhance speed, strengthen reliability, and keep your connection stable."
+            data-image="/images/pages/unique/bandwidth-traffic-review.webp">
+            Bandwidth &amp; Traffic Review
+    </h3>
+
+          <h3 class="ksa__tab"
+            data-title="Hardware &amp; Equipment Audit"
+            data-copy="We check your hardware to find the specific cables, switches, or equipment limiting your performance, and flag random upgrades that will not solve the real problem."
+            data-image="/images/pages/unique/hardware-equipment-audit.webp">
+            Hardware &amp; Equipment Audit
+    </h3>
+
+    <h3 class="ksa__tab"
+            data-title="Security Boundary Scan"
+            data-copy="We review your network design, identify vulnerabilities, and analyse operational risks to assess your security posture and protect your data."
+            data-image="/images/pages/unique/security-boundary-scan.webp">
+            Security Boundary Scan
+    </h3>
+
+        <h3 class="ksa__tab"
+            data-title="Performance Recommendations by Testing Experts"
+            data-copy="Our engineering experts translate complex infrastructure data into a clear, prioritised action plan — every recommendation designed to prevent costly downtime and keep your operations stable."
+            data-image="/images/pages/unique/performance-recommendations.webp">
+            Performance Recommendations by Testing Experts
+    </h3>
+
+        </div>
+
+    <div class="ksa__panel animate-fade-up">
 
       <picture>
         <img
-          id="nhc-overview-image"
+          id="ksa-img"
           src="/images/pages/unique/solutions-network-health-check-nc-hero-person.webp"
           alt="Network Health Check"
           loading="lazy">
       </picture>
 
-      <div class="nhc-overview__panel" role="tabpanel">
-        <h4 id="nhc-overview-title">Network Health Check</h4>
+      <div class="ksa__panel-card" role="tabpanel">
+        <h4 id="ksa-title">Network Health Check</h4>
 
-        <p id="nhc-overview-copy">
+        <p id="ksa-desc">
           A regular diagnostic scan across your entire IT infrastructure to
           find hidden system issues. This evaluation helps in finding and
           fixing performance flaws before they can slow down your daily
@@ -757,13 +145,13 @@
       </div>
 
     </div>
-
+</div>
   </div>
 </section>
 
 
 
-    <section class="nhc-gains" aria-labelledby="nhc-gains-title">
+    <section class="nhc-gains section-shell" aria-labelledby="nhc-gains-title">
       <div class="nhc-gains__inner">
         <div class="nhc-gains__intro animate-fade-up">
           <h2 id="nhc-gains-title">What you'll gain</h2>
@@ -789,7 +177,7 @@
       </div>
     </section>
 
-    <section class="nhc-risk" aria-labelledby="nhc-risk-title">
+    <section class="section-shell" aria-labelledby="nhc-risk-title">
       <div class="nhc-risk__inner">
         <div class="nhc-risk__copy animate-fade-up">
           <h2 id="nhc-risk-title">Operating Without a Network Health Check in 2026 is Risky</h2>
@@ -805,8 +193,8 @@
       </div>
     </section>
 
-    <section class="nhc-process" aria-labelledby="nhc-process-title">
-      <div class="nhc-process__inner animate-fade-up">
+    <section class="section-shell" aria-labelledby="nhc-process-title">
+      <div class="ab-inner nhc-process__inner animate-fade-up">
         <div class="nhc-process__copy">
           <h2 id="nhc-process-title">How the Network Performance Optimisation Works</h2>
           <p>Network Consultancy reviews your infrastructure to identify where your connection slows down. We check your hardware to find the specific cables or switches limiting your speed.</p>
@@ -815,8 +203,8 @@
       </div>
     </section>
 
-    <section class="nhc-why" aria-labelledby="nhc-why-title">
-      <div class="nhc-why__inner">
+    <section class="nhc-why section-shell" aria-labelledby="nhc-why-title">
+      <div class="nhc-why__inner ab-inner">
         <div class="nhc-why__copy animate-fade-up">
           <h2 id="nhc-why-title">Why Choose Us</h2>
           <p>Most IT providers just hand you a 100-page automated report full of technical jargon you don’t have time to read. We do things differently.</p>
@@ -832,7 +220,11 @@
       </div>
     </section>
 
+
+    
+
     <section class="section-shell">
+      <div class="ab-inner">
       <div class="nd-trusted">
         <div class="nd-trusted__head">
           <h2 class="nd-trusted__title">What our clients say</h2>
@@ -852,71 +244,72 @@
         </div>
         <div class="nd-trusted__dots" aria-hidden="true"><span class="nd-trusted__dot nd-trusted__dot--active"></span><span class="nd-trusted__dot"></span><span class="nd-trusted__dot"></span></div>
       </div>
+      </div>
     </section>
 
 
-<section class="section-shell">
-  <div class="nd-faq">
-    <div class="nd-faq__left">
-      <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
-      <p>Still have questions? Get connected to our support team.</p>
-      <a href="/contact" class="nd-faq__cta">Contact us</a>
+  <!-- ===== CTA BAND ===== -->
+  <section class="svc-cta-band" aria-label="Firewall and network security CTA">
+    <div class="svc-cta-band__tags" aria-hidden="true">
+      <div class="svc-cta-band__row">
+        <span>Network Health Check</span><span>Cyber Security Review</span><span>AI-Ready Infrastructure</span>
+      </div>
+      <div class="svc-cta-band__row">
+        <span>Network Health Check</span><span>Cyber Security Review</span><span>AI-Ready Infrastructure</span>
+      </div>
     </div>
+    <div class="svc-cta-band__card">
+      <p class="svc-cta-band__text">Identify security weaknesses before they become operational risks. Speak with our cybersecurity consultants in London and schedule your cyber risk assessment.</p>
+      <a href="#contact" class="svc-cta-band__btn">Get Assessment</a>
+    </div>
+  </section>
 
-<div class="nd-faq__right" id="nd-faq-list">
 
-  <h3 class="nd-faq__item is-open">
-    <span>What does a network health check include?</span>
-    <strong>&minus;</strong>
-  </h3>
 
-  <p class="nd-faq__panel">
-    A network health check examines hardware, bandwidth usage, configuration settings, and security protocols. It reviews the entire infrastructure to identify faulty components, performance bottlenecks, and system vulnerabilities.
-  </p>
+    <section class="section-shell mb-lg-100">
+      <div class="ab-inner">
+        <div class="nd-faq ">
+          <div class="nd-faq__left">
+            <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+            <p>Still have questions? Get connected to our support team.</p>
+            <a href="/contact" class="nd-faq__cta">Contact us</a>
+          </div>
 
-  <h3 class="nd-faq__item">
-    <span>What makes a network security assessment crucial?</span>
-    <strong>+</strong>
-  </h3>
+      <div class="nd-faq__right" id="nd-faq-list">
 
-  <p class="nd-faq__panel" hidden>
-    It identifies vulnerabilities in firewalls, routers, and access controls before they can be exploited. This allows an organisation to fix security gaps and maintain compliance to prevent operational downtime.
-  </p>
+        <h3 class="nd-faq__item is-open">
+          <span>What does a network health check include?</span>
+          <strong>&minus;</strong>
+        </h3>
 
-  <h3 class="nd-faq__item">
-    <span>How might network consulting help my company?</span>
-    <strong>+</strong>
-  </h3>
+        <p class="nd-faq__panel">
+          A network health check examines hardware, bandwidth usage, configuration settings, and security protocols. It reviews the entire infrastructure to identify faulty components, performance bottlenecks, and system vulnerabilities.
+        </p>
 
-  <p class="nd-faq__panel" hidden>
-    Network consulting provides an independent analysis of an IT setup to improve reliability. It delivers a plan to resolve connection issues and ensure technology investments match actual business requirements.
-  </p>
+        <h3 class="nd-faq__item">
+          <span>What makes a network security assessment crucial?</span>
+          <strong>+</strong>
+        </h3>
 
-</div>
+        <p class="nd-faq__panel" hidden>
+          It identifies vulnerabilities in firewalls, routers, and access controls before they can be exploited. This allows an organisation to fix security gaps and maintain compliance to prevent operational downtime.
+        </p>
 
+        <h3 class="nd-faq__item">
+          <span>How might network consulting help my company?</span>
+          <strong>+</strong>
+        </h3>
+
+        <p class="nd-faq__panel" hidden>
+          Network consulting provides an independent analysis of an IT setup to improve reliability. It delivers a plan to resolve connection issues and ensure technology investments match actual business requirements.
+        </p>
+
+      </div>
+
+  </div>
   </div>
 </section>
 
-
-
-    <section class="nhc-cta-band" aria-label="Network Health Check CTA">
-      <div class="nhc-cta-band__grid" aria-hidden="true">
-        <span class="nhc-cta-band__chip">Network Health Check</span>
-        <span class="nhc-cta-band__chip">Cyber Security Review</span>
-        <span class="nhc-cta-band__chip">Microsoft 365 &amp; Network</span>
-        <span class="nhc-cta-band__chip">AI-Ready Infrastructure</span>
-        <span class="nhc-cta-band__chip">Network Health Check</span>
-        <span class="nhc-cta-band__chip">Cyber Security Review</span>
-        <span class="nhc-cta-band__chip">Microsoft 365 &amp; Network</span>
-        <span class="nhc-cta-band__chip">AI-Ready Infrastructure</span>
-      </div>
-      <div class="nhc-cta-band__card">
-        <p>Identify security weaknesses before they become operational risks. Speak with our cybersecurity consultants in London and schedule your cyber risk assessment.</p>
-        <a href="/contact" class="btn-dark">Get Assessment</a>
-      </div>
-    </section>
-
-    <div id="site-contact"></div>
     <script src="/js/form-source-tracking.js"></script>
     <script src="/js/contact.js?v=home-sections-20260715"></script>
   </main>
@@ -950,67 +343,6 @@
     })();
 
 
-(function nhcOverviewTabs() {
-
-  var tabs = Array.prototype.slice.call(
-    document.querySelectorAll('.nhc-overview__list-item')
-  );
-
-  var panel = document.querySelector('.nhc-overview__panel');
-  var image = document.getElementById('nhc-overview-image');
-
-  if (tabs.length === 0 || panel === null || image === null) return;
-
-  var title = panel.querySelector('h4');
-  var copy = panel.querySelector('p');
-
-  tabs.forEach(function (tab) {
-
-    tab.addEventListener('click', function () {
-
-      if (tab.classList.contains('nhc-overview__list-item--active')) {
-        return;
-      }
-
-      /* Remove active state */
-      tabs.forEach(function (t) {
-        t.classList.remove('nhc-overview__list-item--active');
-        t.setAttribute('aria-selected', 'false');
-      });
-
-      /* Add active state */
-      tab.classList.add('nhc-overview__list-item--active');
-      tab.setAttribute('aria-selected', 'true');
-
-      /* Start transition */
-      panel.classList.add('is-switching');
-
-      setTimeout(function () {
-
-        /* Change title */
-        title.textContent = tab.getAttribute('data-title');
-
-        /* Change description */
-        copy.textContent = tab.getAttribute('data-copy');
-
-        /* Change image */
-        var newImage = tab.getAttribute('data-image');
-
-        if (newImage) {
-          image.src = newImage;
-          image.alt = tab.getAttribute('data-title') || '';
-        }
-
-        /* End transition */
-        panel.classList.remove('is-switching');
-
-      }, 250);
-
-    });
-
-  });
-
-})();
 
 
 
