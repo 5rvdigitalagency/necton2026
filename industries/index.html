@@ -157,381 +157,6 @@
   <script src="/js/schema.js" defer></script>
   <link rel="stylesheet" href="/css/animations.css">
   <link rel="stylesheet" href="/css/accessibility.css">
-  <style>
-    main .nd-faq { margin-bottom: 100px; }
-    #main {
-      display: flex;
-      flex-direction: column;
-      gap: 100px;
-    }
-
-    #main > .svcs-hero {
-      padding-bottom: 0;
-      width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-      align-self: stretch;
-    }
-
-    .svcs-hero {
-      padding: 0;
-    }
-
-    main#main > section.svcs-hero > .svcs-hero__wrap {
-      max-width: none;
-      width: 100%;
-      margin: 0;
-    }
-
-    .svcs-hero__wrap {
-      position: relative;
-      width: 100%;
-      max-width: none;
-      height: 467px;
-      min-height: 467px;
-      margin: 0;
-      border-radius: 0;
-      overflow: hidden;
-      background-color: #02172F;
-      background-image: url(/images/pages/unique/industries-banner.webp);
-      background-repeat: no-repeat;
-      background-position: right center;
-      background-size: cover;
-    }
-
-    .svcs-hero__bg,
-    .svcs-hero__overlay {
-      display: none;
-    }
-
-    main#main > section.svcs-hero > .svcs-hero__wrap > .svcs-hero__content {
-      max-width: none;
-      width: 100%;
-    }
-
-    .svcs-hero__content {
-      position: relative;
-      z-index: 2;
-      padding: 117px 145px 178px var(--px);
-      width: 100%;
-      min-width: 100%;
-      max-width: none;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      align-items: flex-start;
-    }
-
-    .svcs-hero__text {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      max-width: 908px;
-    }
-
-    .svcs-hero__title {
-      font-family: 'Google Sans Flex', sans-serif;
-      font-size: 64px;
-      font-weight: 600;
-      color: #fff;
-      line-height: 1.08;
-    }
-
-    .svcs-hero__sub {
-      font-family: 'Google Sans Flex', sans-serif;
-      font-size: 24px;
-      font-weight: 500;
-      line-height: 1.35;
-      color: #fff;
-    }
-
-    .svcs-hero__cta {
-      margin-top: 0;
-      background: #fff !important;
-      color: #353535 !important;
-      border: 0;
-      border-radius: 2px !important;
-      font-family: 'Google Sans Flex', sans-serif;
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 600;
-      letter-spacing: 0;
-      text-transform: none;
-      min-width: 170px;
-      width: auto;
-      min-height: 50px;
-      padding: 0 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      white-space: nowrap;
-      line-height: normal;
-      transition: background .2s ease;
-    }
-
-    .svcs-hero__cta:hover {
-      background: #f0f0f0 !important;
-      transform: none;
-    }
-
-    .svl-overview {
-      width: calc(100% - (var(--px) * 2));
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-
-    .svl-overview__title {
-      margin: 0 0 40px;
-      color: var(--navy);
-      max-width: 980px;
-    }
-
-    [data-cms="faq"] .section-title {
-      margin-bottom: 40px;
-    }
-
-    [data-cms="faq"] .faq-list {
-      margin-top: 24px;
-    }
-
-    .btn-blue-lg {
-      background: var(--blue);
-      color: #fff;
-      font-family: 'Google Sans Flex', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      padding: 16px 40px;
-      min-height: 50px;
-      border-radius: 9999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background .2s, transform .2s;
-      text-decoration: none;
-      border: none;
-    }
-
-    .btn-blue-lg:hover {
-      background: #0771a5;
-      transform: scale(1.02);
-    }
-
-    .svl-overview__inner {
-      display: grid;
-      grid-template-columns: minmax(0, 386px) minmax(0, 1fr);
-      gap: 56px;
-      align-items: start;
-      background: #fff;
-      border: 1px solid #353535;
-      border-radius: 30px;
-      padding: 40px;
-    }
-
-    .svl-overview__list {
-      display: flex;
-      flex-direction: column;
-      gap: 36px;
-      overflow-y: scroll;
-      max-height: 620px;
-      scroll-behavior: smooth;
-      scrollbar-width: thin;
-      scrollbar-color: var(--blue) #e5e9ee;
-      scrollbar-gutter: stable;
-    }
-
-    .svl-overview__list::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    .svl-overview__list::-webkit-scrollbar-track {
-      background: #e5e9ee;
-      border-radius: 10px;
-    }
-
-    .svl-overview__list::-webkit-scrollbar-thumb {
-      background: var(--blue);
-      border: 2px solid #e5e9ee;
-      border-radius: 10px;
-    }
-
-    .svl-overview__list-item {
-      appearance: none;
-      background: transparent;
-      border: 0;
-      width: 100%;
-      text-align: left;
-      cursor: pointer;
-      padding-bottom: 24px;
-      border-bottom: 1px solid #353535;
-      color: #585151;
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1.25;
-      transition: color .2s ease-out, background .25s ease-out, padding .25s ease-out;
-    }
-
-    .svl-overview__list-item:hover {
-      color: var(--blue);
-    }
-
-    .svl-overview__list-item--active,
-    .svl-overview__list-item--active:hover {
-      padding: 24px;
-      border-radius: 20px;
-      border-bottom: 0;
-      background: var(--blue);
-      color: #fff;
-    }
-
-    .svl-overview__feature {
-      position: relative;
-      min-height: 600px;
-      border-radius: 20px;
-      overflow: hidden;
-      background: #0c1b3d;
-      display: flex;
-      align-items: flex-end;
-      padding: 28px;
-    }
-
-    .svl-overview__feature img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: opacity .25s ease-out;
-    }
-
-    .svl-overview__feature::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(9, 130, 197, .18) 0%, rgba(9, 130, 197, .88) 100%);
-    }
-
-    .svl-overview__panel {
-      position: relative;
-      z-index: 2;
-      width: 735px;
-      max-width: 100%;
-      padding: 28px;
-      background: #fff;
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: flex-start;
-      transition: opacity .25s ease-out, transform .25s ease-out;
-    }
-
-    .svl-overview__panel.is-switching {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-
-    .svl-overview__panel h3 {
-      margin: 0;
-      color: #585151;
-      font-size: 24px;
-      font-weight: 600;
-      line-height: 1.25;
-    }
-
-    .svl-overview__panel p {
-      margin: 0;
-      color: #353535;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.55;
-    }
-
-    @media (max-width: 1200px) {
-      .svcs-hero__title {
-        font-size: 46px;
-      }
-
-      .svcs-hero__content {
-        padding: 80px 60px 120px var(--px);
-      }
-    }
-
-    @media (max-width: 1200px) {
-      .svl-overview__inner {
-        grid-template-columns: 1fr;
-        padding: 24px;
-        gap: 32px;
-      }
-
-      .svl-overview__feature {
-        order: -1;
-      }
-
-      .svl-overview__list {
-        gap: 24px;
-        max-height: 480px;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .svl-overview__feature {
-        min-height: 480px;
-        padding: 16px;
-      }
-
-      .svl-overview__list-item {
-        font-size: 22px;
-      }
-
-      .svl-overview__panel {
-        padding: 20px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .svcs-hero__wrap {
-        background-image: url(/images/pages/unique/banner-icons/industries-icon.svg);
-        background-repeat: no-repeat;
-        background-size: 250px auto;
-        background-position: right -24px top -24px;
-        height: auto;
-        min-height: 0;
-      }
-
-      .svcs-hero__title {
-        font-size: 42px;
-      }
-
-      .svcs-hero__sub {
-        font-size: 20px;
-      }
-
-      .svcs-hero__content {
-        padding: 60px var(--px) 80px var(--px);
-      }
-
-      .svl-overview__list {
-        max-height: 360px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .svcs-hero__title {
-        font-size: 28px;
-      }
-
-      .svcs-hero__cta {
-        margin-top: 20px;
-        font-size: 14px;
-        min-height: 44px;
-        min-width: 0;
-        padding: 0 24px;
-      }
-    }
-  </style>
 </head>
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVKBZV7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -542,20 +167,24 @@
   <script src="/js/navbar.js"></script>
 
   <main id="main">
+      <!-- ======== HERO ======== -->
+  <section class="nc-hero">
+    <div class="nc-hero-wrap">
+      <div class="nc-hero__content">
+        <div class="nc-hero__text">
+          <h1  class="nc-hero__title animate-fade-up">Secure IT for High-Risk Sectors</h1>
+                   <p class="nc-hero__sub animate-fade-up">Network Consultancy offers secure IT infrastructure and networks that minimise downtime and protect business assets.</p>
 
-    <section class="svcs-hero" aria-label="Industries hero">
-      <div class="svcs-hero__wrap">
-        <div class="svcs-hero__content">
-          <div class="svcs-hero__text">
-            <h1 class="svcs-hero__title animate-fade-up">Secure IT for High-Risk Sectors</h1>
-            <p class="svcs-hero__sub animate-fade-up">Network Consultancy offers secure IT infrastructure and networks that minimise downtime and protect business assets.</p>
-          </div>
-          <a href="/contact" class="btn-blue svcs-hero__cta animate-fade-up" data-source-cta="industry_health_check">Discuss Your Industry Needs</a>
         </div>
+        <a href="/contact" class="btn-blue nc-hero__cta animate-fade-up" data-source-cta="industry_health_check">Discuss Your Industry Needs</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="svl-overview animate-fade-up" aria-labelledby="industries-h2">
+
+
+    <section class="section-shell animate-fade-up" aria-labelledby="industries-h2">
+      <div class="ab-inner">
       <h2 class="section-title svl-overview__title" id="industries-h2">
         Meet Modern Industry Demands with Our<br>Network Consultancy Experts
       </h2>
@@ -691,6 +320,7 @@
         </div><!-- /.svl-overview__feature -->
 
       </div><!-- /.svl-overview__inner -->
+      </div>
     </section>
 
     <!-- SINGLE TAB SCRIPT — do not duplicate -->
@@ -776,10 +406,10 @@ window.PAGE_TESTIMONIALS = [
     avatar: '/images/misc/avatars/testimonial-avatar-it-director.jpg'
   }
 ];
-</script>
+  </script>
     <div data-cms="testimonials" data-title="What our client says"></div>
 
-    <section class="industry-cta animate-fade-up" aria-label="Call to action">
+    <section class="industry-cta animate-fade-up my-lg-100" aria-label="Call to action">
       <div class="industry-cta__inner">
         <div class="industry-cta__chips" aria-hidden="true">
           <span class="industry-cta__chip">Network Consultancy</span><span class="industry-cta__chip">Network Support</span><span class="industry-cta__chip">Managed Network Support</span><span class="industry-cta__chip">Managed Wireless LAN</span><span class="industry-cta__chip">Network Installations</span><span class="industry-cta__chip">Network Design &amp; Deployment</span><span class="industry-cta__chip">Firewall &amp; Network Security</span><span class="industry-cta__chip">Remote Access &amp; VPN</span>
@@ -811,9 +441,8 @@ window.PAGE_TESTIMONIALS = [
       }
     ];
     </script>
-    <div data-cms="faq"></div>
+    <div data-cms="faq" class="my-lg-100"></div>
 
-    <div id="site-contact"></div>
     <script src="/js/form-source-tracking.js"></script>
     <script src="/js/contact.js"></script>
 
