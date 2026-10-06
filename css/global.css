@@ -3103,6 +3103,11 @@ body.industry-detail-page #main > #contact {
 
 
 
-.d-none{
+/* .d-none{
   display:none;
+} */
+.blog-main{
+    font-size: 18px;
+    line-height: 1.75;
+    color: #575757;
 }
