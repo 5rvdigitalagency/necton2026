@@ -1,17 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://network-consultancy.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://network-consultancy.com/industries" },
-      { "@type": "ListItem", "position": 3, "name": "Legal Firms", "item": "https://network-consultancy.com/industries/legal-firms" }
-    ]
-  }
-  </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://network-consultancy.com/industries/legal-firms#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://network-consultancy.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Industries",
+      "item": "https://network-consultancy.com/industries"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Legal Firms",
+      "item": "https://network-consultancy.com/industries/legal-firms"
+    }
+  ]
+},
+ {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://network-consultancy.com/industries/legal-firms#service",
+  "name": "Legal Firms",
+  "url": "https://network-consultancy.com/industries/legal-firms",
+  "description": "IT and network solutions for legal firms, helping organisations maintain secure, reliable and resilient technology infrastructure to support their operations and protect critical business information.",
+  "serviceType": "Legal Firms IT and Network Solutions",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://network-consultancy.com/#organization",
+    "name": "Network Consultancy",
+    "url": "https://network-consultancy.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://network-consultancy.com/images/misc/logo.png"
+    }
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United Kingdom"
+  }
+ }
+</script>
 
   <meta name="google-site-verification" content="UMvzdXxOFVqZL5BV0Z31FdlaoXjKmD450rZ5TB-qWXI" />
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PVKBZV7');</script>
@@ -38,7 +77,11 @@
   <link rel="stylesheet" href="/css/accessibility.css">
   <style>
     body.industry-detail-page #main > section + section { margin-top: 40px !important; }
+    main .nd-faq { margin-bottom: 100px; }
     body.industry-detail-page #main > #contact { margin-top: 40px !important; }
+    .industry-banner__content {
+          padding: 0 58px 20px;
+}
   </style>
   <style>
     #main > .svcs-hero { padding-bottom: 0; width: 100%; margin-left: 0; margin-right: 0; align-self: stretch; }
@@ -61,8 +104,10 @@
     .svl-overview__title { margin: 0 0 14px; max-width: 980px; }
     .svl-overview__lead { max-width: 1080px; margin-bottom: 22px; }
     .svl-overview__inner { display: grid; grid-template-columns: minmax(0, 386px) minmax(0, 1fr); gap: 56px; align-items: start; background: #fff; border: 1px solid #353535; border-radius: 30px; padding: 40px; }
-    .svl-overview__list { display: flex; flex-direction: column; gap: 36px; overflow-y: auto; max-height: 620px; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; }
-    .svl-overview__list::-webkit-scrollbar { display: none; }
+    .svl-overview__list { display: flex; flex-direction: column; gap: 36px; overflow-y: scroll; max-height: 620px; scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--blue) #e5e9ee; scrollbar-gutter: stable; }
+    .svl-overview__list::-webkit-scrollbar { width: 10px; }
+    .svl-overview__list::-webkit-scrollbar-track { background: #e5e9ee; border-radius: 10px; }
+    .svl-overview__list::-webkit-scrollbar-thumb { background: var(--blue); border: 2px solid #e5e9ee; border-radius: 10px; }
     .svl-overview__list-item { appearance: none; background: transparent; border: 0; width: 100%; text-align: left; cursor: pointer; padding-bottom: 24px; border-bottom: 1px solid #353535; color: #585151; font-size: 28px; font-weight: 700; line-height: 1.25; transition: color .2s ease-out, background .25s ease-out, padding .25s ease-out; }
     .svl-overview__list-item:hover { color: var(--blue); }
     .svl-overview__list-item--active, .svl-overview__list-item--active:hover { padding: 24px; border-radius: 20px; border-bottom: 0; background: var(--blue); color: #fff; }
@@ -135,15 +180,15 @@
 
   <main id="main">
 
-    <!-- HERO -->
-    <section class="svcs-hero" aria-label="Industries hero">
-      <div class="svcs-hero__wrap">
-        <div class="svcs-hero__content">
-          <div class="svcs-hero__text">
-            <h1 class="svcs-hero__title animate-fade-up">IT Network Solutions for Legal Firms</h1>
-            <p class="svcs-hero__sub animate-fade-up">Secure IT Networks That Keep Your Legal Practice Running Smoothly</p>
-          </div>
-          <a href="/contact" class="btn-blue svcs-hero__cta animate-fade-up" data-source-cta="industry_health_check">Book Health Check</a>
+
+    
+        <!-- ===== HERO ===== -->
+    <section class="nc-hero-wrap" aria-label="Industries hero">
+      <div class="nc-hero">
+        <div class="nc-hero__content">
+          <h1 class="nc-hero__title">IT Network Solutions for Legal Firms</h1>
+          <p class="nc-hero__sub">Secure IT Networks That Keep Your Legal Practice Running Smoothly</p>
+          <a href="/contact" class="nc-hero__cta" data-source-cta="service_hero_health_check">Improve Network Resilience</a>
         </div>
       </div>
     </section>
@@ -158,77 +203,77 @@
         <div class="svl-overview__list" role="tablist" aria-label="Industry focus areas">
 
           <!-- Tab 1 -->
-          <button type="button" role="tab" aria-selected="true"
+          <h3 role="tab" aria-selected="true"
             class="svl-overview__list-item svl-overview__list-item--active"
             data-title="Building a Strong Digital Foundation"
             data-copy="A reliable network is essential for any legal practice. It keeps your team connected, safeguards confidential client information, and ensures fast access to case files and legal applications."
-            data-img="/images/pages/unique/industries-legal-firms-results.jpg"
-            data-alt="Building a Strong Digital Foundation — Legal Firms">
+            data-img="/images/pages/unique/Building-Strong-Digital-Foundation.avif"
+            data-alt="A woman presenting at a digital seminar with an engaged audience, representing the importance of building a strong digital foundation">
             Building a Strong Digital Foundation
-          </button>
+          </h3>
 
           <!-- Tab 2 -->
-          <button type="button" role="tab" aria-selected="false"
+          <h3 role="tab" aria-selected="false"
             class="svl-overview__list-item"
             data-title="Safeguarding Critical Client Data"
             data-copy="Network security is essential for law firms that manage sensitive information on a daily basis. Implementing measures such as firewalls, encrypted communications, and continuous monitoring helps minimize security risks and protect critical data. Strengthen your firm's data protection efforts and maintain compliance with security responsibilities."
             data-img="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1440&q=80&auto=format&fit=crop"
             data-alt="Safeguarding Critical Client Data — Legal Firms">
             Safeguarding Critical Client Data
-          </button>
+          </h3>
 
           <!-- Tab 3 -->
-          <button type="button" role="tab" aria-selected="false"
+          <h3 role="tab" aria-selected="false"
             class="svl-overview__list-item"
             data-title="Maintaining Reliable Access and Efficiency"
             data-copy="A well-designed IT system helps reduce downtime, enabling your team to work efficiently, bill hours accurately, and deliver uninterrupted service to clients without the frustration of technical issues."
             data-img="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1440&q=80&auto=format&fit=crop"
             data-alt="Maintaining Reliable Access and Efficiency — Legal Firms">
             Maintaining Reliable Access and Efficiency
-          </button>
+          </h3>
 
           <!-- Tab 4 -->
-          <button type="button" role="tab" aria-selected="false"
+          <h3 role="tab" aria-selected="false"
             class="svl-overview__list-item"
             data-title="Secure Remote Working for Legal Professionals"
             data-copy="With legal professionals increasingly working from offices, courts, and home environments, secure remote access has become essential. Staff need reliable and secure access to documents, emails, and case management systems, enabling them to work effectively wherever they are."
             data-img="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=1440&q=80&auto=format&fit=crop"
             data-alt="Secure Remote Working for Legal Professionals — Legal Firms">
             Secure Remote Working for Legal Professionals
-          </button>
+          </h3>
 
           <!-- Tab 5 -->
-          <button type="button" role="tab" aria-selected="false"
+          <h3 role="tab" aria-selected="false"
             class="svl-overview__list-item"
             data-title="Enhancing Compliance and Legal Data Security"
             data-copy="Scalable solutions such as cloud platforms and secure file-sharing tools make it easier to support expanding teams, enhance collaboration, and provide seamless access to critical documents. These technologies also help firms maintain compliance with legal, regulatory, and data protection requirements as they grow."
             data-img="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1440&q=80&auto=format&fit=crop"
             data-alt="Enhancing Compliance and Legal Data Security — Legal Firms">
             Enhancing Compliance and Legal Data Security
-          </button>
+          </h3>
 
           <!-- Tab 6 -->
-          <button type="button" role="tab" aria-selected="false"
+          <h3 role="tab" aria-selected="false"
             class="svl-overview__list-item"
             data-title="Future-Proofing Your Practice with Scalable Technology"
             data-copy="Scalable cloud platforms and secure collaboration tools support expanding teams and growing caseloads. A network built for growth ensures your practice can adopt new technology, open new locations, and support hybrid working without re-engineering your infrastructure."
             data-img="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1440&q=80&auto=format&fit=crop"
             data-alt="Future-Proofing Your Practice with Scalable Technology — Legal Firms">
             Future-Proofing Your Practice with Scalable Technology
-          </button>
+          </h3>
 
         </div><!-- /.svl-overview__list -->
 
         <div class="svl-overview__feature">
           <picture>
-            <source id="svl-feature-source" srcset="/images/pages/unique/industries-legal-firms-results.jpg" type="image/jpeg">
+            <source id="svl-feature-source" srcset="/images/pages/unique/Building-Strong-Digital-Foundation.avif" type="image/jpeg">
             <img id="svl-feature-img"
-              src="/images/pages/unique/industries-legal-firms-results.jpg"
-              alt="Building a Strong Digital Foundation — Legal Firms"
+              src="/images/pages/unique/Building-Strong-Digital-Foundation.avif"
+              alt="A woman presenting at a digital seminar with an engaged audience, representing the importance of building a strong digital foundation"
               loading="lazy">
           </picture>
           <div class="svl-overview__panel" role="tabpanel">
-            <h3 id="svl-overview-title">Building a Strong Digital Foundation</h3>
+            <h4 id="svl-overview-title">Building a Strong Digital Foundation</h4>
             <p id="svl-overview-copy">A reliable network is essential for any legal practice. It keeps your team connected, safeguards confidential client information, and ensures fast access to case files and legal applications.</p>
           </div>
         </div><!-- /.svl-overview__feature -->
@@ -305,8 +350,8 @@
       <div class="industry-banner__inner">
         <div class="industry-banner__bg">
           <picture>
-            <source srcset="/images/pages/unique/industries-index-professional.jpg" type="image/jpeg">
-            <img src="/images/pages/unique/industries-index-professional.jpg" alt="Legal Firms support delivery" loading="lazy">
+            <source srcset="/images/pages/unique/Is-Your-SME-Network.avif" type="image/avif">
+            <img src="/images/pages/unique/Is-Your-SME-Network.avif" alt="Two confident professional women standing back-to-back, representing the importance of addressing critical IT risks for law firms securely" loading="lazy">
           </picture>
         </div>
         <div class="industry-banner__overlay" aria-hidden="true"></div>
@@ -319,16 +364,15 @@
       </div>
     </section>
 
-    <!-- BENEFIT SECTION -->
+    <!-- LEGAL WORKFLOWS -->
     <section class="section animate-fade-up" aria-labelledby="benefit-h">
       <div class="split split--3-2">
         <div>
-          <h2 class="heading-lg" id="benefit-h">How Can IT Services for Law Firms Benefit Your Business?</h2>
+          <h2 class="heading-lg" id="benefit-h">IT Infrastructure for Confidential Legal Work</h2>
           <div class="body-lg">
-            <p>IT services help minimise everyday technical issues and enable legal teams to operate more efficiently. They enhance communication, provide secure access to systems from various locations, and reduce downtime, allowing staff to concentrate on delivering high-quality client services.</p>
-            <p>A stronger network infrastructure means staff have consistent access, data is handled securely, and legal systems remain dependable during active matter workloads.</p>
-            <p>Through IT support, organisations can handle document and data flow confidently, improving client communication and reducing process delays.</p>
-            <p>Professional legal IT support creates strategic and resilient infrastructure that helps legal departments work smoothly and securely in high-pressure environments.</p>
+            <p>Legal teams need dependable access to case management systems, document stores, and communication tools throughout active matters. Secure network infrastructure keeps those workflows available without compromising confidentiality.</p>
+            <p>We support secure remote access for solicitors and staff working across offices, courts, and home locations, with controls that help protect sensitive client information.</p>
+            <p>Proactive monitoring and responsive support reduce disruption during document-heavy workloads, client communication, and time-critical collaboration.</p>
           </div>
         </div>
         <div class="industry-highlight industry-highlight--empty" aria-hidden="true"></div>
@@ -340,15 +384,15 @@
       <div class="industry-banner__inner">
         <div class="industry-banner__bg">
           <picture>
-            <source srcset="/images/pages/unique/industries-index-network-abstract.jpg" type="image/jpeg">
-            <img src="/images/pages/unique/industries-index-network-abstract.jpg" alt="Why legal firms choose Network Consultancy" loading="lazy">
+            <source srcset="/images/pages/unique/why-legal-firms.avif" type="image/avif">
+            <img src="/images/pages/unique/why-legal-firms.avif" alt="Businessman using a tablet with digital icons for security, compliance and quality checks overlaid" loading="lazy">
           </picture>
         </div>
         <div class="industry-banner__overlay" aria-hidden="true"></div>
         <div class="industry-banner__content">
           <span class="industry-banner__eyebrow">Why Choose Us</span>
           <h2 class="industry-banner__title" id="why-us-h">Why Choose Us?</h2>
-          <p class="industry-banner__text">We provide IT network solutions for law firms designed to maintain security, reliability, and performance.</p>
+          <p class="industry-banner__text">We provide <a href="https://network-consultancy.com/solutions">IT network solutions</a> for law firms designed to maintain security, reliability, and performance.</p>
           <p class="industry-banner__text">Our approach combines consultancy, proactive monitoring, and responsive support for legal operations. We understand the importance of confidentiality and compliance.</p>
           <p class="industry-banner__text">We partner with legal departments and support teams to keep working and IT-based client services available across legal environments with minimal disruption.</p>
         </div>
@@ -396,7 +440,7 @@
       }
     ];
     </script>
-    <div data-cms="testimonials" data-title="What our client says"></div>
+    <div data-cms="testimonials" data-title="What our client says" class="mb-lg-100"></div>
 
     <!-- CTA SECTION -->
     <section class="industry-cta animate-fade-up" aria-label="Call to action">
@@ -419,21 +463,38 @@
         <p>Still have questions? Get connected to our support team.</p>
         <a href="../contact" class="nd-faq__cta">Contact us</a>
       </div>
-      <div class="nd-faq__right">
+<div class="nd-faq__right">
 
-        <button class="nd-faq__item is-open"><span>Why are specialised IT networks necessary for law firms?</span><strong>−</strong></button>
-        <div class="nd-faq__panel">Law firms handle client information every day, so they need secure and reliable networks. A well-designed legal practice setup supports compliance requirements and ensures staff can access case files without interruption.</div>
+  <h3 class="nd-faq__item is-open">
+    <span>Why are specialised IT networks necessary for law firms?</span>
+    <strong>−</strong>
+  </h3>
+  <p class="nd-faq__panel">
+    Law firms handle client information every day, so they need secure and reliable networks. A well-designed legal practice setup supports compliance requirements and ensures staff can access case files without interruption.
+  </p>
 
-        <button class="nd-faq__item"><span>How do IT services improve the effectiveness of law firms?</span><strong>+</strong></button>
-        <div class="nd-faq__panel" hidden>IT services help minimise everyday technical issues and enable legal teams to operate more efficiently. They enhance communication, provide secure access to systems from various locations, and reduce downtime, allowing staff to concentrate on delivering high-quality client services.</div>
+  <h3 class="nd-faq__item">
+    <span>How do IT services improve the effectiveness of law firms?</span>
+    <strong>+</strong>
+  </h3>
+  <p class="nd-faq__panel" hidden>
+    IT services reduce day-to-day issues and help legal teams work more smoothly. They improve communication, allow access to systems from different locations and reduce downtime so staff can focus on client work.
+  </p>
 
-        <button class="nd-faq__item"><span>What security measures should legal IT systems include?</span><strong>+</strong></button>
-        <div class="nd-faq__panel" hidden>Essential security measures include firewalls, data encryption, multi-factor authentication, continuous system monitoring, secure data backups, and well-defined access controls. Together, these safeguards help protect sensitive information, maintain system reliability, and ensure a secure operating environment.</div>
+  <h3 class="nd-faq__item">
+    <span>What security measures should legal IT systems include?</span>
+    <strong>+</strong>
+  </h3>
+  <p class="nd-faq__panel" hidden>
+    Key protections include firewalls, data encryption, multi-factor authentication, regular system monitoring, secure backups and clear access controls. These measures help protect information and keep systems stable and secure.
+  </p>
 
-      </div>
+</div>
+
+
     </section>
 
-    <div id="site-contact"></div>
+    
     <script src="/js/form-source-tracking.js"></script>
     <script src="/js/contact.js"></script>
 
@@ -443,6 +504,7 @@
   <script src="/js/footer.js"></script>
   <script src="/js/cms.js" defer></script>
   <script src="/js/animations.js" defer></script>
+  <script src="/js/industry-section-order.js" defer></script>
   <script src="/js/global.js" defer></script>
   <script src="/js/accessibility.js" defer></script>
   <script src="/js/search-index.js" defer></script>

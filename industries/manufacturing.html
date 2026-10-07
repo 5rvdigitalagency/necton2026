@@ -39,6 +39,7 @@
 
   <style>
     body.industry-detail-page #main > section + section { margin-top: 40px !important; }
+    main .nd-faq { margin-bottom: 100px; }
     body.industry-detail-page #main > #contact { margin-top: 40px !important; }
   </style>
 
@@ -52,7 +53,15 @@
       margin: 0 auto;
     }
     .manufacturing-grid__col { font-size: 15px; line-height: 1.55; }
-    .manufacturing-grid__col p + p { margin-top: 38px; padding-top: 20px; border-top: 1px solid var(--gray-mid); }
+    .manufacturing-grid__list {
+      margin: 0;
+      padding-left: 22px;
+    }
+    .manufacturing-grid__list li + li {
+      margin-top: 38px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gray-mid);
+    }
     .manufacturing-grid__image { width: 100%; height: 260px; object-fit: cover; border-radius: 14px; }
     .manufacturing-grid--spaced { margin-top: 30px; }
 
@@ -84,8 +93,10 @@
     .svl-overview__title { margin: 0 0 14px; max-width: 980px; }
     .svl-overview__lead { max-width: 1080px; margin-bottom: 22px; }
     .svl-overview__inner { display: grid; grid-template-columns: minmax(0, 386px) minmax(0, 1fr); gap: 56px; align-items: start; background: #fff; border: 1px solid #353535; border-radius: 30px; padding: 40px; }
-    .svl-overview__list { display: flex; flex-direction: column; gap: 36px; overflow-y: auto; max-height: 620px; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; }
-    .svl-overview__list::-webkit-scrollbar { display: none; }
+    .svl-overview__list { display: flex; flex-direction: column; gap: 36px; overflow-y: scroll; max-height: 620px; scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--blue) #e5e9ee; scrollbar-gutter: stable; }
+    .svl-overview__list::-webkit-scrollbar { width: 10px; }
+    .svl-overview__list::-webkit-scrollbar-track { background: #e5e9ee; border-radius: 10px; }
+    .svl-overview__list::-webkit-scrollbar-thumb { background: var(--blue); border: 2px solid #e5e9ee; border-radius: 10px; }
     .svl-overview__list-item { appearance: none; background: transparent; border: 0; width: 100%; text-align: left; cursor: pointer; padding-bottom: 24px; border-bottom: 1px solid #353535; color: #585151; font-size: 28px; font-weight: 700; line-height: 1.25; transition: color .2s ease-out, background .25s ease-out, padding .25s ease-out; }
     .svl-overview__list-item:hover { color: var(--blue); }
     .svl-overview__list-item--active, .svl-overview__list-item--active:hover { padding: 24px; border-radius: 20px; border-bottom: 0; background: var(--blue); color: #fff; }
@@ -159,15 +170,15 @@
 
   <main id="main">
 
-    <!-- HERO -->
-    <section class="svcs-hero" aria-label="Industries hero">
-      <div class="svcs-hero__wrap">
-        <div class="svcs-hero__content">
-          <div class="svcs-hero__text">
-            <h1 class="svcs-hero__title animate-fade-up">Manufacturing Network Support</h1>
-            <p class="svcs-hero__sub animate-fade-up">Network Consultancy designs resilient IT infrastructure for manufacturers, reducing downtime and enabling secure communication between operational and business systems.</p>
-          </div>
-          <a href="/contact" class="btn-blue svcs-hero__cta animate-fade-up" data-source-cta="industry_health_check">Book Health Check</a>
+  
+    
+        <!-- ===== HERO ===== -->
+    <section class="nc-hero-wrap" aria-label="Industries hero">
+      <div class="nc-hero">
+        <div class="nc-hero__content">
+          <h1 class="nc-hero__title">Manufacturing Network Support</h1>
+          <p class="nc-hero__sub">Network Consultancy designs resilient IT infrastructure for manufacturers, reducing downtime and enabling secure communication between operational and business systems.</p>
+          <a href="/contact" class="nc-hero__cta" data-source-cta="service_hero_health_check">Improve Network Resilience</a>
         </div>
       </div>
     </section>
@@ -179,67 +190,67 @@
         <p>We build and manage rock-solid network infrastructure that connects your floor, warehouse, and office, keeping your supply chain moving without costly delays.</p>
       </div>
       <div class="svl-overview__inner">
-        <div class="svl-overview__list" role="tablist" aria-label="Manufacturing focus areas">
+           <div class="svl-overview__list" role="tablist" aria-label="Manufacturing focus areas">
 
           <!-- Tab 1 -->
-          <button type="button" role="tab" aria-selected="true"
+          <h3 role="tab" aria-selected="true"
             class="svl-overview__list-item svl-overview__list-item--active"
             data-title="Zero Production Downtime"
             data-copy="We monitor your network 24/7 to catch and fix connectivity bugs before they stall your machinery or assembly lines."
             data-img="https://images.unsplash.com/photo-1581091212991-8891c7d4bd9b?w=1440&q=80&auto=format&fit=crop"
             data-alt="Zero production downtime — 24/7 manufacturing network monitoring">
             Zero Production Downtime
-          </button>
+          </h3>
 
           <!-- Tab 2 -->
-          <button type="button" role="tab" aria-selected="false"
+          <h3 role="tab" aria-selected="false"
             class="svl-overview__list-item"
             data-title="Connected Operational Systems"
             data-copy="We connect your machinery, inventory management software, and shipping systems to enable seamless data sharing across departments, improving efficiency, visibility, and operational performance."
             data-img="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1440&q=80&auto=format&fit=crop"
             data-alt="Connected operational systems — manufacturing machinery and inventory">
             Connected Operational Systems
-          </button>
+          </h3>
 
           <!-- Tab 3 -->
-          <button type="button" role="tab" aria-selected="false"
+          <h3 role="tab" aria-selected="false"
             class="svl-overview__list-item"
             data-title="Real-Time Access to Critical Systems"
             data-copy="Your team benefits from reliable, real-time access to stock levels, inventory data, and supply chain applications, helping to prevent ordering errors, reduce bottlenecks, and improve operational efficiency."
             data-img="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1440&q=80&auto=format&fit=crop"
             data-alt="Real-time access to stock levels and supply chain applications">
             Real-Time Access to Critical Systems
-          </button>
+          </h3>
 
           <!-- Tab 4 -->
-          <button type="button" role="tab" aria-selected="false"
+          <h3 role="tab" aria-selected="false"
             class="svl-overview__list-item"
             data-title="Industrial Network Security"
             data-copy="We implement robust security controls around connected equipment and operational systems, helping to protect your manufacturing environment from cyber threats, malware, and unauthorised access."
             data-img="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1440&q=80&auto=format&fit=crop"
             data-alt="Industrial network security — protecting manufacturing systems">
             Industrial Network Security
-          </button>
+          </h3>
 
           <!-- Tab 5 -->
-          <button type="button" role="tab" aria-selected="false"
+          <h3 role="tab" aria-selected="false"
             class="svl-overview__list-item"
             data-title="Multi-Site Connectivity"
             data-copy="We connect your head office, factories, and warehouses through a reliable network infrastructure, enabling seamless communication, remote management, and real-time visibility across all locations."
             data-img="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1440&q=80&auto=format&fit=crop"
             data-alt="Multi-site connectivity — connecting factories warehouses and offices">
             Multi-Site Connectivity
-          </button>
+          </h3>
 
           <!-- Tab 6 -->
-          <button type="button" role="tab" aria-selected="false"
+          <h3 role="tab" aria-selected="false"
             class="svl-overview__list-item"
             data-title="Network Performance Optimisation"
             data-copy="We optimise network bandwidth to ensure automated processes, scanners, and smart manufacturing tools operate smoothly. This helps reduce delays, improve efficiency, and keep critical operations running at peak performance."
             data-img="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1440&q=80&auto=format&fit=crop"
             data-alt="Network performance optimisation — smart manufacturing tools">
             Network Performance Optimisation
-          </button>
+          </h3>
 
         </div><!-- /.svl-overview__list -->
 
@@ -252,7 +263,7 @@
               loading="lazy">
           </picture>
           <div class="svl-overview__panel" role="tabpanel">
-            <h3 id="svl-overview-title">Zero Production Downtime</h3>
+            <h4 id="svl-overview-title">Zero Production Downtime</h4>
             <p id="svl-overview-copy">We monitor your network 24/7 to catch and fix connectivity bugs before they stall your machinery or assembly lines.</p>
           </div>
         </div><!-- /.svl-overview__feature -->
@@ -329,10 +340,10 @@
       <h2 class="heading-lg" id="components-h">Key Components of IT Support Services for Manufacturing</h2>
       <div class="body-lg"><p>IT support in manufacturing environments needs to keep every system in step so that tasks remain stable and operations keep running smoothly.</p></div>
       <div class="manufacturing-grid manufacturing-grid--spaced">
-        <div class="body-lg manufacturing-grid__col">
-          <p>Network management ensures the factory floor, warehouse, and office systems are all aligned to the same uptime and security priorities.</p>
-          <p>Cybersecurity helps protect shared operational data and industrial control systems against threats, while preventing production interruptions.</p>
-        </div>
+        <ol class="body-lg manufacturing-grid__col manufacturing-grid__list" start="1">
+          <li>Network management ensures the factory floor, warehouse, and office systems are all aligned to the same uptime and security priorities.</li>
+          <li>Cybersecurity helps protect shared operational data and industrial control systems against threats, while preventing production interruptions.</li>
+        </ol>
         <picture>
           <source srcset="https://images.unsplash.com/photo-1547895749-888a559fc2a7?w=800&q=80&auto=format&fit=crop" type="image/jpeg">
           <img class="manufacturing-grid__image"
@@ -340,10 +351,10 @@
             alt="Manufacturing network planning and infrastructure"
             loading="lazy">
         </picture>
-        <div class="body-lg manufacturing-grid__col">
-          <p>System monitoring enables issues to be identified early, helping prevent downtime and production delays.</p>
-          <p>Cloud integration improves flexibility and makes it easier to store, share, and use business applications as work schedules change.</p>
-        </div>
+        <ol class="body-lg manufacturing-grid__col manufacturing-grid__list" start="3">
+          <li>System monitoring enables issues to be identified early, helping prevent downtime and production delays.</li>
+          <li>Cloud integration improves flexibility and makes it easier to store, share, and use business applications as work schedules change.</li>
+        </ol>
       </div>
     </section>
 
@@ -352,8 +363,8 @@
       <div class="industry-banner__inner">
         <div class="industry-banner__bg">
           <picture>
-            <source srcset="https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?w=1600&q=80&auto=format&fit=crop" type="image/jpeg">
-            <img src="https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?w=1600&q=80&auto=format&fit=crop" alt="Manufacturing facility interior" loading="lazy">
+            <source srcset="/images/pages/unique/industrial facility.avif" type="image/avif">
+            <img src="/images/pages/unique/industrial facility.avif" alt="A heavy industrial facility interior with steel structures and cranes, representing reliable IT support and network consultancy for manufacturers" loading="lazy">
           </picture>
         </div>
         <div class="industry-banner__overlay" aria-hidden="true"></div>
@@ -406,7 +417,7 @@
       }
     ];
     </script>
-    <div data-cms="testimonials" data-title="What our client says"></div>
+    <div data-cms="testimonials" data-title="What our client says" class="mb-lg-100"></div>
 
     <!-- CTA -->
     <section class="industry-cta animate-fade-up" aria-label="Call to action">
@@ -430,18 +441,35 @@
         <a href="../contact" class="nd-faq__cta">Contact us</a>
       </div>
       <div class="nd-faq__right">
-        <button class="nd-faq__item is-open"><span>Why is network consultancy important for manufacturing companies?</span><strong>−</strong></button>
-        <div class="nd-faq__panel">Network consultancy helps manufacturing companies build more reliable and efficient IT systems. It improves connectivity, supports secure operations, reduces downtime and helps keep production processes running smoothly.</div>
 
-        <button class="nd-faq__item"><span>How can IT support improve manufacturing productivity?</span><strong>+</strong></button>
-        <div class="nd-faq__panel" hidden>By reducing disruptions, improving system visibility, and keeping production, office, and warehouse networks aligned, IT support helps teams work faster and with fewer interruptions.</div>
+        <h3 class="nd-faq__item is-open">
+          <span>Why is network consultancy important for manufacturing companies?</span>
+          <strong>−</strong>
+        </h3>
+        <p class="nd-faq__panel">
+          Network consultancy helps manufacturing companies build more reliable and efficient IT systems. It improves connectivity, supports secure operations, reduces downtime and helps keep production processes running smoothly.
+        </p>
 
-        <button class="nd-faq__item"><span>What services are included in manufacturing IT support?</span><strong>+</strong></button>
-        <div class="nd-faq__panel" hidden>We provide network planning, system monitoring, security support, and infrastructure improvements tailored to manufacturing environments.</div>
+        <h3 class="nd-faq__item">
+          <span>How can IT support improve manufacturing productivity?</span>
+          <strong>+</strong>
+        </h3>
+        <p class="nd-faq__panel" hidden>
+          IT support helps keep systems stable and available when needed. It allows technical issues to be resolved quickly, protects important business data and helps reduce interruptions that can affect production and delivery schedules.
+        </p>
+
+        <h3 class="nd-faq__item">
+          <span>What services are included in manufacturing IT support?</span>
+          <strong>+</strong>
+        </h3>
+        <p class="nd-faq__panel" hidden>
+          Manufacturing IT support usually includes network management, cybersecurity, system monitoring, cloud services, regular maintenance, backup and recovery support, and technical assistance to keep daily operations running without disruption.
+        </p>
+
       </div>
     </section>
 
-    <div id="site-contact"></div>
+    
     <script src="/js/form-source-tracking.js"></script>
     <script src="/js/contact.js"></script>
 
@@ -451,6 +479,7 @@
   <script src="/js/footer.js"></script>
   <script src="/js/cms.js" defer></script>
   <script src="/js/animations.js" defer></script>
+  <script src="/js/industry-section-order.js" defer></script>
   <script src="/js/global.js" defer></script>
   <script src="/js/accessibility.js" defer></script>
   <script src="/js/search-index.js" defer></script>

@@ -39,12 +39,21 @@ export default async function handler(request, response) {
 <link rel="apple-touch-icon" sizes="180x180" href="/images/misc/favicon-180.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="${canonical}">
+${isStaging ? '<meta name="robots" content="noindex, nofollow">' : ''}
 <meta property="og:type" content="article">
+<meta property="og:locale" content="en_GB">
 <meta property="og:url" content="${canonical}">
 <meta property="og:title" content="${escapeHtml(revision.seo_title)}">
 <meta property="og:description" content="${escapeHtml(revision.seo_description)}">
 <meta property="og:site_name" content="Network Consultancy">
 <meta property="og:image" content="${escapeHtml(revision.featured_image_url)}">
+<meta property="og:image:alt" content="${escapeHtml(revision.featured_image_alt || revision.seo_title)}">
+${revision.published_at ? `<meta property="article:published_time" content="${new Date(revision.published_at).toISOString()}">` : ''}
+${revision.updated_at ? `<meta property="article:modified_time" content="${new Date(revision.updated_at).toISOString()}">` : ''}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${escapeHtml(revision.seo_title)}">
+<meta name="twitter:description" content="${escapeHtml(revision.seo_description)}">
+<meta name="twitter:image" content="${escapeHtml(revision.featured_image_url)}">
 <title>${escapeHtml(revision.seo_title)}</title>
 <meta name="description" content="${escapeHtml(revision.seo_description)}">
 ${schemaMarkup}
@@ -56,7 +65,7 @@ ${schemaMarkup}
 <script src="/js/schema.js" defer></script>
 <link rel="stylesheet" href="/css/animations.css">
 <link rel="stylesheet" href="/css/accessibility.css">
-<style>${isStaging ? '.cms-public-note{padding:10px 20px;background:#fff2cf;color:#584200;text-align:center;font-weight:600;font-family:"Google Sans Flex",sans-serif}' : ''}</style>
+<style>${isStaging ? '.cms-public-note{padding:10px 20px;background:#fff2cf;color:#584200;text-align:center;font-weight:600;font-family:"Google Sans Flex",sans-serif}' : ''}.blog-main h4,.blog-main h5,.blog-main h6{font-size:20px;font-weight:600;color:var(--dark);margin:26px 0 12px;line-height:1.3}.blog-main a.article-cta{display:inline-flex;align-items:center;justify-content:center;margin:8px 0;padding:12px 20px;border-radius:4px;background:var(--blue);color:#fff;font-weight:700;text-decoration:none}</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -70,7 +79,7 @@ ${previewBanner}
       <article class="blog-main">
         <div class="blog-main__hero">
           <picture>
-            <img src="${escapeHtml(revision.featured_image_url)}" alt="${escapeHtml(revision.featured_image_alt)}" loading="eager">
+            <img src="${escapeHtml(revision.featured_image_url)}" alt="${escapeHtml(revision.featured_image_alt)}" loading="eager" data-image-fallback>
           </picture>
         </div>
         <p class="blog-main__meta"><span>${escapeHtml(date)}</span>${revision.category ? `<span>Category: ${escapeHtml(revision.category)}</span>` : ''}</p>
@@ -94,7 +103,6 @@ ${previewBanner}
     </div>
   </div>
 </section>
-<div id="site-contact"></div>
 <script src="/js/form-source-tracking.js"></script>
 <script src="/js/contact.js"></script>
 </main>
@@ -106,6 +114,7 @@ ${previewBanner}
 <script src="/js/search-index.js" defer></script>
 <script src="/js/blog-cms.js" defer></script>
 <script src="/js/search.js" defer></script>
+<script>document.querySelectorAll('[data-image-fallback]').forEach((image) => image.addEventListener('error', () => { if (!image.dataset.fallbackApplied) { image.dataset.fallbackApplied = 'true'; image.src = '/images/pages/network-abstract.jpg'; } }));</script>
 </body>
 </html>`);
   } catch (error) {

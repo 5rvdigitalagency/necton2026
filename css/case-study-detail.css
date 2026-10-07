@@ -1,0 +1,117 @@
+.csd-copy {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.csd-copy > .csd-section-block {
+  min-width: 0;
+  border: 1px solid var(--gray-mid);
+  border-radius: 8px;
+  padding: 32px;
+  background: #fff;
+}
+
+.csd-copy > .csd-section-block:first-child {
+  grid-column: 1 / -1;
+  background: var(--gray-bg);
+}
+
+.csd-copy .csd-section-title {
+  margin: 0 0 18px;
+  font-size: 36px;
+  line-height: 1.12;
+}
+
+.csd-copy > .csd-section-block:nth-child(2),
+.csd-copy > .csd-section-block:nth-child(3) {
+  border-top: 4px solid var(--blue);
+}
+
+.csd-copy > .csd-section-block:nth-child(4),
+.csd-copy > .csd-section-block:nth-child(5) {
+  border-top: 4px solid var(--blue);
+  background: #f8fbfd;
+}
+
+.csd-copy .csd-section-block p:last-child,
+.csd-copy .csd-section-block ul:last-child {
+  margin-bottom: 0;
+}
+
+.csd-copy .csd-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0 0;
+}
+
+.csd-copy .csd-metric {
+  padding: 18px;
+  border-left: 4px solid var(--blue);
+  background: #f5f9fc;
+}
+
+.csd-copy .csd-metric strong {
+  display: block;
+  color: var(--navy);
+  font-family: 'Roboto Condensed', Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.csd-copy .csd-metric span {
+  display: block;
+  margin-top: 5px;
+  color: var(--sub);
+  font-family: Barlow, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.csd-copy .csd-section-block ul {
+  margin: 0;
+  padding-left: 24px;
+  list-style: disc;
+}
+
+.csd-copy > .csd-section-block:nth-last-child(-n + 2) .csd-section-title {
+  padding-left: 24px;
+}
+
+.csd-copy > .csd-section-block:nth-last-child(-n + 2) li {
+  position: relative;
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+.csd-copy > .csd-section-block:nth-last-child(-n + 2) li::marker {
+  color: var(--blue);
+}
+
+@media (max-width: 768px) {
+  .csd-copy {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .csd-copy > .csd-section-block:first-child {
+    grid-column: auto;
+  }
+
+  .csd-copy > .csd-section-block {
+    padding: 24px 20px;
+  }
+
+  .csd-copy .csd-section-title {
+    font-size: 30px;
+  }
+
+  .csd-copy > .csd-section-block:nth-last-child(-n + 2) .csd-section-title {
+    padding-left: 18px;
+  }
+
+  .csd-copy .csd-metrics {
+    grid-template-columns: 1fr;
+  }
+}

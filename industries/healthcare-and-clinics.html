@@ -39,6 +39,7 @@
 
   <style>
     body.industry-detail-page #main > section + section { margin-top: 40px !important; }
+    main .nd-faq { margin-bottom: 100px; }
     body.industry-detail-page #main > #contact { margin-top: 40px !important; }
   </style>
 
@@ -64,8 +65,10 @@
     .svl-overview__title { margin: 0 0 14px; max-width: 980px; }
     .svl-overview__lead { max-width: 1080px; margin-bottom: 22px; }
     .svl-overview__inner { display: grid; grid-template-columns: minmax(0, 386px) minmax(0, 1fr); gap: 56px; align-items: start; background: #fff; border: 1px solid #353535; border-radius: 30px; padding: 40px; }
-    .svl-overview__list { display: flex; flex-direction: column; gap: 36px; overflow-y: auto; max-height: 620px; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; }
-    .svl-overview__list::-webkit-scrollbar { display: none; }
+    .svl-overview__list { display: flex; flex-direction: column; gap: 36px; overflow-y: scroll; max-height: 620px; scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--blue) #e5e9ee; scrollbar-gutter: stable; }
+    .svl-overview__list::-webkit-scrollbar { width: 10px; }
+    .svl-overview__list::-webkit-scrollbar-track { background: #e5e9ee; border-radius: 10px; }
+    .svl-overview__list::-webkit-scrollbar-thumb { background: var(--blue); border: 2px solid #e5e9ee; border-radius: 10px; }
     .svl-overview__list-item { appearance: none; background: transparent; border: 0; width: 100%; text-align: left; cursor: pointer; padding-bottom: 24px; border-bottom: 1px solid #353535; color: #585151; font-size: 28px; font-weight: 700; line-height: 1.25; transition: color .2s ease-out, background .25s ease-out, padding .25s ease-out; }
     .svl-overview__list-item:hover { color: var(--blue); }
     .svl-overview__list-item--active, .svl-overview__list-item--active:hover { padding: 24px; border-radius: 20px; border-bottom: 0; background: var(--blue); color: #fff; }
@@ -86,7 +89,7 @@
     .biz__left p:last-of-type { margin-bottom: 40px; }
     .biz__nav { display: flex; align-items: center; gap: 16px; }
     .biz__arrow { width: 48px; height: 48px; border-radius: 6px; border: 1px solid #d2d2d2; background: #f0f0f0; color: #464646; display: inline-flex; align-items: center; justify-content: center; font-size: 22px; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
-    .biz__arrow:last-of-type { background: #000; border-color: #000; color: #fff; }
+    /* .biz__arrow:last-of-type { background: #000; border-color: #000; color: #fff; } */
     .biz__arrow:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
     .biz__bar { flex: 1; max-width: 240px; height: 6px; margin-left: 8px; background: #e4e4e4; border-radius: 4px; overflow: hidden; }
     .biz__bar-fill { width: 20%; height: 100%; background: var(--blue); border-radius: 4px; }
@@ -160,105 +163,124 @@
   <main id="main">
 
     <!-- HERO -->
-    <section class="svcs-hero" aria-label="Industries hero">
+    <!-- <section class="svcs-hero" aria-label="Industries hero">
       <div class="svcs-hero__wrap">
         <div class="svcs-hero__content">
           <div class="svcs-hero__text">
             <h1 class="svcs-hero__title animate-fade-up">Healthcare Network Security</h1>
             <p class="svcs-hero__sub animate-fade-up">Network Consultancy delivers secure IT infrastructure for healthcare providers, protecting patient data, supporting compliance, and keeping systems connected.</p>
           </div>
-          <a href="/contact" class="btn-blue svcs-hero__cta animate-fade-up" data-source-cta="industry_health_check">Book Health Check</a>
+          <a href="/contact" class="btn-blue svcs-hero__cta animate-fade-up" data-source-cta="industry_health_check">Discuss Your Requirements</a>
+        </div>
+      </div>
+    </section> -->
+
+        <!-- ===== HERO ===== -->
+    <section class="nc-hero-wrap"  aria-label="Industries hero">
+      <div class="nc-hero">
+        <div class="nc-hero__content">
+          <h1 class="nc-hero__title">Healthcare Network Security</h1>
+          <p class="nc-hero__sub">Network Consultancy delivers secure IT infrastructure for healthcare providers, protecting patient data, supporting compliance, and keeping systems connected.</p>
+          <a href="/contact" class="nc-hero__cta" data-source-cta="service_hero_health_check">Improve Network Resilience</a>
         </div>
       </div>
     </section>
 
-    <!-- TAB OVERVIEW -->
-    <section class="svl-overview animate-fade-up" aria-labelledby="intro-h">
-      <h2 class="heading-xl svl-overview__title" id="intro-h">The Core IT Infrastructure We Build for Healthcare</h2>
-      <div class="body-lg svl-overview__lead">
-        <p>We provide the essential IT frameworks healthcare organisations need to support patient care, enhance clinical operations, and reduce system disruption.</p>
+<!-- TAB OVERVIEW -->
+<section class="svl-overview animate-fade-up" aria-labelledby="intro-h">
+  <h2 class="heading-xl svl-overview__title" id="intro-h">The Core IT Infrastructure We Build for Healthcare</h2>
+
+  <div class="body-lg svl-overview__lead">
+    <p>We provide the essential IT systems healthcare organisations need to support patient care, protect medical data, and keep critical services running without any interruption.</p>
+  </div>
+
+  <div class="svl-overview__inner">
+    <div class="svl-overview__list" role="tablist" aria-label="Healthcare focus areas">
+
+      <!-- Tab 1 -->
+      <h3 role="tab" aria-selected="true"
+        class="svl-overview__list-item svl-overview__list-item--active"
+        data-title="Fast Networks"
+        data-copy="Our team links your departments, medical devices, and main systems together so your staff can share clinical data quickly and securely."
+        data-img="/images/pages/unique/Connected-Clinical-Infrastructure.avif"
+        data-alt="Medical staff reviewing patient data with digital healthcare icons overlaid, illustrating fast and secure clinical networks">
+        Fast Networks
+     </h3>
+
+      <!-- Tab 2 -->
+      <h3 role="tab" aria-selected="false"
+        class="svl-overview__list-item"
+        data-title="Secure Cloud Storage"
+        data-copy="We set up protected cloud environments to host your medical applications and give authorised staff safe remote access."
+        data-img="/images/pages/unique/Secure-Cloud-Medical.avif"
+        data-alt="Secure cloud storage for healthcare applications">
+        Secure Cloud Storage
+     </h3>
+
+      <!-- Tab 3 -->
+      <h3 role="tab" aria-selected="false"
+        class="svl-overview__list-item"
+        data-title="Reliable Data Centres"
+        data-copy="We manage the central systems that power your Electronic Health Records (EHR) and critical clinical software."
+        data-img="/images/pages/unique/EHR -Clinical-Application-Management.avif"
+        data-alt="Reliable data centre systems supporting healthcare EHR and clinical software">
+        Reliable Data Centres
+     </h3>
+
+      <!-- Tab 4 -->
+      <h3 role="tab" aria-selected="false"
+        class="svl-overview__list-item"
+        data-title="Strong Wireless Coverage"
+        data-copy="We install dependable Wi-Fi across hospitals and clinics to keep staff, patients, and medical tools connected."
+        data-img="/images/pages/unique/Hospital-Clinic-Wi-Fi.avif"
+        data-alt="Strong wireless coverage across hospitals and clinics">
+        Strong Wireless Coverage
+     </h3>
+
+      <!-- Tab 5 -->
+      <h3 role="tab" aria-selected="false"
+        class="svl-overview__list-item"
+        data-title="Built-In Cybersecurity"
+        data-copy="Network Consultancy protects confidential patient data from hackers using strict access controls, data encryption, and live monitoring."
+        data-img="/images/pages/unique/Patient-Data-Security.avif"
+        data-alt="Built-in cybersecurity protecting confidential patient data">
+        Built-In Cybersecurity
+     </h3>
+
+      <!-- Tab 6 -->
+      <h3 role="tab" aria-selected="false"
+        class="svl-overview__list-item"
+        data-title="Stable Server Foundations"
+        data-copy="We run the backend systems that keep daily tools like appointment booking and diagnostic apps running smoothly."
+        data-img="/images/pages/unique/backend.avif"
+        data-alt="Stable server foundations supporting healthcare systems">
+        Stable Server Foundations
+     </h3>
+
+    </div><!-- /.svl-overview__list -->
+
+    <div class="svl-overview__feature">
+      <picture>
+        <source id="svl-feature-source"
+          srcset="/images/pages/unique/Connected-Clinical-Infrastructure.avif"
+          type="image/avif">
+
+        <img id="svl-feature-img"
+          src="/images/pages/unique/Connected-Clinical-Infrastructure.avif"
+          alt="Fast healthcare networks connecting departments and medical devices"
+          loading="lazy">
+      </picture>
+
+      <div class="svl-overview__panel" role="tabpanel">
+        <h4 id="svl-overview-title">Fast Networks</h4>
+        <p id="svl-overview-copy">Our team links your departments, medical devices, and main systems together so your staff can share clinical data quickly and securely.</p>
       </div>
-      <div class="svl-overview__inner">
-        <div class="svl-overview__list" role="tablist" aria-label="Healthcare focus areas">
+    </div><!-- /.svl-overview__feature -->
 
-          <!-- Tab 1 -->
-          <button type="button" role="tab" aria-selected="true"
-            class="svl-overview__list-item svl-overview__list-item--active"
-            data-title="Connected Clinical Infrastructure"
-            data-copy="Our team links your departments, medical devices, and main systems together so your staff can share clinical data quickly and securely."
-            data-img="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1440&q=80&auto=format&fit=crop"
-            data-alt="Connected clinical infrastructure — healthcare departments linked securely">
-            Connected Clinical Infrastructure
-          </button>
+  </div><!-- /.svl-overview__inner -->
+</section>
 
-          <!-- Tab 2 -->
-          <button type="button" role="tab" aria-selected="false"
-            class="svl-overview__list-item"
-            data-title="Secure Cloud for Medical Applications"
-            data-copy="We deploy secure cloud environments for medical applications, enabling authorised staff to access systems safely from any location."
-            data-img="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1440&q=80&auto=format&fit=crop"
-            data-alt="Secure cloud environments for medical applications">
-            Secure Cloud for Medical Applications
-          </button>
 
-          <!-- Tab 3 -->
-          <button type="button" role="tab" aria-selected="false"
-            class="svl-overview__list-item"
-            data-title="EHR and Clinical Application Management"
-            data-copy="We manage the core systems that support your Electronic Health Records (EHR) and essential clinical applications, ensuring reliable performance and availability."
-            data-img="https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=1440&q=80&auto=format&fit=crop"
-            data-alt="EHR and clinical application management">
-            EHR and Clinical Application Management
-          </button>
-
-          <!-- Tab 4 -->
-          <button type="button" role="tab" aria-selected="false"
-            class="svl-overview__list-item"
-            data-title="Hospital and Clinic Wi-Fi Networks"
-            data-copy="We install reliable Wi-Fi networks across hospitals and clinics, ensuring staff, patients, and connected medical devices remain securely connected."
-            data-img="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=1440&q=80&auto=format&fit=crop"
-            data-alt="Reliable Wi-Fi across hospitals and clinics">
-            Hospital and Clinic Wi-Fi Networks
-          </button>
-
-          <!-- Tab 5 -->
-          <button type="button" role="tab" aria-selected="false"
-            class="svl-overview__list-item"
-            data-title="Patient Data Security"
-            data-copy="Network consultancy helps protect confidential patient data through strong access controls, data encryption, and continuous monitoring, reducing the risk of unauthorised access and cyber threats."
-            data-img="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1440&q=80&auto=format&fit=crop"
-            data-alt="Patient data security — encryption and access controls">
-            Patient Data Security
-          </button>
-
-          <!-- Tab 6 -->
-          <button type="button" role="tab" aria-selected="false"
-            class="svl-overview__list-item"
-            data-title="Backend System Management"
-            data-copy="We manage the backend systems that support essential services such as appointment scheduling and diagnostic applications, ensuring they run reliably and efficiently."
-            data-img="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1440&q=80&auto=format&fit=crop"
-            data-alt="Backend system management for healthcare services">
-            Backend System Management
-          </button>
-
-        </div><!-- /.svl-overview__list -->
-
-        <div class="svl-overview__feature">
-          <picture>
-            <source id="svl-feature-source" srcset="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1440&q=80&auto=format&fit=crop" type="image/jpeg">
-            <img id="svl-feature-img"
-              src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1440&q=80&auto=format&fit=crop"
-              alt="Connected clinical infrastructure — healthcare departments linked securely"
-              loading="lazy">
-          </picture>
-          <div class="svl-overview__panel" role="tabpanel">
-            <h3 id="svl-overview-title">Connected Clinical Infrastructure</h3>
-            <p id="svl-overview-copy">Our team links your departments, medical devices, and main systems together so your staff can share clinical data quickly and securely.</p>
-          </div>
-        </div><!-- /.svl-overview__feature -->
-
-      </div><!-- /.svl-overview__inner -->
-    </section>
 
     <!-- TAB SCRIPT -->
     <script>
@@ -299,46 +321,54 @@
     })();
     </script>
 
-    <!-- BIZ SLIDER -->
-    <section class="sd-section" aria-labelledby="biz-h">
-      <div class="sd-wrap">
-        <div class="biz" id="biz">
-          <div class="biz__left">
-            <h2 id="biz-h">Resolving Your Healthcare IT Risks and System Downtime</h2>
-            <p>Every healthcare provider needs dependable infrastructure so digital patient records, diagnostics and collaboration tools remain available.</p>
-            <p>We identify the root cause of IT problems and implement structured solutions that reduce recurring incidents and protect operational continuity.</p>
-            <div class="biz__nav">
-              <button class="biz__arrow" id="biz-prev" type="button" aria-label="Previous">&#8592;</button>
-              <button class="biz__arrow" id="biz-next" type="button" aria-label="Next">&#8594;</button>
-              <div class="biz__bar"><div class="biz__bar-fill" id="biz-fill"></div></div>
-            </div>
-          </div>
-          <div class="biz__card">
-            <div>
-              <h3 id="biz-title">Stopping Cyber Threats</h3>
-              <p id="biz-desc">Strong infrastructure protects sensitive healthcare data and limits exposure to cyber risks.</p>
-            </div>
-            <div class="biz__num" id="biz-count">1/5</div>
+
+<!-- BIZ SLIDER -->
+<section class="sd-section" aria-labelledby="biz-h">
+  <div class="sd-wrap">
+    <div class="biz" id="biz">
+
+      <div class="biz__left">
+        <h2 id="biz-h">Resolving Your Healthcare IT Risks and System Downtime</h2>
+
+        <p>Managing healthcare IT is difficult, but we handle the major risks that threaten your daily clinical operations and patient care.</p>
+
+        <div class="biz__nav">
+          <button class="biz__arrow" id="biz-prev" type="button" aria-label="Previous">&#8592;</button>
+          <button class="biz__arrow" id="biz-next" type="button" aria-label="Next">&#8594;</button>
+          <div class="biz__bar">
+            <div class="biz__bar-fill" id="biz-fill"></div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- HOW HEALTHCARE ORGS USE IT -->
+      <div class="biz__card">
+        <div>
+          <h3 id="biz-title">Stopping Cyber Threats</h3>
+          <p id="biz-desc">We deploy tight security to protect private patient files from rising healthcare cyberattacks and data leaks.</p>
+        </div>
+
+        <div class="biz__num" id="biz-count">1/5</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <!-- HEALTHCARE WORKFLOWS -->
     <section class="section animate-fade-up" aria-labelledby="use-h">
-      <h2 class="heading-lg" id="use-h">How Healthcare Organisations Can Use IT Infrastructure</h2>
-      <p class="body-lg industry-text-gap-lg">Modern infrastructure underpins digital workflows, supports secure communication, and enables responsive patient services.</p>
+      <h2 class="heading-lg" id="use-h">Infrastructure That Keeps Patient Care Moving</h2>
+      <p class="body-lg industry-text-gap-lg">Healthcare networks connect the systems clinicians rely on every day, from electronic patient records and diagnostic equipment to secure communication between sites and remote teams.</p>
       <div class="industry-highlight">
         <picture>
           <source srcset="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1600&q=80&auto=format&fit=crop" type="image/jpeg">
-          <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1600&q=80&auto=format&fit=crop" alt="Streamlining healthcare operations through connected infrastructure" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1600&q=80&auto=format&fit=crop" alt="Healthcare team using connected clinical infrastructure" loading="lazy">
         </picture>
         <div class="industry-highlight__overlay" aria-hidden="true"></div>
         <div class="industry-highlight__content">
-          <h3 class="industry-highlight__title">Streamlining Healthcare Operations Through Connected Infrastructure</h3>
+          <h3 class="industry-highlight__title">Secure Systems for Clinical Teams and Patient Services</h3>
           <ul class="industry-highlight__list">
-            <li><strong>Connecting Medical Devices</strong> — Secure IT networks enable monitoring equipment, diagnostic systems, and other clinical devices to share data efficiently across departments, supporting better patient care and operational efficiency.</li>
-            <li><strong>Supporting Cloud-Based Working</strong> — Cloud services allow authorised staff to securely access healthcare systems, share documents, and collaborate more effectively, helping to support flexible working and remote consultations where appropriate.</li>
+            <li><strong>Keeping clinical systems available</strong> — Reliable, monitored connectivity helps authorised staff access patient records, diagnostic results, and medical devices across departments without avoidable disruption.</li>
+            <li><strong>Enabling secure care across locations</strong> — Protected site-to-site and remote access lets clinicians and operational teams collaborate securely while maintaining appropriate controls around sensitive patient information.</li>
           </ul>
         </div>
       </div>
@@ -347,19 +377,34 @@
     <!-- COMMON IT CHALLENGES -->
     <section class="section animate-fade-up" aria-labelledby="challenge-h">
       <h2 class="heading-lg" id="challenge-h">Common IT Infrastructure Challenges in Healthcare and How to Address Them</h2>
-      <p class="body-lg industry-text-gap-md">Healthcare organisations face operational and security pressures every day. Strong infrastructure helps teams maintain continuity while improving patient service delivery.</p>
-      <div class="industry-challenge">
-        <div>
-          <h3 class="heading-md">Network outages</h3>
-          <p class="industry-challenge__copy">Downtime interrupts consultations and access to critical records. Redundant architecture and proactive monitoring reduce outage frequency and impact.</p>
-        </div>
-        <div class="industry-challenge__visual">
-          <picture>
-            <source srcset="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1200&q=80&auto=format&fit=crop" type="image/jpeg">
-            <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1200&q=80&auto=format&fit=crop" alt="Healthcare network challenges and solutions" loading="lazy">
-          </picture>
-        </div>
-      </div>
+      <p class="body-lg industry-text-gap-md">Healthcare organisations rely on secure, reliable IT systems to support patient care. When infrastructure issues arise, they can affect clinical services, staff productivity and access to important information</p>
+<div class="industry-challenge">
+  <div>
+    <h3 class="heading-md">Network outages</h3>
+    <p class="industry-challenge__copy">
+      <strong>Problem:</strong> Network failures can interrupt access to patient records, clinical systems and other essential healthcare services.
+    </p>
+    <p class="industry-challenge__copy">
+      <strong>Solution:</strong> Build resilience with network redundancy, failover systems and continuous monitoring to reduce the risk of unexpected downtime.
+    </p>
+    <p class="industry-challenge__copy">
+      <strong>Guidance:</strong> Review your IT infrastructure regularly to identify potential issues before they affect day-to-day operations.
+    </p>
+  </div>
+
+  <div class="industry-challenge__visual">
+    <picture>
+      <source srcset="/images/pages/unique/Common-IT-Infrastructure-Challenges.avif" type="image/avif">
+      <img src="/images/pages/unique/Common-IT-Infrastructure-Challenges.avif"
+        alt="Medical team reviewing an X-ray and scan results together around a conference table with laptops and notes"
+        loading="lazy">
+    </picture>
+  </div>
+</div>
+
+</div>
+
+
     </section>
 
     <!-- HEALTHCARE BANNER — 3-slide with Unsplash backgrounds -->
@@ -368,8 +413,8 @@
 
         <div class="hc-banner__bg">
           <img id="hc-banner-bg-img"
-            src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1600&q=80&auto=format&fit=crop"
-            alt="Healthcare IT transformation"
+            src="/images/pages/unique/Next-Generation.avif"
+            alt="A hospital ward with empty beds and curtains, representing next-generation healthcare IT infrastructure transformation across clinical settings."
             loading="lazy">
         </div>
         <div class="hc-banner__overlay"></div>
@@ -393,23 +438,28 @@
     <script>
     (function hcBannerSlides() {
       'use strict';
-      var slides = [
-        {
-          title: 'Next-Generation Healthcare IT Infrastructure Transformation',
-          text:  'Modern healthcare organisations need infrastructure that supports digital records, advanced diagnostics and secure collaboration. We help integrate cloud-enabled architecture, improve cybersecurity, and strengthen system resilience across clinical and operational teams.',
-          bg:    'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1600&q=80&auto=format&fit=crop'
-        },
-        {
-          title: 'Cybersecurity Risks',
-          text:  'Healthcare organisations are frequent targets for cyberattacks due to the sensitive patient data they store. We implement firewalls, endpoint security, data encryption, and multi-factor authentication to strengthen protection against cyber threats, and provide regular cybersecurity training to help staff recognise threats and follow security best practices.',
-          bg:    'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1600&q=80&auto=format&fit=crop'
-        },
-        {
-          title: 'Ageing IT Systems',
-          text:  'Outdated hardware and software can impact performance, increase maintenance costs, and create compatibility issues. We modernise infrastructure through planned upgrades and system updates to improve reliability and efficiency, and develop a long-term IT strategy that supports future growth while minimising disruption to healthcare services.',
-          bg:    'https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=1600&q=80&auto=format&fit=crop'
-        }
-      ];
+var slides = [
+  {
+    title: 'Next-Generation Healthcare IT Infrastructure Transformation',
+    text: 'Healthcare organisations face security risks, unreliable systems and growing demands for accessible patient data. Secure cloud, network and data systems can improve reliability, enable secure access and support connected healthcare services. Building scalable IT infrastructure with strong cybersecurity, compliance controls and reliable systems helps organisations meet current needs while preparing for future growth.',
+    bg: '/images/pages/unique/Next-Generation.avif',
+    alt: 'A hospital ward with empty beds and curtains, representing next-generation healthcare IT infrastructure transformation across clinical settings'
+  },
+  {
+    title: 'Cybersecurity Risks',
+    text: 'Healthcare organisations are frequent targets for cyberattacks because they hold sensitive patient information. Protecting systems with firewalls, endpoint security, data encryption and multi-factor authentication helps safeguard this information and reduce security risks. Regular cybersecurity training should also be provided so staff can recognise potential threats and follow good security practices.',
+    bg: '/images/pages/Cybersecurity-Risks.avif',
+      alt: 'IT analyst monitoring code and global network maps across several screens in a security operations centre'
+  },
+  {
+    title: 'Ageing IT Systems',
+    text: 'Older hardware and software can reduce performance, increase maintenance costs and create compatibility issues. Replacing outdated equipment and updating systems in a planned and manageable way helps maintain reliable IT infrastructure. A long-term IT strategy should also support future growth while minimising disruption to essential healthcare services.',
+    bg: '/images/pages/unique/Ageing.avif',
+      alt: 'Surgeons operating under blue lighting, highlighting the urgent need to modernise ageing IT systems in healthcare environments'
+  }
+];
+
+
       var titleEl = document.getElementById('why-h');
       var textEl  = document.getElementById('hc-banner-text');
       var bgImg   = document.getElementById('hc-banner-bg-img');
@@ -473,7 +523,7 @@
         avatar: '/images/misc/avatars/testimonial-avatar-head-of-operations.jpg'
       },
       {
-        quote: 'Our network has shifted from reactive fixes to proactive monitoring, and the new controls around access have improved stability and confidence across all service points.',
+        quote: 'Our partnership with the network consultancy team transformed our infrastructure. System reliability improved significantly, and staff now experience seamless access to patient records..',
         name: 'SARAH MALIK',
         role: 'Operations Director — Manchester',
         avatar: '/images/misc/avatars/testimonial-avatar-f1.jpg'
@@ -486,7 +536,7 @@
       }
     ];
     </script>
-    <div data-cms="testimonials" data-title="What our client says"></div>
+    <div data-cms="testimonials" data-title="What our client says" class="mb-lg-100" ></div>
 
     <!-- CTA -->
     <section class="industry-cta animate-fade-up" aria-label="Call to action">
@@ -495,9 +545,9 @@
           <span class="industry-cta__chip">Network Consultancy</span><span class="industry-cta__chip">Network Support</span><span class="industry-cta__chip">Managed Network Support</span><span class="industry-cta__chip">Managed Wireless LAN</span><span class="industry-cta__chip">Network Installations</span><span class="industry-cta__chip">Network Design &amp; Deployment</span><span class="industry-cta__chip">Firewall &amp; Network Security</span><span class="industry-cta__chip">Remote Access &amp; VPN</span>
         </div>
         <div class="industry-cta__card">
-          <h2 class="industry-cta__title">Ready to Strengthen Your Network</h2>
-          <p class="industry-cta__text">Speak with our consultants to review current network risk, performance bottlenecks, and practical next steps for your organisation.</p>
-          <a href="/contact" class="btn-dark">Book Your Assessment</a>
+          <h2 class="industry-cta__title">Keep Your Healthcare Systems Running Reliably</h2>
+          <p class="industry-cta__text">Protect patient information, support clinical services, and reduce disruption with a secure IT infrastructure built to keep your healthcare organization connected and operating efficiently.</p>
+          <a href="/contact" class="btn-dark">Talk to a healthcare specialist.</a>
         </div>
       </div>
     </section>
@@ -509,19 +559,38 @@
         <p>Still have questions? Get connected to our support team.</p>
         <a href="../contact" class="nd-faq__cta">Contact us</a>
       </div>
-      <div class="nd-faq__right">
-        <button class="nd-faq__item is-open"><span>Why is network consultancy important for healthcare organisations?</span><strong>−</strong></button>
-        <div class="nd-faq__panel">Network consultancy helps healthcare organisations build secure, reliable IT infrastructures that support patient care and day-to-day operations. It can improve systems performance, streamline security measures, reduce downtime and help organisations meet healthcare compliance requirements.</div>
+<div class="nd-faq__right">
 
-        <button class="nd-faq__item"><span>How can healthcare organisations reduce the risk of cyberattacks?</span><strong>+</strong></button>
-        <div class="nd-faq__panel" hidden>We deploy layered controls including network segmentation, endpoint protection, secure access policies and real-time monitoring to reduce the attack surface.</div>
+  <h3 class="nd-faq__item is-open">
+    <span>Why is network consultancy important for healthcare organisations?</span>
+    <strong>−</strong>
+  </h3>
+  <p class="nd-faq__panel">
+    Network consultancy helps healthcare organisations build secure, reliable IT infrastructures that support patient care and day-to-day operations. It can improve systems performance, streamline security measures, reduce downtime and help organisations meet healthcare compliance requirements.
+  </p>
 
-        <button class="nd-faq__item"><span>What are key features of resilient healthcare IT infrastructure?</span><strong>+</strong></button>
-        <div class="nd-faq__panel" hidden>Resilient healthcare environments rely on high-availability networking, secure data handling, redundancy planning, rapid failover, and continuous monitoring.</div>
-      </div>
+  <h3 class="nd-faq__item">
+    <span>How can healthcare organisations reduce the risk of cyberattacks?</span>
+    <strong>+</strong>
+  </h3>
+  <p class="nd-faq__panel" hidden>
+    Healthcare organisations can strengthen their security by using firewalls, data encryption, multi-factor authentication, regular software updates and continuous system monitoring. Ongoing cybersecurity training also helps staff recognise and respond to potential threats.
+  </p>
+
+  <h3 class="nd-faq__item">
+    <span>What are the benefits of modernising healthcare IT infrastructure?</span>
+    <strong>+</strong>
+  </h3>
+  <p class="nd-faq__panel" hidden>
+    Modern IT infrastructure improves system reliability, strengthens security and makes it easier to support growing healthcare services. It also supports electronic health records, cloud-based applications, connected medical devices and remote healthcare services while providing a better experience for both staff and patients.
+  </p>
+
+</div>
+
+
     </section>
 
-    <div id="site-contact"></div>
+    
     <script src="/js/form-source-tracking.js"></script>
     <script src="/js/contact.js"></script>
 
@@ -531,6 +600,7 @@
   <script src="/js/footer.js"></script>
   <script src="/js/cms.js" defer></script>
   <script src="/js/animations.js" defer></script>
+  <script src="/js/industry-section-order.js" defer></script>
   <script src="/js/global.js" defer></script>
   <script src="/js/accessibility.js" defer></script>
   <script src="/js/search-index.js" defer></script>
@@ -545,28 +615,29 @@
     var desc  = document.getElementById('biz-desc');
     var count = document.getElementById('biz-count');
     var fill  = document.getElementById('biz-fill');
-    var slides = [
-      {
-        title: 'Stopping Cyber Threats',
-        desc:  'Strong infrastructure protects sensitive healthcare data and limits exposure to cyber risks.'
-      },
-      {
-        title: 'Preventing System Downtime',
-        desc:  'Redundant architecture and proactive monitoring keep patient records, diagnostics and clinical tools available when they are needed.'
-      },
-      {
-        title: 'Replacing Outdated Systems',
-        desc:  'We replace ageing hardware and modernise infrastructure, ensuring your organisation can leverage the latest medical technologies without performance limitations or reliability issues.'
-      },
-      {
-        title: 'Maximising Tight Budgets',
-        desc:  'We help healthcare organisations plan technology investments strategically, enabling access to modern solutions while making the most of available IT budgets.'
-      },
-      {
-        title: 'Keeping Compliance Current',
-        desc:  'We manage regular system updates, security checks, and maintenance to help ensure your organisation remains compliant with healthcare regulations and industry standards.'
-      }
-    ];
+var slides = [
+  {
+    title: 'Stopping Cyber Threats',
+    desc: 'We deploy tight security to protect private patient files from rising healthcare cyberattacks and data leaks.'
+  },
+  {
+    title: 'Replacing Old Systems',
+    desc: 'We upgrade slow, outdated hardware so you can use modern medical technology without performance lag.'
+  },
+  {
+    title: 'Keeping Compliance Current',
+    desc: 'We handle all regular system updates and security checks to keep you aligned with strict healthcare regulations.'
+  },
+  {
+    title: 'Preventing System Failures',
+    desc: 'We eliminate unexpected tech downtime so your doctors and nurses always have instant access to patient records.'
+  },
+  {
+    title: 'Maximising Tight Budgets',
+    desc: 'We help you plan long-term technology investments carefully, getting modern tools without overspending your IT budget.'
+  }
+];
+
     var i = 0, total = slides.length;
     function render() {
       title.style.opacity = '0';

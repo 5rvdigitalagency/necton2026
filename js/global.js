@@ -65,6 +65,14 @@
     }
   });
 
+  (function moveServiceBusinessImpact() {
+    var main = document.getElementById('main');
+    var hero = main && main.querySelector('.nc-hero-wrap');
+    var businessImpact = main && main.querySelector('section[aria-labelledby="biz-h"], section[aria-labelledby="biz-lead-h"]');
+    if (!main || !hero || !businessImpact || hero.nextElementSibling === businessImpact) return;
+    hero.insertAdjacentElement('afterend', businessImpact);
+  }());
+
   (function initTrustedSlider() {
     var trusted = document.querySelector('.nd-trusted');
     if (!trusted) return;
@@ -84,6 +92,10 @@
     var isAnimating = false;
     var transitionMs = 420;
     var isDesktop = desktopQuery.matches;
+    var autoAdvanceId = null;
+    var autoAdvanceDelay = 5000;
+    var isInViewport = false;
+    var reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     function extractTranslateX(node) {
       var transform = window.getComputedStyle(node).transform;
@@ -112,6 +124,7 @@
     function setDesktopState(enabled) {
       isDesktop = enabled;
       if (!isDesktop) {
+        stopAutoAdvance();
         isAnimating = false;
         prevBtn.disabled = true;
         nextBtn.disabled = true;
@@ -154,6 +167,22 @@
         }
         dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('.nd-trusted__dot'));
       }
+    }
+
+    function stopAutoAdvance() {
+      if (autoAdvanceId === null) return;
+      window.clearInterval(autoAdvanceId);
+      autoAdvanceId = null;
+    }
+
+    function startAutoAdvance() {
+      if (!isDesktop || reduceMotionQuery.matches || document.hidden || !isInViewport || autoAdvanceId !== null) return;
+      autoAdvanceId = window.setInterval(onNext, autoAdvanceDelay);
+    }
+
+    function restartAutoAdvance() {
+      stopAutoAdvance();
+      startAutoAdvance();
     }
 
     function onNext() {
@@ -233,8 +262,8 @@
       }
     }
 
-    prevBtn.addEventListener('click', onPrev);
-    nextBtn.addEventListener('click', onNext);
+    prevBtn.addEventListener('click', function () { onPrev(); restartAutoAdvance(); });
+    nextBtn.addEventListener('click', function () { onNext(); restartAutoAdvance(); });
 
     trusted.addEventListener('keydown', function (event) {
       if (!isDesktop) return;
@@ -249,7 +278,28 @@
     });
 
     window.addEventListener('resize', configure);
+    trusted.addEventListener('focusin', stopAutoAdvance);
+    trusted.addEventListener('focusout', function () {
+      window.setTimeout(function () {
+        if (!trusted.contains(document.activeElement)) startAutoAdvance();
+      }, 0);
+    });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stopAutoAdvance();
+      else startAutoAdvance();
+    });
+    reduceMotionQuery.addEventListener('change', restartAutoAdvance);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        isInViewport = entries[0].isIntersecting;
+        if (isInViewport) startAutoAdvance();
+        else stopAutoAdvance();
+      }, { threshold: 0.35 }).observe(trusted);
+    } else {
+      isInViewport = true;
+    }
     configure();
+    startAutoAdvance();
   }());
 
   /* ── Contact Form ──────────────────────────────────────────── */
@@ -438,4 +488,160 @@
 
   setupCaseStudyFloatingServices();
 
+  function setFamilyCtas() {
+    var path = window.location.pathname.replace(/index\.html$/, '').replace(/\/$/, '');
+    var family;
+    var selectors = {
+      blog: '.page-hero__cta-btn, .svc-cta-band__btn, .blog-cta a.btn-blue, a[data-source-cta]',
+      service: '.page-hero__cta-btn, .svcs-hero__cta, .content-cta__button, .svc-cta-band__btn, .acct__cta, a[data-source-cta]',
+      solution: '.page-hero__cta-btn, .mnhc-hero__btn, .nhc-hero__btn, .mcsr-hero__btn, .csr-hero__btn, .maif-hero__btn, .aif-hero__btn, .sol-hero-landing__btn, .content-cta__button, .nhc-cta-band__card a, .csr-cta-band__card a, .aif-cta-band__card a, a[data-source-cta]',
+      industry: '.svcs-hero__cta, .industry-cta__card a, a[data-source-cta]'
+    };
+
+    if (path.indexOf('/resources/blogs') === 0) family = 'blog';
+    else if (path.indexOf('/services') === 0) family = 'service';
+    else if (path.indexOf('/solutions') === 0) family = 'solution';
+    else if (path.indexOf('/industries') === 0) family = 'industry';
+    else return;
+
+    var labels = {
+      blog: 'Follow Us for More Insights',
+      service: 'Discuss Your Service Needs',
+      solution: 'Explore Solution Options',
+      industry: 'Discuss Your Industry Needs'
+    };
+    var links = document.querySelectorAll('#main ' + selectors[family]);
+    Array.prototype.forEach.call(links, function (link) {
+      link.textContent = labels[family];
+      if (family === 'blog') link.setAttribute('href', '/resources/blogs/');
+    });
+  }
+
+  setFamilyCtas();
+  window.addEventListener('load', setFamilyCtas);
+
 })();
+
+
+
+  /* Key Solution Areas — mobile accordion (panel follows active tab, caret, progress) */
+  (function ksaMobile() {
+    var ksa = document.getElementById('ksa');
+    if (!ksa) return;
+    var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
+    var tabsWrap = ksa.querySelector('.ksa__tabs');
+    var panel = ksa.querySelector('.ksa__panel');
+    var card = ksa.querySelector('.ksa__panel-card');
+    if (!tabs.length || !tabsWrap || !panel || !card) return;
+    tabs.forEach(function (t) {
+      var c = document.createElement('span');
+      c.className = 'ksa__caret';
+      c.setAttribute('aria-hidden', 'true');
+      c.textContent = '\u2304';
+      t.appendChild(c);
+    });
+    var bar = document.createElement('div');
+    bar.className = 'ksa__bar';
+    bar.setAttribute('aria-hidden', 'true');
+    var fill = document.createElement('span');
+    bar.appendChild(fill);
+    card.appendChild(bar);
+    var mq = window.matchMedia('(max-width: 768px)');
+    function sync() {
+      var i = 0;
+      tabs.forEach(function (t, j) { if (t.classList.contains('active')) i = j; });
+      tabs.forEach(function (t, j) {
+        var c = t.querySelector('.ksa__caret');
+        if (c) c.textContent = j === i ? '^' : '\u2304';
+      });
+      fill.style.width = (((i + 1) / tabs.length) * 100) + '%';
+      if (mq.matches) {
+        tabs[i].insertAdjacentElement('afterend', panel);
+      } else if (panel.parentElement === tabsWrap) {
+        ksa.appendChild(panel);
+      }
+    }
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () { window.setTimeout(sync, 0); });
+    });
+    if (mq.addEventListener) { mq.addEventListener('change', sync); } else { mq.addListener(sync); }
+    sync();
+  })();
+
+
+
+(function nhcOverviewTabs() {
+
+  var tabs = Array.prototype.slice.call(
+    document.querySelectorAll('.ksa__tab')
+  );
+
+  var panel = document.querySelector('.ksa__panel-card');
+  var image = document.getElementById('ksa-img');
+
+  if (tabs.length === 0 || panel === null || image === null) return;
+
+  var title = panel.querySelector('h4');
+  var copy = panel.querySelector('p');
+
+  tabs.forEach(function (tab) {
+
+    tab.addEventListener('click', function () {
+
+      if (tab.classList.contains('ksa__tab--active')) {
+        return;
+      }
+
+      /* Remove active state */
+      tabs.forEach(function (t) {
+        t.classList.remove('ksa__tab--active');
+        t.setAttribute('aria-selected', 'false');
+      });
+
+      /* Add active state */
+      tab.classList.add('ksa__tab--active');
+      tab.setAttribute('aria-selected', 'true');
+
+      /* Start transition */
+      panel.classList.add('is-switching');
+
+      setTimeout(function () {
+
+        /* Change title */
+        title.textContent = tab.getAttribute('data-title');
+
+        /* Change description */
+        copy.textContent = tab.getAttribute('data-copy');
+
+        /* Change image */
+        var newImage = tab.getAttribute('data-image');
+
+        if (newImage) {
+          image.src = newImage;
+          image.alt = tab.getAttribute('data-title') || '';
+        }
+
+        /* End transition */
+        panel.classList.remove('is-switching');
+
+      }, 250);
+
+    });
+
+  });
+
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+

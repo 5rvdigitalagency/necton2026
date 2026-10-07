@@ -16,7 +16,7 @@ Outer HTML:
           <div class="csd-pill-col"><span class="csd-pill">service 1</span><span class="csd-pill">service 3</span></div>
         </div>
         <div class="csd-cta-card">
-          <h3>Modernise your global network infrastructure.</h3>
+          <h2>Modernise your global network infrastructure.</h2>
           <p>Get in touch to discuss how a cloud-based network model could simplify security across your locations.</p>
           <a href="/contact.html" data-source-cta="case_study_detail_assessment">Book Your Network Assessment</a>
         </div>

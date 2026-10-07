@@ -1,0 +1,55 @@
+name: Static site checks
+
+on:
+  workflow_call:
+  pull_request:
+    branches:
+      - staging
+      - main
+  push:
+    branches:
+      - staging
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Validate static site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Reject merge conflict markers
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RInE '^(<<<<<<<|=======|>>>>>>>)' \
+            --include='*.html' --include='*.css' --include='*.js' .; then
+            echo 'Merge conflict markers found.' >&2
+            exit 1
+          fi
+
+      - name: Check JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r file; do
+            node --check "$file"
+          done < <(find js api scripts -type f -name '*.js' -print 2>/dev/null | sort)
+
+      - name: Check required site files
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f index.html
+          test -f vercel.json
+          test -f css/global.css
+          test -f js/global.js

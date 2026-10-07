@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Roboto+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/admin/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
   <script defer src="/admin/app.js"></script>
 </head>
 <body>
@@ -45,6 +46,14 @@
       </section>
 
       <section class="cms-workspace" id="cms-workspace" hidden>
+        <section class="cms-onboarding" aria-labelledby="cms-onboarding-title">
+          <div><p class="cms-eyebrow">Getting started</p><h2 id="cms-onboarding-title">How publishing works</h2><p>Create a new article or open an existing one. Changes are always saved as a draft until a reviewer publishes them.</p></div>
+          <ol>
+            <li><strong>Write</strong><span>Add the article details, choose a category, and use the editor to format text, links, images, and CTA buttons.</span></li>
+            <li><strong>Review</strong><span>Save the draft and use Preview to check the article before releasing it.</span></li>
+            <li><strong>Publish</strong><span>Reviewers can publish the completed draft to the live blog when it is ready.</span></li>
+          </ol>
+        </section>
         <div class="cms-stats" aria-label="Blog statistics">
           <article><span id="published-count">0</span><small>Published</small></article>
           <article><span id="draft-count">0</span><small>Drafts</small></article>
@@ -58,32 +67,42 @@
             <div><p class="cms-eyebrow">Content library</p><h2 id="articles-heading">Articles</h2></div>
             <input id="post-search" type="search" placeholder="Search articles" autocomplete="off">
           </div>
-          <div class="cms-table-wrap">
-            <table>
-              <thead><tr><th>Article</th><th>Status</th><th>Updated</th><th></th></tr></thead>
-              <tbody id="post-list"></tbody>
-            </table>
-          </div>
+          <div class="cms-article-list" id="post-list" aria-live="polite"></div>
         </section>
 
         <section class="cms-panel cms-editor" id="editor-panel" hidden aria-labelledby="editor-heading">
-          <div class="cms-panel__head"><div><p class="cms-eyebrow">Article editor</p><h2 id="editor-heading">New article</h2><p class="cms-editor__state" id="editor-state">Complete the fields, then save the draft.</p></div><span id="save-status" aria-live="polite"></span></div>
+          <div class="cms-panel__head"><div><p class="cms-eyebrow">Article editor</p><h2 id="editor-heading">New article</h2><p class="cms-editor__state" id="editor-state">Complete the fields, then save the draft.</p></div><div class="cms-editor__controls"><span id="save-status" aria-live="polite"></span><button class="cms-icon-button" id="close-editor-button" type="button" aria-label="Close article editor" title="Close editor"><i data-lucide="x"></i></button></div></div>
           <form id="article-form">
             <div class="cms-form-grid">
               <label>Article title<input name="title" required maxlength="180" autocomplete="off"></label>
               <label>Public URL slug<input name="publicSlug" required maxlength="120" pattern="[a-z0-9]+(-[a-z0-9]+)*" placeholder="network-topic-guide" autocomplete="off"></label>
-              <label>Category<input name="category" required maxlength="80" placeholder="Infrastructure" autocomplete="off"></label>
+              <label>Category<select name="category" required><option value="" disabled selected>Select a category</option><option>Business Continuity</option><option>Cloud &amp; Connectivity</option><option>Cyber Security</option><option>Infrastructure</option><option>IT Strategy</option><option>Managed Services</option><option>Microsoft 365</option><option>Network Security</option><option>Networking</option><option>Wireless Networking</option></select></label>
               <label>Publication date<input name="publishedAt" type="date"></label>
               <label class="cms-checkbox"><input name="isFeatured" type="checkbox"> Feature on blog listing</label>
               <label>Featured position<input name="featuredRank" type="number" min="1" max="50" placeholder="Optional"></label>
-              <label>Replace featured image (optional)<input name="featuredImage" type="file" accept="image/avif,image/jpeg,image/png,image/webp"></label>
+              <label>Featured image (required)<input name="featuredImage" type="file" accept="image/avif,image/jpeg,image/png,image/webp"></label>
               <div class="cms-featured-image cms-form-grid__wide" id="featured-image-panel" hidden>
                 <img id="featured-image-preview" alt="">
                 <div><strong>Current featured image</strong><p id="featured-image-name"></p><button class="cms-link-button" id="remove-featured-image" type="button">Remove and choose a new image</button></div>
               </div>
-              <label class="cms-form-grid__wide">Image alternative text<input name="featuredImageAlt" required maxlength="250" autocomplete="off"></label>
+              <label class="cms-form-grid__wide">Image alternative text<input name="featuredImageAlt" maxlength="250" autocomplete="off"></label>
               <label class="cms-form-grid__wide">Excerpt<textarea name="excerpt" required maxlength="360" rows="3"></textarea></label>
-              <label class="cms-form-grid__wide">Article body<textarea name="articleHtml" required rows="16" placeholder="Use semantic HTML, for example: <h2>Heading</h2><p>Paragraph.</p>"></textarea></label>
+              <fieldset class="cms-rich-editor cms-form-grid__wide">
+                <legend>Article body</legend>
+                <div class="cms-rich-editor__toolbar" role="toolbar" aria-label="Article formatting">
+                  <select id="article-block-format" aria-label="Text format"><option value="p">Paragraph</option><option value="h1">Heading 1</option><option value="h2">Heading 2</option><option value="h3">Heading 3</option><option value="h4">Heading 4</option><option value="h5">Heading 5</option><option value="h6">Heading 6</option></select>
+                  <button type="button" data-editor-command="bold" aria-label="Bold" title="Bold"><i data-lucide="bold"></i></button>
+                  <button type="button" data-editor-command="italic" aria-label="Italic" title="Italic"><i data-lucide="italic"></i></button>
+                  <button type="button" data-editor-command="insertOrderedList" aria-label="Numbered list" title="Numbered list"><i data-lucide="list-ordered"></i></button>
+                  <button type="button" data-editor-command="insertUnorderedList" aria-label="Bullet list" title="Bullet list"><i data-lucide="list"></i></button>
+                  <button type="button" data-editor-action="link" aria-label="Insert link" title="Insert link"><i data-lucide="link"></i></button>
+                  <button type="button" data-editor-action="image" aria-label="Insert image" title="Insert image"><i data-lucide="image-plus"></i></button>
+                  <button type="button" data-editor-action="cta" aria-label="Insert CTA button" title="Insert CTA button"><i data-lucide="mouse-pointer-click"></i></button>
+                </div>
+                <div id="article-editor" class="cms-rich-editor__surface" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="Write your article, then select text to format it. Drop images here to upload them."></div>
+                <textarea name="articleHtml" required hidden></textarea>
+                <input id="article-editor-image" type="file" accept="image/avif,image/jpeg,image/png,image/webp" hidden>
+              </fieldset>
               <label class="cms-form-grid__wide">SEO title<input name="seoTitle" maxlength="180" autocomplete="off"></label>
               <label class="cms-form-grid__wide">SEO description<textarea name="seoDescription" maxlength="360" rows="3"></textarea></label>
               <label class="cms-form-grid__wide">Schema markup (JSON-LD)<textarea name="schemaMarkup" rows="10" spellcheck="false" placeholder='{"@context":"https://schema.org","@type":"Article"}'></textarea></label>
@@ -94,9 +113,9 @@
               <button class="cms-button cms-button--primary" type="submit">Save draft</button>
               <button class="cms-button cms-button--dark" id="publish-live-button" type="button" disabled>Publish live</button>
             </div>
+            <p id="validation-errors" class="cms-validation-errors" role="alert" aria-live="polite"></p>
             <div class="cms-lifecycle-actions" id="cms-lifecycle-actions" hidden>
-              <button class="cms-link-button" id="archive-post-button" type="button">Archive article</button>
-              <button class="cms-link-button cms-link-button--danger" id="delete-post-button" type="button">Delete draft</button>
+              <button class="cms-link-button cms-link-button--danger" id="delete-post-button" type="button">Delete article</button>
             </div>
           </form>
         </section>
@@ -109,19 +128,18 @@
     <div class="cms-dialog__head"><h2>Article preview</h2><button class="cms-icon-button" id="close-preview-button" type="button" aria-label="Close preview">x</button></div>
     <article id="preview-content"></article>
   </dialog>
-  <dialog id="account-created-dialog" aria-labelledby="account-created-title">
-    <div class="cms-dialog__head"><h2 id="account-created-title">Account created</h2><button class="cms-icon-button" id="close-account-created" type="button" aria-label="Close confirmation">x</button></div>
-    <div class="cms-dialog__body">
-      <p>We have sent a confirmation link to your company email address.</p>
-      <p>Confirm your email, then return here and sign in to start the CMS.</p>
-      <button class="cms-button cms-button--primary" id="account-created-done" type="button">Back to sign in</button>
-    </div>
-  </dialog>
   <dialog id="publish-result-dialog" aria-labelledby="publish-result-title">
     <div class="cms-dialog__head"><h2 id="publish-result-title">Article published</h2><button class="cms-icon-button" id="close-publish-result" type="button" aria-label="Close publish confirmation">x</button></div>
     <div class="cms-dialog__body">
       <p id="publish-result-message"></p>
       <a class="cms-button cms-button--primary" id="publish-result-link" href="/" target="_blank" rel="noopener">View published article</a>
+    </div>
+  </dialog>
+  <dialog id="delete-article-dialog" aria-labelledby="delete-article-title">
+    <div class="cms-dialog__head"><h2 id="delete-article-title">Delete article?</h2><button class="cms-icon-button" id="close-delete-article" type="button" aria-label="Close delete confirmation"><i data-lucide="x"></i></button></div>
+    <div class="cms-dialog__body">
+      <p>This permanently removes the article and all its revisions. It cannot be restored.</p>
+      <div class="cms-dialog__actions"><button class="cms-button cms-button--secondary" id="cancel-delete-article" type="button">Cancel</button><button class="cms-button cms-button--danger" id="confirm-delete-article" type="button">Delete article</button></div>
     </div>
   </dialog>
 </body>

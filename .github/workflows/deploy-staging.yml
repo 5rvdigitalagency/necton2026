@@ -1,0 +1,78 @@
+name: Deploy staging
+
+on:
+  push:
+    branches:
+      - staging
+
+permissions:
+  contents: read
+
+concurrency:
+  group: staging-deployment
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Validate before deployment
+    uses: ./.github/workflows/ci.yml
+
+  deploy:
+    name: Deploy preview and alias staging
+    needs: checks
+    runs-on: ubuntu-latest
+
+    environment:
+      name: staging
+
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@50.10.1
+
+      - name: Verify Vercel authentication
+        run: |
+          set -euo pipefail
+          vercel whoami --token "$VERCEL_TOKEN"
+
+      - name: Deploy to Vercel
+        id: deploy
+        run: |
+          set -euo pipefail
+          vercel pull --yes --environment=preview --token "$VERCEL_TOKEN"
+          output="$(vercel deploy --yes --token "$VERCEL_TOKEN")"
+          printf '%s\n' "$output"
+
+          preview_url="$(
+            printf '%s\n' "$output" |
+            grep -Eo 'https://[^[:space:]]+' |
+            tail -n 1
+          )"
+
+          if [[ -z "$preview_url" ]]; then
+            echo "Could not determine the Vercel deployment URL"
+            exit 1
+          fi
+
+          echo "preview_url=$preview_url" >> "$GITHUB_OUTPUT"
+
+      - name: Point permanent staging URL at preview
+        run: |
+          set -euo pipefail
+          vercel alias set \
+            "${{ steps.deploy.outputs.preview_url }}" \
+            netcon-ivory.vercel.app \
+            --token "$VERCEL_TOKEN" \
+            --scope "$VERCEL_ORG_ID" \
