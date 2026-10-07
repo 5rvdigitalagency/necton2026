@@ -52,13 +52,16 @@
   <link rel="stylesheet" href="/css/accessibility.css">
   <style>
     /* industry-detail-spacing */
-    body.industry-detail-page #main > section + section { margin-top: 40px !important; }
-    main .nd-faq { margin-bottom: 100px; }
+    /* body.industry-detail-page #main > section + section { margin-top: 40px !important; } */
+    /* main .nd-faq { margin-bottom: 100px; } */
     body.industry-detail-page #main > #contact { margin-top: 40px !important; }
   </style>
 
   
   <style>
+    .industry-cta__title {
+    font-size: 22px;
+    }
     #main > .svcs-hero {
       padding-bottom: 0;
       width: 100%;
@@ -94,7 +97,7 @@
     .iit-insight__buttons { display: flex; gap: 10px; }
     .iit-insight__buttons button { display: grid; width: 54px; height: 48px; place-items: center; border: 0; border-radius: 6px; background: var(--gray-bg); color: var(--dark); cursor: pointer; font-size: 30px; line-height: 1; }
     .iit-insight__buttons button:hover, .iit-insight__buttons button:focus-visible { background: var(--blue); color: #fff; }
-    .iit-insight__card { min-height: 360px; padding: 52px 46px; border-radius: 26px; background: #8ca1c1; color: #fff; box-shadow: 0 3px 8px rgb(0 0 0 / 18%); }
+    .iit-insight__card { min-height: 360px; padding: 52px 46px; border-radius: 26px; background: #13203f; color: #fff; box-shadow: 0 3px 8px rgb(0 0 0 / 18%); }
     .iit-insight__card h3 { margin: 0 0 38px; font-size: 32px; font-weight: 600; line-height: 1.12; }
     .iit-insight__card p { margin: 0; font-size: 22px; font-weight: 500; line-height: 1.35; }
     .iit-insight__count { display: block; margin-top: 72px; font-size: 32px; font-weight: 600; }
@@ -162,7 +165,7 @@
   <script src="/js/navbar.js"></script>
   <main id="main">
 
-  <section class="svcs-hero" aria-label="Industries hero">
+  <!-- <section class="svcs-hero" aria-label="Industries hero">
     <div class="svcs-hero__wrap">
       <div class="svcs-hero__content">
         <div class="svcs-hero__text">
@@ -172,8 +175,18 @@
         <a href="/contact" class="btn-blue svcs-hero__cta animate-fade-up" data-source-cta="industry_health_check">Discuss Your Requirements</a>
       </div>
     </div>
-  </section>
+  </section> -->
 
+        <!-- ===== HERO ===== -->
+    <section class="nc-hero-wrap" aria-label="Industries hero">
+      <div class="nc-hero">
+        <div class="nc-hero__content">
+          <h1 class="nc-hero__title">Network Consultancy Support for Internal IT Departments</h1>
+          <p class="nc-hero__sub">Network Consultancy works alongside internal IT teams, handling the network and security work that would otherwise compete with day-to-day priorities.</p>
+          <a href="/contact" class="nc-hero__cta" data-source-cta="service_hero_health_check">Improve Network Resilience</a>
+        </div>
+      </div>
+    </section>
   <section class="iit-insight animate-fade-up" aria-labelledby="iit-insight-title">
     <div>
       <h2 class="iit-insight__title" id="iit-insight-title">Strengthening Internal IT with Expert Network Support</h2>
@@ -293,7 +306,7 @@
     </div>
   </section>
 
-  <section class="nd-faq section-shell animate-fade-up" aria-labelledby="faq-h">
+  <section class="nd-faq section-shell animate-fade-up my-lg-100" aria-labelledby="faq-h">
   <div class="nd-faq__left">
     <h2 class="section-title" id="faq-h">Frequently asked questions</h2>
     <p>Still have questions? Get connected to our support team.</p>
