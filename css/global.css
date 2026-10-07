@@ -2557,7 +2557,7 @@ body.industry-detail-page #main > #contact {
   .ksa__panel-card p { font-size:20px;}
     /* ===== Mobile — solutions-family treatment (≤768px) ===== */
   .ksa__caret, .ksa__bar { display:none; }
-  @media(max-width:900px){ .ksa__card{flex-direction:column;} .ksa__tabs{flex-basis:auto;} .ksa__panel{min-height:420px;} .ksa__panel-card h3{font-size:24px;} }
+  @media(max-width:900px){ .ksa__card{flex-direction:column-reverse;} .ksa__tabs{flex-basis:auto;} .ksa__panel{min-height:420px;} .ksa__panel-card h3{font-size:24px;} }
 
   @media(max-width:768px){
   
