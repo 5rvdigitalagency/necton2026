@@ -902,9 +902,9 @@ body.industry-detail-page .page-hero .page-hero__cta {
 }
 
 /* Enforce consistent spacing on industry detail pages */
-body.industry-detail-page #main > section + section {
+/* body.industry-detail-page #main > section + section {
   margin-top:40px !important;
-}
+} */
 
 body.industry-detail-page #main > #contact {
   margin-top:40px !important;
@@ -3110,4 +3110,8 @@ body.industry-detail-page #main > #contact {
     font-size: 18px;
     line-height: 1.75;
     color: #575757;
+}
+
+.nc-hero__title , .nc-hero__sub{
+  max-width: 65%;
 }

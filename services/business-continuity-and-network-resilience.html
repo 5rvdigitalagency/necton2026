@@ -76,14 +76,64 @@
           <p>From proactive continuity planning and resilience-focused IT policies to automated failover strategies, our solutions minimise downtime that costs you revenue.</p>
         </div>
         <div class="ksa__card" id="ksa">
-              <div class="ksa__tabs" role="tablist">
-                <h3 class="ksa__tab active" role="tab" aria-selected="true">Disaster Recovery Strategy &amp; Testing</h3>
-                <h3 class="ksa__tab" role="tab" aria-selected="false">Automated Cloud Backup &amp; Replication</h3>
-                <h3 class="ksa__tab" role="tab" aria-selected="false">Automated Secondary Network Failover</h3>
-                <h3 class="ksa__tab" role="tab" aria-selected="false">Power Redundancy &amp; UPS Deployment</h3>
-                <h3 class="ksa__tab" role="tab" aria-selected="false">Endpoint Backup &amp; Remote Protection</h3>
-                <h3 class="ksa__tab" role="tab" aria-selected="false">Rapid Hardware Replacement Protocols</h3>
-              </div>
+      <div class="ksa__tabs" role="tablist">
+
+  <h3 class="ksa__tab active"
+      role="tab"
+      aria-selected="true"
+      data-title="Disaster Recovery Strategy &amp; Testing"
+      data-copy="Our team builds and simulates step-by-step recovery playbooks for your business. We verify that your backup systems deploy instantly during unexpected operational blackouts."
+      data-image="/images/pages/unique/envato/business-continuity/Disaster-Recovery.avif">
+    Disaster Recovery Strategy &amp; Testing
+  </h3>
+
+  <h3 class="ksa__tab"
+      role="tab"
+      aria-selected="false"
+      data-title="Automated Cloud Backup &amp; Replication"
+      data-copy="Our backup and disaster recovery solutions safeguard your business data through secure off-site replication. Should local hardware experience an outage or failure, your information remains protected and quickly recoverable."
+      data-image="/images/pages/unique/envato/business-continuity/Automated-Cloud-Backup-Replication.avif">
+    Automated Cloud Backup &amp; Replication
+  </h3>
+
+  <h3 class="ksa__tab"
+      role="tab"
+      aria-selected="false"
+      data-title="Automated Secondary Network Failover"
+      data-copy="We install resilient secondary internet connections that automatically take over in the event of a primary service outage. This ensures your team remains connected and business-critical systems continue operating without interruption."
+      data-image="/images/pages/unique/envato/business-continuity/Automated-Secondary-Network-Failover.avif">
+    Automated Secondary Network Failover
+  </h3>
+
+  <h3 class="ksa__tab"
+      role="tab"
+      aria-selected="false"
+      data-title="Power Redundancy &amp; UPS Deployment"
+      data-copy="We equip your infrastructure with Uninterruptible Power Supply (UPS) systems to keep critical network equipment, including switches and routers, operational during power outages, ensuring business continuity and minimising downtime."
+      data-image="/images/pages/unique/envato/business-continuity/Power-Redundancy-UPS.avif">
+    Power Redundancy &amp; UPS Deployment
+  </h3>
+
+  <h3 class="ksa__tab"
+      role="tab"
+      aria-selected="false"
+      data-title="Endpoint Backup &amp; Remote Protection"
+      data-copy="We safeguard data across all employee devices, giving remote workers the same level of protection as office-based staff. This ensures business-critical information remains secure, backed up, and recoverable in the event of ransomware or device failure."
+      data-image="/images/pages/unique/envato/business-continuity/Backup-Remote.avif">
+    Endpoint Backup &amp; Remote Protection
+  </h3>
+
+  <h3 class="ksa__tab"
+      role="tab"
+      aria-selected="false"
+      data-title="Rapid Hardware Replacement Protocols"
+      data-copy="In the event of a hardware failure, we can quickly replace critical network devices to minimise disruption and keep your operations running smoothly. All deployed equipment is covered by vendor support and warranty services, ensuring reliable protection and access to manufacturer expertise when required."
+      data-image="/images/pages/unique/envato/business-continuity/Rapid-Hardware.avif">
+    Rapid Hardware Replacement Protocols
+  </h3>
+
+</div>
+
 
           <div class="ksa__panel">
             <img id="ksa-img" src="/images/pages/unique/envato/business-continuity/Disaster-Recovery.avif" alt="Two colleagues discussing data on a laptop and tablet in a data centre, representing cloud disaster recovery planning in progress">
@@ -340,65 +390,88 @@
     <div id="site-footer"></div>
     <script src="/js/footer.js"></script> 
 
-    <script>
-    /* Key Solution Areas — tab switcher */
-    (function () {
-      var ksa = document.getElementById('ksa');
-      if (!ksa) return;
-      var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
-      var img = document.getElementById('ksa-img');
-      var title = document.getElementById('ksa-title');
-      var desc = document.getElementById('ksa-desc');
-      var data = [
-        { img:'/images/pages/unique/envato/business-continuity/Disaster-Recovery.avif', title:'Disaster Recovery Strategy & Testing', desc:'Our team builds and simulates step-by-step recovery playbooks for your business. We verify that your backup systems deploy instantly during unexpected operational blackouts.' },
-        { img:'/images/pages/unique/envato/business-continuity/Automated-Cloud-Backup-Replication.avif', title:'Automated Cloud Backup & Replication', desc:'Our backup and disaster recovery solutions safeguard your business data through secure off-site replication. Should local hardware experience an outage or failure, your information remains protected and quickly recoverable.' },
-        { img:'/images/pages/unique/envato/business-continuity/Automated-Secondary-Network-Failover.avif', title:'Automated Secondary Network Failover', desc:'We install resilient secondary internet connections that automatically take over in the event of a primary service outage. This ensures your team remains connected and business-critical systems continue operating without interruption.' },
-        { img:'/images/pages/unique/envato/business-continuity/Power-Redundancy-UPS.avif', title:'Power Redundancy & UPS Deployment', desc:'We equip your infrastructure with Uninterruptible Power Supply (UPS) systems to keep critical network equipment, including switches and routers, operational during power outages, ensuring business continuity and minimising downtime.' },
-        { img:'/images/pages/unique/envato/business-continuity/Backup-Remote.avif', title:'Endpoint Backup & Remote Protection', desc:'We safeguard data across all employee devices, giving remote workers the same level of protection as office-based staff. This ensures business-critical information remains secure, backed up, and recoverable in the event of ransomware or device failure.' },
-        { img:'/images/pages/unique/envato/business-continuity/Rapid-Hardware.avif', title:'Rapid Hardware Replacement Protocols', desc:'In the event of a hardware failure, we can quickly replace critical network devices to minimise disruption and keep your operations running smoothly. All deployed equipment is covered by vendor support and warranty services, ensuring reliable protection and access to manufacturer expertise when required.' }
-      ];
-      tabs.forEach(function (tab, i) {
-        tab.addEventListener('click', function () {
-          tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-          tab.classList.add('active'); tab.setAttribute('aria-selected','true');
-          var d = data[i];
-          img.style.opacity = '0';
-          setTimeout(function () { img.src = d.img; img.style.opacity = '1'; }, 150);
-          title.textContent = d.title; desc.textContent = d.desc;
-        });
+<script>
+(function () {
+  var ksa = document.getElementById('ksa');
+  if (!ksa) return;
+
+  var tabs = Array.prototype.slice.call(
+    ksa.querySelectorAll('.ksa__tab')
+  );
+
+  var panel = ksa.querySelector('.ksa__panel');
+  var img = document.getElementById('ksa-img');
+  var title = document.getElementById('ksa-title');
+  var desc = document.getElementById('ksa-desc');
+
+  if (!tabs.length || !panel || !img || !title || !desc) return;
+
+  tabs.forEach(function (tab, index) {
+
+    tab.addEventListener('click', function () {
+
+      /* Active state */
+      tabs.forEach(function (t) {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
       });
-      img.style.transition = 'opacity .3s ease';
-    })();
 
-    /* Business Impact — card slider */
-    (function () {
-      var biz = document.getElementById('biz');
-      if (!biz) return;
-      var slides = [
-        { title:'Constant operational stability', desc:'Teams stay active, and networks stay online even during a local power cut or internet blackout.' },
-        { title:'Secured business data', desc:'Automatic off-site copies mean critical corporate records are never lost or corrupted by unexpected disruptions.' },
-        { title:'Consistent client service', desc:'Customers receive seamless support without delays, maintaining professional trust even when external issues arise.' },
-        { title:'Coordinated incident response', desc:'Clear, practical playbooks ensure staff handle sudden infrastructure issues quickly and without confusion.' }
-      ];
-      var i = 0, total = slides.length;
-      var title = document.getElementById('biz-title');
-      var desc = document.getElementById('biz-desc');
-      var count = document.getElementById('biz-count');
-      var fill = document.getElementById('biz-fill');
-      function render() {
-        title.style.opacity = '0'; desc.style.opacity = '0';
-        setTimeout(function () {
-          title.textContent = slides[i].title; desc.textContent = slides[i].desc;
-          count.textContent = (i + 1) + '/' + total;
-          fill.style.width = ((i + 1) / total * 100) + '%';
-          title.style.opacity = '1'; desc.style.opacity = '1';
-        }, 200);
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+
+      /* Read content directly from clicked tab */
+      var newTitle = tab.getAttribute('data-title');
+      var newCopy = tab.getAttribute('data-copy');
+      var newImage = tab.getAttribute('data-image');
+
+      /* Update text */
+      if (newTitle) {
+        title.textContent = newTitle;
       }
-      document.getElementById('biz-prev').addEventListener('click', function () { i = (i - 1 + total) % total; render(); });
-      document.getElementById('biz-next').addEventListener('click', function () { i = (i + 1) % total; render(); });
-    })();
 
-    </script>
+      if (newCopy) {
+        desc.textContent = newCopy;
+      }
+
+      /* Update image */
+      if (newImage) {
+        img.style.opacity = '0';
+
+        var preload = new Image();
+
+        preload.onload = function () {
+          img.src = newImage;
+          img.alt = newTitle || '';
+          img.style.opacity = '1';
+        };
+
+        preload.onerror = function () {
+          img.src = newImage;
+          img.alt = newTitle || '';
+          img.style.opacity = '1';
+        };
+
+        preload.src = newImage;
+      }
+
+      /*
+       * Mobile:
+       * move the existing panel directly below
+       * the clicked tab, exactly like the working page.
+       */
+      if (window.innerWidth <= 768) {
+        tab.insertAdjacentElement('afterend', panel);
+      }
+    });
+
+  });
+
+  img.style.transition = 'opacity .3s ease';
+
+})();
+</script>
+
+
 
     <script src="/js/cms.js"></script>
     <script>
