@@ -127,7 +127,7 @@
         <picture>
           <img id="ksa-img"
                src="/images/pages/unique/Proactive-Network-Monitoring.avif"
-               alt="Proactive Network Monitoring"
+               alt="Colleagues reviewing live performance data on screen in a dim office, representing managed network solutions for proactive monitoring."
                loading="lazy">
         </picture>
 
@@ -223,7 +223,7 @@
         </div>
         <div class="biz__card">
           <div>
-            <h3 id="biz-title">More time for internal projects</h3>
+            <h4 id="biz-title">More time for internal projects</h4>
             <p id="biz-desc">Your local IT team stops chasing daily internet complaints and focuses entirely on helping your users.</p>
           </div>
           <div class="biz__num" id="biz-count">1/4</div>
@@ -411,54 +411,122 @@
 
   <script>
   /* Key Solution Areas — tab switcher */
-  (function () {
-    var ksa = document.getElementById('ksa');
-    if (!ksa) return;
-    var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
-    var img = document.getElementById('ksa-img');
-    var title = document.getElementById('ksa-title');
-    var desc = document.getElementById('ksa-desc');
-    var data = [
-      { img:'/images/pages/unique/Proactive-Network-Monitoring.avif', title:'Proactive Network Monitoring', desc:'Monitoring network performance 24/7 to identify potential issues before they affect your working day productivity. You get consistently maintained connectivity, zero downtime and your business never shuts for a moment.' },
-      {
-    img: '/images/unique/Network-maintenance-patch-management.avif',
-    title: 'Network Maintenance & Patch Management',
-    desc: 'You see your systems secure and working smoothly, while in the background, we address vulnerabilities through regular updates and fixes.'
-  },
-  {
-    img: '/images/unique/Incident-Response-Fault-Resolution.avif',
-    title: 'Incident Response & Fault Resolution',
-    desc: "Network Consultancy gives you fast, direct access to experienced engineers the moment an issue pops up. We find the fault and restore your connection quickly, so a technical glitch doesn't cause a major issue."
-  },
-  {
-    img: '/images/unique/Hardware-Lifecycle-Vendor-Management.avif',
-    title: 'Hardware Lifecycle & Vendor Management',
-    desc: 'Equip your team with the right infrastructure through managed sourcing, setup, and direct vendor coordination. You get reliable, cost-effective hardware without the hassle of managing multiple IT suppliers.'
-  },
-  {
-    img: '/images/unique/Network-Security-Management.avif',
-    title: 'Network Security Management',
-    desc: 'Protect critical business data and files with continuous backend monitoring. We systematically fill security gaps so you can run your business safely without worrying about data breaches.'
-  },
-  {
-    img: '/images/unique/On-Site-Remote-technical-Support.avif',
-    title: 'On-Site & Remote Technical Support',
-    desc: 'We provide expert help whenever an issue pops up. Whether you need an instant fix over a remote call or an engineer right at your office, your IT issues get sorted without any delays.'
-  }
-    ];
-    tabs.forEach(function (tab, i) {
-      tab.addEventListener('click', function () {
-        tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-        tab.classList.add('active'); tab.setAttribute('aria-selected','true');
-        var d = data[i];
-        img.style.opacity = '0';
-        setTimeout(function () { img.src = d.img; img.style.opacity = '1'; }, 150);
-        title.textContent = d.title; desc.textContent = d.desc;
-      });
-    });
-    img.style.transition = 'opacity .3s ease';
-  })();
+/* Key Solution Areas — tab switcher with dynamic image alt text */
+(function () {
+  var ksa = document.getElementById('ksa');
+  if (!ksa) return;
 
+  var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
+  var img = ksa.querySelector('#ksa-img');
+  var title = ksa.querySelector('#ksa-title');
+  var desc = ksa.querySelector('#ksa-desc');
+
+  if (!tabs.length || !img || !title || !desc) return;
+
+  var data = [
+    {
+      img: '/images/pages/unique/Proactive-Network-Monitoring.avif',
+      alt: 'Colleagues reviewing live performance data on screen in a dim office, representing managed network solutions for proactive monitoring.',
+      title: 'Proactive Network Monitoring',
+      desc: 'Monitoring network performance 24/7 to identify potential issues before they affect your working day productivity. You get consistently maintained connectivity, zero downtime and your business never shuts for a moment.'
+    },
+    {
+      img: '/images/unique/Network-maintenance-patch-management.avif',
+      alt: 'Technician checking labelled fibre patch panels in a cabling cabinet, representing patch management from a managed IT support provider.',
+      title: 'Network Maintenance & Patch Management',
+      desc: 'You see your systems secure and working smoothly, while in the background, we address vulnerabilities through regular updates and fixes.'
+    },
+    {
+      img: '/images/unique/Incident-Response-Fault-Resolution.avif',
+      alt: 'Engineer in a hi-vis vest on a phone call beside a cabled server rack, representing fast incident response through fully managed IT support.',
+      title: 'Incident Response & Fault Resolution',
+      desc: "Network Consultancy gives you fast, direct access to experienced engineers the moment an issue pops up. We find the fault and restore your connection quickly, so a technical glitch doesn't cause a major issue."
+    },
+    {
+      img: '/images/unique/Hardware-Lifecycle-Vendor-Management.avif',
+      alt: 'A technician tests a circuit board beside an open laptop, representing the hardware lifecycle and vendor support in managed network solutions.',
+      title: 'Hardware Lifecycle & Vendor Management',
+      desc: 'Equip your team with the right infrastructure through managed sourcing, setup, and direct vendor coordination. You get reliable, cost-effective hardware without the hassle of managing multiple IT suppliers.'
+    },
+    {
+      img: '/images/unique/Network-Security-Management.avif',
+      alt: 'Three colleagues are presenting a security dashboard on a large screen, representing network security monitoring in managed network solutions.',
+      title: 'Network Security Management',
+      desc: 'Protect critical business data and files with continuous backend monitoring. We systematically fill security gaps so you can run your business safely without worrying about data breaches.'
+    },
+    {
+      img: '/images/unique/On-Site-Remote-technical-Support.avif',
+      alt: 'Support engineer wearing a headset at a desk with code on the screen, representing on-site and remote help from a managed IT support provider.',
+      title: 'On-Site & Remote Technical Support',
+      desc: 'We provide expert help whenever an issue pops up. Whether you need an instant fix over a remote call or an engineer right at your office, your IT issues get sorted without any delays.'
+    }
+  ];
+
+  function activateTab(index) {
+    var item = data[index];
+
+    tabs.forEach(function (tab, i) {
+      var isActive = i === index;
+
+      tab.classList.toggle('active', isActive);
+      tab.classList.toggle('ksa__tab--active', isActive);
+      tab.setAttribute('aria-selected', String(isActive));
+      tab.setAttribute('tabindex', isActive ? '0' : '-1');
+    });
+
+    title.textContent = item.title;
+    desc.textContent = item.desc;
+
+    img.style.opacity = '0';
+
+    var preload = new Image();
+
+    preload.onload = function () {
+      img.src = item.img;
+      img.alt = item.alt;
+      img.style.opacity = '1';
+    };
+
+    preload.onerror = function () {
+      img.alt = item.alt;
+      img.style.opacity = '1';
+    };
+
+    preload.src = item.img;
+  }
+
+  tabs.forEach(function (tab, index) {
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+    tab.setAttribute('tabindex', index === 0 ? '0' : '-1');
+
+    tab.addEventListener('click', function () {
+      activateTab(index);
+    });
+
+    tab.addEventListener('keydown', function (event) {
+      var next = index;
+
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+        next = (index + 1) % tabs.length;
+      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+        next = (index - 1 + tabs.length) % tabs.length;
+      } else if (event.key === 'Home') {
+        next = 0;
+      } else if (event.key === 'End') {
+        next = tabs.length - 1;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+      tabs[next].focus();
+      activateTab(next);
+    });
+  });
+
+  img.style.transition = 'opacity .3s ease';
+})();
   /* Business Impact — card slider */
   (function () {
     var biz = document.getElementById('biz');

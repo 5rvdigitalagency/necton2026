@@ -74,13 +74,14 @@
 
 
 
+
 <section class="section-shell" aria-labelledby="ksa-title">
   <div class="ab-inner">
     <div class="ksa__card">
 
-        <div class="ksa__tabs animate-fade-up"
-          role="tablist"
-          aria-label="Areas covered during a cyber security audit">
+      <div class="ksa__tabs animate-fade-up"
+           role="tablist"
+         aria-label="solution-netcon">
 
         <!-- 1. Security Controls Review -->
         <h3
@@ -88,7 +89,8 @@
           class="ksa__tab ksa__tab--active"
           data-title="Security Controls Review"
           data-copy="A cybersecurity review measures whether existing security controls reduce operational risk or leave infrastructure exposed through configuration weaknesses."
-          data-img="/images/pages/unique/Security-Controls-Review.jpg">
+          data-alt="Security analysts reviewing security controls and monitoring network activity to identify configuration weaknesses"
+          data-image="/images/pages/unique/Security-Controls-Review.jpg">
           Security Controls Review
         </h3>
 
@@ -98,7 +100,8 @@
           class="ksa__tab"
           data-title="Access &amp; Permissions Analysis"
           data-copy="By analysing infrastructure security, user permissions, administrative access, and network services, the assessment uncovers potential weaknesses that could affect operational stability and resilience."
-          data-img="/images/pages/unique/solutions-cyber-security-review-nc-hero-person.webp">
+          data-alt="Row of closed server cabinets in a data centre, representing access and permissions analysis as part of a cyber security review."
+          data-image="/images/pages/unique/solutions-cyber-security-review-nc-hero-person.webp">
           Access &amp; Permissions Analysis
         </h3>
 
@@ -108,7 +111,8 @@
           class="ksa__tab"
           data-title="Key Security Controls"
           data-copy="Key security controls - including firewall policies, network segmentation, user authentication, endpoint configurations, and privileged access - are reviewed to identify risks that could impact business operations."
-          data-img="/images/pages/unique/Key-Security-Controls.jpg">
+          data-alt="Golden key icon inside a glowing hexagon, representing firewall, access and authentication controls reviewed in a cyber risk assessment."
+          data-image="/images/pages/unique/Key-Security-Controls.jpg">
           Key Security Controls
         </h3>
 
@@ -118,7 +122,8 @@
           class="ksa__tab"
           data-title="Configuration &amp; Exposure Assessment"
           data-copy="Configuration drift, unnecessary system exposure, inherited permissions, and policy inconsistencies are assessed against operational and business risk."
-          data-img="/images/pages/unique/solutions-cyber-security-review-nc-hero-person.webp">
+          data-alt="Server room data center showing configuration and exposure assessment as part of a cyber risk assessment for IT infrastructure security."
+          data-image="/images/pages/unique/solutions-cyber-security-review-nc-hero-person.webp">
           Configuration &amp; Exposure Assessment
         </h3>
 
@@ -128,7 +133,8 @@
           class="ksa__tab"
           data-title="Service Disruption Risks"
           data-copy="The review identifies weaknesses that could disrupt critical services, increase attack paths, or delay incident containment during security events."
-          data-img="/images/pages/unique/Service-Disruption-Risks.jpg">
+          data-alt="The security operations team monitors global threat maps and identifies service disruption risks as part of a cybersecurity review process"
+          data-image="/images/pages/unique/Service-Disruption-Risks.jpg">
           Service Disruption Risks
         </h3>
 
@@ -138,7 +144,8 @@
           class="ksa__tab"
           data-title="Business Impact Ranking"
           data-copy="Findings are ranked by business impact, allowing remediation work to focus on security issues with the highest operational and governance risk."
-          data-img="/images/pages/unique/Business-Impact-Ranking.jpg">
+          data-alt="Analyst reviewing data dashboards for business impact ranking, prioritising findings from a cyber risk assessment by operational severity."
+          data-image="/images/pages/unique/Business-Impact-Ranking.jpg">
           Business Impact Ranking
         </h3>
 
@@ -148,7 +155,8 @@
           class="ksa__tab"
           data-title="Framework-Aligned Recommendations"
           data-copy="Recommendations reflect recognised security frameworks, regulatory expectations, and implementation priorities suited to existing infrastructure constraints."
-          data-img="/images/pages/unique/Framework-Aligned-Recommendations.jpg">
+          data-alt="Team reviewing infrastructure diagrams and building plans, developing framework-aligned recommendations through expert cyber security consultancy."
+          data-image="/images/pages/unique/Framework-Aligned-Recommendations.jpg">
           Framework-Aligned Recommendations
         </h3>
 
@@ -156,35 +164,31 @@
 
       <!-- FEATURE / IMAGE -->
       <div class="ksa__panel animate-fade-up">
-
         <picture>
           <img
             id="ksa-img"
             src="/images/pages/unique/Security-Controls-Review.jpg"
-            alt="Security analysts monitoring a large world map display and data dashboards in a control room, conducting a security controls review"
+            alt="Security analysts reviewing security controls and monitoring network activity to identify configuration weaknesses"
             loading="lazy">
         </picture>
 
         <!-- CONTENT PANEL -->
         <div class="ksa__panel-card" role="tabpanel">
-
-          <h4 id="ksa-title">
-            Security Controls Review
-          </h4>
+          <h4 id="ksa-title">Security Controls Review</h4>
 
           <p id="ksa-desc">
             A cybersecurity review measures whether existing security controls
             reduce operational risk or leave infrastructure exposed through
             configuration weaknesses.
           </p>
-
         </div>
-
       </div>
 
     </div>
   </div>
 </section>
+
+
 
    <section class="nhc-why section-shell" aria-labelledby="nhc-why-title">
       <div class="nhc-why__inner ab-inner">
@@ -288,67 +292,6 @@
     })();
 
 
-(function csrOverviewTabs() {
-
-  var tabs = Array.prototype.slice.call(
-    document.querySelectorAll('.ksa__tab')
-  );
-
-  var panel = document.querySelector('.ksa__panel-card');
-  var image = document.querySelector('.ksa__panel img');
-
-  if (tabs.length === 0 || panel === null || image === null) return;
-
-  var title = panel.querySelector('h4');
-  var copy = panel.querySelector('p');
-
-  tabs.forEach(function (tab) {
-
-    tab.addEventListener('click', function () {
-
-      if (tab.classList.contains('ksa__tab--active')) {
-        return;
-      }
-
-      /* Remove active state */
-      tabs.forEach(function (t) {
-        t.classList.remove('ksa__tab--active');
-        t.setAttribute('aria-selected', 'false');
-      });
-
-      /* Add active state */
-      tab.classList.add('ksa__tab--active');
-      tab.setAttribute('aria-selected', 'true');
-
-      /* Start transition */
-      panel.classList.add('is-switching');
-
-      setTimeout(function () {
-
-        /* Update title */
-        title.textContent = tab.getAttribute('data-title');
-
-        /* Update description */
-        copy.textContent = tab.getAttribute('data-copy');
-
-        /* Update image */
-        var newImage = tab.getAttribute('data-img');
-
-        if (newImage) {
-          image.src = newImage;
-          image.alt = tab.getAttribute('data-title') || '';
-        }
-
-        /* End transition */
-        panel.classList.remove('is-switching');
-
-      }, 250);
-
-    });
-
-  });
-
-})();
 
 
     (function mcsrAccordion() {
@@ -376,7 +319,7 @@
           var s = item.querySelector('span');
           if (s) s.textContent = '^';
           copy.textContent = item.getAttribute('data-copy');
-          var di = item.getAttribute('data-img');
+          var di = item.getAttribute('data-image');
           if (img && di) { img.src = di; img.alt = item.getAttribute('data-title') || img.alt; }
           item.insertAdjacentElement('afterend', panel);
           setFill(i);

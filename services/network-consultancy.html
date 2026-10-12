@@ -90,6 +90,7 @@
         <h3 class="ksa__tab ksa__tab--active"
             data-title="Network Performance Assessment"
             data-copy="We assess your network performance to identify bottlenecks, reliability issues, and capacity limitations. This gives you a clear understanding of where improvements are needed to support business growth."
+             data-alt="Man silhouetted against a screen of network traffic data, representing its network consulting services focused on performance monitoring"
             data-image="/images/pages/unique/Network-Performance-Assessment.avif">
           Network Performance Assessment
         </h3>
@@ -97,6 +98,7 @@
         <h3 class="ksa__tab"
             data-title="Cloud Migration Consultancy"
             data-copy="Our team of architects develops practical cloud migration strategies to help you safely transition digital assets and legacy systems while minimising disruption, data loss, and unnecessary hosting costs."
+             data-alt="Two IT consultants discussing a cloud migration plan in a data centre, representing network consulting services for legacy system upgrades"
             data-image="/images/pages/unique/Cloud-Migration-Consultancy.avif">
           Cloud Migration Consultancy
         </h3>
@@ -104,6 +106,7 @@
         <h3 class="ksa__tab"
             data-title="Enterprise Network Fortification"
             data-copy="We strengthen your enterprise network infrastructure by identifying weaknesses, improving architecture, and implementing resilient controls designed to protect critical systems and maintain reliable connectivity."
+             data-alt="Network engineer reviewing firewall configurations on dual screens in a server room, representing business network consulting and security"
             data-image="/images/pages/unique/Enterprise-Network-Fortification.avif">
           Enterprise Network Fortification
         </h3>
@@ -111,6 +114,7 @@
         <h3 class="ksa__tab"
             data-title="Disaster Recovery Planning"
             data-copy="We help you prepare for network and infrastructure failures with practical disaster recovery strategies that protect critical systems, reduce downtime, and support a faster return to normal operations."
+             data-alt="Two IT professionals inspecting a server rack with a clipboard, representing disaster recovery planning from an experienced network consultant"
             data-image="/images/pages/unique/Disaster-Recovery-Planning.avif">
           Disaster Recovery Planning
         </h3>
@@ -118,6 +122,7 @@
         <h3 class="ksa__tab"
             data-title="Bandwidth &amp; Cost Efficiency"
             data-copy="We analyse your bandwidth usage and network requirements to identify wasted capacity, unnecessary costs, and opportunities to improve performance without overspending on infrastructure."
+             data-alt="IT network consultants using a laptop beside a cabled server rack to analyse bandwidth usage and reduce wasted network capacity"
             data-image="/images/pages/unique/Bandwidth-Cost-Efficiency.avif">
           Bandwidth &amp; Cost Efficiency
         </h3>
@@ -125,6 +130,7 @@
         <h3 class="ksa__tab"
             data-title="Vulnerability Assessment"
             data-copy="We assess your network infrastructure for vulnerabilities, configuration weaknesses, and potential security gaps, helping you prioritise improvements before they become costly business risks."
+             data-alt="IT specialist reviewing a report in a data centre, representing vulnerability assessment as part of IT network consulting services"
             data-image="/images/pages/unique/Vulnerability-Assessment.avif">
           Vulnerability Assessment
         </h3>
@@ -135,7 +141,7 @@
         <picture>
           <img id="ksa-img"
                src="/images/pages/unique/Network-Performance-Assessment.avif"
-               alt="Network Performance Assessment"
+               alt="Man silhouetted against a screen of network traffic data, representing its network consulting services focused on performance monitoring"
                loading="lazy">
         </picture>
 
@@ -454,52 +460,112 @@
   <script src="/js/footer.js"></script>
 
   <script>
-  /* Key Solution Areas — tab switcher */
-  (function () {
-    var ksa = document.getElementById('ksa');
-    if (!ksa) return;
-    var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
-    var img = document.getElementById('ksa-img');
-    var title = document.getElementById('ksa-title');
-    var desc = document.getElementById('ksa-desc');
-    var data = [
-      { img:'/images/pages/unique/Network-Performance-Assessment.avif', title:'Network Performance Assessment', desc:'Engineers at Network Consultancy audit traffic flow and system health to eliminate connection lag. We optimise your infrastructure to maintain the operating speed of your critical business applications and support staff productivity.' },
-      {
-    img: '/images/pages/unique/Cloud-Migration-Consultancy.avif', title: 'Cloud Migration Consultancy',desc: 'Our cloud architects develop carefully assessed migration strategies that enable the secure transition of your digital assets. We modernise legacy systems with a focus on data integrity, minimising risk while helping reduce ongoing hosting and infrastructure costs.'
-  },
-  {
-    img: '/images/pages/unique/Enterprise-Network-Fortification.avif',
-    title: 'Enterprise Network Fortification',
-    desc: 'Enforcing Zero Trust access controls and configuring firewalls. Network Consultancy secures your data pathways to block lateral cyber threats and satisfy legal compliance audits.'
-  },
-  {
-    img: '/images/pages/unique/Disaster-Recovery-Planning.avif',
-    title: 'Disaster Recovery Planning',
-    desc: 'Network Consultancy sets up automatic backup systems that copy your data to a secure off-site location. We quickly restore your operations during a crash to prevent lost business hours.'
-  },
-  {
-    img: '/images/pages/unique/Bandwidth-Cost-Efficiency.avif',
-    title: 'Bandwidth & Cost Efficiency',
-    desc: 'Using AI modelling, we pinpoint where network capacity is being wasted by unoptimised software. This allows you to reclaim network speed and reduce unnecessary IT overhead.'
-  },
-  {
-    img: '/images/pages/unique/Vulnerability-Assessment.avif',
-    title: 'Vulnerability Assessment',
-    desc: 'Our team runs deep architectural vulnerability scans to proactively detect system errors. We shift your IT operations from reactive firefighting to continuous threat prevention.'
-  }
-    ];
-    tabs.forEach(function (tab, i) {
-      tab.addEventListener('click', function () {
-        tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-        tab.classList.add('active'); tab.setAttribute('aria-selected','true');
-        var d = data[i];
-        img.style.opacity = '0';
-        setTimeout(function () { img.src = d.img; img.style.opacity = '1'; }, 150);
-        title.textContent = d.title; desc.textContent = d.desc;
-      });
+/* Key Solution Areas — tab switcher with dynamic image alt text */
+(function () {
+  var ksa = document.getElementById('ksa');
+  if (!ksa) return;
+
+  var tabs = Array.prototype.slice.call(
+    ksa.querySelectorAll('.ksa__tab')
+  );
+
+  var img = document.getElementById('ksa-img');
+  var title = document.getElementById('ksa-title');
+  var desc = document.getElementById('ksa-desc');
+
+  if (!tabs.length || !img || !title || !desc) return;
+
+  function activateTab(tab, index) {
+    var image = tab.getAttribute('data-image');
+    var heading = tab.getAttribute('data-title') || '';
+    var description = tab.getAttribute('data-copy') || '';
+    var altText = tab.getAttribute('data-alt') || heading;
+
+    tabs.forEach(function (item) {
+      item.classList.remove('active', 'ksa__tab--active');
+      item.setAttribute('aria-selected', 'false');
+      item.setAttribute('tabindex', '-1');
     });
-    img.style.transition = 'opacity .3s ease';
-  })();
+
+    tab.classList.add('active', 'ksa__tab--active');
+    tab.setAttribute('aria-selected', 'true');
+    tab.setAttribute('tabindex', '0');
+
+    title.textContent = heading;
+    desc.textContent = description;
+
+    /* Update alt text immediately when the tab changes */
+    img.alt = altText;
+
+    if (image && img.getAttribute('src') !== image) {
+      img.style.opacity = '0';
+
+      var newImage = new Image();
+
+      newImage.onload = function () {
+        img.src = image;
+        img.alt = altText;
+        img.style.opacity = '1';
+      };
+
+      newImage.onerror = function () {
+        img.style.opacity = '1';
+      };
+
+      newImage.src = image;
+    }
+  }
+
+  tabs.forEach(function (tab, index) {
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute(
+      'aria-selected',
+      tab.classList.contains('ksa__tab--active') ? 'true' : 'false'
+    );
+
+    tab.setAttribute(
+      'tabindex',
+      tab.classList.contains('ksa__tab--active') ? '0' : '-1'
+    );
+
+    tab.addEventListener('click', function () {
+      activateTab(tab, index);
+    });
+
+    tab.addEventListener('keydown', function (event) {
+      var nextIndex = index;
+
+      if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+        nextIndex = (index + 1) % tabs.length;
+      } else if (
+        event.key === 'ArrowUp' ||
+        event.key === 'ArrowLeft'
+      ) {
+        nextIndex = (index - 1 + tabs.length) % tabs.length;
+      } else if (event.key === 'Home') {
+        nextIndex = 0;
+      } else if (event.key === 'End') {
+        nextIndex = tabs.length - 1;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+      tabs[nextIndex].focus();
+      activateTab(tabs[nextIndex], nextIndex);
+    });
+  });
+
+  img.style.transition = 'opacity .3s ease';
+
+  /* Set the initial image and alt text from the active tab */
+  var initialTab = tabs.find(function (tab) {
+    return tab.classList.contains('ksa__tab--active') ||
+           tab.classList.contains('active');
+  }) || tabs[0];
+
+  activateTab(initialTab, tabs.indexOf(initialTab));
+})();
 
   /* Business Impact — card slider */
   (function () {

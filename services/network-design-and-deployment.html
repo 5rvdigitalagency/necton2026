@@ -121,7 +121,7 @@
         <picture>
           <img id="ksa-img"
                src="/images/pages/unique/Infrastructure-Planning-Lifecycle-Management.avif"
-               alt="Infrastructure Planning and Lifecycle Management"
+               alt="Close-up of a hand fitting a module into a network switch surrounded by cabling, representing network design & implementation work."
                loading="lazy">
         </picture>
 
@@ -419,32 +419,117 @@
 
   <script>
   /* Key Solution Areas — tab switcher */
-  (function () {
-    var ksa = document.getElementById('ksa');
-    if (!ksa) return;
-    var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
-    var img = document.getElementById('ksa-img');
-    var title = document.getElementById('ksa-title');
-    var desc = document.getElementById('ksa-desc');
-    var data = [
-      { img:'/images/pages/unique/Infrastructure-Planning-Lifecycle-Management.avif', title:'Infrastructure Planning and Lifecycle Management', desc:'Auditing your office layout enables engineers to map where new routers and cables should go. We replace ageing switches before old software causes sudden connection drops.' },
-      { img:'/images/unique/Scalable-Architecture-Design.avif', title:'Scalable Architecture Design', desc:'Our scalable network designs are built to accommodate business growth, making it easy to add new users, devices, and capacity as your organisation expands. We also implement secure access controls that help protect sensitive company data from unauthorised access.' },
-      { img:'/images/unique/Hybrid-Connectivity-Cloud-Gateways.avif', title:'Hybrid Connectivity and Cloud Gateways', desc:'We establish secure, dedicated connections between your office infrastructure and cloud platforms such as AWS and Microsoft Azure. By protecting these critical data pathways, we ensure reliable performance, strong security, and efficient access to cloud-based applications.' },
-      { img:'/images/unique/Multi-Site-Deployment-Support.avif', title:'Multi-Site Deployment Support', desc:'We create secure, encrypted connections between your offices, warehouses, and remote sites, enabling seamless collaboration and efficient data sharing across all locations without compromising security.' },
-      { img:'/images/unique/Managed-Deployment-Services.avif', title:'Managed Deployment Services', desc:'We configure and prepare your hardware off-site before deployment, minimizing disruption during installation. By scheduling system cutovers outside business hours, we ensure a smooth transition without impacting day-to-day operations.' }
-    ];
-    tabs.forEach(function (tab, i) {
-      tab.addEventListener('click', function () {
-        tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-        tab.classList.add('active'); tab.setAttribute('aria-selected','true');
-        var d = data[i];
-        img.style.opacity = '0';
-        setTimeout(function () { img.src = d.img; img.style.opacity = '1'; }, 150);
-        title.textContent = d.title; desc.textContent = d.desc;
-      });
+ /* Key Solution Areas — tab switcher with dynamic image alt text */
+(function () {
+  var ksa = document.getElementById('ksa');
+  if (!ksa) return;
+
+  var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
+  var img = ksa.querySelector('#ksa-img');
+  var title = ksa.querySelector('#ksa-title');
+  var desc = ksa.querySelector('#ksa-desc');
+
+  if (!tabs.length || !img || !title || !desc) return;
+
+  var data = [
+    {
+      img: '/images/pages/unique/Infrastructure-Planning-Lifecycle-Management.avif',
+      alt: 'Close-up of a hand fitting a module into a network switch surrounded by cabling, representing network design & implementation work',
+      title: 'Infrastructure Planning and Lifecycle Management',
+      desc: 'Auditing your office layout enables engineers to map where new routers and cables should go. We replace ageing switches before old software causes sudden connection drops.'
+    },
+    {
+      img: '/images/unique/Scalable-Architecture-Design.avif',
+      alt: 'Technician installing equipment in a labelled, cabled server rack, representing scalable network design services for growing businesses.',
+      title: 'Scalable Architecture Design',
+      desc: 'Our scalable network designs are built to accommodate business growth, making it easy to add new users, devices, and capacity as your organisation expands. We also implement secure access controls that help protect sensitive company data from unauthorised access.'
+    },
+    {
+      img: '/images/unique/Hybrid-Connectivity-Cloud-Gateways.avif',
+      alt: 'Glowing cloud with data arrows linking city networks and app icons, representing hybrid cloud connectivity and network design & implementation.',
+      title: 'Hybrid Connectivity and Cloud Gateways',
+      desc: 'We establish secure, dedicated connections between your office infrastructure and cloud platforms such as AWS and Microsoft Azure. By protecting these critical data pathways, we ensure reliable performance, strong security, and efficient access to cloud-based applications.'
+    },
+    {
+      img: '/images/unique/Multi-Site-Deployment-Support.avif',
+      alt: 'The IT team works at monitors in a large data centre, supporting multi-site network design services that link offices and warehouses.',
+      title: 'Multi-Site Deployment Support',
+      desc: 'We create secure, encrypted connections between your offices, warehouses, and remote sites, enabling seamless collaboration and efficient data sharing across all locations without compromising security.'
+    },
+    {
+      img: '/images/unique/Managed-Deployment-Services.avif',
+      alt: 'An engineer in a checked shirt configuring a rack of cabled hardware on a laptop, representing network design & implementation and deployment.',
+      title: 'Managed Deployment Services',
+      desc: 'We configure and prepare your hardware off-site before deployment, minimizing disruption during installation. By scheduling system cutovers outside business hours, we ensure a smooth transition without impacting day-to-day operations.'
+    }
+  ];
+
+  function activateTab(index) {
+    var tab = tabs[index];
+    var item = data[index];
+
+    tabs.forEach(function (t, j) {
+      var active = j === index;
+
+      t.classList.toggle('ksa__tab--active', active);
+      t.classList.toggle('active', active);
+      t.setAttribute('aria-selected', String(active));
+      t.setAttribute('tabindex', active ? '0' : '-1');
     });
-    img.style.transition = 'opacity .3s ease';
-  })();
+
+    img.style.opacity = '0';
+
+    var newImage = new Image();
+
+    newImage.onload = function () {
+      img.src = item.img;
+      img.alt = item.alt;
+      img.style.opacity = '1';
+    };
+
+    newImage.onerror = function () {
+      img.alt = item.alt;
+      img.style.opacity = '1';
+    };
+
+    newImage.src = item.img;
+
+    title.textContent = item.title;
+    desc.textContent = item.desc;
+  }
+
+  tabs.forEach(function (tab, index) {
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+    tab.setAttribute('tabindex', index === 0 ? '0' : '-1');
+
+    tab.addEventListener('click', function () {
+      activateTab(index);
+    });
+
+    tab.addEventListener('keydown', function (event) {
+      var nextIndex = index;
+
+      if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+        nextIndex = (index + 1) % tabs.length;
+      } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+        nextIndex = (index - 1 + tabs.length) % tabs.length;
+      } else if (event.key === 'Home') {
+        nextIndex = 0;
+      } else if (event.key === 'End') {
+        nextIndex = tabs.length - 1;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+      tabs[nextIndex].focus();
+      activateTab(nextIndex);
+    });
+  });
+
+  img.style.transition = 'opacity .3s ease';
+})();
 
   /* Business Impact — card slider */
   (function () {
