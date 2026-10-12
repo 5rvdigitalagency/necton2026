@@ -143,7 +143,8 @@
           <img
             id="ksa-img"
             src="/images/pages/unique/Centralised-Cloud-Firewalls.avif"
-            alt="Centralised Cloud Firewalls (FWaaS)"
+            alt="Centralised Cloud Firewalls (FWaaS)" 
+            
             loading="lazy"
           >
         </picture>
@@ -184,7 +185,7 @@
         </div>
         <div class="biz__card">
           <div>
-            <h3 id="biz-title">Blocked cyber threats</h3>
+            <h4 id="biz-title">Blocked cyber threats</h4>
             <p id="biz-desc">Firewalls filter out malicious traffic and ransomware automatically, keeping your core data and company money secure.</p>
           </div>
           <div class="biz__num" id="biz-count">1/4</div>
@@ -369,12 +370,60 @@
     var img = document.getElementById('ksa-img');
     var title = document.getElementById('ksa-title');
     var desc = document.getElementById('ksa-desc');
-    var data = [
-      { img:'/images/pages/unique/Centralised-Cloud-Firewalls.avif', title:'Centralised Cloud Firewalls (FWaaS)', desc:'Deploying and managing virtual firewalls across all your physical branches. We ensure you get uniform protection that blocks malicious incoming traffic without the need for on-site security hardware at every office.' },
-      { img:'/images/unique/Encrypted-Remote-Access.avif', title:'Encrypted Remote Access', desc:'We give your remote staff secure, encrypted access to company systems, so people can work from anywhere without exposing your data.' },
-      { img:'/images/unique/Internal-Network-Segmentation.avif', title:'Internal Network Segmentation', desc:'We divide your network into secure zones, so a threat in one area is contained and never spreads across your whole business.' },
-      { img:'/images/unique/Live-Threat-traffic-Filtering.avif', title:'Live Threat & Traffic Filtering', desc:'We continuously filter your traffic in real time, blocking malicious activity before it can reach your systems or your data.' }
-    ];
+ var data = [
+  {
+    img: '/images/pages/unique/Centralised-Cloud-Firewalls.avif',
+    alt: 'Hands typing on a laptop with digital cloud and file icons overlaid, representing managed firewall solutions for cloud security',
+    title: 'Centralised Cloud Firewalls (FWaaS)',
+    desc: 'Deploying and managing virtual firewalls across all your physical branches. We ensure you get uniform protection that blocks malicious incoming traffic without the need for on-site security hardware at every office.'
+  },
+  {
+    img: '/images/unique/Encrypted-Remote-Access.avif',
+    alt: 'Open hand beneath a glowing cloud with a padlock shield, representing encrypted remote access protected by managed firewall solutions',
+    title: 'Encrypted Remote Access',
+    desc: 'We give your remote staff secure, encrypted access to company systems, so people can work from anywhere without exposing your data.'
+  },
+  {
+    img: '/images/unique/Internal-Network-Segmentation.avif',
+    alt: 'Hand holding a puzzle piece of connected user icons, representing network segmentation enforced through managed firewall security services.',
+    title: 'Internal Network Segmentation',
+    desc: 'We divide your network into secure zones, so a threat in one area is contained and never spreads across your whole business.'
+  },
+  {
+    img: '/images/unique/Live-Threat-traffic-Filtering.avif',
+    alt: 'A security analyst in a dark hoodie watches threat maps on several screens, representing live traffic filtering by managed firewall solutions.',
+    title: 'Live Threat & Traffic Filtering',
+    desc: 'We continuously filter your traffic in real time, blocking malicious activity before it can reach your systems or your data.'
+  }
+];
+
+tabs.forEach(function (tab, i) {
+  tab.addEventListener('click', function () {
+    tabs.forEach(function (t) {
+      t.classList.remove('ksa__tab--active');
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+
+    tab.classList.add('ksa__tab--active');
+    tab.setAttribute('aria-selected', 'true');
+
+    var d = data[i];
+
+    img.style.opacity = '0';
+
+    setTimeout(function () {
+      img.src = d.img;
+      img.alt = d.alt;
+      img.style.opacity = '1';
+    }, 150);
+
+    title.textContent = d.title;
+    desc.textContent = d.desc;
+  });
+});
+
+img.style.transition = 'opacity .3s ease';
     tabs.forEach(function (tab, i) {
       tab.addEventListener('click', function () {
         tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });

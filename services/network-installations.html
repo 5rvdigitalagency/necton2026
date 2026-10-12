@@ -403,48 +403,159 @@
   <script src="/js/footer.js"></script>
 
   <script>
-  /* Generic KSA tab switcher — reused for both tabbed sections */
-  function initKsa(rootId, prefix, data) {
+/* Generic KSA tab switcher — updates image alt text for both sections */
+function initKsa(rootId, prefix, data) {
     var ksa = document.getElementById(rootId);
     if (!ksa) return;
-    var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
+
+    var tabs = Array.prototype.slice.call(
+        ksa.querySelectorAll('.ksa__tab')
+    );
+
     var img = document.getElementById(prefix + '-img');
     var title = document.getElementById(prefix + '-title');
     var desc = document.getElementById(prefix + '-desc');
-    tabs.forEach(function (tab, i) {
-      tab.addEventListener('click', function () {
-        tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-        tab.classList.add('active'); tab.setAttribute('aria-selected','true');
-        var d = data[i];
-        img.style.opacity = '0';
-        setTimeout(function () {
-  img.src = d.img;
-  img.style.objectPosition = d.position || 'center center';
-  img.style.opacity = '1';
-}, 150);
-        title.textContent = d.title; desc.textContent = d.desc;
-      });
-    });
+
+    if (!img || !title || !desc) return;
+
     img.style.transition = 'opacity .3s ease';
-  }
 
-  initKsa('ksa', 'ksa', [
-    { img:'/images/pages/unique/Core-Infrastructure-Network.avif', title:'Core Infrastructure & Network Design', desc:'Design and install reliable business networks that support efficient communication and day-to-day operations. Network Consultancy builds low-latency routes to prevent system slowdowns.' },
-    { img:'/images/unique/Enterprise-Architecture-Cloud-Integration.avif', title:'Enterprise Architecture & Cloud Integration', desc:'We deliver scalable networking solutions, including data centre architecture and cloud connectivity integration, while designing resilient network pathways to support multi-cloud workloads.' },
-    { img:'/images/unique/High-Performance-Structured-Cabling-LAN.avif', title:'High-Performance Structured Cabling & LAN', desc:'We design and install dependable LAN infrastructure that supports business-critical operations, using certified cabling solutions to ensure consistent performance and long-term reliability.' },
-    { img:'/images/unique/Secure-Enterprise-Wi-Fi-Mobility.avif', title:'Secure Enterprise Wi-Fi & Mobility', desc:'We implement secure and scalable wireless networks that keep employees connected, productive, and mobile, while ensuring dependable performance throughout the office.' },
-    { img:'/images/unique/Unified-Communications.avif', title:'Unified Communications & VoIP', desc:'Our VoIP and communications solutions help teams stay connected and productive, delivering reliable voice services and high-quality communications across the organisation.' },
-    { img:'/images/unique/Network-Edge.avif', title:'Network Edge Security & Compliance', desc:'Our network security services help safeguard critical systems, reduce risk, and support operational resilience through properly configured firewalls, access controls, and perimeter security measures.' }
-  ]);
+    function activateTab(index) {
+        var d = data[index];
+        if (!d) return;
 
-  initKsa('ksa2', 'ksa2', [
-    { img:'/images/pages/unique/Requirement-Assessment.avif', title:'Requirement Assessment', desc:'Evaluation of your existing infrastructure, application traffic, and bandwidth redundancies. This data calculates your exact network demands.' },
-    { img:'/images/unique/Network-Design-Planning.avif', title:'Network Design & Planning', desc:'Development of a secure, scalable network blueprint that balances existing traffic requirements while reserving capacity for rapid business growth and evolving connectivity needs.' },
-    { img:'/images/unique/Infrastructure-Preparation.avif', title:'Infrastructure Preparation', desc:'Detailed planning of cabling pathways, IP address allocation, and off-site switch configuration. By preparing these components in advance, we ensure a fast, accurate, and seamless deployment.' },
-    { img:'/images/unique/Installation-Configuration.avif', title:'Installation & Configuration', desc:'Installation and configuration of core network infrastructure. Our technicians optimise all hardware settings to ensure maximum performance, stability, and reliability.' },
-    { img:'/images/unique/Testing-Optimisation.avif', title:'Testing & Optimisation', desc:'Comprehensive performance, security, and connectivity testing is carried out to validate the network. Rigorous stress testing confirms optimal efficiency, reliability, and operational readiness.' },
-    { img:'/images/unique/Ongoing-Support-Review.avif', title:'Ongoing Support & Review', desc:'We continuously monitor network health and conduct regular system assessments, providing proactive guidance to ensure your infrastructure supports long-term business growth and operational demands.' }
-  ]);
+        tabs.forEach(function (tab, i) {
+            tab.classList.remove('active');
+            tab.classList.remove('ksa__tab--active');
+            tab.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        });
+
+        tabs[index].classList.add('active');
+        tabs[index].classList.add('ksa__tab--active');
+
+        title.textContent = d.title;
+        desc.textContent = d.desc;
+
+        // Update alt immediately, along with the image source.
+        img.alt = d.alt;
+        img.style.opacity = '0';
+
+        var preload = new Image();
+
+        preload.onload = function () {
+            img.src = d.img;
+            img.alt = d.alt;
+            img.style.objectPosition = d.position || 'center center';
+            img.style.opacity = '1';
+        };
+
+        preload.onerror = function () {
+            img.src = d.img;
+            img.alt = d.alt;
+            img.style.opacity = '1';
+        };
+
+        preload.src = d.img;
+    }
+
+    tabs.forEach(function (tab, index) {
+        tab.addEventListener('click', function () {
+            activateTab(index);
+        });
+    });
+
+    var initialIndex = tabs.findIndex(function (tab) {
+        return tab.classList.contains('active') ||
+               tab.classList.contains('ksa__tab--active');
+    });
+
+    activateTab(initialIndex >= 0 ? initialIndex : 0);
+}
+
+
+/* Key Network Installation Services */
+initKsa('ksa', 'ksa', [
+    {
+        img: '/images/pages/unique/Core-Infrastructure-Network.avif',
+        alt: 'An IT technician connects blue network cables in a data centre server rack during network installation.',
+        title: 'Core Infrastructure & Network Design',
+        desc: 'Design and install reliable business networks that support efficient communication and day-to-day operations. Network Consultancy builds low-latency routes to prevent system slowdowns.'
+    },
+    {
+        img: '/images/unique/Enterprise-Architecture-Cloud-Integration.avif',
+        alt: 'Businessman holding a tablet with cloud and app icons above it, representing cloud integration and network installation for multi-cloud setups.',
+        title: 'Enterprise Architecture & Cloud Integration',
+        desc: 'We deliver scalable networking solutions, including data centre architecture and cloud connectivity integration, while designing resilient network pathways to support multi-cloud workloads.'
+    },
+    {
+        img: '/images/unique/High-Performance-Structured-Cabling-LAN.avif',
+        alt: 'Neatly bundled blue and yellow cables running into server racks, representing structured cabling for professional LAN network installation.',
+        title: 'High-Performance Structured Cabling & LAN',
+        desc: 'We design and install dependable LAN infrastructure that supports business-critical operations, using certified cabling solutions to ensure consistent performance and long-term reliability.'
+    },
+    {
+        img: '/images/unique/Secure-Enterprise-Wi-Fi-Mobility.avif',
+        alt: 'Hands plugging an Ethernet cable into a Wi-Fi router while holding a smartphone, representing wireless network installation for offices.',
+        title: 'Secure Enterprise Wi-Fi & Mobility',
+        desc: 'We implement secure and scalable wireless networks that keep employees connected, productive, and mobile, while ensuring dependable performance throughout the office.'
+    },
+    {
+        img: '/images/unique/Unified-Communications.avif',
+        alt: 'Four headset-wearing colleagues take calls at their desks, representing VoIP and unified communications built on a solid network installation',
+        title: 'Unified Communications & VoIP',
+        desc: 'Our VoIP and communications solutions help teams stay connected and productive, delivering reliable voice services and high-quality communications across the organisation.'
+    },
+    {
+        img: '/images/unique/Network-Edge.avif',
+        alt: 'A businessman points at a glowing padlock graphic, representing edge security and firewall setup as part of a network installation.',
+        title: 'Network Edge Security & Compliance',
+        desc: 'Our network security services help safeguard critical systems, reduce risk, and support operational resilience through properly configured firewalls, access controls, and perimeter security measures.'
+    }
+]);
+
+
+/* Network Installation Process */
+initKsa('ksa2', 'ksa2', [
+    {
+        img: '/images/pages/unique/Requirement-Assessment.avif',
+        alt: 'Network infrastructure assessment before installation.',
+        title: 'Requirement Assessment',
+        desc: 'Evaluation of your existing infrastructure, application traffic, and bandwidth redundancies. This data calculates your exact network demands.'
+    },
+    {
+        img: '/images/unique/Network-Design-Planning.avif',
+        alt: 'Network design planning for secure and scalable business connectivity.',
+        title: 'Network Design & Planning',
+        desc: 'Development of a secure, scalable network blueprint that balances existing traffic requirements while reserving capacity for rapid business growth and evolving connectivity needs.'
+    },
+    {
+        img: '/images/unique/Infrastructure-Preparation.avif',
+        alt: 'Network infrastructure and cabling prepared for installation.',
+        title: 'Infrastructure Preparation',
+        desc: 'Detailed planning of cabling pathways, IP address allocation, and off-site switch configuration. By preparing these components in advance, we ensure a fast, accurate, and seamless deployment.'
+    },
+    {
+        img: '/images/unique/Installation-Configuration.avif',
+        alt: 'Network equipment being installed and configured for business use.',
+        title: 'Installation & Configuration',
+        desc: 'Installation and configuration of core network infrastructure. Our technicians optimise all hardware settings to ensure maximum performance, stability, and reliability.'
+    },
+    {
+        img: '/images/unique/Testing-Optimisation.avif',
+        alt: 'Network connectivity and performance testing during installation.',
+        title: 'Testing & Optimisation',
+        desc: 'Comprehensive performance, security, and connectivity testing is carried out to validate the network. Rigorous stress testing confirms optimal efficiency, reliability, and operational readiness.'
+    },
+    {
+        img: '/images/unique/Ongoing-Support-Review.avif',
+        alt: 'Ongoing network monitoring and support for business infrastructure.',
+        title: 'Ongoing Support & Review',
+        desc: 'We continuously monitor network health and conduct regular system assessments, providing proactive guidance to ensure your infrastructure supports long-term business growth and operational demands.'
+    }
+]);
+
+
+
 
   /* Business Impact — card slider */
   (function () {

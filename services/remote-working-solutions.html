@@ -151,7 +151,7 @@
           <img
             id="ksa-img"
             src="/images/unique/Business-VPN-Deployment-2.avif"
-            alt="Remote access engineer"
+            alt="A man in an office setting focuses on a monitor displaying code, representing remote-work security solutions for encrypted access."
             loading="lazy">
         </picture>
 
@@ -393,34 +393,117 @@
 
   <script>
   /* Key Solution Areas — tab switcher */
-  (function () {
+(function () {
     var ksa = document.getElementById('ksa');
     if (!ksa) return;
-    var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
+
+    var tabs = Array.prototype.slice.call(
+        ksa.querySelectorAll('.ksa__tab')
+    );
+
     var img = document.getElementById('ksa-img');
     var title = document.getElementById('ksa-title');
     var desc = document.getElementById('ksa-desc');
+
+    if (!img || !title || !desc) return;
+
     var data = [
-      { img:'/images/unique/Business-VPN-Deployment-2.avif', title:'Business VPN Deployment', desc:'Installing encrypted connection software on laptops and smartphones gives remote staff secure access to office files. We isolate data traffic that keeps central company databases safe from public internet exposure.' },
-      { img:'/images/unique/Secure-Remote-Access-Configuration.avif', title:'Secure Remote Access Configuration', desc:'We configure and harden your remote access so only authorised staff and devices can connect, keeping your network protected from the outside.' },
-      { img:'/images/unique/Multi-Factor-Authentication.avif', title:'Multi-Factor Authentication (MFA)', desc:'We add a second layer of verification to every login, so a stolen password alone can never give an attacker access to your systems.' },
-      { img:'/images/unique/Secure-Site-to-Site-Connectivity.avif', title:'Secure Site-to-Site Connectivity', desc:'We link your offices with encrypted tunnels, so every location shares data securely as if they were on the same private network.' },
-      { img:'/images/unique/Flexible-Secure-Remote.avif', title:'Flexible & Secure Remote Working', desc:'We give your teams the freedom to work from anywhere with connectivity that stays fast, stable, and secure wherever they are.' },
-      { img:'/images/unique/services-remote-access-vpn-service-4.jpg', title:'Remote Traffic Monitoring', desc:'We watch remote connections for unusual activity, catching and containing threats before they can reach your core systems.' },
-      { img:'/images/unique/Secure-Cloud-Connectivity.avif', title:'Secure Cloud Connectivity', desc:'We connect your teams to cloud platforms with security built in, so productivity never comes at the cost of protection.' }
+        {
+            img: '/images/unique/Business-VPN-Deployment-2.avif',
+            alt: 'Business VPN deployment providing encrypted network access for remote employees.',
+            title: 'Business VPN Deployment',
+            desc: 'Installing encrypted connection software on laptops and smartphones gives remote staff secure access to office files. We isolate data traffic that keeps central company databases safe from public internet exposure.'
+        },
+        {
+            img: '/images/unique/Secure-Remote-Access-Configuration.avif',
+            alt: 'Secure remote access configuration protecting authorised users and devices.',
+            title: 'Secure Remote Access Configuration',
+            desc: 'We configure and harden your remote access so only authorised staff and devices can connect, keeping your network protected from the outside.'
+        },
+        {
+            img: '/images/unique/Multi-Factor-Authentication.avif',
+            alt: 'Multi-factor authentication adding an extra verification step to secure user logins.',
+            title: 'Multi-Factor Authentication (MFA)',
+            desc: 'We add a second layer of verification to every login, so a stolen password alone can never give an attacker access to your systems.'
+        },
+        {
+            img: '/images/unique/Secure-Site-to-Site-Connectivity.avif',
+            alt: 'Encrypted site-to-site network connectivity linking multiple business locations.',
+            title: 'Secure Site-to-Site Connectivity',
+            desc: 'We link your offices with encrypted tunnels, so every location shares data securely as if they were on the same private network.'
+        },
+        {
+            img: '/images/unique/Flexible-Secure-Remote.avif',
+            alt: 'Secure remote working solutions supporting employees working from different locations.',
+            title: 'Flexible & Secure Remote Working',
+            desc: 'We give your teams the freedom to work from anywhere with connectivity that stays fast, stable, and secure wherever they are.'
+        },
+        {
+            img: '/images/unique/services-remote-access-vpn-service-4.jpg',
+            alt: 'Remote network traffic monitoring to identify unusual connection activity.',
+            title: 'Remote Traffic Monitoring',
+            desc: 'We watch remote connections for unusual activity, catching and containing threats before they can reach your core systems.'
+        },
+        {
+            img: '/images/unique/Secure-Cloud-Connectivity.avif',
+            alt: 'Secure cloud connectivity connecting business users to cloud platforms.',
+            title: 'Secure Cloud Connectivity',
+            desc: 'We connect your teams to cloud platforms with security built in, so productivity never comes at the cost of protection.'
+        }
     ];
-    tabs.forEach(function (tab, i) {
-      tab.addEventListener('click', function () {
-        tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-        tab.classList.add('active'); tab.setAttribute('aria-selected','true');
-        var d = data[i];
-        img.style.opacity = '0';
-        setTimeout(function () { img.src = d.img; img.style.opacity = '1'; }, 150);
-        title.textContent = d.title; desc.textContent = d.desc;
-      });
-    });
+
     img.style.transition = 'opacity .3s ease';
-  })();
+
+    tabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function () {
+            var d = data[i];
+            if (!d) return;
+
+            tabs.forEach(function (t) {
+                t.classList.remove('active');
+                t.classList.remove('ksa__tab--active');
+                t.setAttribute('aria-selected', 'false');
+            });
+
+            tab.classList.add('active');
+            tab.classList.add('ksa__tab--active');
+            tab.setAttribute('aria-selected', 'true');
+
+            img.style.opacity = '0';
+
+            var preload = new Image();
+
+            preload.onload = function () {
+                img.src = d.img;
+                img.alt = d.alt;
+                img.style.opacity = '1';
+            };
+
+            preload.onerror = function () {
+                img.src = d.img;
+                img.alt = d.alt;
+                img.style.opacity = '1';
+            };
+
+            preload.src = d.img;
+
+            title.textContent = d.title;
+            desc.textContent = d.desc;
+        });
+    });
+
+    // Set the initial image alt text.
+    var activeIndex = tabs.findIndex(function (tab) {
+        return tab.classList.contains('active') ||
+               tab.classList.contains('ksa__tab--active');
+    });
+
+    if (activeIndex < 0) activeIndex = 0;
+
+    if (data[activeIndex]) {
+        img.alt = data[activeIndex].alt;
+    }
+})();
 
   /* Business Impact — card slider */
   (function () {
