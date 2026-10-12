@@ -69,6 +69,7 @@
 <!-- ===== KEY SOLUTION AREAS (services tabs) ===== -->
 <section class="section-shell" aria-labelledby="ksa-h">
   <div class="ab-inner">
+
     <div class="sd-head">
       <h2 id="ksa-h">Network Support Solutions</h2>
       <p>Enterprise-level IT and network support, backed by skilled experts and quick escalation procedures.</p>
@@ -76,118 +77,181 @@
 
     <div class="ksa__card" id="ksa">
 
-      <div class="ksa__tabs" role="tablist" aria-label="Network Support Solutions">
+      <!-- Solution tabs -->
+      <div class="ksa__tabs"
+           role="tablist"
+           aria-label="Network Support Solutions">
 
-        <h3 class="ksa__tab active"
-            role="tab"
-            aria-selected="true"
-            data-title="Proactive Network Monitoring"
-            data-copy="The staff at Network Consultancy monitor your network 24/7 to ensure continuous, uninterrupted connectivity. We catch hidden technical issues early, so your team never suffers from sudden downtimes that cause lost focus."
-            data-image="/images/pages/unique/Proactive.jpg">
+        <button type="button"
+                class="ksa__tab active"
+                role="tab"
+                id="ksa-tab-1"
+                aria-controls="ksa-panel"
+                aria-selected="true"
+                tabindex="0"
+                data-title="Proactive Network Monitoring"
+                data-copy="The staff at Network Consultancy monitor your network 24/7 to help maintain reliable connectivity. We identify potential technical issues early to reduce unexpected downtime and keep your team productive."
+                data-image="/images/pages/unique/Proactive.jpg"
+                data-alt="Two analysts reviewing financial data charts across multiple monitors, illustrating proactive network support services.">
           Proactive Network Monitoring
-        </h3>
+        </button>
 
-        <h3 class="ksa__tab"
-            role="tab"
-            aria-selected="false"
-            data-title="Network Troubleshooting &amp; Fault Resolution"
-            data-copy="Our engineers identify and resolve network faults quickly, reducing disruption and restoring reliable connectivity so your team can get back to work."
-            data-image="/images/unique/Network-Troubleshooting-Fault-Resolution.avif">
+        <button type="button"
+                class="ksa__tab"
+                role="tab"
+                id="ksa-tab-2"
+                aria-controls="ksa-panel"
+                aria-selected="false"
+                tabindex="-1"
+                data-title="Network Troubleshooting &amp; Fault Resolution"
+                data-copy="Our engineers identify and resolve network faults quickly, reducing disruption and restoring reliable connectivity so your team can get back to work."
+                data-image="/images/unique/Network-Troubleshooting-Fault-Resolution.avif"
+                data-alt="A technician recording a network health check beside a network switch rack, representing IT and network support.">
           Network Troubleshooting &amp; Fault Resolution
-        </h3>
+        </button>
 
-        <h3 class="ksa__tab"
-            role="tab"
-            aria-selected="false"
-            data-title="Network Maintenance &amp; Health Checks"
-            data-copy="Regular network maintenance and health checks identify ageing equipment, configuration issues and performance problems before they develop into serious failures."
-            data-image="/images/unique/Network-Maintenance-Health-Checks.avif">
+        <button type="button"
+                class="ksa__tab"
+                role="tab"
+                id="ksa-tab-3"
+                aria-controls="ksa-panel"
+                aria-selected="false"
+                tabindex="-1"
+                data-title="Network Maintenance &amp; Health Checks"
+                data-copy="Regular network maintenance and health checks identify ageing equipment, configuration issues and performance problems before they develop into serious failures."
+                data-image="/images/unique/Network-Maintenance-Health-Checks.avif"
+                data-alt="A technician checking network equipment as part of routine network maintenance and health checks.">
           Network Maintenance &amp; Health Checks
-        </h3>
+        </button>
 
-        <h3 class="ksa__tab"
-            role="tab"
-            aria-selected="false"
-            data-title="Remote Network Support"
-            data-copy="Our remote support engineers diagnose and resolve many network issues without waiting for an engineer to arrive on-site, helping minimise downtime and maintain business continuity."
-            data-image="/images/unique/Remote-Network-Support.jpg">
+        <button type="button"
+                class="ksa__tab"
+                role="tab"
+                id="ksa-tab-4"
+                aria-controls="ksa-panel"
+                aria-selected="false"
+                tabindex="-1"
+                data-title="Remote Network Support"
+                data-copy="Our remote support engineers diagnose and resolve many network issues without waiting for an engineer to arrive on-site, helping minimise downtime and maintain business continuity."
+                data-image="/images/unique/Remote-Network-Support.jpg"
+                data-alt="A support technician wearing a headset at a workstation, representing remote network support services.">
           Remote Network Support
-        </h3>
+        </button>
 
-        <h3 class="ksa__tab"
-            role="tab"
-            aria-selected="false"
-            data-title="On-Site Network Support"
-            data-copy="When an issue requires physical intervention, our engineers provide on-site support for network equipment, connectivity problems and infrastructure faults."
-            data-image="/images/unique/On-Site-Network-Support.avif">
+        <button type="button"
+                class="ksa__tab"
+                role="tab"
+                id="ksa-tab-5"
+                aria-controls="ksa-panel"
+                aria-selected="false"
+                tabindex="-1"
+                data-title="On-Site Network Support"
+                data-copy="When an issue requires physical intervention, our engineers provide on-site support for network equipment, connectivity problems and infrastructure faults."
+                data-image="/images/unique/On-Site-Network-Support.avif"
+                data-alt="Two engineers checking a laptop beside network cabling, representing on-site network support.">
           On-Site Network Support
-        </h3>
+        </button>
 
-        <h3 class="ksa__tab"
-            role="tab"
-            aria-selected="false"
-            data-title="Network Performance Optimisation"
-            data-copy="We analyse network performance and optimise configurations, traffic flow and infrastructure capacity to improve reliability, responsiveness and overall efficiency."
-            data-image="/images/pages/unique/Network-Performance-Optimisation.avif">
+        <button type="button"
+                class="ksa__tab"
+                role="tab"
+                id="ksa-tab-6"
+                aria-controls="ksa-panel"
+                aria-selected="false"
+                tabindex="-1"
+                data-title="Network Performance Optimisation"
+                data-copy="We analyse network performance and optimise configurations, traffic flow and infrastructure capacity to improve reliability, responsiveness and overall efficiency."
+                data-image="/images/pages/unique/Network-Performance-Optimisation.avif"
+                data-alt="A consultant reviewing network performance results with colleagues, representing network performance optimisation.">
           Network Performance Optimisation
-        </h3>
+        </button>
 
-        <h3 class="ksa__tab"
-            role="tab"
-            aria-selected="false"
-            data-title="Network Security Support"
-            data-copy="We support your network security controls by reviewing configurations, access policies and potential weaknesses to help keep your infrastructure protected."
-            data-image="/images/unique/Network-Security-Support.avif">
+        <button type="button"
+                class="ksa__tab"
+                role="tab"
+                id="ksa-tab-7"
+                aria-controls="ksa-panel"
+                aria-selected="false"
+                tabindex="-1"
+                data-title="Network Security Support"
+                data-copy="We support your network security controls by reviewing configurations, access policies and potential weaknesses to help keep your infrastructure protected."
+                data-image="/images/unique/Network-Security-Support.avif"
+                data-alt="IT engineers inspecting a server cabinet, representing network security support.">
           Network Security Support
-        </h3>
+        </button>
 
-        <h3 class="ksa__tab"
-            role="tab"
-            aria-selected="false"
-            data-title="Wi-Fi Support &amp; Optimisation"
-            data-copy="We troubleshoot wireless connectivity, coverage and performance issues and optimise your Wi-Fi environment for reliable access across your workplace."
-            data-image="/images/unique/Wi-Fi-Support-Optimisation.avif">
+        <button type="button"
+                class="ksa__tab"
+                role="tab"
+                id="ksa-tab-8"
+                aria-controls="ksa-panel"
+                aria-selected="false"
+                tabindex="-1"
+                data-title="Wi-Fi Support &amp; Optimisation"
+                data-copy="We troubleshoot wireless connectivity, coverage and performance issues and optimise your Wi-Fi environment for reliable access across your workplace."
+                data-image="/images/unique/Wi-Fi-Support-Optimisation.avif"
+                data-alt="Business professionals discussing wireless connectivity, representing Wi-Fi support and optimisation.">
           Wi-Fi Support &amp; Optimisation
-        </h3>
+        </button>
 
-        <h3 class="ksa__tab"
-            role="tab"
-            aria-selected="false"
-            data-title="Network Device Management"
-            data-copy="We manage and maintain routers, switches, access points and other network devices to keep configurations consistent, monitored and operating reliably."
-            data-image="/images/unique/Network-Device-Management.avif">
+        <button type="button"
+                class="ksa__tab"
+                role="tab"
+                id="ksa-tab-9"
+                aria-controls="ksa-panel"
+                aria-selected="false"
+                tabindex="-1"
+                data-title="Network Device Management"
+                data-copy="We manage and maintain routers, switches, access points and other network devices to keep configurations consistent, monitored and operating reliably."
+                data-image="/images/unique/Network-Device-Management.avif"
+                data-alt="IT technicians inspecting network equipment and recording device checks in a server room.">
           Network Device Management
-        </h3>
+        </button>
 
-        <h3 class="ksa__tab"
-            role="tab"
-            aria-selected="false"
-            data-title="Backup &amp; Disaster Recovery Support"
-            data-copy="We help maintain reliable backup and recovery processes so your organisation can restore critical network services and minimise operational disruption following an incident."
-            data-image="/images/unique/Backup-Disaster-Recovery-Support.avif">
+        <button type="button"
+                class="ksa__tab"
+                role="tab"
+                id="ksa-tab-10"
+                aria-controls="ksa-panel"
+                aria-selected="false"
+                tabindex="-1"
+                data-title="Backup &amp; Disaster Recovery Support"
+                data-copy="We help maintain reliable backup and recovery processes so your organisation can restore critical network services and minimise operational disruption following an incident."
+                data-image="/images/unique/Backup-Disaster-Recovery-Support.avif"
+                data-alt="An engineer inspecting a server unit, representing backup and disaster recovery support.">
           Backup &amp; Disaster Recovery Support
-        </h3>
+        </button>
 
       </div>
 
-      <div class="ksa__panel">
+      <!-- Selected solution -->
+      <div class="ksa__panel"
+           id="ksa-panel"
+           role="tabpanel"
+           aria-labelledby="ksa-tab-1"
+           tabindex="0">
+
         <picture>
           <img
             id="ksa-img"
             src="/images/pages/unique/Proactive.jpg"
-            alt="Two analysts reviewing financial data charts across multiple monitors, illustrating proactive network support services"
+            alt="Two analysts reviewing financial data charts across multiple monitors, illustrating proactive network support services."
             loading="lazy">
         </picture>
 
-        <div class="ksa__panel-card" role="tabpanel">
-          <h4 id="ksa-title">Proactive Network Monitoring</h4>
+        <div class="ksa__panel-card">
+          <h3 id="ksa-title">Proactive Network Monitoring</h3>
 
           <p id="ksa-desc" class="ksa-desc">
-            The staff at Network Consultancy monitor your network 24/7 to ensure continuous, uninterrupted connectivity. We catch hidden technical issues early, so your team never suffers from sudden downtimes that cause lost focus.
+            The staff at Network Consultancy monitor your network 24/7
+            to help maintain reliable connectivity. We identify potential
+            technical issues early to reduce unexpected downtime and
+            keep your team productive.
           </p>
         </div>
 
       </div>
+
     </div>
   </div>
 </section>
@@ -432,183 +496,198 @@
   <div id="site-footer"></div>
   <script src="/js/footer.js"></script>
 
-  <script>
-  /* Key Solution Areas — tab switcher */
-  (function () {
-    var ksa = document.getElementById('ksa');
-    if (!ksa) return;
-    var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
-    var tabsWrap = ksa.querySelector('.ksa__tabs');
-    var img = document.getElementById('ksa-img');
-    var title = document.getElementById('ksa-title');
-    var desc = document.getElementById('ksa-desc');
-    var data = [
-      { img:'/images/pages/unique/Proactive.jpg', title:'Proactive Network Monitoring', desc:'The staff at Network Consultancy monitor your network 24/7 to ensure continuous, uninterrupted connectivity. We catch hidden technical issues early, so your team never suffers from sudden downtimes that cause lost focus.' },
-       {
-    img: '/images/unique/Network-Troubleshooting-Fault-Resolution.avif',
-    title: 'Network Troubleshooting & Fault Resolution',
-    desc: 'Our engineers act immediately when a connection drops, quickly identifying and resolving the issue. This minimises downtime, ensuring employees remain productive and billable hours are not lost to urgent project deadlines.'
-  },
-  {
-    img: '/images/unique/Network-Maintenance-Health-Checks.avif',
-    title: 'Network Maintenance & Health Checks',
-    desc: 'Our team performs all system updates outside of business hours, eliminating midday slowdowns and unexpected restarts that can disrupt productivity.'
-  },
-  {
-    img: '/images/unique/Remote-Network-Support.jpg',
-    title: 'Remote Network Support',
-    desc: 'When your staff reports an issue, a technician securely connects to the affected workstation right away, providing rapid troubleshooting and resolution without the wait for an on-site visit.'
-  },
-  {
-    img: '/images/unique/On-Site-Network-Support.avif',
-    title: 'On-Site Network Support',
-    desc: 'Network Consultancy dispatches experienced engineers to your workplace for hardware installations and upgrades, handling the entire setup process with minimal disruption to your staff.'
-  },
-  {
-    img: '/images/unique/Network-Performance-Optimisation.avif',
-    title: 'Network Performance Optimisation',
-    desc: 'We identify and eliminate network bottlenecks that can degrade call quality and disrupt video conferencing, ensuring a reliable connection during important client meetings and presentations.'
-  },
-  {
-    img: '/images/unique/Network-Security-Support.avif',
-    title: 'Network Security Support',
-    desc: 'Network Consultancy protects your business by preventing unauthorised access attempts before they can compromise your systems. Our proactive security measures help safeguard critical data and reduce the risk of disruptive cyberattacks.'
-  },
-  {
-    img: '/images/unique/Wi-Fi-Support-Optimisation.avif',
-    title: 'Wi-Fi Support & Optimisation',
-    desc: 'Our team optimises and maintains your wireless network, strategically positioning access points to deliver reliable coverage throughout your office, including meeting rooms and hard-to-reach areas. This enables employees to move freely without interrupting active calls or connections.'
-  },
-  {
-    img: '/images/unique/Network-Device-Management.avif',
-    title: 'Network Device Management',
-    desc: 'Our team manages the complete setup, configuration, and ongoing maintenance of your routers and switches. Should a device fail, our Network Consultancy handles the replacement process from start to finish, ensuring minimal disruption to your operations.'
-  },
-  {
-    img: '/images/unique/Backup-Disaster-Recovery-Support.avif',
-    title: 'Backup & Disaster Recovery Support',
-    desc: 'We continuously back up your critical business data to secure off-site locations, ensuring it remains protected and recoverable. In the event of a power outage or unexpected disruption, our team can quickly restore your files and minimise downtime.'
-  }
-    ];
-    function keepActiveTabInView(tab) {
-      if (!tabsWrap || !tab || window.matchMedia('(max-width: 768px)').matches) return;
-      tab.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    tabs.forEach(function (tab, i) {
-      tab.addEventListener('click', function () {
-        tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-        tab.classList.add('active'); tab.setAttribute('aria-selected','true');
-        keepActiveTabInView(tab);
-        var d = data[i];
-        img.style.opacity = '0';
-        setTimeout(function () { img.src = d.img; img.style.opacity = '1'; }, 150);
-        title.textContent = d.title; desc.textContent = d.desc;
-      });
-    });
-    keepActiveTabInView(ksa.querySelector('.ksa__tab.active'));
-    img.style.transition = 'opacity .3s ease';
-  })();
-
-  /* Business Impact — card slider */
-  (function () {
-    var biz = document.getElementById('biz');
-    if (!biz) return;
-    var slides = [
-      { title:'Systematic Cisco IT Support', desc:'Systematic Cisco IT support throughout the contracted period.' },
-      {
-  title: 'Cisco Network Engineers',
-  desc: 'Support from qualified and highly experienced Cisco Network Engineers.'
-},
-{
-  title: 'Cost-Effective Support',
-  desc: 'More cost-effective than maintaining an in-house team.'
-},
-{
-  title: 'Fast Issue Resolution',
-  desc: 'Quicker resolution time due to our extensive industry experience.'
-},
-{
-  title: 'Remote Support Services',
-  desc: 'Remote support when you need it by phone, email and remote connection.'
-},
-{
-  title: 'Custom Cisco Support',
-  desc: 'Our Cisco Support contract can be customised to include Hardware & Software, Cisco Network Support and Maintenance, Hardware Recommendations, Network Configuration, 3rd-Line Support, Troubleshooting, Change Management, and Consultation.'
-}
-    ];
-    var i = 0, total = slides.length;
-    var title = document.getElementById('biz-title');
-    var desc = document.getElementById('biz-desc');
-    var count = document.getElementById('biz-count');
-    var fill = document.getElementById('biz-fill');
-    function render() {
-      title.style.opacity = '0'; desc.style.opacity = '0';
-      setTimeout(function () {
-        title.textContent = slides[i].title; desc.textContent = slides[i].desc;
-        count.textContent = (i + 1) + '/' + total;
-        fill.style.width = ((i + 1) / total * 100) + '%';
-        title.style.opacity = '1'; desc.style.opacity = '1';
-      }, 200);
-    }
-    document.getElementById('biz-prev').addEventListener('click', function () { i = (i - 1 + total) % total; render(); });
-    document.getElementById('biz-next').addEventListener('click', function () { i = (i + 1) % total; render(); });
-  })();
-
-  </script>
-
   <script src="/js/cms.js"></script>
-  <script>
-  /* Key Solution Areas — mobile accordion (panel follows active tab, caret, progress) */
-  (function ksaMobile() {
-    var ksa = document.getElementById('ksa');
-    if (!ksa) return;
-    var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
-    var tabsWrap = ksa.querySelector('.ksa__tabs');
-    var panel = ksa.querySelector('.ksa__panel');
-    var card = ksa.querySelector('.ksa__panel-card');
-    if (!tabs.length || !tabsWrap || !panel || !card) return;
-    tabs.forEach(function (t) {
-      if (!t.querySelector('.ksa__caret')) {
-        var c = document.createElement('span');
-        c.className = 'ksa__caret';
-        c.setAttribute('aria-hidden', 'true');
-        c.textContent = '\u2304';
-        t.appendChild(c);
-      }
-    });
-    var bar = document.createElement('div');
-    bar.className = 'ksa__bar';
-    bar.setAttribute('aria-hidden', 'true');
-    var fill = document.createElement('span');
-    bar.appendChild(fill);
-    card.appendChild(bar);
-    var mq = window.matchMedia('(max-width: 768px)');
-    function sync() {
-      var i = 0;
-      tabs.forEach(function (t, j) { if (t.classList.contains('active')) i = j; });
-      tabs.forEach(function (t, j) {
-        var c = t.querySelector('.ksa__caret');
-        if (c) c.textContent = j === i ? '^' : '\u2304';
-      });
-      fill.style.width = (((i + 1) / tabs.length) * 100) + '%';
-      if (mq.matches) {
-        tabs[i].insertAdjacentElement('afterend', panel);
-      } else if (panel.parentElement === tabsWrap) {
-        ksa.appendChild(panel);
-      }
-    }
-    tabs.forEach(function (t) {
-      t.addEventListener('click', function () { window.setTimeout(sync, 0); });
-    });
-    if (mq.addEventListener) { mq.addEventListener('change', sync); } else { mq.addListener(sync); }
-    sync();
-  })();
-  </script>
+<script>
+function activateTab(tab) {
+  tabs.forEach(function (item) {
+    var active = item === tab;
+
+    item.classList.toggle('active', active);
+    item.setAttribute('aria-selected', String(active));
+  });
+
+  var newTitle = tab.getAttribute('data-title') || tab.textContent.trim();
+  var newDesc = tab.getAttribute('data-copy') || '';
+  var newImage = tab.getAttribute('data-image') || '';
+  var newAlt = tab.getAttribute('data-alt') || '';
+
+  title.textContent = newTitle;
+  desc.textContent = newDesc;
+
+  // Always apply the exact data-alt value
+  img.setAttribute('alt', newAlt);
+
+  if (newImage && img.getAttribute('src') !== newImage) {
+    img.style.opacity = '0';
+
+    var preload = new Image();
+
+    preload.onload = function () {
+      img.src = newImage;
+
+      // Reapply alt after changing the image
+      img.setAttribute('alt', newAlt);
+
+      img.style.opacity = '1';
+    };
+
+    preload.onerror = function () {
+      img.setAttribute('alt', newAlt);
+      img.style.opacity = '1';
+
+      console.error('Image failed to load:', newImage);
+    };
+
+    preload.src = newImage;
+  } else {
+    img.setAttribute('alt', newAlt);
+    img.style.opacity = '1';
+  }
+}
+
+</script>
   <script src="/js/animations.js" defer></script>
   <script src="/js/global.js" defer></script>
   <script src="/js/accessibility.js" defer></script>
   <script src="/js/search-index.js" defer></script>
   <script src="/js/search.js" defer></script>
+<script>
+(function () {
+  function initNetworkSupportTabs() {
+    const container = document.getElementById('ksa');
+
+    if (!container || container.dataset.initialized === 'true') {
+      return;
+    }
+
+    const tabs = Array.from(
+      container.querySelectorAll('.ksa__tab')
+    );
+
+    const img = document.getElementById('ksa-img');
+    const title = document.getElementById('ksa-title');
+    const desc = document.getElementById('ksa-desc');
+    const panel = document.getElementById('ksa-panel');
+
+    if (!tabs.length || !img || !title || !desc || !panel) {
+      return;
+    }
+
+    container.dataset.initialized = 'true';
+
+    function activateTab(tab, moveFocus) {
+      tabs.forEach(function (item) {
+        const active = item === tab;
+
+        item.classList.toggle('active', active);
+        item.setAttribute('aria-selected', String(active));
+        item.setAttribute('tabindex', active ? '0' : '-1');
+      });
+
+      const newTitle =
+        tab.dataset.title || tab.textContent.trim();
+
+      const newDesc =
+        tab.dataset.copy || '';
+
+      const newImage =
+        tab.dataset.image || '';
+
+      const newAlt =
+        tab.dataset.alt || '';
+
+      title.textContent = newTitle;
+      desc.textContent = newDesc;
+
+      // Keep the image alt text independent of the tab title.
+      img.alt = newAlt;
+
+      // Update the panel's accessible tab relationship.
+      panel.setAttribute('aria-labelledby', tab.id);
+
+      if (newImage && img.getAttribute('src') !== newImage) {
+        img.style.opacity = '0.4';
+
+        const preload = new Image();
+
+        preload.onload = function () {
+          img.src = newImage;
+          img.alt = newAlt;
+          img.style.opacity = '1';
+        };
+
+        preload.onerror = function () {
+          img.alt = newAlt;
+          img.style.opacity = '1';
+
+          console.error('Unable to load image:', newImage);
+        };
+
+        preload.src = newImage;
+      } else {
+        img.alt = newAlt;
+        img.style.opacity = '1';
+      }
+
+      if (moveFocus) {
+        tab.focus();
+      }
+    }
+
+    tabs.forEach(function (tab, index) {
+      tab.addEventListener('click', function () {
+        activateTab(tab, false);
+      });
+
+      tab.addEventListener('keydown', function (event) {
+        let nextIndex = index;
+
+        switch (event.key) {
+          case 'ArrowDown':
+          case 'ArrowRight':
+            nextIndex = (index + 1) % tabs.length;
+            break;
+
+          case 'ArrowUp':
+          case 'ArrowLeft':
+            nextIndex = (index - 1 + tabs.length) % tabs.length;
+            break;
+
+          case 'Home':
+            nextIndex = 0;
+            break;
+
+          case 'End':
+            nextIndex = tabs.length - 1;
+            break;
+
+          default:
+            return;
+        }
+
+        event.preventDefault();
+        activateTab(tabs[nextIndex], true);
+      });
+    });
+
+    const initialTab =
+      tabs.find(function (tab) {
+        return tab.getAttribute('aria-selected') === 'true';
+      }) || tabs[0];
+
+    activateTab(initialTab, false);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener(
+      'DOMContentLoaded',
+      initNetworkSupportTabs
+    );
+  } else {
+    initNetworkSupportTabs();
+  }
+})();
+</script>
+
 </body>
 </html>

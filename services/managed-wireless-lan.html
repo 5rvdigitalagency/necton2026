@@ -153,7 +153,7 @@
         </div>
         <div class="biz__card">
           <div>
-            <h3 id="biz-title">Engineered Signal Accuracy</h3>
+            <h4 id="biz-title">Engineered Signal Accuracy</h4>
             <p id="biz-desc">Engineered signal accuracy based on physical building materials to eliminate coverage blind spots.</p>
           </div>
           <div class="biz__num" id="biz-count">1/6</div>
@@ -342,33 +342,106 @@
   <script src="/js/footer.js"></script>
 
   <script>
-  /* Key Solution Areas — tab switcher */
-  (function () {
+/* Key Solution Areas — tab switcher */
+(function () {
     var ksa = document.getElementById('ksa');
     if (!ksa) return;
-    var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
+
+    var tabs = Array.prototype.slice.call(
+        ksa.querySelectorAll('.ksa__tab')
+    );
+
     var img = document.getElementById('ksa-img');
     var title = document.getElementById('ksa-title');
     var desc = document.getElementById('ksa-desc');
+
+    if (!img || !title || !desc) return;
+
     var data = [
-      { img:'/images/pages/unique/Wireless-Site-Audits-Signal.avif', title:'Wireless Site Audits and Signal Mapping', desc:'We scan your building\u2019s layout to identify signal-blocking obstacles, such as concrete walls or glass partitions. Placing access points based on this data ensures full coverage without dead zones.' },
-      { img:'/images/unique/Smart-Bandwidth-Traffic-Steering.avif', title:'Smart Bandwidth and Traffic Steering', desc:'Our setups automatically shift phones and laptops onto less crowded frequencies as people move around. This stops video calls from lagging when everyone gathers in a single meeting room.' },
-      { img:'/images/unique/services-managed-wireless-lan-service-2.jpg', title:'Segmented Guest and BYOD Portals', desc:'We create separate, secure login gateways for visitors\' and staff\'s personal devices. Guests get fast internet access, but they cannot access your private company servers or files.' },
-      { img:'/images/unique/Fast-Roaming-Cross-Floor-Handover.avif', title:'Fast-Roaming Cross-Floor Handover', desc:'We tune the network so devices transition between wireless access points instantly as people walk through the building. Staff stay connected to live streams or voice calls without experiencing sudden drops in connectivity.' },
-      { img:'/images/unique/services-managed-wireless-lan-service-3.jpg', title:'Unified Cloud Dashboard Control', desc:'We link all access points across your office branches into a single remote management system. Your IT team can push security updates and fix connectivity bugs without leaving their desks.' }
+        {
+            img: '/images/pages/unique/Wireless-Site-Audits-Signal.avif',
+            alt: 'Wireless site survey and signal mapping to identify Wi-Fi coverage gaps.',
+            title: 'Wireless Site Audits and Signal Mapping',
+            desc: 'We scan your building’s layout to identify signal-blocking obstacles, such as concrete walls or glass partitions. Placing access points based on this data ensures full coverage without dead zones.'
+        },
+        {
+            img: '/images/unique/Smart-Bandwidth-Traffic-Steering.avif',
+            alt: 'Wireless network traffic management optimising bandwidth and device connections.',
+            title: 'Smart Bandwidth and Traffic Steering',
+            desc: 'Our setups automatically shift phones and laptops onto less crowded frequencies as people move around. This stops video calls from lagging when everyone gathers in a single meeting room.'
+        },
+        {
+            img: '/images/unique/services-managed-wireless-lan-service-2.jpg',
+            alt: 'Guest Wi-Fi and BYOD network access separated from private business systems.',
+            title: 'Segmented Guest and BYOD Portals',
+            desc: 'We create separate, secure login gateways for visitors’ and staff’s personal devices. Guests get fast internet access, but they cannot access your private company servers or files.'
+        },
+        {
+            img: '/images/unique/Fast-Roaming-Cross-Floor-Handover.avif',
+            alt: 'Wireless access points supporting seamless roaming between floors and office areas.',
+            title: 'Fast-Roaming Cross-Floor Handover',
+            desc: 'We tune the network so devices transition between wireless access points instantly as people walk through the building. Staff stay connected to live streams or voice calls without experiencing sudden drops in connectivity.'
+        },
+        {
+            img: '/images/unique/services-managed-wireless-lan-service-3.jpg',
+            alt: 'Centralised cloud dashboard for managing wireless access points across multiple locations.',
+            title: 'Unified Cloud Dashboard Control',
+            desc: 'We link all access points across your office branches into a single remote management system. Your IT team can push security updates and fix connectivity bugs without leaving their desks.'
+        }
     ];
-    tabs.forEach(function (tab, i) {
-      tab.addEventListener('click', function () {
-        tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-        tab.classList.add('active'); tab.setAttribute('aria-selected','true');
-        var d = data[i];
-        img.style.opacity = '0';
-        setTimeout(function () { img.src = d.img; img.style.opacity = '1'; }, 150);
-        title.textContent = d.title; desc.textContent = d.desc;
-      });
-    });
+
     img.style.transition = 'opacity .3s ease';
-  })();
+
+    function activateTab(index) {
+        var d = data[index];
+        if (!d) return;
+
+        tabs.forEach(function (t, i) {
+            t.classList.remove('active');
+            t.classList.remove('ksa__tab--active');
+            t.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        });
+
+        tabs[index].classList.add('active');
+        tabs[index].classList.add('ksa__tab--active');
+
+        title.textContent = d.title;
+        desc.textContent = d.desc;
+
+        // Update alt text immediately when the tab changes.
+        img.alt = d.alt;
+        img.style.opacity = '0';
+
+        var preload = new Image();
+
+        preload.onload = function () {
+            img.src = d.img;
+            img.alt = d.alt;
+            img.style.opacity = '1';
+        };
+
+        preload.onerror = function () {
+            img.src = d.img;
+            img.alt = d.alt;
+            img.style.opacity = '1';
+        };
+
+        preload.src = d.img;
+    }
+
+    tabs.forEach(function (tab, index) {
+        tab.addEventListener('click', function () {
+            activateTab(index);
+        });
+    });
+
+    var activeIndex = tabs.findIndex(function (tab) {
+        return tab.classList.contains('active') ||
+               tab.classList.contains('ksa__tab--active');
+    });
+
+    activateTab(activeIndex >= 0 ? activeIndex : 0);
+})();
 
   /* Business Impact — card slider */
   (function () {
