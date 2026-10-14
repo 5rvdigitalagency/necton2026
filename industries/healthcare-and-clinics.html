@@ -361,7 +361,7 @@
       <div class="industry-highlight">
         <picture>
           <source srcset="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1600&q=80&auto=format&fit=crop" type="image/jpeg">
-          <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1600&q=80&auto=format&fit=crop" alt="Healthcare team using connected clinical infrastructure" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1600&q=80&auto=format&fit=crop" alt="A gloved hand holding an anatomical heart model, representing streamlining healthcare operations through connected IT infrastructure." loading="lazy">
         </picture>
         <div class="industry-highlight__overlay" aria-hidden="true"></div>
         <div class="industry-highlight__content">
@@ -476,7 +476,11 @@ var slides = [
         setTimeout(function () {
           titleEl.textContent = slides[current].title;
           textEl.textContent  = slides[current].text;
-          if (bgImg) { bgImg.src = slides[current].bg; bgImg.style.opacity = '1'; }
+          if (bgImg) {
+  bgImg.src = slides[current].bg;
+  bgImg.alt = slides[current].alt;
+  bgImg.style.opacity = '1';
+}
           dots.forEach(function (d, i) {
             d.classList.toggle('is-active', i === current);
             d.setAttribute('aria-selected', i === current ? 'true' : 'false');
