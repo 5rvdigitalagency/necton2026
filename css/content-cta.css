@@ -4,11 +4,10 @@
   padding: 40px;
 }
 
-.content-cta__inner {
+.content-cta.ab-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 25px;
 }
 
 .content-cta__copy {
@@ -51,20 +50,20 @@
 @media (max-width: 768px) {
   .content-cta {
     margin: 32px auto;
-    padding-top: 40px;
-    padding-bottom: 40px;
+padding: 40px;
   }
 
-  .content-cta__inner {
+  .content-cta ab-inner {
     align-items: flex-start;
     flex-direction: column;
   }
-
-  .content-cta__title {
-    font-size: 24px;
-  }
-
-  .content-cta__text {
-    font-size: 16px;
+  .content-cta__button {
+    padding: 12px 12px
   }
 }
+
+@media (max-width: 568px) {
+    .content-cta {
+        padding: 25px;
+    }
+  }
