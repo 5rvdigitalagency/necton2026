@@ -352,7 +352,7 @@
     }).join('\n');
 
     container.innerHTML = [
-      '<section class="nd-faq section-shell">',
+      '<section class="nd-faq">',
       '  <div class="nd-faq__left">',
       '    <h2 class="section-title">Frequently Asked Questions</h2>',
       '    <p>Still have questions? Get connected to our support team.</p>',
