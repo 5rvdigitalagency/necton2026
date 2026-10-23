@@ -77,12 +77,11 @@
 
     <div class="ksa__card" id="ksa">
 
-      <!-- Solution tabs -->
+        <!-- Solution tabs -->
       <div class="ksa__tabs"
            role="tablist"
            aria-label="Network Support Solutions">
-
-        <button type="button"
+<h3 
                 class="ksa__tab active"
                 role="tab"
                 id="ksa-tab-1"
@@ -94,9 +93,8 @@
                 data-image="/images/pages/unique/Proactive.jpg"
                 data-alt="Two analysts reviewing financial data charts across multiple monitors, illustrating proactive network support services.">
           Proactive Network Monitoring
-        </button>
-
-        <button type="button"
+    </h3>
+<h3 
                 class="ksa__tab"
                 role="tab"
                 id="ksa-tab-2"
@@ -108,9 +106,8 @@
                 data-image="/images/unique/Network-Troubleshooting-Fault-Resolution.avif"
                 data-alt="An engineer tracing colour-coded patch cables in a server rack to fix a dropped connection, representing fast network support services">
           Network Troubleshooting &amp; Fault Resolution
-        </button>
-
-        <button type="button"
+    </h3>
+<h3 
                 class="ksa__tab"
                 role="tab"
                 id="ksa-tab-3"
@@ -122,9 +119,8 @@
                 data-image="/images/unique/Network-Maintenance-Health-Checks.avif"
                 data-alt="A technician is noting down a network health check on a clipboard beside a patched switch rack, representing IT and network support">
           Network Maintenance &amp; Health Checks
-        </button>
-
-        <button type="button"
+    </h3>
+<h3 
                 class="ksa__tab"
                 role="tab"
                 id="ksa-tab-4"
@@ -136,9 +132,8 @@
                 data-image="/images/unique/Remote-Network-Support.jpg"
                 data-alt="A support technician wearing a headset at a workstation, representing remote network support services.">
           Remote Network Support
-        </button>
-
-        <button type="button"
+    </h3>
+<h3 
                 class="ksa__tab"
                 role="tab"
                 id="ksa-tab-5"
@@ -150,9 +145,8 @@
                 data-image="/images/unique/On-Site-Network-Support.avif"
                 data-alt="Two engineers checking a laptop beside network cabling, representing on-site network support.">
           On-Site Network Support
-        </button>
-
-        <button type="button"
+    </h3>
+<h3 
                 class="ksa__tab"
                 role="tab"
                 id="ksa-tab-6"
@@ -164,9 +158,8 @@
                 data-image="/images/pages/unique/Network-Performance-Optimisation.avif"
                 data-alt="Network engineer testing cabling and equipment on a laptop beside a server rack, providing network support in London.">
           Network Performance Optimisation
-        </button>
-
-        <button type="button"
+    </h3>
+<h3 
                 class="ksa__tab"
                 role="tab"
                 id="ksa-tab-7"
@@ -178,9 +171,8 @@
                 data-image="/images/unique/Network-Security-Support.avif"
                 data-alt="Two IT engineers with a laptop inspecting a secured server cabinet, representing network support services that protect business data.">
           Network Security Support
-        </button>
-
-        <button type="button"
+    </h3>
+<h3 
                 class="ksa__tab"
                 role="tab"
                 id="ksa-tab-8"
@@ -192,9 +184,8 @@
                 data-image="/images/unique/Wi-Fi-Support-Optimisation.avif"
                 data-alt="Two businessmen outdoors with a Wi-Fi signal graphic, representing Wi-Fi coverage and optimisation by a network support company.">
           Wi-Fi Support &amp; Optimisation
-        </button>
-
-        <button type="button"
+    </h3>
+<h3 
                 class="ksa__tab"
                 role="tab"
                 id="ksa-tab-9"
@@ -206,9 +197,8 @@
                 data-image="/images/unique/Network-Device-Management.avif"
                 data-alt="Two IT technicians are logging router and switch checks on a tablet and a clipboard in a server room, representing IT and network support.">
           Network Device Management
-        </button>
-
-        <button type="button"
+    </h3>
+<h3 
                 class="ksa__tab"
                 role="tab"
                 id="ksa-tab-10"
@@ -220,7 +210,7 @@
                 data-image="/images/unique/Backup-Disaster-Recovery-Support.avif"
                 data-alt="An engineer in blue overalls and safety glasses is checking a server unit in a rack, representing backup and recovery network support services.">
           Backup &amp; Disaster Recovery Support
-        </button>
+    </h3>
 
       </div>
 
@@ -240,7 +230,7 @@
         </picture>
 
         <div class="ksa__panel-card">
-          <h3 id="ksa-title">Proactive Network Monitoring</h3>
+          <h4 id="ksa-title">Proactive Network Monitoring</h4>
 
           <p id="ksa-desc" class="ksa-desc">
             The staff at Network Consultancy monitor your network 24/7
@@ -498,112 +488,68 @@
 
   <script src="/js/cms.js"></script>
 <script>
-function activateTab(tab) {
-  tabs.forEach(function (item) {
-    var active = item === tab;
-
-    item.classList.toggle('active', active);
-    item.setAttribute('aria-selected', String(active));
-  });
-
-  var newTitle = tab.getAttribute('data-title') || tab.textContent.trim();
-  var newDesc = tab.getAttribute('data-copy') || '';
-  var newImage = tab.getAttribute('data-image') || '';
-  var newAlt = tab.getAttribute('data-alt') || '';
-
-  title.textContent = newTitle;
-  desc.textContent = newDesc;
-
-  // Always apply the exact data-alt value
-  img.setAttribute('alt', newAlt);
-
-  if (newImage && img.getAttribute('src') !== newImage) {
-    img.style.opacity = '0';
-
-    var preload = new Image();
-
-    preload.onload = function () {
-      img.src = newImage;
-
-      // Reapply alt after changing the image
-      img.setAttribute('alt', newAlt);
-
-      img.style.opacity = '1';
-    };
-
-    preload.onerror = function () {
-      img.setAttribute('alt', newAlt);
-      img.style.opacity = '1';
-
-      console.error('Image failed to load:', newImage);
-    };
-
-    preload.src = newImage;
-  } else {
-    img.setAttribute('alt', newAlt);
-    img.style.opacity = '1';
-  }
-}
-
-</script>
-  <script src="/js/animations.js" defer></script>
-  <script src="/js/global.js" defer></script>
-  <script src="/js/accessibility.js" defer></script>
-  <script src="/js/search-index.js" defer></script>
-  <script src="/js/search.js" defer></script>
-<script>
 (function () {
   function initNetworkSupportTabs() {
     const container = document.getElementById('ksa');
 
-    if (!container || container.dataset.initialized === 'true') {
-      return;
-    }
+    if (!container || container.dataset.initialized === 'true') return;
 
-    const tabs = Array.from(
-      container.querySelectorAll('.ksa__tab')
-    );
+    const tabs = Array.from(container.querySelectorAll('.ksa__tab'));
+    const img = container.querySelector('#ksa-img');
+    const title = container.querySelector('#ksa-title');
+    const desc = container.querySelector('#ksa-desc');
+    const panel = container.querySelector('#ksa-panel');
 
-    const img = document.getElementById('ksa-img');
-    const title = document.getElementById('ksa-title');
-    const desc = document.getElementById('ksa-desc');
-    const panel = document.getElementById('ksa-panel');
-
-    if (!tabs.length || !img || !title || !desc || !panel) {
-      return;
-    }
+    if (!tabs.length || !img || !title || !desc || !panel) return;
 
     container.dataset.initialized = 'true';
 
-    function activateTab(tab, moveFocus) {
-      tabs.forEach(function (item) {
-        const active = item === tab;
+    const mobileQuery = window.matchMedia('(max-width: 768px)');
+    const mobilePanels = [];
 
-        item.classList.toggle('active', active);
-        item.setAttribute('aria-selected', String(active));
-        item.setAttribute('tabindex', active ? '0' : '-1');
-      });
+    // Create a separate accordion panel for each tab.
+    tabs.forEach(function (tab, index) {
+      const mobilePanel = document.createElement('div');
 
-      const newTitle =
+      mobilePanel.className = 'ksa__panel';
+      mobilePanel.id = 'ksa__panel-' + (index + 1);
+      mobilePanel.setAttribute('role', 'region');
+      mobilePanel.setAttribute('aria-labelledby', tab.id);
+      mobilePanel.hidden = true;
+
+      const mobileImage = document.createElement('img');
+      mobileImage.src = tab.dataset.image || '';
+      mobileImage.alt = tab.dataset.alt || '';
+      mobileImage.loading = 'lazy';
+
+      const mobileTitle = document.createElement('h4');
+      mobileTitle.textContent =
         tab.dataset.title || tab.textContent.trim();
 
-      const newDesc =
-        tab.dataset.copy || '';
+      const mobileDesc = document.createElement('p');
+      mobileDesc.textContent = tab.dataset.copy || '';
 
-      const newImage =
-        tab.dataset.image || '';
+      mobilePanel.append(mobileImage, mobileTitle, mobileDesc);
+      tab.insertAdjacentElement('afterend', mobilePanel);
 
-      const newAlt =
-        tab.dataset.alt || '';
+      tab.setAttribute('aria-controls', mobilePanel.id);
+      tab.setAttribute('aria-expanded', 'false');
+
+      mobilePanels.push(mobilePanel);
+    });
+
+    function updateDesktopPanel(tab) {
+      const newTitle = tab.dataset.title || tab.textContent.trim();
+      const newDesc = tab.dataset.copy || '';
+      const newImage = tab.dataset.image || '';
+      const newAlt = tab.dataset.alt || '';
 
       title.textContent = newTitle;
       desc.textContent = newDesc;
-
-      // Keep the image alt text independent of the tab title.
-      img.alt = newAlt;
-
-      // Update the panel's accessible tab relationship.
       panel.setAttribute('aria-labelledby', tab.id);
+
+      // Update alt text independently of the title.
+      img.alt = newAlt;
 
       if (newImage && img.getAttribute('src') !== newImage) {
         img.style.opacity = '0.4';
@@ -617,26 +563,49 @@ function activateTab(tab) {
         };
 
         preload.onerror = function () {
-          img.alt = newAlt;
           img.style.opacity = '1';
-
           console.error('Unable to load image:', newImage);
         };
 
         preload.src = newImage;
       } else {
-        img.alt = newAlt;
         img.style.opacity = '1';
       }
+    }
 
-      if (moveFocus) {
-        tab.focus();
+    function activateTab(tab, moveFocus, allowCollapse) {
+      const isMobile = mobileQuery.matches;
+      const index = tabs.indexOf(tab);
+      const wasActive = tab.classList.contains('active');
+      const shouldClose = isMobile && allowCollapse && wasActive;
+
+      tabs.forEach(function (item, i) {
+        const active = item === tab && !shouldClose;
+
+        item.classList.toggle('active', active);
+        item.setAttribute('aria-selected', String(active));
+        item.setAttribute('tabindex', active ? '0' : '-1');
+        item.setAttribute('aria-expanded', String(active));
+
+        mobilePanels[i].hidden = true;
+        mobilePanels[i].classList.remove('is-open');
+      });
+
+      if (!shouldClose) {
+        updateDesktopPanel(tab);
+
+        if (isMobile) {
+          mobilePanels[index].hidden = false;
+          mobilePanels[index].classList.add('is-open');
+        }
       }
+
+      if (moveFocus) tab.focus();
     }
 
     tabs.forEach(function (tab, index) {
       tab.addEventListener('click', function () {
-        activateTab(tab, false);
+        activateTab(tab, false, true);
       });
 
       tab.addEventListener('keydown', function (event) {
@@ -666,28 +635,202 @@ function activateTab(tab) {
         }
 
         event.preventDefault();
-        activateTab(tabs[nextIndex], true);
+        activateTab(tabs[nextIndex], true, false);
       });
     });
+
+    function syncLayout() {
+      if (mobileQuery.matches) {
+        // Mobile: use the individual accordion panels.
+        panel.style.display = 'none';
+
+        const activeTab = tabs.find(function (tab) {
+          return tab.classList.contains('active');
+        });
+
+        if (activeTab) {
+          const index = tabs.indexOf(activeTab);
+          mobilePanels[index].hidden = false;
+          mobilePanels[index].classList.add('is-open');
+          activeTab.setAttribute('aria-expanded', 'true');
+        }
+      } else {
+        // Desktop: use the shared content panel.
+        panel.style.display = '';
+
+        mobilePanels.forEach(function (mobilePanel) {
+          mobilePanel.hidden = true;
+          mobilePanel.classList.remove('is-open');
+        });
+
+        tabs.forEach(function (tab) {
+          tab.setAttribute('aria-expanded', 'false');
+        });
+      }
+    }
 
     const initialTab =
       tabs.find(function (tab) {
         return tab.getAttribute('aria-selected') === 'true';
       }) || tabs[0];
 
-    activateTab(initialTab, false);
+    activateTab(initialTab, false, false);
+    syncLayout();
+
+    if (mobileQuery.addEventListener) {
+      mobileQuery.addEventListener('change', syncLayout);
+    } else {
+      mobileQuery.addListener(syncLayout);
+    }
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener(
-      'DOMContentLoaded',
-      initNetworkSupportTabs
-    );
+    document.addEventListener('DOMContentLoaded', initNetworkSupportTabs);
   } else {
     initNetworkSupportTabs();
   }
 })();
 </script>
+  <script src="/js/animations.js" defer></script>
+  <script src="/js/global.js" defer></script>
+  <script src="/js/accessibility.js" defer></script>
+  <script src="/js/search-index.js" defer></script>
+  <script src="/js/search.js" defer></script>
+
+  <script>
+  /* Key Solution Areas — tab switcher */
+ /* Key Solution Areas — tab switcher with dynamic image alt text */
+(function () {
+  var ksa = document.getElementById('ksa');
+  if (!ksa) return;
+
+  var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
+  var img = ksa.querySelector('#ksa-img');
+  var title = ksa.querySelector('#ksa-title');
+  var desc = ksa.querySelector('#ksa-desc');
+
+  if (!tabs.length || !img || !title || !desc) return;
+
+  
+
+  function activateTab(index) {
+    var tab = tabs[index];
+    var item = data[index];
+
+    tabs.forEach(function (t, j) {
+      var active = j === index;
+
+      t.classList.toggle('ksa__tab--active', active);
+      t.classList.toggle('active', active);
+      t.setAttribute('aria-selected', String(active));
+      t.setAttribute('tabindex', active ? '0' : '-1');
+    });
+
+    img.style.opacity = '0';
+
+    var newImage = new Image();
+
+    newImage.onload = function () {
+      img.src = item.img;
+      img.alt = item.alt;
+      img.style.opacity = '1';
+    };
+
+    newImage.onerror = function () {
+      img.alt = item.alt;
+      img.style.opacity = '1';
+    };
+
+    newImage.src = item.img;
+
+    title.textContent = item.title;
+    desc.textContent = item.desc;
+  }
+
+  tabs.forEach(function (tab, index) {
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+    tab.setAttribute('tabindex', index === 0 ? '0' : '-1');
+
+    tab.addEventListener('click', function () {
+      activateTab(index);
+    });
+
+    tab.addEventListener('keydown', function (event) {
+      var nextIndex = index;
+
+      if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+        nextIndex = (index + 1) % tabs.length;
+      } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+        nextIndex = (index - 1 + tabs.length) % tabs.length;
+      } else if (event.key === 'Home') {
+        nextIndex = 0;
+      } else if (event.key === 'End') {
+        nextIndex = tabs.length - 1;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+      tabs[nextIndex].focus();
+      activateTab(nextIndex);
+    });
+  });
+
+  img.style.transition = 'opacity .3s ease';
+})();
+
+ 
+
+  </script>
+
+
+
+    <script>
+  /* Key Solution Areas — mobile accordion (panel follows active tab, caret, progress) */
+  (function ksaMobile() {
+    var ksa = document.getElementById('ksa');
+    if (!ksa) return;
+    var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
+    var tabsWrap = ksa.querySelector('.ksa__tabs');
+    var panel = ksa.querySelector('.ksa__panel');
+    var card = ksa.querySelector('.ksa__panel-card');
+    if (!tabs.length || !tabsWrap || !panel || !card) return;
+    tabs.forEach(function (t) {
+      var c = document.createElement('span');
+      c.className = 'ksa__caret';
+      c.setAttribute('aria-hidden', 'true');
+      c.textContent = '\u2304';
+      t.appendChild(c);
+    });
+    var bar = document.createElement('div');
+    bar.className = 'ksa__bar';
+    bar.setAttribute('aria-hidden', 'true');
+    var fill = document.createElement('span');
+    bar.appendChild(fill);
+    card.appendChild(bar);
+    var mq = window.matchMedia('(max-width: 768px)');
+    function sync() {
+      var i = 0;
+      tabs.forEach(function (t, j) { if (t.classList.contains('active')) i = j; });
+      tabs.forEach(function (t, j) {
+        var c = t.querySelector('.ksa__caret');
+        if (c) c.textContent = j === i ? '^' : '\u2304';
+      });
+      fill.style.width = (((i + 1) / tabs.length) * 100) + '%';
+      if (mq.matches) {
+        tabs[i].insertAdjacentElement('afterend', panel);
+      } else if (panel.parentElement === tabsWrap) {
+        ksa.appendChild(panel);
+      }
+    }
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () { window.setTimeout(sync, 0); });
+    });
+    if (mq.addEventListener) { mq.addEventListener('change', sync); } else { mq.addListener(sync); }
+    sync();
+  })();
+  </script>
 
 </body>
 </html>
