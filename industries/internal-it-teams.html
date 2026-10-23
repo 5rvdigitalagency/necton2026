@@ -52,13 +52,16 @@
   <link rel="stylesheet" href="/css/accessibility.css">
   <style>
     /* industry-detail-spacing */
-    body.industry-detail-page #main > section + section { margin-top: 40px !important; }
-    main .nd-faq { margin-bottom: 100px; }
+    /* body.industry-detail-page #main > section + section { margin-top: 40px !important; } */
+    /* main .nd-faq { margin-bottom: 100px; } */
     body.industry-detail-page #main > #contact { margin-top: 40px !important; }
   </style>
 
   
   <style>
+    .industry-cta__title {
+    font-size: 22px;
+    }
     #main > .svcs-hero {
       padding-bottom: 0;
       width: 100%;
@@ -94,7 +97,7 @@
     .iit-insight__buttons { display: flex; gap: 10px; }
     .iit-insight__buttons button { display: grid; width: 54px; height: 48px; place-items: center; border: 0; border-radius: 6px; background: var(--gray-bg); color: var(--dark); cursor: pointer; font-size: 30px; line-height: 1; }
     .iit-insight__buttons button:hover, .iit-insight__buttons button:focus-visible { background: var(--blue); color: #fff; }
-    .iit-insight__card { min-height: 360px; padding: 52px 46px; border-radius: 26px; background: #8ca1c1; color: #fff; box-shadow: 0 3px 8px rgb(0 0 0 / 18%); }
+    .iit-insight__card { min-height: 360px; padding: 52px 46px; border-radius: 26px; background: #13203f; color: #fff; box-shadow: 0 3px 8px rgb(0 0 0 / 18%); }
     .iit-insight__card h3 { margin: 0 0 38px; font-size: 32px; font-weight: 600; line-height: 1.12; }
     .iit-insight__card p { margin: 0; font-size: 22px; font-weight: 500; line-height: 1.35; }
     .iit-insight__count { display: block; margin-top: 72px; font-size: 32px; font-weight: 600; }
@@ -162,7 +165,7 @@
   <script src="/js/navbar.js"></script>
   <main id="main">
 
-  <section class="svcs-hero" aria-label="Industries hero">
+  <!-- <section class="svcs-hero" aria-label="Industries hero">
     <div class="svcs-hero__wrap">
       <div class="svcs-hero__content">
         <div class="svcs-hero__text">
@@ -172,8 +175,18 @@
         <a href="/contact" class="btn-blue svcs-hero__cta animate-fade-up" data-source-cta="industry_health_check">Discuss Your Requirements</a>
       </div>
     </div>
-  </section>
+  </section> -->
 
+        <!-- ===== HERO ===== -->
+    <section class="nc-hero-wrap" aria-label="Industries hero">
+      <div class="nc-hero">
+        <div class="nc-hero__content">
+          <h1 class="nc-hero__title">Network Consultancy Support for Internal IT Departments</h1>
+          <p class="nc-hero__sub">Network Consultancy works alongside internal IT teams, handling the network and security work that would otherwise compete with day-to-day priorities.</p>
+          <a href="/contact" class="nc-hero__cta" data-source-cta="service_hero_health_check">Improve Network Resilience</a>
+        </div>
+      </div>
+    </section>
   <section class="iit-insight animate-fade-up" aria-labelledby="iit-insight-title">
     <div>
       <h2 class="iit-insight__title" id="iit-insight-title">Strengthening Internal IT with Expert Network Support</h2>
@@ -279,7 +292,7 @@
     },
   ];
   </script>
-  <div data-cms="testimonials" data-title="What our client says"></div>
+  <div data-cms="testimonials" data-title="What our client says" class="mb-lg-100"></div>
 
   <section class="industry-cta animate-fade-up" aria-label="Call to action">
     <div class="industry-cta__inner">
@@ -293,23 +306,44 @@
     </div>
   </section>
 
-  <section class="nd-faq section-shell animate-fade-up" aria-labelledby="faq-h">
+  <section class="nd-faq section-shell animate-fade-up my-lg-100" aria-labelledby="faq-h">
   <div class="nd-faq__left">
-    <h3 class="section-title" id="faq-h">Frequently asked questions</h3>
+    <h2 class="section-title" id="faq-h">Frequently asked questions</h2>
     <p>Still have questions? Get connected to our support team.</p>
     <a href="../contact" class="nd-faq__cta">Contact us</a>
   </div>
-  <div class="nd-faq__right">
-    <button class="nd-faq__item is-open"><span>What exactly is network consultancy, and how does it assist the internal IT team?</span><strong>−</strong></button>
-    <div class="nd-faq__panel">Network consultants provide specialised networking knowledge that the internal IT team's schedule does not permit them to develop within the organisation.<br><br>The consultant will design, troubleshoot, and secure networks in conjunction with the internal IT team. The consultant applies their expertise to the networks that require more focus than the internal IT team can provide in their daily activities.</div>
-    <button class="nd-faq__item"><span>When should an organisation use network consultancy services?</span><strong>+</strong></button>
-    <div class="nd-faq__panel" hidden>Organisations typically bring in Network Consultancy during a network upgrade, an expansion to new sites, or a security issue that requires expertise that the internal team doesn't have time to build in-house.</div>
-    <button class="nd-faq__item"><span>What are the benefits of working with a network consultancy?</span><strong>+</strong></button>
-    <div class="nd-faq__panel" hidden>Network Consultancy takes over the day-to-day monitoring and troubleshooting of the network, eliminating the need to compete for resources with other operational priorities. This allows early detection and resolution of problems that could disrupt your network's operation. Like other organisations that engage external service providers, the internal IT department has more time to focus on its overall business objectives, rather than continuously maintaining the network.</div>
-  </div>
+<div class="nd-faq__right">
+
+  <h3 class="nd-faq__item is-open">
+    <span>What exactly is network consultancy, and how does it assist the internal IT team?</span>
+    <strong>−</strong>
+  </h3>
+  <p class="nd-faq__panel">
+    Network consultants provide specialised networking knowledge that the internal IT team's schedule does not permit them to develop within the organisation.<br><br>
+    The consultant will design, troubleshoot, and secure networks in conjunction with the internal IT team. The consultant applies their expertise to the networks that require more focus than the internal IT team can provide in their daily activities.
+  </p>
+
+  <h3 class="nd-faq__item">
+    <span>When should an organisation use network consultancy services?</span>
+    <strong>+</strong>
+  </h3>
+  <p class="nd-faq__panel" hidden>
+    Organisations typically bring in Network Consultancy during a network upgrade, an expansion to new sites, or a security issue that requires expertise that the internal team doesn't have time to build in-house.
+  </p>
+
+  <h3 class="nd-faq__item">
+    <span>What are the benefits of working with a network consultancy?</span>
+    <strong>+</strong>
+  </h3>
+  <p class="nd-faq__panel" hidden>
+    Network Consulting takes over the day-to-day monitoring and troubleshooting of the network, eliminating the need to compete for resources with other operational priorities. This allows early detection and resolution of problems that could disrupt your network's operation. Like other organisations that engage external service providers, the internal IT department has more time to focus on its overall business objectives, rather than continuously maintaining the network.
+  </p>
+
+</div>
+
 </section>
 
-  <div id="site-contact"></div>
+  
   <script src="/js/form-source-tracking.js"></script>
   <script src="/js/contact.js"></script>
   </main>

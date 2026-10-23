@@ -1,0 +1,203 @@
+﻿Diagnose log at 2026-09-21T05:22:20Z
+
+AppPath: C:\Users\JyotiNegi-5RVDigital\AppData\Local\Programs\Git\mingw64\bin\git-credential-manager.exe
+InstallDir: C:\Users\JyotiNegi-5RVDigital\AppData\Local\Programs\Git\mingw64\bin\
+Version: 2.9.0+194ba290ce533465310d50f811684ab180536ae7
+
+------------
+Diagnostic: Environment
+Skipped: False
+Success: True
+Exception: None
+Log:
+OSType: Windows
+OSVersion: 10.0 (build 26200)
+Reading environment variables... OK
+ Variables:
+SystemDrive=C:
+ProgramFiles(x86)=C:\Program Files (x86)
+MSYSTEM=MINGW64
+ProgramW6432=C:\Program Files
+windir=C:\windows
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+TMP=C:\Users\JYOTIN~1\AppData\Local\Temp
+PROCESSOR_ARCHITECTURE=AMD64
+VSCODE_GIT_ASKPASS_MAIN=c:\Users\JyotiNegi-5RVDigital\AppData\Roaming\Code\User\globalStorage\vscode.git\askpass\70789581cae28aa7\askpass-main.js
+Path=C:/Users/JyotiNegi-5RVDigital/AppData/Local/Programs/Git/mingw64/libexec/git-core;C:\Users\JyotiNegi-5RVDigital\AppData\Local\Programs\Git\mingw64\bin;C:\Users\JyotiNegi-5RVDigital\AppData\Local\Programs\Git\usr\bin;C:\Users\JyotiNegi-5RVDigital\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Users\JyotiNegi-5RVDigital\AppData\Local\Microsoft\WindowsApps;C:\Users\JyotiNegi-5RVDigital\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\JyotiNegi-5RVDigital\AppData\Local\Programs\Git\cmd;C:\Users\JyotiNegi-5RVDigital\AppData\Roaming\npm
+VSCODE_GIT_IPC_HANDLE=\\.\pipe\vscode-git-931d3c6707-sock
+PROCESSOR_REVISION=9e0a
+TEMP=C:\Users\JYOTIN~1\AppData\Local\Temp
+USERPROFILE=C:\Users\JyotiNegi-5RVDigital
+LOGONSERVER=\\5RV-PC122
+TERM=xterm-256color
+USERNAME=JyotiNegi-5RVDigital
+SystemRoot=C:\windows
+CHROME_CRASHPAD_PIPE_NAME=\\.\pipe\crashpad_26564_NDSMBZDPQVTQBSFN
+GIT_EXEC_PATH=C:/Users/JyotiNegi-5RVDigital/AppData/Local/Programs/Git/mingw64/libexec/git-core
+PLINK_PROTOCOL=ssh
+OneDrive=C:\Users\JyotiNegi-5RVDigital\OneDrive - Qcom Ltd
+USERDOMAIN_ROAMINGPROFILE=AzureAD
+CommonProgramFiles=C:\Program Files\Common Files
+ZES_ENABLE_SYSMAN=1
+VSCODE_PYTHON_AUTOACTIVATE_GUARD=1
+ProgramData=C:\ProgramData
+LANG=en_US.UTF-8
+GIT_ASKPASS=c:\Users\JyotiNegi-5RVDigital\AppData\Roaming\Code\User\globalStorage\vscode.git\askpass\70789581cae28aa7\askpass.sh
+HOMEPATH=\Users\JyotiNegi-5RVDigital
+WT_SESSION=f499b7ce-c89c-4dbc-b291-a60e2ac17af2
+COMPUTERNAME=5RV-PC122
+VSCODE_INJECTION=1
+ALLUSERSPROFILE=C:\ProgramData
+CommonProgramW6432=C:\Program Files\Common Files
+WT_PROFILE_ID={61c54bbd-c2c6-5271-96e7-009a87ff44bf}
+SESSIONNAME=Console
+DriverData=C:\Windows\System32\Drivers\DriverData
+HOMEDRIVE=C:
+WSLENV=WT_SESSION:WT_PROFILE_ID:
+GIT_TRACE2_PARENT_SID=022b59d7-47c6-437a-85b1-9dce7063731e
+VSCODE_GIT_ASKPASS_NODE=C:\Users\JyotiNegi-5RVDigital\AppData\Local\Programs\Microsoft VS Code\Code.exe
+NUMBER_OF_PROCESSORS=6
+OS=Windows_NT
+ProgramFiles=C:\Program Files
+ComSpec=C:\windows\system32\cmd.exe
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL
+HOME=C:\Users\JyotiNegi-5RVDigital
+PSModulePath=C:\Users\JyotiNegi-5RVDigital\OneDrive - Qcom Ltd\Documents\WindowsPowerShell\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\windows\system32\WindowsPowerShell\v1.0\Modules
+PROMPT=$P$G
+TMPDIR=C:\Users\JYOTIN~1\AppData\Local\Temp
+APPDATA=C:\Users\JyotiNegi-5RVDigital\AppData\Roaming
+USERDOMAIN=AzureAD
+PROCESSOR_LEVEL=6
+LOCALAPPDATA=C:\Users\JyotiNegi-5RVDigital\AppData\Local
+TERM_PROGRAM_VERSION=1.138.0
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+COLORTERM=truecolor
+PUBLIC=C:\Users\Public
+TERM_PROGRAM=vscode
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+
+
+------------
+Diagnostic: File system
+Skipped: False
+Success: True
+Exception: None
+Log:
+Temporary directory is 'C:\Users\JyotiNegi-5RVDigital\AppData\Local\Temp\'...
+Checking basic file I/O...
+Writing to temporary file 'C:\Users\JyotiNegi-5RVDigital\AppData\Local\Temp\394c453c90fa036ad2dc5125'... OK
+Reading from temporary file 'C:\Users\JyotiNegi-5RVDigital\AppData\Local\Temp\394c453c90fa036ad2dc5125'... OK
+Deleting temporary file 'C:\Users\JyotiNegi-5RVDigital\AppData\Local\Temp\394c453c90fa036ad2dc5125'... OK
+Testing IFileSystem instance...
+UserHomePath: C:\Users\JyotiNegi-5RVDigital
+UserDataDirectoryPath: C:\Users\JyotiNegi-5RVDigital\.gcm
+GetCurrentDirectory(): D:\2026\netcon2026
+
+------------
+Diagnostic: Networking
+Skipped: False
+Success: True
+Exception: None
+Log:
+Checking networking and HTTP stack...
+Creating HTTP client... OK
+IsNetworkAvailable: True
+Sending HEAD request to http://example.com... OK
+Sending HEAD request to https://example.com... OK
+Acquiring free TCP port... OK
+Testing local HTTP loopback connections...
+Creating new HTTP listener for http://localhost:54725/... OK
+Waiting for loopback connection... OK
+Writing response... OK
+Waiting for response data... OK
+Loopback connection data OK
+
+------------
+Diagnostic: Git
+Skipped: False
+Success: True
+Exception: None
+Log:
+Getting Git version... OK
+Git version is '2.55.0.windows.3'
+Locating current repository...Git repository at 'D:/2026/netcon2026/.git'
+ OK
+Listing all Git configuration... OK
+Git configuration:
+file:C:/Users/JyotiNegi-5RVDigital/AppData/Local/Programs/Git/etc/gitconfig	diff.astextplain.textconv=astextplain
+file:C:/Users/JyotiNegi-5RVDigital/AppData/Local/Programs/Git/etc/gitconfig	filter.lfs.clean=git-lfs clean -- %f
+file:C:/Users/JyotiNegi-5RVDigital/AppData/Local/Programs/Git/etc/gitconfig	filter.lfs.smudge=git-lfs smudge -- %f
+file:C:/Users/JyotiNegi-5RVDigital/AppData/Local/Programs/Git/etc/gitconfig	filter.lfs.process=git-lfs filter-process
+file:C:/Users/JyotiNegi-5RVDigital/AppData/Local/Programs/Git/etc/gitconfig	filter.lfs.required=true
+file:C:/Users/JyotiNegi-5RVDigital/AppData/Local/Programs/Git/etc/gitconfig	http.sslbackend=schannel
+file:C:/Users/JyotiNegi-5RVDigital/AppData/Local/Programs/Git/etc/gitconfig	core.autocrlf=true
+file:C:/Users/JyotiNegi-5RVDigital/AppData/Local/Programs/Git/etc/gitconfig	core.fscache=true
+file:C:/Users/JyotiNegi-5RVDigital/AppData/Local/Programs/Git/etc/gitconfig	core.symlinks=false
+file:C:/Users/JyotiNegi-5RVDigital/AppData/Local/Programs/Git/etc/gitconfig	pull.rebase=false
+file:C:/Users/JyotiNegi-5RVDigital/AppData/Local/Programs/Git/etc/gitconfig	credential.helper=manager
+file:C:/Users/JyotiNegi-5RVDigital/AppData/Local/Programs/Git/etc/gitconfig	credential.https://dev.azure.com.usehttppath=true
+file:C:/Users/JyotiNegi-5RVDigital/AppData/Local/Programs/Git/etc/gitconfig	init.defaultbranch=master
+file:C:/Users/JyotiNegi-5RVDigital/.gitconfig	user.name=Jyoti Negi
+file:C:/Users/JyotiNegi-5RVDigital/.gitconfig	user.email=Jyoti.Negi@5rv.digital
+file:C:/Users/JyotiNegi-5RVDigital/.gitconfig	http.version=HTTP/1.1
+file:C:/Users/JyotiNegi-5RVDigital/.gitconfig	credential.helper=
+file:C:/Users/JyotiNegi-5RVDigital/.gitconfig	credential.helper=C:/Users/JyotiNegi-5RVDigital/AppData/Local/Programs/Git/mingw64/bin/git-credential-manager.exe
+file:.git/config	core.repositoryformatversion=0
+file:.git/config	core.filemode=false
+file:.git/config	core.bare=false
+file:.git/config	core.logallrefupdates=true
+file:.git/config	core.symlinks=false
+file:.git/config	core.ignorecase=true
+file:.git/config	remote.origin.url=https://github.com/5rvdigitalagency/necton2026.git
+file:.git/config	remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+file:.git/config	branch.main.remote=origin
+file:.git/config	branch.main.merge=refs/heads/main
+file:.git/config	branch.chore/media-migration-charity-2026-07-22.remote=origin
+file:.git/config	branch.chore/media-migration-charity-2026-07-22.merge=refs/heads/chore/media-migration-charity-2026-07-22
+file:.git/config	branch.chore/media-migration-charity-2026-07-22.vscode-merge-base=origin/chore/media-migration-charity-2026-07-22
+file:.git/config	branch.negi.vscode-merge-base=origin/chore/media-migration-charity-2026-07-22
+file:.git/config	branch.negi.remote=origin
+file:.git/config	branch.negi.merge=refs/heads/negi
+file:.git/config	branch.staging.remote=origin
+file:.git/config	branch.staging.merge=refs/heads/staging
+file:.git/config	branch.staging.vscode-merge-base=origin/staging
+file:.git/config	branch.feature/heading-tags.vscode-merge-base=origin/staging
+file:.git/config	branch.feature/my-change.vscode-merge-base=origin/staging
+file:.git/config	branch.feature/negi-responsive-issues.vscode-merge-base=origin/staging
+file:.git/config	branch.feature/responsive-issues.vscode-merge-base=origin/staging
+
+
+------------
+Diagnostic: Credential storage
+Skipped: False
+Success: True
+Exception: None
+Log:
+ICredentialStore instance is of type: CredentialStore
+Writing test credential... OK
+Reading test credential... OK
+Deleting test credential... OK
+
+------------
+Diagnostic: Microsoft authentication (AAD/MSA)
+Skipped: False
+Success: True
+Exception: None
+Log:
+Broker is not enabled.
+Gathering MSAL token cache data... OK
+CacheDirectory: C:\Users\JyotiNegi-5RVDigital\AppData\Local\.IdentityService
+CacheFileName: msal.cache
+CacheFilePath: C:\Users\JyotiNegi-5RVDigital\AppData\Local\.IdentityService\msal.cache
+Creating cache helper... OK
+Verifying MSAL token cache persistence... OK
+
+------------
+Diagnostic: GitHub API
+Skipped: False
+Success: True
+Exception: None
+Log:
+Using 'https://github.com/' as API target.
+Querying '/meta' endpoint... OK
+

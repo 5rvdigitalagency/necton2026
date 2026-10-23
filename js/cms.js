@@ -102,6 +102,7 @@
 
     container.innerHTML = [
       '<section class="nd-trusted section-shell">',
+      '  <div class="ab-inner">',
       '  <div class="nd-trusted__head">',
       '    <h2 class="nd-trusted__title">' + escHtml(testimonialsTitle) + '</h2>',
       '    <div class="nd-trusted__controls">',
@@ -115,6 +116,7 @@
       '    </div>',
       '  </div>',
       '  <div class="nd-trusted__dots" aria-hidden="true"></div>',
+       '  </div>',
       '</section>'
     ].join('\n');
 
@@ -344,13 +346,13 @@
       var mark     = item.open ? '\u2212' : '+';
       var hidden   = item.open ? '' : ' hidden';
       return [
-        '<button type="button" class="nd-faq__item' + openAttr + '"><span>' + escHtml(item.question) + '</span><strong>' + mark + '</strong></button>',
-        '<div class="nd-faq__panel"' + hidden + '>' + escHtml(item.answer) + '</div>'
+        '<h3 class="nd-faq__item' + openAttr + '"><span>' + escHtml(item.question) + '</span><strong>' + mark + '</strong></h3>',
+        '<p class="nd-faq__panel"' + hidden + '>' + escHtml(item.answer) + '</p>'
       ].join('\n');
     }).join('\n');
 
     container.innerHTML = [
-      '<section class="nd-faq section-shell">',
+      '<section class="nd-faq">',
       '  <div class="nd-faq__left">',
       '    <h2 class="section-title">Frequently Asked Questions</h2>',
       '    <p>Still have questions? Get connected to our support team.</p>',
