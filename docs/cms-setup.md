@@ -3,9 +3,18 @@
 ## Website Pages and SEO release
 
 The Pages editor is available at `/admin/pages.html`, linked from the existing
-Blog dashboard. This candidate is based on the exact live revision
-`8b21a89408821f90bd05cf211d2fc7b4a501f8e9`; it does not replace the existing blog
-editor, blog APIs, homepage template or shared public scripts.
+Blog dashboard. The integrated candidate is based on Negi's deployed revision
+`ddc718d772f8e8d0b41e2a16f5fb66b1db10328c` from
+`5rvdigitalagency/necton2026`, with the Pages CMS and image uploads added.
+Existing blog code, homepage markup, public scripts, styles, assets and page
+content are retained. Invalid JSON-LD syntax in 26 managed templates is
+normalized into valid JSON, retaining every schema value; this is required
+for the editor to discover their fields.
+
+The integration branch is `integrate/negi-cms-2026-10-26`. Merge the reviewed
+candidate into the team's release branch before future releases. Deploying
+the older team branch without this integration removes the Pages editor and
+its APIs again. A Git push is not staging review or live promotion.
 
 The editor discovers text, headings, links, image URLs and alt text from 42
 existing templates, including the homepage and legal/utility pages. It also
