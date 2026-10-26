@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script type="application/ld+json">
+
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://network-consultancy.com/"
+      "@type": "BreadcrumbList",
+      "@id": "https://network-consultancy.com/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://network-consultancy.com/"
+        }
+      ]
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://network-consultancy.com/#profilepage",
+      "url": "https://network-consultancy.com/",
+      "name": "Network Consultancy",
+      "mainEntity": {
+        "@type": "Organization",
+        "@id": "https://network-consultancy.com/#organization",
+        "name": "Network Consultancy",
+        "url": "https://network-consultancy.com/"
+      }
     }
   ]
 }
 </script>
+
     <meta name="google-site-verification" content="UMvzdXxOFVqZL5BV0Z31FdlaoXjKmD450rZ5TB-qWXI" />
   <meta name="msvalidate.01" content="32CE480F983651B6253AEE1265C5A404" />
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PVKBZV7');</script>
@@ -459,19 +478,9 @@
             <span class="nd-contact__chip"><img src="/images/pages/contact-address-icon.png" alt="Location icon"></span>
             <div class="nd-contact__tile-copy">
               <h3>Address</h3>
-              <p>Birmingham, Beech House, Greenfield Crescent, Edgbaston, B15 3BE</p>
-            </div>
+     <p><a href="https://www.google.com/maps/place/Network+Consultancy+-+Cisco+Support+%26+Network+Maintenance+Services/@52.4702458,-1.9230003,15z/data=!4m10!1m2!2m1!1snetwork+consultancy!3m6!1s0x4870bdcfb6466d0b:0xef70cb5dcddd4456!8m2!3d52.4639346!4d-1.9170217!15sChNuZXR3b3JrIGNvbnN1bHRhbmN5WhUiE25ldHdvcmsgY29uc3VsdGFuY3mSAR5idXNpbmVzc19tYW5hZ2VtZW50X2NvbnN1bHRhbnTgAQA!16s%2Fg%2F11kjpczy7w?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank">Birmingham, Beech House, Greenfield Crescent, Edgbaston, B15 3BE</a></p>            </div>
           </article>
 
-          <article class="nd-contact__tile">
-            <span class="nd-contact__chip"><img src="/images/pages/contact-address-icon-2.png" alt="Location icon"></span>
-            <div class="nd-contact__tile-copy">
-              <h3>Address</h3>
-              <p>Birmingham
-Beech House, Greenfield Crescent
-Edgbaston, B15 3BE</p>
-            </div>
-          </article>
         </div>
 
         <form class="nd-contact__form" id="home-contact-form" method="post" action="https://api.web3forms.com/submit" novalidate>
