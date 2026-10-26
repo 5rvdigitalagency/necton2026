@@ -26,6 +26,29 @@
     }
   ]
 }
+ {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://network-consultancy.com/services/network-installations#service",
+  "name": "Network Installations",
+  "url": "https://network-consultancy.com/services/network-installations",
+  "description": "Professional network installation services helping UK businesses deploy reliable, secure and efficient network infrastructure tailored to their operational requirements.",
+  "serviceType": "Network Installations",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://network-consultancy.com/#organization",
+    "name": "Network Consultancy",
+    "url": "https://network-consultancy.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://network-consultancy.com/images/misc/logo.png"
+    }
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United Kingdom"
+  }
+ }
   </script>
     <meta name="google-site-verification" content="UMvzdXxOFVqZL5BV0Z31FdlaoXjKmD450rZ5TB-qWXI" />
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PVKBZV7');</script>
@@ -195,7 +218,6 @@
 
   <section class="section-shell" aria-label="Contact Network Consultancy">
     <div class="content-cta ab-inner">
-  
       <div class="content-cta__copy"><h2 class="content-cta__title">Planning a network installation?</h2><p class="content-cta__text">Our team can help you scope the work and coordinate a smooth installation.</p></div>
       <a class="content-cta__button" href="/contact" data-source-cta="service_network_installations_contact">Contact Us</a>
  
@@ -204,38 +226,102 @@
 
 
   <!-- ===== NETWORK INSTALLATION PROCESS (tabs) ===== -->
-  <section class="section-shell section-shell--tint" aria-labelledby="proc-h">
-    <div class="ab-inner">
-      <div class="sd-head" style="text-align:left;margin-left:0;">
-        <h2 id="proc-h">Our Network Installation Process</h2>
-        <p>Our framework for ensuring seamless, future-ready connectivity with zero operational downtime.</p>
-      </div>
-      <div class="ksa__card" id="ksa2">
-        <div class="ksa__tabs" role="tablist">
-<h3 class="ksa__tab active" role="tab" aria-selected="true">Requirement Assessment</h3>
-<h3 class="ksa__tab" role="tab" aria-selected="false">Network Design &amp; Planning</h3>
-<h3 class="ksa__tab" role="tab" aria-selected="false">Infrastructure Preparation</h3>
-<h3 class="ksa__tab" role="tab" aria-selected="false">Installation &amp; Configuration</h3>
-<h3 class="ksa__tab" role="tab" aria-selected="false">Testing &amp; Optimisation</h3>
-<h3 class="ksa__tab" role="tab" aria-selected="false">Ongoing Support &amp; Review</h3>
 
-        </div>
-        <div class="ksa__panel">
-          <img id="ksa2-img" src="/images/pages/unique/Requirement-Assessment.avif" alt="Close-up of Ethernet cables plugged into a network switch, representing the groundwork behind professional network installation">
-          <div class="ksa__panel-card">
-            <h4 id="ksa2-title">Requirement Assessment</h4>
-            <p id="ksa2-desc">Evaluation of your existing infrastructure, application traffic, and bandwidth redundancies. This data calculates your exact network demands.</p>
-          </div>
+<!-- ===== NETWORK INSTALLATION PROCESS (TABS) ===== -->
+<section class="section-shell section-shell--tint" aria-labelledby="proc-h">
+  <div class="ab-inner">
+
+    <div class="sd-head" style="text-align:left;margin-left:0;">
+      <h2 id="proc-h">Our Network Installation Process</h2>
+      <p>Our framework for ensuring seamless, future-ready connectivity with zero operational downtime.</p>
+    </div>
+
+    <div class="ksa__card" id="ksa2">
+
+         <div class="ksa__tabs animate-fade-up"
+           role="tablist"
+           aria-label="Network installation process">
+
+       <h3  class="ksa__tab ksa__tab--active"
+                role="tab" aria-selected="true"
+                data-title="Requirement Assessment"
+                data-copy="Evaluation of your existing infrastructure, application traffic, and bandwidth redundancies. This data calculates your exact network demands."
+                data-image="/images/pages/unique/Requirement-Assessment.avif"
+                data-alt="Close-up of Ethernet cables plugged into a network switch, representing the groundwork behind professional network installation.">
+          Requirement Assessment
+    </h3>
+
+       <h3  class="ksa__tab"
+                role="tab" aria-selected="false"
+                data-title="Network Design &amp; Planning"
+                data-copy="Development of a secure, scalable network blueprint that balances existing traffic requirements while reserving capacity for rapid business growth and evolving connectivity needs."
+                data-image="/images/unique/Network-Design-Planning.avif"
+                data-alt="Network design planning for secure and scalable business connectivity.">
+          Network Design &amp; Planning
+    </h3>
+
+       <h3  class="ksa__tab"
+                role="tab" aria-selected="false"
+                data-title="Infrastructure Preparation"
+                data-copy="Detailed planning of cabling pathways, IP address allocation, and off-site switch configuration. By preparing these components in advance, we ensure a fast, accurate, and seamless deployment."
+                data-image="/images/unique/Infrastructure-Preparation.avif"
+                data-alt="Network infrastructure and cabling prepared for installation.">
+          Infrastructure Preparation
+    </h3>
+
+       <h3  class="ksa__tab"
+                role="tab" aria-selected="false"
+                data-title="Installation &amp; Configuration"
+                data-copy="Installation and configuration of core network infrastructure. Our technicians optimise all hardware settings to ensure maximum performance, stability, and reliability."
+                data-image="/images/unique/Installation-Configuration.avif"
+                data-alt="Network equipment being installed and configured for business use.">
+          Installation &amp; Configuration
+    </h3>
+
+       <h3  class="ksa__tab"
+                role="tab" aria-selected="false"
+                data-title="Testing &amp; Optimisation"
+                data-copy="Comprehensive performance, security, and connectivity testing is carried out to validate the network. Rigorous stress testing confirms optimal efficiency, reliability, and operational readiness."
+                data-image="/images/unique/Testing-Optimisation.avif"
+                data-alt="Network connectivity and performance testing during installation.">
+          Testing &amp; Optimisation
+    </h3>
+
+       <h3  class="ksa__tab"
+                role="tab" aria-selected="false"
+                data-title="Ongoing Support &amp; Review"
+                data-copy="We continuously monitor network health and conduct regular system assessments, providing proactive guidance to ensure your infrastructure supports long-term business growth and operational demands."
+                data-image="/images/unique/Ongoing-Support-Review.avif"
+                data-alt="Ongoing network monitoring and support for business infrastructure.">
+          Ongoing Support &amp; Review
+    </h3>
+
+      </div>
+      <div class="ksa__panel animate-fade-up">
+        <picture>
+          <img id="ksa-img"
+               src="/images/pages/unique/Requirement-Assessment.avif"
+               alt="Close-up of Ethernet cables plugged into a network switch, representing the groundwork behind professional network installation."
+               loading="lazy">
+        </picture>
+
+        <div class="ksa__panel-card" role="tabpanel">
+          <h4 id="ksa-title">Requirement Assessment</h4>
+          <p id="ksa-desc" class="ksa-desc">
+            Evaluation of your existing infrastructure, application traffic, and bandwidth redundancies. This data calculates your exact network demands.
+          </p>
         </div>
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
   <section class="section-shell" aria-label="Contact Network Consultancy">
     <div class="content-cta ab-inner">
-     <div class="content-cta ab-inner">
       <div class="content-cta__copy"><h2 class="content-cta__title">Ready to start your installation?</h2><p class="content-cta__text">Tell us about your site, timing, and connectivity goals.</p></div>
       <a class="content-cta__button" href="/contact" data-source-cta="service_network_installations_process_contact">Contact Us</a>
-    </div>
+
     </div>
   </section>
 
@@ -514,6 +600,70 @@ initKsa('ksa', 'ksa', [
 ]);
 
 
+document.addEventListener('DOMContentLoaded', function () {
+  const card = document.getElementById('ksa2');
+
+  if (!card) return;
+
+  const tabs = card.querySelectorAll('.ksa__tab');
+  const image = card.querySelector('#ksa-img');
+  const title = card.querySelector('#ksa-title');
+  const description = card.querySelector('#ksa-desc');
+
+  if (!tabs.length || !image || !title || !description) return;
+
+  function activateTab(tab) {
+    tabs.forEach(function (item) {
+      const isActive = item === tab;
+
+      item.classList.toggle('ksa__tab--active', isActive);
+      item.setAttribute('aria-selected', String(isActive));
+      item.setAttribute('tabindex', isActive ? '0' : '-1');
+    });
+
+    title.textContent = tab.dataset.title || tab.textContent.trim();
+    description.textContent = tab.dataset.copy || '';
+
+    if (tab.dataset.image) {
+      image.src = tab.dataset.image;
+    }
+
+    if (tab.dataset.alt) {
+      image.alt = tab.dataset.alt;
+    }
+  }
+
+  tabs.forEach(function (tab, index) {
+    tab.setAttribute('tabindex', index === 0 ? '0' : '-1');
+
+    tab.addEventListener('click', function () {
+      activateTab(tab);
+    });
+
+    tab.addEventListener('keydown', function (event) {
+      let nextIndex = index;
+
+      if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+        nextIndex = (index + 1) % tabs.length;
+      } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+        nextIndex = (index - 1 + tabs.length) % tabs.length;
+      } else if (event.key === 'Home') {
+        nextIndex = 0;
+      } else if (event.key === 'End') {
+        nextIndex = tabs.length - 1;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+      tabs[nextIndex].focus();
+      activateTab(tabs[nextIndex]);
+    });
+  });
+
+  activateTab(card.querySelector('.ksa__tab--active') || tabs[0]);
+});
+
 /* Network Installation Process */
 initKsa('ksa2', 'ksa2', [
     {
@@ -591,48 +741,95 @@ initKsa('ksa2', 'ksa2', [
   <script src="/js/cms.js"></script>
   <script>
   /* Key Solution Areas — mobile accordion (panel follows active tab, caret, progress) */
-  (function ksaMobile() {
-    var ksa = document.getElementById('ksa');
+  
+function ksaMobile(rootId) {
+    var ksa = document.getElementById(rootId);
+
     if (!ksa) return;
-    var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
+
+    var tabs = Array.prototype.slice.call(
+        ksa.querySelectorAll('.ksa__tab')
+    );
+
     var tabsWrap = ksa.querySelector('.ksa__tabs');
     var panel = ksa.querySelector('.ksa__panel');
     var card = ksa.querySelector('.ksa__panel-card');
+
     if (!tabs.length || !tabsWrap || !panel || !card) return;
-    tabs.forEach(function (t) {
-      var c = document.createElement('span');
-      c.className = 'ksa__caret';
-      c.setAttribute('aria-hidden', 'true');
-      c.textContent = '\u2304';
-      t.appendChild(c);
+
+    // Prevent duplicate initialization
+    if (ksa.dataset.mobileInitialized === 'true') return;
+    ksa.dataset.mobileInitialized = 'true';
+
+    tabs.forEach(function (tab) {
+        if (!tab.querySelector('.ksa__caret')) {
+            var caret = document.createElement('span');
+            caret.className = 'ksa__caret';
+            caret.setAttribute('aria-hidden', 'true');
+            caret.textContent = '\u2304';
+            tab.appendChild(caret);
+        }
     });
+
     var bar = document.createElement('div');
     bar.className = 'ksa__bar';
     bar.setAttribute('aria-hidden', 'true');
+
     var fill = document.createElement('span');
     bar.appendChild(fill);
     card.appendChild(bar);
+
     var mq = window.matchMedia('(max-width: 768px)');
+
     function sync() {
-      var i = 0;
-      tabs.forEach(function (t, j) { if (t.classList.contains('active')) i = j; });
-      tabs.forEach(function (t, j) {
-        var c = t.querySelector('.ksa__caret');
-        if (c) c.textContent = j === i ? '^' : '\u2304';
-      });
-      fill.style.width = (((i + 1) / tabs.length) * 100) + '%';
-      if (mq.matches) {
-        tabs[i].insertAdjacentElement('afterend', panel);
-      } else if (panel.parentElement === tabsWrap) {
-        ksa.appendChild(panel);
-      }
+        var activeIndex = tabs.findIndex(function (tab) {
+            return tab.classList.contains('active') ||
+                   tab.classList.contains('ksa__tab--active');
+        });
+
+        if (activeIndex < 0) activeIndex = 0;
+
+        tabs.forEach(function (tab, index) {
+            var caret = tab.querySelector('.ksa__caret');
+
+            if (caret) {
+                caret.textContent =
+                    index === activeIndex ? '^' : '\u2304';
+            }
+        });
+
+        fill.style.width =
+            (((activeIndex + 1) / tabs.length) * 100) + '%';
+
+        if (mq.matches) {
+            tabs[activeIndex].insertAdjacentElement(
+                'afterend',
+                panel
+            );
+        } else {
+            ksa.appendChild(panel);
+        }
     }
-    tabs.forEach(function (t) {
-      t.addEventListener('click', function () { window.setTimeout(sync, 0); });
+
+    tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            window.setTimeout(sync, 0);
+        });
     });
-    if (mq.addEventListener) { mq.addEventListener('change', sync); } else { mq.addListener(sync); }
+
+    if (mq.addEventListener) {
+        mq.addEventListener('change', sync);
+    } else {
+        mq.addListener(sync);
+    }
+
     sync();
-  })();
+}
+
+// Initialize both sections
+ksaMobile('ksa');
+ksaMobile('ksa2');
+
   </script>
   <script src="/js/animations.js" defer></script>
   <script src="/js/global.js" defer></script>

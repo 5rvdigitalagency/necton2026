@@ -4924,7 +4924,7 @@ body.industry-detail-page #main > #contact {
  background: #fff;
  border: 1px solid #353535;
  border-radius: 30px;
- padding: 40px;
+    padding: 35px 25px;
 }
 .svl-overview__list  ,.ksa__tabs{
  display: flex;
@@ -5393,7 +5393,7 @@ padding: 18px;
  position: relative;
  overflow: hidden;
  color: #fff;
- padding: 100px 0;
+ padding: 100px 20px;
  margin-top: 100px;
 }
 .acct-section::before {
@@ -5661,7 +5661,9 @@ padding: 18px;
  font-size: 20px;
  line-height: 1.65;
 }
-
+.biz-lead h2 ,h2.biz-lead{
+      color: var(--navy);
+}
 
 /*------------------------R ESPONSIVE---------*/
 /*---------------------- Responsive CSS----------------------------*/
@@ -5742,7 +5744,7 @@ padding: 18px;
   .nd-contact__layout {
     gap: 60px;
   }
-  .section-shell {
+  .section-shell ,.acct-section {
     padding-inline: 30px;
   }
   .section-shell.ab-pro {
@@ -5780,7 +5782,7 @@ padding: 18px;
  :root {
   --px: 80px;
  }
-     .section-shell {
+     .section-shell ,.acct-section{
         padding: 60px 30px;
     }
  .testimonials__left {
@@ -5836,7 +5838,7 @@ padding: 18px;
  .acct__intro {
   grid-column: 1 / -1;
   padding-right: 0;
-  max-width: 760px;
+  /* max-width: 760px; */
  }
 
  .nhc-hero__inner,
@@ -5891,6 +5893,14 @@ padding: 18px;
   font-size: 44px;
   max-width: 560px;
  }
+ .acct-section{
+  position: relative;
+  padding-bottom: 150px;
+ }
+ .talk-btn{
+  position: absolute;
+  bottom: 60px;
+ }
 }
 @media (max-width: 1024px){
  :root {
@@ -5901,6 +5911,25 @@ padding: 18px;
   --home-type-body: clamp(1rem, 0.25vw + 0.95rem, 1.125rem);
   --home-type-body-sm: clamp(0.95rem, 0.18vw + 0.9rem, 1rem);
   --home-type-label: clamp(0.875rem, 0.12vw + 0.84rem, 0.95rem);
+ }
+ .nd-faq{
+  position: relative;
+      padding:30px 30px 100px 30px;
+          gap: 10px;
+                  grid-template-columns: 1fr;
+
+ }
+
+ .whyc__card{
+      gap: 35px;
+    padding: 40px;
+ }
+ .nd-faq__cta{
+    position: absolute;
+    bottom: 25px;
+ }
+ .nd-faq__left p {
+    margin: 0;
  }
  .biz{
       gap: 35px;
@@ -5952,6 +5981,9 @@ padding: 18px;
  .section-shell {
   padding: 60px 30px 0;
  }
+.acct-section{
+  padding-inline: 30px;
+}
  .nd-figma-card__thumb {
   width: auto;
  }
@@ -6070,11 +6102,7 @@ padding: 18px;
         display: none;
       }
 
-      .nd-faq {
-        grid-template-columns: 1fr;
-              padding: 25px;
-          
-      }
+ 
       .nd-faq__left,
       .nd-faq__right {
         min-width: 0;
@@ -6162,11 +6190,6 @@ padding: 18px;
  } */
 
 
-  
- .whyc__card {
-  grid-template-columns: 1fr;
-  padding: 32px;
- }
  .whyc__content h2 {
   font-size: 34px;
  }
@@ -6210,7 +6233,8 @@ padding: 18px;
 
   
  .acct__grid {
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
+  
   gap: 28px;
  }
  .acct__head {
@@ -6220,6 +6244,18 @@ padding: 18px;
 @media (max-width: 768px) {
    :root {
   --px: 32px;
+ }
+ 
+  #ksa-title ,#svl-overview-title{
+    display: none;
+  }
+ .whyc__card {
+  grid-template-columns: 1fr;
+  padding: 32px;
+ }
+ .svc-cta-band__btn{
+  font-size: 18px;
+    padding: 12px 16px
  }
  .sd-head p {
     font-size: 18px;
@@ -6261,7 +6297,15 @@ padding: 18px;
  .svc-cta-band {
   padding: 56px 0;
  }
-
+.whyc__media{
+      order: 2;
+}
+.whyc__content{
+  order: 1;
+}
+.whyc__card{
+          gap: 30px;
+}
 
  /* .nc-hero__title {
   font-size: 42px;
@@ -6327,7 +6371,7 @@ padding: 18px;
  
 
  .svl-overview__list-item,.ksa__tab{
-    font-size: 22px;
+    font-size: 20px;
  }
  /* Services We Offer — tap-to-expand accordion */
 
@@ -6342,9 +6386,6 @@ padding: 18px;
   display: block;
  }
  .svl-overview__list-item ,.ksa__tab {
-  color: #1c1c1c;
-  padding: 16px 18px;
-  border-bottom: 1px solid #ececec;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -6375,6 +6416,7 @@ padding: 18px;
   border-bottom: 1px solid #ececec;
   order: 0;
  } */
+  .ksa__panel h4,
  .svl-overview__feature picture,
  .svl-overview__feature img ,
  .ksa__panel picture,
@@ -7470,6 +7512,12 @@ padding: 18px;
  }
 }
 @media (max-width: 640px) {
+.nc-hero__title, .nc-hero__sub {
+        max-width: 100%;
+    }
+      .acct__grid {
+        grid-template-columns: 1fr;
+      }
  .nd-figma-stack.section-shell {
   gap: 20px;
  }
@@ -7992,83 +8040,14 @@ padding: 18px;
  }
 
 }
-
-/* ── RESPONSIVE ──────────────────────────────────────────────── */
-
-@media (prefers-reduced-motion: reduce) {
- .mega-menu,
- .mm-link,
- .mm-card,
- .mm-promo,
- .mm-head,
- .nav-mobile,
- .nav-mobile__sub,
- .nav-arrow,
- .nav-hamburger span {
-  transition: none;
- }
-
-
-  
- *,
- *::before,
- *::after {
-  animation-duration: 0.001s !important;
-  transition-duration: 0.001s !important;
- }
- .nc-service-lane,
- .nc-service-track {
-  animation: none !important;
-  transform: none !important;
- }
-
-
-  
- .hero__bg {
-  animation: none;
- }
- .hero__overlay {
-  animation: none;
- }
- .hero-anim-1,
- .hero-anim-2,
- .hero-anim-3 {
-  animation: none;
-  opacity: 1;
-  transform: none;
- }
-
-
-  
- .wws__item,
- .wws__item:hover {
-  transition: none;
-  transform: none;
- }
+/* Industries Pages  */
+.biz__nav .biz__arrow:hover{
+    background-color: #000; 
+    border-color: #000;
+     color: #fff;
 }
-
-@media (hover: none) {
- .prob:hover {
-  transform: none;
-  box-shadow: none;
- }
- .prob:hover img {
-  transform: none;
- }
- .prob:hover .prob__overlay {
-  background: linear-gradient(
-   to top,
-   rgba(0, 0, 0, 0.8) 0%,
-   rgba(0, 0, 0, 0.3) 50%,
-   rgba(0, 0, 0, 0.1) 100%
-  );
- }
- .prob:hover .prob__label {
-  transform: none;
- }
+.nd-contact__tile a:hover{
+  text-decoration: underline;
 }
 
 
-.nd-contact__tiles> :last-child{
-  display: none;
-}
