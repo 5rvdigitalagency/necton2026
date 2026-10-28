@@ -76,21 +76,24 @@
   <script src="/js/schema.js" defer></script>
   <link rel="stylesheet" href="/css/animations.css">
   <link rel="stylesheet" href="/css/accessibility.css">
-
   <style>
-    body.industry-detail-page #main > section + section { margin-top: 40px !important; }
-    main .nd-faq { margin-bottom: 100px; }
-    body.industry-detail-page #main > #contact { margin-top: 40px !important; }
-  </style>
+    picture {
+    display: block;
+}
+   .industry-banner__inner {
+      min-height: 520px;
+      border-radius: 10px;
+      background: #0c1b3d;
+      position: relative;
+      overflow: hidden;
+    }
 
-  <style>
-    .manufacturing-grid {
+
+   .manufacturing-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 260px minmax(0, 1fr);
-      gap: 28px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
       align-items: center;
-      max-width: var(--max-w);
-      margin: 0 auto;
+      gap: 40px
     }
     .manufacturing-grid__col { font-size: 15px; line-height: 1.55; }
     .manufacturing-grid__list {
@@ -105,101 +108,21 @@
     .manufacturing-grid__image { width: 100%; height: 260px; object-fit: cover; border-radius: 14px; }
     .manufacturing-grid--spaced { margin-top: 30px; }
 
-    @media (max-width: 1200px) {
-      .manufacturing-grid { grid-template-columns: 1fr; }
+    @media (max-width: 991px){
+      .manufacturing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
       .manufacturing-grid__image { height: auto; }
     }
+    @media (max-width: 600px){
+       .manufacturing-grid { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+       .industry-banner__inner {
+    min-height: 369px;
+       }
+    }
+
+
   </style>
 
-  <style>
-    #main > .svcs-hero { padding-bottom: 0; width: 100%; margin-left: 0; margin-right: 0; align-self: stretch; }
-    .svcs-hero { padding: 0; }
-    picture source { display: none; }
-    .nd-trusted__track { transform: translateX(-1px); }
-
-    main#main > section.svcs-hero > .svcs-hero__wrap { max-width: none; width: 100%; margin: 0; }
-    .svcs-hero__wrap { position: relative; width: 100%; max-width: none; height: 467px; min-height: 467px; margin: 0; border-radius: 0; overflow: hidden; background-color: #02172F; background-image: url(/images/pages/unique/industries-banner.webp); background-repeat: no-repeat; background-position: right center; background-size: cover; }
-    .svcs-hero__bg, .svcs-hero__overlay { display: none; }
-    main#main > section.svcs-hero > .svcs-hero__wrap > .svcs-hero__content { max-width: none; width: 100%; }
-    .svcs-hero__content { position: relative; z-index: 2; padding: 117px 145px 178px var(--px); width: 100%; min-width: 100%; max-width: none; display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
-    .svcs-hero__text { display: flex; flex-direction: column; gap: 16px; max-width: 908px; }
-    .svcs-hero__title { font-family: 'Google Sans Flex', sans-serif; font-size: 64px; font-weight: 600; color: #fff; line-height: 1.08; }
-    .svcs-hero__sub { font-family: 'Google Sans Flex', sans-serif; font-size: 24px; font-weight: 500; line-height: 1.35; color: #fff; }
-    .svcs-hero__cta { margin-top: 0; background: #fff !important; color: #353535 !important; border: 0; border-radius: 2px !important; font-family: 'Google Sans Flex', sans-serif; font-size: 20px; font-style: normal; font-weight: 600; letter-spacing: 0; text-transform: none; min-width: 170px; width: auto; min-height: 50px; padding: 0 12px; display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; line-height: normal; transition: background .2s ease; }
-    .svcs-hero__cta:hover { background: #f0f0f0 !important; transform: none; }
-
-    /* Tab overview */
-    .svl-overview { width: calc(100% - (var(--px) * 2)); max-width: var(--max-w); margin: 0 auto; padding-top: 72px; padding-bottom: 72px; }
-    .svl-overview__title { margin: 0 0 14px; max-width: 980px; }
-    .svl-overview__lead { max-width: 1080px; margin-bottom: 22px; }
-    .svl-overview__inner { display: grid; grid-template-columns: minmax(0, 386px) minmax(0, 1fr); gap: 56px; align-items: start; background: #fff; border: 1px solid #353535; border-radius: 30px; padding: 40px; }
-    .svl-overview__list { display: flex; flex-direction: column; gap: 36px; overflow-y: scroll; max-height: 620px; scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--blue) #e5e9ee; scrollbar-gutter: stable; }
-    .svl-overview__list::-webkit-scrollbar { width: 10px; }
-    .svl-overview__list::-webkit-scrollbar-track { background: #e5e9ee; border-radius: 10px; }
-    .svl-overview__list::-webkit-scrollbar-thumb { background: var(--blue); border: 2px solid #e5e9ee; border-radius: 10px; }
-    .svl-overview__list-item { appearance: none; background: transparent; border: 0; width: 100%; text-align: left; cursor: pointer; padding-bottom: 24px; border-bottom: 1px solid #353535; color: #585151; font-size: 28px; font-weight: 700; line-height: 1.25; transition: color .2s ease-out, background .25s ease-out, padding .25s ease-out; }
-    .svl-overview__list-item:hover { color: var(--blue); }
-    .svl-overview__list-item--active, .svl-overview__list-item--active:hover { padding: 24px; border-radius: 20px; border-bottom: 0; background: var(--blue); color: #fff; }
-    .svl-overview__feature { position: relative; min-height: 678px; border-radius: 20px; overflow: hidden; background: #0c1b3d; display: flex; align-items: flex-end; padding: 28px; }
-    .svl-overview__feature img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity .25s ease-out; }
-    .svl-overview__feature::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(9,130,197,0.18) 0%, rgba(9,130,197,0.88) 100%); }
-    .svl-overview__panel { position: relative; z-index: 2; width: 735px; max-width: 100%; padding: 28px; background: #fff; border-radius: 10px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; transition: opacity .25s ease-out, transform .25s ease-out; }
-    .svl-overview__panel.is-switching { opacity: 0; transform: translateY(12px); }
-    .svl-overview__panel h3 { margin: 0; color: #585151; font-size: 24px; font-weight: 600; line-height: 1.25; }
-    .svl-overview__panel p { margin: 0; color: #353535; font-size: 18px; font-weight: 400; line-height: 1.55; }
-
-    /* Biz slider */
-    .sd-section { padding: 0 var(--px); margin: 100px auto; max-width: var(--section-w); }
-    .sd-wrap { max-width: var(--max-w); margin: 0 auto; }
-    .biz { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .biz__left h2 { margin: 0 0 18px; color: var(--navy); font-size: 42px; font-weight: 600; line-height: 1.1; }
-    .biz__left p { margin: 0 0 16px; color: var(--sub); font-size: 20px; line-height: 1.5; }
-    .biz__left p:last-of-type { margin-bottom: 40px; }
-    .biz__nav { display: flex; align-items: center; gap: 16px; }
-    .biz__arrow { width: 48px; height: 48px; border-radius: 6px; border: 1px solid #d2d2d2; background: #f0f0f0; color: #464646; display: inline-flex; align-items: center; justify-content: center; font-size: 22px; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
-    .biz__arrow:last-of-type { background: #000; border-color: #000; color: #fff; }
-    .biz__arrow:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
-    .biz__bar { flex: 1; max-width: 240px; height: 6px; margin-left: 8px; background: #e4e4e4; border-radius: 4px; overflow: hidden; }
-    .biz__bar-fill { width: 16.66%; height: 100%; background: var(--blue); border-radius: 4px; }
-    .biz__card { background: #13203f; border-radius: 16px; padding: 50px 43px 52px; min-height: 360px; color: #fff; display: flex; flex-direction: column; justify-content: space-between; }
-    .biz__card h3 { margin: 0 0 20px; font-size: 42px; font-weight: 600; line-height: 1.05; }
-    .biz__card p { margin: 0 0 28px; font-size: 20px; font-weight: 500; line-height: 1.35; color: rgba(255,255,255,.95); }
-    .biz__num { font-size: 42px; font-weight: 600; }
-
-    @media (max-width: 1200px) {
-      .svcs-hero__title { font-size: 46px; }
-      .svcs-hero__content { padding: 80px 60px 120px var(--px); }
-      .sd-section { margin: 56px auto; }
-      .svl-overview__inner { grid-template-columns: 1fr; padding: 24px; gap: 32px; }
-      .svl-overview__feature { order: -1; min-height: 480px; }
-      .svl-overview__list { gap: 24px; max-height: 480px; }
-    }
-    @media (max-width: 768px) {
-      .svcs-hero__wrap { background-image: url(/images/pages/unique/banner-icons/industries-icon.svg); background-repeat: no-repeat; background-size: 250px auto; background-position: right -24px top -24px; height: auto; min-height: 0; }
-      .sd-section { margin: 56px auto; }
-      .biz { grid-template-columns: 1fr; gap: 26px; }
-      .biz__left h2 { font-size: 22px; line-height: 1.25; }
-      .biz__left p { font-size: 15.5px; line-height: 1.6; }
-      .biz__left p:last-of-type { margin-bottom: 22px; }
-      .biz__arrow { width: 40px; height: 40px; font-size: 18px; }
-      .biz__card { min-height: 0; padding: 26px 20px 30px; }
-      .biz__card h3 { font-size: 20px; margin-bottom: 12px; }
-      .biz__card p { font-size: 15.5px; line-height: 1.55; margin-bottom: 18px; }
-      .biz__num { font-size: 22px; }
-      .svl-overview { padding-top: 52px; padding-bottom: 52px; }
-      .svl-overview__feature { min-height: 480px; padding: 16px; }
-      .svl-overview__list-item { font-size: 22px; }
-      .svl-overview__list { max-height: 360px; }
-      .svl-overview__panel { padding: 20px; }
-      .svcs-hero__title { font-size: 42px; }
-      .svcs-hero__sub { font-size: 20px; }
-      .svcs-hero__content { padding: 60px var(--px) 80px var(--px); }
-    }
-    @media (max-width: 480px) {
-      .svcs-hero__title { font-size: 28px; }
-      .svcs-hero__cta { margin-top: 20px; font-size: 14px; min-height: 44px; min-width: 0; padding: 0 24px; }
-    }
-  </style>
 </head>
 <body class="industry-detail-page">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVKBZV7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -224,7 +147,8 @@
     </section>
 
     <!-- TAB OVERVIEW -->
-    <section class="svl-overview animate-fade-up" aria-labelledby="intro-h">
+    <section class="svl-overview animate-fade-up section-shell" aria-labelledby="intro-h">
+      <div class="ab-inner">
       <h2 class="heading-xl svl-overview__title" id="intro-h">Driving Manufacturing Efficiency Through Reliable IT Infrastructure</h2>
       <div class="body-lg svl-overview__lead">
         <p>We build and manage rock-solid network infrastructure that connects your floor, warehouse, and office, keeping your supply chain moving without costly delays.</p>
@@ -307,7 +231,7 @@
             <p id="svl-overview-copy">We monitor your network 24/7 to catch and fix connectivity bugs before they stall your machinery or assembly lines.</p>
           </div>
         </div><!-- /.svl-overview__feature -->
-
+</div>
       </div><!-- /.svl-overview__inner -->
     </section>
 
@@ -348,11 +272,54 @@
         });
       });
     })();
+      /* Services We Offer — mobile accordion (feature panel follows active item, caret, progress) */
+  (function svlMobile() {
+    var inner = document.querySelector('.svl-overview__inner');
+    if (!inner) return;
+    var list = inner.querySelector('.svl-overview__list');
+    var items = Array.prototype.slice.call(inner.querySelectorAll('.svl-overview__list-item'));
+    var feature = inner.querySelector('.svl-overview__feature');
+    var panel = inner.querySelector('.svl-overview__panel');
+    if (!list || !items.length || !feature || !panel) return;
+    items.forEach(function (t) {
+      var c = document.createElement('span');
+      c.className = 'svl-overview__caret';
+      c.setAttribute('aria-hidden', 'true');
+      c.textContent = '\u2304';
+      t.appendChild(c);
+    });
+    var bar = document.createElement('div');
+    bar.className = 'svl-overview__bar';
+    bar.setAttribute('aria-hidden', 'true');
+    var fill = document.createElement('span');
+    bar.appendChild(fill);
+    panel.appendChild(bar);
+    var mq = window.matchMedia('(max-width: 768px)');
+    function sync() {
+      var i = 0;
+      items.forEach(function (t, j) { if (t.classList.contains('svl-overview__list-item--active')) i = j; });
+      items.forEach(function (t, j) {
+        var c = t.querySelector('.svl-overview__caret');
+        if (c) c.textContent = j === i ? '^' : '\u2304';
+      });
+      fill.style.width = (((i + 1) / items.length) * 100) + '%';
+      if (mq.matches) {
+        items[i].insertAdjacentElement('afterend', feature);
+      } else if (feature.parentElement === list) {
+        inner.appendChild(feature);
+      }
+    }
+    items.forEach(function (t) {
+      t.addEventListener('click', function () { window.setTimeout(sync, 0); });
+    });
+    if (mq.addEventListener) { mq.addEventListener('change', sync); } else { mq.addListener(sync); }
+    sync();
+  })();
     </script>
 
     <!-- BIZ SLIDER -->
-    <section class="sd-section" aria-labelledby="biz-h">
-      <div class="sd-wrap">
+    <section class="section-shell" aria-labelledby="biz-h">
+      <div class="ab-inner">
         <div class="biz" id="biz">
           <div class="biz__left">
             <h2 id="biz-h">How We Help Manufacturing Industries Drive Growth Through IT Support</h2>
@@ -376,7 +343,8 @@
     </section>
 
     <!-- KEY COMPONENTS SECTION -->
-    <section class="section animate-fade-up" aria-labelledby="components-h">
+    <section class="section-shell animate-fade-up py-sm-0" aria-labelledby="components-h">
+      <div class="ab-inner">
       <h2 class="heading-lg" id="components-h">Key Components of IT Support Services for Manufacturing</h2>
       <div class="body-lg"><p>IT support in manufacturing environments needs to keep every system in step so that tasks remain stable and operations keep running smoothly.</p></div>
       <div class="manufacturing-grid manufacturing-grid--spaced">
@@ -396,11 +364,12 @@
           <li>Cloud integration improves flexibility and makes it easier to store, share, and use business applications as work schedules change.</li>
         </ol>
       </div>
+      </div>
     </section>
 
     <!-- INDUSTRY BANNER -->
-    <section class="industry-banner animate-fade-up" aria-labelledby="why-h">
-      <div class="industry-banner__inner">
+    <section class="industry-banner animate-fade-up section-shell section-shell py-sm-0" aria-labelledby="why-h">
+      <div class="industry-banner__inner ab-inner">
         <div class="industry-banner__bg">
           <picture>
             <source srcset="/images/pages/unique/industrial facility.avif" type="image/avif">
@@ -459,22 +428,79 @@
     </script>
     <div data-cms="testimonials" data-title="What our client says" class="mb-lg-100"></div>
 
-    <!-- CTA -->
-    <section class="industry-cta animate-fade-up" aria-label="Call to action">
-      <div class="industry-cta__inner">
-        <div class="industry-cta__chips" aria-hidden="true">
-          <span class="industry-cta__chip">Network Consultancy</span><span class="industry-cta__chip">Network Support</span><span class="industry-cta__chip">Managed Network Support</span><span class="industry-cta__chip">Managed Wireless LAN</span><span class="industry-cta__chip">Network Installations</span><span class="industry-cta__chip">Network Design &amp; Deployment</span><span class="industry-cta__chip">Firewall &amp; Network Security</span><span class="industry-cta__chip">Remote Access &amp; VPN</span>
-        </div>
-        <div class="industry-cta__card">
-          <h2 class="industry-cta__title">Strengthen Your Manufacturing Network</h2>
-          <p class="industry-cta__text">Support your production systems and scale operations with reliable, resilient connectivity and practical support for your manufacturing environment.</p>
-          <a href="/contact" class="btn-dark">Book a Network Health Check</a>
-        </div>
+
+  <!-- ======== CTA BAND ======== -->
+  <section class="svc-cta-band" aria-label="Network support CTA">
+    <div class="svc-cta-band__tags" aria-hidden="true">
+      <div class="svc-cta-band__row">
+        <span>Network Consultancy</span>
+        <span>Network Support</span>
+        <span>Managed Network Support</span>
+        <span>Managed Wireless LAN</span>
+        <span>Network Installations</span>
       </div>
-    </section>
+      <div class="svc-cta-band__row">
+        <span>Network Design &amp; Deployment</span>
+        <span>Firewall &amp; Network Security</span>
+        <span>Remote Access &amp; VPN</span>
+        <span>Business Continuity</span>
+      </div>
+    </div>
+    <div class="svc-cta-band__card">
+                <h2>Strengthen Your Manufacturing Network</h2>
+
+      <p class="svc-cta-band__text">Support your production systems and scale operations with reliable, resilient connectivity and practical support for your manufacturing environment.</p>
+<a href="/contact" class="svc-cta-band__btn">Book Your Assessment</a>    </div>
+  </section>
+
 
     <!-- FAQ -->
-    <section class="nd-faq section-shell animate-fade-up" aria-labelledby="faq-h">
+    <section class="section-shell animate-fade-up mb-lg-100" aria-labelledby="faq-h">
+      <div class="ab-inner">
+      <div class="nd-faq ">
+      <div class="nd-faq__left">
+        <h2 class="section-title" id="faq-h">Frequently asked questions</h2>
+        <p>Still have questions? Get connected to our support team.</p>
+        <a href="../contact" class="nd-faq__cta">Contact us</a>
+      </div>
+      <!-- <div class="nd-faq__right">
+        <button class="nd-faq__item is-open"><span>What network security measures do financial institutions use?</span><strong>−</strong></button>
+        <div class="nd-faq__panel">To safeguard sensitive financial data and ensure regulatory compliance, financial institutions use layered security measures, including firewalls, encryption, intrusion detection, ongoing monitoring, and stringent access controls.</div> -->
+
+    <div class="nd-faq__right">
+
+        <h3 class="nd-faq__item is-open">
+          <span>Why is network consultancy important for manufacturing companies?</span>
+          <strong>−</strong>
+        </h3>
+        <p class="nd-faq__panel">
+          Network consultancy helps manufacturing companies build more reliable and efficient IT systems. It improves connectivity, supports secure operations, reduces downtime and helps keep production processes running smoothly.
+        </p>
+
+        <h3 class="nd-faq__item">
+          <span>How can IT support improve manufacturing productivity?</span>
+          <strong>+</strong>
+        </h3>
+        <p class="nd-faq__panel" hidden>
+          IT support helps keep systems stable and available when needed. It allows technical issues to be resolved quickly, protects important business data and helps reduce interruptions that can affect production and delivery schedules.
+        </p>
+
+        <h3 class="nd-faq__item">
+          <span>What services are included in manufacturing IT support?</span>
+          <strong>+</strong>
+        </h3>
+        <p class="nd-faq__panel" hidden>
+          Manufacturing IT support usually includes network management, cybersecurity, system monitoring, cloud services, regular maintenance, backup and recovery support, and technical assistance to keep daily operations running without disruption.
+        </p>
+
+      </div>
+</div></div>
+
+
+</section>
+
+    <!-- FAQ -->
+    <!-- <section class="nd-faq section-shell animate-fade-up" aria-labelledby="faq-h">
       <div class="nd-faq__left">
         <h2 class="section-title" id="faq-h">Frequently asked questions</h2>
         <p>Still have questions? Get connected to our support team.</p>
@@ -507,7 +533,7 @@
         </p>
 
       </div>
-    </section>
+    </section> -->
 
     
     <script src="/js/form-source-tracking.js"></script>

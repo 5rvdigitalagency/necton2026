@@ -119,7 +119,7 @@
   <link rel="stylesheet" href="/css/animations.css">
   <link rel="stylesheet" href="/css/accessibility.css">
 <style>
-  .cs-hero-wrap {
+  /* .cs-hero-wrap {
     max-width: var(--section-w);
     margin: 0 auto;
     background-color: #13203f;
@@ -128,9 +128,9 @@
     background-position: right center;
     background-size: cover;
     padding: 80px var(--px) 80px;
-  }
+  } */
 
-  .cs-hero {
+  /* .cs-hero {
     max-width: var(--max-w);
     margin: 0 auto;
   }
@@ -169,26 +169,18 @@
     font-weight: 600;
     text-decoration: none;
     white-space: nowrap;
-  }
+  } */
 
-  .cs-overview p {
+  /* .cs-overview p {
     margin: 0;
     color: #585151;
     font-size: 18px;
     font-weight: 400;
     line-height: 1.25;
-  }
+  } */
 
   .cs-feature {
     padding: 60px 0 60px;
-  }
-
-  .cs-feature-inner {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 48px;
-    align-items: stretch;
   }
 
   .cs-feature-image {
@@ -213,29 +205,26 @@
     display: block;
   }
 
-  .cs-feature-copy {
+  /* .cs-feature-copy {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 28px;
     padding: 6px 0;
-  }
+  } */
 
   .cs-feature-copy h3 {
-    margin: 0;
     color: #0982c5;
-    font-size: 48px;
-    font-weight: 600;
-    line-height: 1.1;
+ 
   }
 
-  .cs-feature-copy p {
+  /* .cs-feature-copy p {
     margin: 0;
     color: #585151;
     font-size: 18px;
     font-weight: 400;
     line-height: 1.25;
-  }
+  } */
 
   .cs-read-more {
     margin-top: 15px;
@@ -243,11 +232,6 @@
     background: #0982c5;
   }
 
-  .cs-grid.cs-grid-3 {
-    grid-template-columns: repeat(3, 456px);
-    justify-content: center;
-    gap: 32px;
-  }
 
   .cs-card {
     background: #ebebeb;
@@ -255,7 +239,6 @@
 
   .cs-card-media {
     width: 100%;
-    height: 280px;
     border-radius: 25px;
     overflow: hidden;
     background: #141a28;
@@ -278,11 +261,7 @@
   }
 
   .cs-card h3 {
-    margin: 0 0 14px;
-    color: #585151;
     font-size: var(--home-type-heading-md);
-    font-weight: 700;
-    line-height: 1.25;
   }
 
   .cs-card p {
@@ -299,41 +278,88 @@
     min-height: 0;
   }
 
-  .cs-card-wide .cs-card-media {
+  /* .cs-card-wide .cs-card-media {
     height: 280px;
-  }
+  } */
 
-  .cs-blue-cta {
-    margin-top: 100px;
-    padding: 84px 20px;
-    background: var(--blue);
-  }
 
-  .cs-blue-inner {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .cs-center-panel {
-    align-self: center;
-    max-width: 858px;
-    background: #fff;
-    border-radius: 20px;
-    padding: 46px 84px;
-    text-align: center;
-  }
-
-  .cs-center-panel .btn {
-    margin-top: 30px;
-  }
-
-  main .nd-faq {
+/* 
+  .nd-faq {
     margin: 100px auto;
-  }
+  } */
 
   .nd-contact.section-shell {
     margin-top: 100px;
   }
+ .cs-feature-inner {
+    display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+ }
+  @media (min-width: 768px) {
+  .cs-feature-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px;
+    align-items: stretch;
+  }
+
+}
+ @media (min-width: 1201px) {
+      .cs-card-media {
+    height: 280px;
+    }
+      .cs-blue-cta {
+      margin-top: 100px;
+        }
+        
+  .cs-grid.cs-grid-3 {
+    grid-template-columns: repeat(3, 456px);
+  }
+  }
+
+  @media (max-width: 1200px) and (min-width:600px){
+    .cs-grid.cs-grid-3 {
+    grid-template-columns: repeat(2, 48%);
+    gap: 20px;
+    }
+
+  }
+
+  @media (max-width: 1024px) {
+    .nd-faq {
+        margin: 0 auto;
+    }
+
+}
+  @media (max-width: 767px) {
+  .cs-feature-image{
+    order: 2;
+  }
+  .cs-feature-copy{
+    order: 1;
+  }
+  .cs-feature-inner{
+    position: relative;
+            padding-bottom: 100px;
+  }
+  .cs-read-more{
+    position: absolute;
+    bottom: 0;
+
+  }
+  .cs-feature-image{
+    margin-top: 20px;
+  }
+  .cs-grid-wrap.section-shell{
+    padding-top: 0;
+  }
+  }
+ 
+/* @media (max-width: 600px) {
+    .cs-grid.cs-grid-3 {
+        grid-template-columns: repeat(2, 48%);
+    }
+} */
+
 </style>
 </head>
 <body>
@@ -344,7 +370,22 @@
   <div id="site-navbar"></div>
   <script src="/js/navbar.js"></script>
   <main id="main">
-    <section class="cs-hero-wrap" aria-label="Case studies hero">
+  <!-- ======== HERO ======== -->
+  <section class="nc-hero" aria-label="Case studies hero">
+    <div class="nc-hero-wrap">
+      <div class="nc-hero__content">
+        <div class="nc-hero__text">
+           <h1 class="nc-hero__title">Case Studies</h1>
+          <p class="nc-hero__sub">See how businesses across the UK have secured their networks, adapted to modernisation, and secured their operations with our engineering support.</p>
+          <div>
+          <a  href="/contact" class="btn-blue nc-hero__cta animate-fade-up">Discuss Similar Projects</a></div>
+      </div>
+    </div>
+  </section>
+
+
+
+    <!-- <section class="cs-hero-wrap" aria-label="Case studies hero">
       <div class="cs-hero">
         <div class="cs-hero-content animate-fade-up">
           <h1 class="cs-hero-title">Case Studies</h1>
@@ -354,17 +395,12 @@
           <a class="cs-hero-cta" href="/contact">Discuss Similar Projects</a>
         </div>
       </div>
-    </section>
+    </section> -->
     <div class="cs-wrap">
-
       <section class="cs-overview section-shell">
-        <div class="cs-overview-inner-remove ab-inner">
+        <div class="ab-inner">
           <h2>Case Studies Overview</h2>
           <p>Network Consultancy supports organisations preparing for future network changes. We provide guidance on network upgrades, remote access, wireless installations, and firewall security, measuring success by your actual business outcomes.</p>
-        </div>
-      </section>
-
-      <section class="cs-feature">
         <div class="cs-feature-inner">
           <div class="cs-feature-image">
             <picture>
@@ -380,10 +416,11 @@
             <a class="cs-read-more btn-blue" href="/case-studies/nta-core-network-upgrade">Read More</a>
           </div>
         </div>
+        </div>
       </section>
 
-      <section class="cs-grid-wrap">
-        <div class="cs-grid stagger-children cs-grid-3">
+      <section class="cs-grid-wrap section-shell">
+        <div class="cs-grid stagger-children cs-grid-3 ab-inner">
           <article class="cs-card">
             <div class="cs-card-media"><img src="/images/pages/unique/harry-dobbs.avif" alt="A senior IT engineer analysing a server rack in a data centre, representing expert network and security modernisation for Harry Dobbs Design" loading="lazy"></div>
             <h3>Harry Dobbs Design - Network and Security Modernisation</h3>
@@ -414,7 +451,33 @@
         </div>
       </section>
 
-      <section class="cs-blue-cta" aria-label="Network assessment call to action">
+
+  <!-- ======== CTA BAND ======== -->
+  <section class="svc-cta-band my-lg-100" aria-label="Network support CTA">
+    <div class="svc-cta-band__tags" aria-hidden="true">
+      <div class="svc-cta-band__row">
+        <span>Harry Dobbs Design</span>
+        <span>Senate Computers</span>
+        <span>Auriga Networks </span>
+        <span>Antal International </span>
+      </div>
+      <div class="svc-cta-band__row">
+   <span>Harry Dobbs Design</span>
+        <span>Senate Computers</span>
+        <span>Auriga Networks </span>
+        <span>Antal International </span>
+      </div>
+    </div>
+    <div class="svc-cta-band__card">
+       <h2>Discuss your network requirements with our team</h2>
+      <p class="svc-cta-band__text">If your business growth is stalled by outdated security, slow connectivity, or multi-site issues, we deliver the practical infrastructure to fix it.</p>
+                  <a class="svc-cta-band__btn" href="/contact" data-source-cta="case_studies_assessment">Book Your Network Assessment</a>
+
+    </div>
+  </section>
+
+
+      <!-- <section class="cs-blue-cta" aria-label="Network assessment call to action">
         <div class="cs-blue-inner">
           <div class="cs-center-panel">
             <h2>Discuss your network requirements with our team</h2>
@@ -422,9 +485,11 @@
             <a class="btn-blue btn" href="/contact" data-source-cta="case_studies_assessment">Book Your Network Assessment</a>
           </div>
         </div>
-      </section>
+      </section> -->
+<section class="section-shell">
+  <div class="ab-inner">
 
-      <section class="nd-faq section-shell animate-fade-up" aria-labelledby="faq-h">
+      <div class="nd-faq  animate-fade-up" aria-labelledby="faq-h">
         <div class="nd-faq__left">
           <h2 class="section-title" id="faq-h">Frequently asked questions</h2>
           <p>Still have questions? Get connected to our support team.</p>
@@ -460,8 +525,10 @@
         </div>
 
 
-      </section>
+      </div>
 
+  </div>
+</section>
     </div>
   </main>
 
