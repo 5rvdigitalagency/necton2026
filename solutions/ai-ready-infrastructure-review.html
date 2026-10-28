@@ -2,54 +2,56 @@
 <html lang="en">
 <head>
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://network-consultancy.com/"
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://network-consultancy.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Solutions",
+        "item": "https://network-consultancy.com/solutions"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "AI-Ready Infrastructure Review",
+        "item": "https://network-consultancy.com/solutions/ai-ready-infrastructure-review"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://network-consultancy.com/solutions/ai-ready-infrastructure-review#service",
+    "name": "AI-Ready Infrastructure",
+    "url": "https://network-consultancy.com/solutions/ai-ready-infrastructure-review",
+    "description": "AI-ready infrastructure solutions helping UK businesses assess their existing IT and network infrastructure, identify technology requirements and prepare their systems for the adoption of artificial intelligence.",
+    "serviceType": "AI-Ready Infrastructure",
+    "provider": {
+      "@type": "Organization",
+      "@id": "https://network-consultancy.com/#organization",
+      "name": "Network Consultancy",
+      "url": "https://network-consultancy.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://network-consultancy.com/images/misc/logo.png"
+      }
     },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Solutions",
-      "item": "https://network-consultancy.com/solutions"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "AI-Ready Infrastructure Review",
-      "item": "https://network-consultancy.com/solutions/ai-ready-infrastructure-review"
+    "areaServed": {
+      "@type": "Country",
+      "name": "United Kingdom"
     }
-  ]
-}
- {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://network-consultancy.com/solutions/ai-ready-infrastructure-review#service",
-  "name": "AI-Ready Infrastructure",
-  "url": "https://network-consultancy.com/solutions/ai-ready-infrastructure-review",
-  "description": "AI-ready infrastructure solutions helping UK businesses assess their existing IT and network infrastructure, identify technology requirements and prepare their systems for the adoption of artificial intelligence.",
-  "serviceType": "AI-Ready Infrastructure",
-  "provider": {
-    "@type": "Organization",
-    "@id": "https://network-consultancy.com/#organization",
-    "name": "Network Consultancy",
-    "url": "https://network-consultancy.com/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://network-consultancy.com/images/misc/logo.png"
-    }
-  },
-  "areaServed": {
-    "@type": "Country",
-    "name": "United Kingdom"
-  }
- }
-  </script>
+  }
+]
+</script>
     <meta name="google-site-verification" content="UMvzdXxOFVqZL5BV0Z31FdlaoXjKmD450rZ5TB-qWXI" />
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PVKBZV7');</script>
 
@@ -95,9 +97,9 @@
       </div>
     </div>
   </section>
-<section class="section-shell" aria-labelledby="ai-pillars-h">
+<section class="section-shell" aria-labelledby="ksa-h">
   <div class="ab-inner">
-    <div class="ksa__card">
+    <div class="ksa__card" id="ksa">
         <div class="ksa__tabs animate-fade-up"
             role="tablist"
             aria-label="solution-netcon">
@@ -204,7 +206,7 @@
       </div>
     </section>
 
-    <section class="section-shell" aria-label="Contact Network Consultancy">
+    <section class="section-shell py-sm-0" aria-label="Contact Network Consultancy">
     <div class="content-cta ab-inner">
     
       <div class="content-cta__copy"><h2 class="content-cta__title">Planning for successful AI adoption?</h2><p class="content-cta__text">Speak with our infrastructure specialists about your readiness priorities</p></div>
@@ -233,7 +235,7 @@
 
     
 
-    <section class="nhc-why section-shell" aria-labelledby="nhc-why-title">
+    <section class="nhc-why section-shell py-sm-0" aria-labelledby="nhc-why-title">
       <div class="nhc-why__inner ab-inner">
         <div class="nhc-why__copy animate-fade-up">
           <h2 id="nhc-why-title">Why Choose Us</h2>
@@ -421,6 +423,51 @@
         });
       });
     })();
+  </script>
+    <script>
+  /* Key Solution Areas — mobile accordion (panel follows active tab, caret, progress) */
+  (function ksaMobile() {
+    var ksa = document.getElementById('ksa');
+    if (!ksa) return;
+    var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
+    var tabsWrap = ksa.querySelector('.ksa__tabs');
+    var panel = ksa.querySelector('.ksa__panel');
+    var card = ksa.querySelector('.ksa__panel-card');
+    if (!tabs.length || !tabsWrap || !panel || !card) return;
+    tabs.forEach(function (t) {
+      var c = document.createElement('span');
+      c.className = 'ksa__caret';
+      c.setAttribute('aria-hidden', 'true');
+      c.textContent = '\u2304';
+      t.appendChild(c);
+    });
+    var bar = document.createElement('div');
+    bar.className = 'ksa__bar';
+    bar.setAttribute('aria-hidden', 'true');
+    var fill = document.createElement('span');
+    bar.appendChild(fill);
+    card.appendChild(bar);
+    var mq = window.matchMedia('(max-width: 768px)');
+    function sync() {
+      var i = 0;
+      tabs.forEach(function (t, j) { if (t.classList.contains('active')) i = j; });
+      tabs.forEach(function (t, j) {
+        var c = t.querySelector('.ksa__caret');
+        if (c) c.textContent = j === i ? '^' : '\u2304';
+      });
+      fill.style.width = (((i + 1) / tabs.length) * 100) + '%';
+      if (mq.matches) {
+        tabs[i].insertAdjacentElement('afterend', panel);
+      } else if (panel.parentElement === tabsWrap) {
+        ksa.appendChild(panel);
+      }
+    }
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () { window.setTimeout(sync, 0); });
+    });
+    if (mq.addEventListener) { mq.addEventListener('change', sync); } else { mq.addListener(sync); }
+    sync();
+  })();
   </script>
   <script src="/js/animations.js" defer></script>
   <script src="/js/global.js" defer></script>

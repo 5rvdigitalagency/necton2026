@@ -51,41 +51,7 @@
   <link rel="stylesheet" href="/css/animations.css">
   <link rel="stylesheet" href="/css/accessibility.css">
   <link rel="stylesheet" href="/css/case-study-detail.css">
-  <style>
-    .csd-page { max-width: var(--section-w); margin: 0 auto; padding: 28px var(--px) 0; }
-    .csd-top { max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 36px; align-items: start; }
-    .csd-title { margin: 24px 0 20px; color: #353535; font-family: 'Google Sans Flex', sans-serif; font-size: 63px; font-weight: 600; line-height: 1.06; max-width: 960px; }
-    .csd-intro { margin: 0 0 18px; color: #585151; font-family: 'Google Sans Flex', sans-serif; font-size: 18px; font-weight: 400; line-height: 1.25; max-width: 960px; }
-    .csd-hero-image { margin: 24px 0 36px; border-radius: 10px; overflow: hidden; }
-    .csd-hero-image img { width: 100%; height: auto; display: block; }
-    .csd-section-title { margin: 0 0 16px; color: #0982c5; font-family: 'Google Sans Flex', sans-serif; font-size: 48px; font-weight: 600; line-height: 1.1; }
-    .csd-copy p { margin: 0 0 16px; color: #585151; font-family: 'Google Sans Flex', sans-serif; font-size: 18px; font-weight: 400; line-height: 1.25; }
-    .csd-copy .inline-link { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
-    .csd-copy ul { margin: 0 0 20px; padding-left: 24px; }
-    .csd-copy li { margin: 0 0 12px; color: #585151; font-family: 'Google Sans Flex', sans-serif; font-size: 18px; font-weight: 400; line-height: 1.25; }
-    .csd-latest { background: #ebebeb; border-radius: 24px; padding: 28px 20px 24px; position: sticky; top: 118px; }
-    .csd-latest h2 { margin: 0 0 18px; color: #353535; font-family: 'Google Sans Flex', sans-serif; font-size: 42px; font-weight: 600; line-height: 1.1; }
-    .csd-latest-item { display: grid; grid-template-columns: 68px 1fr; gap: 12px; text-decoration: none; margin-bottom: 12px; }
-    .csd-latest-thumb { height: 50px; border: 1px solid #353535; border-radius: 8px; background: #d9d9d9; overflow: hidden; display: block; }
-    .csd-latest-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .csd-latest-item span { color: #353535; font-family: 'Google Sans Flex', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.2; }
-    .csd-latest-more { margin-top: 14px; display: inline-flex; align-items: center; min-height: 44px; color: #353535; font-family: 'Google Sans Flex', sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; }
-    main .nd-faq { margin: 100px auto; }
-    .nd-contact.section-shell { margin-top: 100px; }
-    @media (max-width: 1200px) {
-      .csd-top { grid-template-columns: 1fr; }
-      .csd-latest { position: static; max-width: 520px; }
-      .csd-title { font-size: 46px; }
-      .csd-intro, .csd-copy p, .csd-copy li { font-size: 18px; }
-      .csd-section-title { font-size: 38px; }
-    }
-    @media (max-width: 768px) {
-      .csd-page { padding-top: 12px; }
-      .csd-title { font-size: 38px; }
-      .csd-intro, .csd-copy p, .csd-copy li { font-size: 16px; }
-      .csd-section-title { font-size: 32px; }
-    }
-  </style>
+
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVKBZV7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -96,7 +62,8 @@
   <script src="/js/navbar.js"></script>
   <main id="main">
     <div class="csd-page">
-      <section class="csd-top animate-fade-up" aria-labelledby="case-study-heading">
+      <section class="section-shell animate-fade-up" aria-labelledby="case-study-heading">
+        <div class="ab-inner csd-top">
         <div>
           <h1 class="csd-title" id="case-study-heading">Senate Computers - Secure Multi-Site Network &amp; Connectivity Solution</h1>
           <p class="csd-intro">Senate Computers is a growing IT firm with multiple office locations.</p>
@@ -168,10 +135,16 @@
           </a>
           <a class="csd-latest-more" href="/case-studies/">See More</a>
         </aside>
+      </div>
       </section>
     </div>
 
-    <section class="nd-faq section-shell animate-fade-up" aria-labelledby="faq-title">
+
+
+
+<section class="section-shell mb-lg-100">
+  <div class="ab-inner">
+    <div  class="nd-faq  animate-fade-up" aria-labelledby="faq-title">
       <div class="nd-faq__left">
         <h2 class="section-title" id="faq-title">Frequently Asked Questions</h2>
         <p>Still have questions? Get connected to our support team.</p>
@@ -204,9 +177,12 @@
   </p>
 
 </div>
-
-
+      </div>
+      </div>
     </section>
+
+
+
   </main>
   
   <script src="/js/form-source-tracking.js"></script>
