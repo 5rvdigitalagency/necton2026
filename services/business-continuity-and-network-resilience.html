@@ -503,7 +503,36 @@
 })();
 </script>
 
+  <script>
+  /* Business Impact — card slider */
+  (function () {
+    var biz = document.getElementById('biz');
+    if (!biz) return;
+    var slides = [
+      { title:'Blocked cyber threats', desc:'Firewalls filter out malicious traffic and ransomware automatically, keeping your core data and company money secure.' },
+      { title:'Restricted system access', desc:'Smart user permissions stop unauthorised users from viewing sensitive files, keeping your customer data private.' },
+      { title:'Contained network risks', desc:'Isolated network segments prevent a security slip-up at one location from spreading to your other offices.' },
+      { title:'Safe remote connections', desc:'Encrypted links let your hybrid team work from anywhere without opening your central servers to internet attacks.' }
+    ];
+    var i = 0, total = slides.length;
+    var title = document.getElementById('biz-title');
+    var desc = document.getElementById('biz-desc');
+    var count = document.getElementById('biz-count');
+    var fill = document.getElementById('biz-fill');
+    function render() {
+      title.style.opacity = '0'; desc.style.opacity = '0';
+      setTimeout(function () {
+        title.textContent = slides[i].title; desc.textContent = slides[i].desc;
+        count.textContent = (i + 1) + '/' + total;
+        fill.style.width = ((i + 1) / total * 100) + '%';
+        title.style.opacity = '1'; desc.style.opacity = '1';
+      }, 200);
+    }
+    document.getElementById('biz-prev').addEventListener('click', function () { i = (i - 1 + total) % total; render(); });
+    document.getElementById('biz-next').addEventListener('click', function () { i = (i + 1) % total; render(); });
+  })();
 
+  </script>
 
 
     <script src="/js/cms.js"></script>

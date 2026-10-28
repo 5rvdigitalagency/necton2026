@@ -502,6 +502,37 @@
     { question:'What happens if our main internet line goes down completely?', answer:'We implement automated failover connectivity to keep your business online at all times. If your primary internet service experiences an outage, your network automatically switches to a backup connection, ensuring uninterrupted operations.', open:false }
   ];
   </script>
+    <script>
+    /* Business Impact — card slider */
+  (function () {
+    var biz = document.getElementById('biz');
+    if (!biz) return;
+    var slides = [
+      { title:'Blocked cyber threats', desc:'Firewalls filter out malicious traffic and ransomware automatically, keeping your core data and company money secure.' },
+      { title:'Restricted system access', desc:'Smart user permissions stop unauthorised users from viewing sensitive files, keeping your customer data private.' },
+      { title:'Contained network risks', desc:'Isolated network segments prevent a security slip-up at one location from spreading to your other offices.' },
+      { title:'Safe remote connections', desc:'Encrypted links let your hybrid team work from anywhere without opening your central servers to internet attacks.' }
+    ];
+    var i = 0, total = slides.length;
+    var title = document.getElementById('biz-title');
+    var desc = document.getElementById('biz-desc');
+    var count = document.getElementById('biz-count');
+    var fill = document.getElementById('biz-fill');
+    function render() {
+      title.style.opacity = '0'; desc.style.opacity = '0';
+      setTimeout(function () {
+        title.textContent = slides[i].title; desc.textContent = slides[i].desc;
+        count.textContent = (i + 1) + '/' + total;
+        fill.style.width = ((i + 1) / total * 100) + '%';
+        title.style.opacity = '1'; desc.style.opacity = '1';
+      }, 200);
+    }
+    document.getElementById('biz-prev').addEventListener('click', function () { i = (i - 1 + total) % total; render(); });
+    document.getElementById('biz-next').addEventListener('click', function () { i = (i + 1) % total; render(); });
+  })();
+
+  </script>
+
   <div data-cms="faq" class="my-lg-100"></div>
 
   <script src="/js/form-source-tracking.js"></script>
@@ -511,351 +542,129 @@
   <div id="site-footer"></div>
   <script src="/js/footer.js"></script>
 
-  <script src="/js/cms.js"></script>
-<script>
-(function () {
-  function initNetworkSupportTabs() {
-    const container = document.getElementById('ksa');
 
-    if (!container || container.dataset.initialized === 'true') return;
+ <script>
+  /* Key Solution Areas — tab switcher */
+  (function () {
+    var ksa = document.getElementById('ksa');
+    if (!ksa) return;
+    var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
+    var img = document.getElementById('ksa-img');
+    var title = document.getElementById('ksa-title');
+    var desc = document.getElementById('ksa-desc');
+  var data = [
+    {
+      img: '/images/pages/unique/Proactive.jpg',
+      alt: 'Two analysts reviewing financial data charts across multiple monitors, illustrating proactive network support services.',
+      title: 'Proactive Network Monitoring',
+      desc: 'The staff at Network Consultancy monitor your network 24/7 to help maintain reliable connectivity. We identify potential technical issues early to reduce unexpected downtime and keep your team productive.'
+    },
+    {
+      img: '/images/unique/Network-Troubleshooting-Fault-Resolution.avif',
+      alt: 'An engineer tracing colour-coded patch cables in a server rack to fix a dropped connection, representing fast network support services.',
+      title: 'Network Troubleshooting & Fault Resolution',
+      desc: 'Our engineers identify and resolve network faults quickly, reducing disruption and restoring reliable connectivity so your team can get back to work.'
+    },
+    {
+      img: '/images/unique/Network-Maintenance-Health-Checks.avif',
+      alt: 'A technician recording a network health check beside a patched switch rack, representing IT and network support.',
+      title: 'Network Maintenance & Health Checks',
+      desc: 'Regular network maintenance and health checks identify ageing equipment, configuration issues and performance problems before they develop into serious failures.'
+    },
+    {
+      img: '/images/unique/Remote-Network-Support.jpg',
+      alt: 'A support technician wearing a headset at a workstation, representing remote network support services.',
+      title: 'Remote Network Support',
+      desc: 'Our remote support engineers diagnose and resolve many network issues without waiting for an engineer to arrive on-site, helping minimise downtime and maintain business continuity.'
+    },
+    {
+      img: '/images/unique/On-Site-Network-Support.avif',
+      alt: 'Two engineers checking a laptop beside network cabling, representing on-site network support.',
+      title: 'On-Site Network Support',
+      desc: 'When an issue requires physical intervention, our engineers provide on-site support for network equipment, connectivity problems and infrastructure faults.'
+    },
+    {
+      img: '/images/pages/unique/Network-Performance-Optimisation.avif',
+      alt: 'A network engineer testing cabling and equipment on a laptop beside a server rack.',
+      title: 'Network Performance Optimisation',
+      desc: 'We analyse network performance and optimise configurations, traffic flow and infrastructure capacity to improve reliability, responsiveness and overall efficiency.'
+    },
+    {
+      img: '/images/unique/Network-Security-Support.avif',
+      alt: 'Two IT engineers inspecting a secured server cabinet, representing network security support.',
+      title: 'Network Security Support',
+      desc: 'We support your network security controls by reviewing configurations, access policies and potential weaknesses to help keep your infrastructure protected.'
+    },
+    {
+      img: '/images/unique/Wi-Fi-Support-Optimisation.avif',
+      alt: 'Two businessmen outdoors with a Wi-Fi signal graphic, representing Wi-Fi coverage and optimisation.',
+      title: 'Wi-Fi Support & Optimisation',
+      desc: 'We troubleshoot wireless connectivity, coverage and performance issues and optimise your Wi-Fi environment for reliable access across your workplace.'
+    },
+    {
+      img: '/images/unique/Network-Device-Management.avif',
+      alt: 'IT technicians checking router and switch details in a server room, representing network device management.',
+      title: 'Network Device Management',
+      desc: 'We manage and maintain routers, switches, access points and other network devices to keep configurations consistent, monitored and operating reliably.'
+    },
+    {
+      img: '/images/unique/Backup-Disaster-Recovery-Support.avif',
+      alt: 'An engineer checking a server unit in a rack, representing backup and recovery network support services.',
+      title: 'Backup & Disaster Recovery Support',
+      desc: 'We help maintain reliable backup and recovery processes so your organisation can restore critical network services and minimise operational disruption following an incident.'
+    }
+];
 
-    const tabs = Array.from(container.querySelectorAll('.ksa__tab'));
-    const img = container.querySelector('#ksa-img');
-    const title = container.querySelector('#ksa-title');
-    const desc = container.querySelector('#ksa-desc');
-    const panel = container.querySelector('#ksa-panel');
-
-    if (!tabs.length || !img || !title || !desc || !panel) return;
-
-    container.dataset.initialized = 'true';
-
-    const mobileQuery = window.matchMedia('(max-width: 768px)');
-    const mobilePanels = [];
-
-    // Create a separate accordion panel for each tab.
-    tabs.forEach(function (tab, index) {
-      const mobilePanel = document.createElement('div');
-
-      mobilePanel.className = 'ksa__panel';
-      mobilePanel.id = 'ksa__panel-' + (index + 1);
-      mobilePanel.setAttribute('role', 'region');
-      mobilePanel.setAttribute('aria-labelledby', tab.id);
-      mobilePanel.hidden = true;
-
-      const mobileImage = document.createElement('img');
-      mobileImage.src = tab.dataset.image || '';
-      mobileImage.alt = tab.dataset.alt || '';
-      mobileImage.loading = 'lazy';
-
-      const mobileTitle = document.createElement('h4');
-      mobileTitle.textContent =
-        tab.dataset.title || tab.textContent.trim();
-
-      const mobileDesc = document.createElement('p');
-      mobileDesc.textContent = tab.dataset.copy || '';
-
-      mobilePanel.append(mobileImage, mobileTitle, mobileDesc);
-      tab.insertAdjacentElement('afterend', mobilePanel);
-
-      tab.setAttribute('aria-controls', mobilePanel.id);
-      tab.setAttribute('aria-expanded', 'false');
-
-      mobilePanels.push(mobilePanel);
+tabs.forEach(function (tab, i) {
+  tab.addEventListener('click', function () {
+    tabs.forEach(function (t) {
+      t.classList.remove('ksa__tab--active');
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
     });
 
-    function updateDesktopPanel(tab) {
-      const newTitle = tab.dataset.title || tab.textContent.trim();
-      const newDesc = tab.dataset.copy || '';
-      const newImage = tab.dataset.image || '';
-      const newAlt = tab.dataset.alt || '';
+    tab.classList.add('ksa__tab--active');
+    tab.setAttribute('aria-selected', 'true');
 
-      title.textContent = newTitle;
-      desc.textContent = newDesc;
-      panel.setAttribute('aria-labelledby', tab.id);
+    var d = data[i];
 
-      // Update alt text independently of the title.
-      img.alt = newAlt;
+    img.style.opacity = '0';
 
-      if (newImage && img.getAttribute('src') !== newImage) {
-        img.style.opacity = '0.4';
+    setTimeout(function () {
+      img.src = d.img;
+      img.alt = d.alt;
+      img.style.opacity = '1';
+    }, 150);
 
-        const preload = new Image();
+    title.textContent = d.title;
+    desc.textContent = d.desc;
+  });
+});
 
-        preload.onload = function () {
-          img.src = newImage;
-          img.alt = newAlt;
-          img.style.opacity = '1';
-        };
-
-        preload.onerror = function () {
-          img.style.opacity = '1';
-          console.error('Unable to load image:', newImage);
-        };
-
-        preload.src = newImage;
-      } else {
-        img.style.opacity = '1';
-      }
-    }
-
-    function activateTab(tab, moveFocus, allowCollapse) {
-      const isMobile = mobileQuery.matches;
-      const index = tabs.indexOf(tab);
-      const wasActive = tab.classList.contains('active');
-      const shouldClose = isMobile && allowCollapse && wasActive;
-
-      tabs.forEach(function (item, i) {
-        const active = item === tab && !shouldClose;
-
-        item.classList.toggle('active', active);
-        item.setAttribute('aria-selected', String(active));
-        item.setAttribute('tabindex', active ? '0' : '-1');
-        item.setAttribute('aria-expanded', String(active));
-
-        mobilePanels[i].hidden = true;
-        mobilePanels[i].classList.remove('is-open');
-      });
-
-      if (!shouldClose) {
-        updateDesktopPanel(tab);
-
-        if (isMobile) {
-          mobilePanels[index].hidden = false;
-          mobilePanels[index].classList.add('is-open');
-        }
-      }
-
-      if (moveFocus) tab.focus();
-    }
-
-    tabs.forEach(function (tab, index) {
+img.style.transition = 'opacity .3s ease';
+    tabs.forEach(function (tab, i) {
       tab.addEventListener('click', function () {
-        activateTab(tab, false, true);
-      });
-
-      tab.addEventListener('keydown', function (event) {
-        let nextIndex = index;
-
-        switch (event.key) {
-          case 'ArrowDown':
-          case 'ArrowRight':
-            nextIndex = (index + 1) % tabs.length;
-            break;
-
-          case 'ArrowUp':
-          case 'ArrowLeft':
-            nextIndex = (index - 1 + tabs.length) % tabs.length;
-            break;
-
-          case 'Home':
-            nextIndex = 0;
-            break;
-
-          case 'End':
-            nextIndex = tabs.length - 1;
-            break;
-
-          default:
-            return;
-        }
-
-        event.preventDefault();
-        activateTab(tabs[nextIndex], true, false);
+        tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+        tab.classList.add('active'); tab.setAttribute('aria-selected','true');
+        var d = data[i];
+        img.style.opacity = '0';
+        setTimeout(function () { img.src = d.img; img.style.opacity = '1'; }, 150);
+        title.textContent = d.title; desc.textContent = d.desc;
       });
     });
+    img.style.transition = 'opacity .3s ease';
+  })();
+  </script>
+  <script src="/js/cms.js"></script>
 
-    function syncLayout() {
-      if (mobileQuery.matches) {
-        // Mobile: use the individual accordion panels.
-        panel.style.display = 'none';
-
-        const activeTab = tabs.find(function (tab) {
-          return tab.classList.contains('active');
-        });
-
-        if (activeTab) {
-          const index = tabs.indexOf(activeTab);
-          mobilePanels[index].hidden = false;
-          mobilePanels[index].classList.add('is-open');
-          activeTab.setAttribute('aria-expanded', 'true');
-        }
-      } else {
-        // Desktop: use the shared content panel.
-        panel.style.display = '';
-
-        mobilePanels.forEach(function (mobilePanel) {
-          mobilePanel.hidden = true;
-          mobilePanel.classList.remove('is-open');
-        });
-
-        tabs.forEach(function (tab) {
-          tab.setAttribute('aria-expanded', 'false');
-        });
-      }
-    }
-
-    const initialTab =
-      tabs.find(function (tab) {
-        return tab.getAttribute('aria-selected') === 'true';
-      }) || tabs[0];
-
-    activateTab(initialTab, false, false);
-    syncLayout();
-
-    if (mobileQuery.addEventListener) {
-      mobileQuery.addEventListener('change', syncLayout);
-    } else {
-      mobileQuery.addListener(syncLayout);
-    }
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initNetworkSupportTabs);
-  } else {
-    initNetworkSupportTabs();
-  }
-})();
-</script>
   <script src="/js/animations.js" defer></script>
   <script src="/js/global.js" defer></script>
   <script src="/js/accessibility.js" defer></script>
   <script src="/js/search-index.js" defer></script>
   <script src="/js/search.js" defer></script>
 
-  <script>
-  /* Key Solution Areas — tab switcher */
- /* Key Solution Areas — tab switcher with dynamic image alt text */
-(function () {
-  var ksa = document.getElementById('ksa');
-  if (!ksa) return;
-
-  var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
-  var img = ksa.querySelector('#ksa-img');
-  var title = ksa.querySelector('#ksa-title');
-  var desc = ksa.querySelector('#ksa-desc');
-
-  if (!tabs.length || !img || !title || !desc) return;
-
-  
-
-  function activateTab(index) {
-    var tab = tabs[index];
-    var item = data[index];
-
-    tabs.forEach(function (t, j) {
-      var active = j === index;
-
-      t.classList.toggle('ksa__tab--active', active);
-      t.classList.toggle('active', active);
-      t.setAttribute('aria-selected', String(active));
-      t.setAttribute('tabindex', active ? '0' : '-1');
-    });
-
-    img.style.opacity = '0';
-
-    var newImage = new Image();
-
-    newImage.onload = function () {
-      img.src = item.img;
-      img.alt = item.alt;
-      img.style.opacity = '1';
-    };
-
-    newImage.onerror = function () {
-      img.alt = item.alt;
-      img.style.opacity = '1';
-    };
-
-    newImage.src = item.img;
-
-    title.textContent = item.title;
-    desc.textContent = item.desc;
-  }
-
-  tabs.forEach(function (tab, index) {
-    tab.setAttribute('role', 'tab');
-    tab.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
-    tab.setAttribute('tabindex', index === 0 ? '0' : '-1');
-
-    tab.addEventListener('click', function () {
-      activateTab(index);
-    });
-
-    tab.addEventListener('keydown', function (event) {
-      var nextIndex = index;
-
-      if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
-        nextIndex = (index + 1) % tabs.length;
-      } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
-        nextIndex = (index - 1 + tabs.length) % tabs.length;
-      } else if (event.key === 'Home') {
-        nextIndex = 0;
-      } else if (event.key === 'End') {
-        nextIndex = tabs.length - 1;
-      } else {
-        return;
-      }
-
-      event.preventDefault();
-      tabs[nextIndex].focus();
-      activateTab(nextIndex);
-    });
-  });
-
-  img.style.transition = 'opacity .3s ease';
-})();
-
- 
-
-  </script>
 
 
-
-    <script>
-  /* Key Solution Areas — mobile accordion (panel follows active tab, caret, progress) */
-  (function ksaMobile() {
-    var ksa = document.getElementById('ksa');
-    if (!ksa) return;
-    var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
-    var tabsWrap = ksa.querySelector('.ksa__tabs');
-    var panel = ksa.querySelector('.ksa__panel');
-    var card = ksa.querySelector('.ksa__panel-card');
-    if (!tabs.length || !tabsWrap || !panel || !card) return;
-    tabs.forEach(function (t) {
-      var c = document.createElement('span');
-      c.className = 'ksa__caret';
-      c.setAttribute('aria-hidden', 'true');
-      c.textContent = '\u2304';
-      t.appendChild(c);
-    });
-    var bar = document.createElement('div');
-    bar.className = 'ksa__bar';
-    bar.setAttribute('aria-hidden', 'true');
-    var fill = document.createElement('span');
-    bar.appendChild(fill);
-    card.appendChild(bar);
-    var mq = window.matchMedia('(max-width: 768px)');
-    function sync() {
-      var i = 0;
-      tabs.forEach(function (t, j) { if (t.classList.contains('active')) i = j; });
-      tabs.forEach(function (t, j) {
-        var c = t.querySelector('.ksa__caret');
-        if (c) c.textContent = j === i ? '^' : '\u2304';
-      });
-      fill.style.width = (((i + 1) / tabs.length) * 100) + '%';
-      if (mq.matches) {
-        tabs[i].insertAdjacentElement('afterend', panel);
-      } else if (panel.parentElement === tabsWrap) {
-        ksa.appendChild(panel);
-      }
-    }
-    tabs.forEach(function (t) {
-      t.addEventListener('click', function () { window.setTimeout(sync, 0); });
-    });
-    if (mq.addEventListener) { mq.addEventListener('change', sync); } else { mq.addListener(sync); }
-    sync();
-  })();
-  </script>
 
 </body>
 </html>

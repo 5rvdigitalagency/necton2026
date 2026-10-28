@@ -52,10 +52,8 @@
   <link rel="stylesheet" href="/css/animations.css">
   <link rel="stylesheet" href="/css/accessibility.css">
   <style>
-    main .nd-faq { margin: 100px auto; }
     .nd-contact.section-shell { margin-top: 100px; }
     @media (max-width: 768px) {
-      main .nd-faq { margin: 56px auto; }
       .nd-contact.section-shell { margin-top: 56px; }
     }
     .blog-page {
@@ -67,17 +65,10 @@
       max-width: 1440px;
       margin: 0 auto;
     }
-    /* ===== Hero — matched to services/solutions family ===== */
-    .nc-hero-wrap { padding: 0; }
-    .nc-hero { max-width: var(--section-w); margin: 0 auto; background-color: #13203f; background-image: url(/images/pages/unique/blog-banner.webp); background-repeat: no-repeat; background-position: right center; background-size: cover; padding: 132px var(--px) 54px; }
-    .nc-hero__content { max-width: var(--max-w); margin: 0 auto; width: 100%; position: relative; z-index: 2; padding: 0; }
-    .nc-hero__title { font-family: 'Google Sans Flex', sans-serif; font-size: 64px; font-weight: 600; color: #fff; line-height: 1.08; margin: 0 0 20px; max-width: 804px; }
-    .nc-hero__sub { font-family: 'Google Sans Flex', sans-serif; font-size: 20px; color: #fff; line-height: 1.35; margin: 0 0 20px; max-width: 640px; }
-    .page-hero__cta-btn { display: inline-flex; align-items: center; margin-top: 34px; background: #fff; color: #353535; border: 0; border-radius: 2px; font-family: 'Google Sans Flex', sans-serif; font-size: 20px; font-weight: 600; min-width: 170px; width: auto; min-height: 50px; padding: 0 12px; justify-content: center; white-space: nowrap; line-height: normal; transition: background .2s ease; }
-    .page-hero__cta-btn:hover { background: #f0f0f0; transform: none; }
-    @media (max-width: 1200px) { .nc-hero__title { font-size: 46px; } }
+    
+    /* @media (max-width: 1200px) { .nc-hero__title { font-size: 46px; } }
     @media (max-width: 768px) { .nc-hero { padding: 108px var(--px) 44px; background-image: url(/images/pages/unique/banner-icons/blog-icon.svg); background-repeat: no-repeat; background-size: 250px auto; background-position: right -24px top -24px; } .nc-hero__title { font-size: 42px; } .nc-hero__sub { font-size: 17px; } .page-hero__cta-btn { margin-top: 20px; font-size: 14px; min-height: 44px; min-width: 0; padding: 0 24px; } }
-    @media (max-width: 480px) { .nc-hero__title { font-size: 28px; } }
+    @media (max-width: 480px) { .nc-hero__title { font-size: 28px; } } */
 
     .blog-intro,
     .blog-latest {
@@ -547,13 +538,13 @@
         <div class="nc-hero__content">
           <h1 class="nc-hero__title" id="blogs-heading">Networking &amp; IT Articles for Businesses</h1>
           <p class="nc-hero__sub">Stay up to date with practical blogs and market updates on networking, cybersecurity, cloud solutions, and managed IT services.</p>
-          <a href="/contact" class="page-hero__cta-btn">Get a free consultation</a>
+          <a href="#latest-articles" class="page-hero__cta-btn">Latest Article</a>
         </div>
       </div>
     </section>
 
-    <section class="blog-page" aria-labelledby="blogs-heading">
-      <div class="blog-page__inner">
+    <section class="section-shell" aria-labelledby="blogs-heading">
+      <div class="ab-inner">
 
         <section class="blog-intro animate-fade-up" aria-labelledby="decisions-heading">
           <h2 id="decisions-heading">Make Right Technology Decisions for a Better Tomorrow</h2>
@@ -563,7 +554,7 @@
           <p>Every article is written by experienced consultants and focuses on real-world challenges, proven approaches and best practices that organisations can apply across their IT environments.</p>
         </section>
 
-        <section class="blog-featured animate-fade-up" aria-labelledby="featured-article-heading">
+        <section class="blog-featured animate-fade-up" aria-labelledby="featured-article-heading" id="latest-articles">
           <a class="blog-featured__card" href="/resources/blogs/business-network-components">
             <div class="blog-featured__media">
               <picture>
