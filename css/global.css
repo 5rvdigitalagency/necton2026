@@ -4212,7 +4212,7 @@ body.industry-detail-page #main > #contact {
 }
 .nd-trusted__title {
  margin: 0;
- max-width: 620px;
+ max-width: 530px;
  color: var(--navy);
  font-size: var(--home-type-heading-xl);
  font-weight: 600;
