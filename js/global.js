@@ -498,14 +498,14 @@
       industry: '.svcs-hero__cta, .svc-cta-band__card a, a[data-source-cta]'
     };
 
-    if (path.indexOf('/resources/blogs') === 0) family = 'blog';
+    if (path.indexOf('latest-articles') === 0) family = 'blog';
     else if (path.indexOf('/services') === 0) family = 'service';
     else if (path.indexOf('/solutions') === 0) family = 'solution';
     else if (path.indexOf('/industries') === 0) family = 'industry';
     else return;
 
     var labels = {
-      blog: 'Follow Us for More Insights',
+      blog: 'Latest Article',
       service: 'Discuss Your Service Needs',
       solution: 'Explore Solution Options',
       industry: 'Discuss Your Industry Needs'
@@ -593,6 +593,232 @@
   activateTab(activeTab);
 })();
 
+  // ===== TRUSTED TESTIMONIAL CONTROLS =====
+    (function () {
+      var trusted = document.querySelector('.nd-trusted');
+      if (!trusted) return;
+
+      var track = trusted.querySelector('.nd-trusted__track');
+      var viewport = trusted.querySelector('.nd-trusted__viewport');
+      var prevBtn = trusted.querySelector('.nd-trusted__nav--prev');
+      var nextBtn = trusted.querySelector('.nd-trusted__nav--next');
+      var dotsWrap = trusted.querySelector('.nd-trusted__dots');
+      if (!track || !viewport || !prevBtn || !nextBtn || !dotsWrap) return;
+
+      var desktopQuery = window.matchMedia('(min-width: 1025px)');
+      var baseTranslate = -175;
+      var step = 0;
+      var currentIndex = 0;
+      var cardCount = 0;
+      var dots = [];
+      var isAnimating = false;
+      var transitionMs = 420;
+      var isDesktop = desktopQuery.matches;
+      var autoAdvanceId = null;
+      var autoAdvanceDelay = 5000;
+      var reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      function extractTranslateX(node) {
+        var t = window.getComputedStyle(node).transform;
+        if (!t || t === 'none') return 0;
+        var m = t.match(/matrix\(([^)]+)\)/);
+        if (m) {
+          var parts = m[1].split(',');
+          return parseFloat(parts[4]) || 0;
+        }
+        var m3 = t.match(/matrix3d\(([^)]+)\)/);
+        if (m3) {
+          var values = m3[1].split(',');
+          return parseFloat(values[12]) || 0;
+        }
+        return 0;
+      }
+
+      function updateDots() {
+        if (!dots.length || !cardCount) return;
+        var dotIndex = ((currentIndex % cardCount) + cardCount) % cardCount;
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle('nd-trusted__dot--active', i === dotIndex);
+        });
+      }
+
+      function setDesktopState(enabled) {
+        isDesktop = enabled;
+        if (!isDesktop) {
+          isAnimating = false;
+          prevBtn.disabled = true;
+          nextBtn.disabled = true;
+          track.style.transition = '';
+          track.style.transform = '';
+          track.style.willChange = '';
+          currentIndex = 0;
+          updateDots();
+          return;
+        }
+
+        prevBtn.disabled = false;
+        nextBtn.disabled = false;
+        track.style.transition = 'transform ' + transitionMs + 'ms cubic-bezier(0.22, 0.61, 0.36, 1)';
+        track.style.willChange = 'transform';
+        track.style.transform = 'translateX(' + baseTranslate + 'px)';
+        currentIndex = 0;
+        updateDots();
+      }
+
+      function recalcMetrics() {
+        var cards = Array.prototype.slice.call(track.querySelectorAll('.nd-t-card'));
+        cardCount = cards.length;
+        if (cardCount < 2) {
+          prevBtn.disabled = true;
+          nextBtn.disabled = true;
+          return;
+        }
+
+        var firstLeft = cards[0].offsetLeft;
+        var secondLeft = cards[1].offsetLeft;
+        step = Math.max(1, secondLeft - firstLeft);
+
+        if (!dots.length || dots.length !== cardCount) {
+          dotsWrap.innerHTML = '';
+          for (var i = 0; i < cardCount; i += 1) {
+            var dot = document.createElement('span');
+            dot.className = 'nd-trusted__dot';
+            dotsWrap.appendChild(dot);
+          }
+          dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('.nd-trusted__dot'));
+        }
+      }
+
+      function stopAutoAdvance() {
+        if (autoAdvanceId === null) return;
+        window.clearInterval(autoAdvanceId);
+        autoAdvanceId = null;
+      }
+
+      function startAutoAdvance() {
+        if (reduceMotionQuery.matches || cardCount < 2 || autoAdvanceId !== null) return;
+        autoAdvanceId = window.setInterval(onNext, autoAdvanceDelay);
+      }
+
+      function restartAutoAdvance() {
+        stopAutoAdvance();
+        startAutoAdvance();
+      }
+
+      function onNext() {
+        if (isAnimating || cardCount < 2) return;
+        if (!isDesktop) {
+          var nextIndex = (currentIndex + 1) % cardCount;
+          viewport.scrollTo({ left: nextIndex === 0 ? 0 : nextIndex * step, behavior: 'smooth' });
+          currentIndex = nextIndex;
+          updateDots();
+          return;
+        }
+        isAnimating = true;
+        var done = false;
+
+        function finish() {
+          if (done) return;
+          done = true;
+          track.removeEventListener('transitionend', onEnd);
+          var first = track.firstElementChild;
+          if (first) track.appendChild(first);
+          track.style.transition = 'none';
+          track.style.transform = 'translateX(' + baseTranslate + 'px)';
+          void track.offsetHeight;
+          track.style.transition = 'transform ' + transitionMs + 'ms cubic-bezier(0.22, 0.61, 0.36, 1)';
+          currentIndex = (currentIndex + 1) % cardCount;
+          updateDots();
+          isAnimating = false;
+        }
+
+        function onEnd(event) {
+          if (event.propertyName !== 'transform') return;
+          finish();
+        }
+
+        track.addEventListener('transitionend', onEnd);
+        track.style.transform = 'translateX(' + (baseTranslate - step) + 'px)';
+        window.setTimeout(finish, transitionMs + 60);
+      }
+
+      function onPrev() {
+        if (!isDesktop || isAnimating || cardCount < 2) return;
+        isAnimating = true;
+        var done = false;
+        var last = track.lastElementChild;
+        if (last) track.insertBefore(last, track.firstElementChild);
+
+        track.style.transition = 'none';
+        track.style.transform = 'translateX(' + (baseTranslate - step) + 'px)';
+        void track.offsetHeight;
+        track.style.transition = 'transform ' + transitionMs + 'ms cubic-bezier(0.22, 0.61, 0.36, 1)';
+        track.style.transform = 'translateX(' + baseTranslate + 'px)';
+
+        function finish() {
+          if (done) return;
+          done = true;
+          track.removeEventListener('transitionend', onEnd);
+          currentIndex = (currentIndex - 1 + cardCount) % cardCount;
+          updateDots();
+          isAnimating = false;
+        }
+
+        function onEnd(event) {
+          if (event.propertyName !== 'transform') return;
+          finish();
+        }
+
+        track.addEventListener('transitionend', onEnd);
+        window.setTimeout(finish, transitionMs + 60);
+      }
+
+      function configure() {
+        recalcMetrics();
+        if (!desktopQuery.matches) {
+          setDesktopState(false);
+          return;
+        }
+
+        if (!isDesktop) {
+          setDesktopState(true);
+        } else {
+          baseTranslate = extractTranslateX(track) || -175;
+          track.style.transform = 'translateX(' + baseTranslate + 'px)';
+          updateDots();
+        }
+      }
+
+      prevBtn.addEventListener('click', function () { onPrev(); restartAutoAdvance(); });
+      nextBtn.addEventListener('click', function () { onNext(); restartAutoAdvance(); });
+
+      trusted.addEventListener('keydown', function (event) {
+        if (!isDesktop) return;
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          onPrev();
+        }
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          onNext();
+        }
+      });
+
+      window.addEventListener('resize', configure);
+      trusted.addEventListener('focusin', stopAutoAdvance);
+      trusted.addEventListener('focusout', function () {
+        window.setTimeout(function () {
+          if (!trusted.contains(document.activeElement)) startAutoAdvance();
+        }, 0);
+      });
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) stopAutoAdvance();
+        else startAutoAdvance();
+      });
+      reduceMotionQuery.addEventListener('change', restartAutoAdvance);
+      configure();
+      startAutoAdvance();
+    }());
 
 
 

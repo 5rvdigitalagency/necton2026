@@ -5713,7 +5713,10 @@ padding: 18px;
  margin-top: 100px;
  margin-bottom: 100px;
 }
-
+/*----------common---*/
+.mt-lg-100 {
+ margin-top: 100px;
+}
 }
 /* ===== RESPONSIVE — 1280px (Laptop) ===== */
 @media (max-width: 1440px) {
@@ -6090,7 +6093,18 @@ padding: 18px;
  .nhc-gains__inner ,.nhc-risk__inner, .nhc-why__inner{
   gap: 40px;
  }
-  
+ .nhc-gains__inner {
+    grid-template-columns: repeat(1, 1fr);
+ }
+ .nhc-gains__card {
+    position: static;
+            margin-top: 29px !important;
+
+ }
+ 
+ .nhc-gains__intro {
+    position: static;
+ }
       .industry-arrows[aria-hidden="true"],
       .industry-progress[aria-hidden="true"] {
         display: none;
@@ -6248,6 +6262,12 @@ padding: 18px;
  }
 }
 @media (max-width: 768px) {
+  .blog-main p a, .blog-main li a {
+        word-break: break-all;
+  }
+  .whyc__media {
+  min-height: auto
+  }
    :root {
   --px: 32px;
  }
@@ -7537,9 +7557,7 @@ padding: 18px;
  /* .nd-figma-managed {
         padding: 24px 18px;
       } */
- .nd-figma-managed__title {
-  font-size: 34px;
- }
+
  .nd-figma-managed__video {
   height: 220px;
  }
@@ -7589,9 +7607,7 @@ padding: 18px;
   min-width: 120px;
   font-size: 16px;
  }
- .nd-contact__surface {
-  padding: 32px 18px 24px;
- }
+
  .nd-contact__title {
   font-size: 34px;
   line-height: 1.08;
