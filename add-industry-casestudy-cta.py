@@ -11,8 +11,8 @@ cta_updates = [
     ('./industries/manufacturing.html', 'Book a Network Health Check', 'industry_health_check', '/contact.html'),
     ('./industries/multi-site-businesses.html', 'Book a Network Health Check', 'industry_health_check', '/contact.html'),
     ('./industries/educational-institutes.html', 'Book a Network Health Check', 'industry_health_check', '/contact.html'),
-    ('./industries/recruitment-agencies.html', 'Book a Network Health Check', 'industry_health_check', '/contact.html'),
-    ('./industries/index.html', 'Book a Network Health Check', 'industry_health_check', '#contact'),
+    ('./industries/recruitment-agencies.html', 'Book a Network Health Check', 'industry_health_check', '/contact'),
+    ('./industries/index.html', 'Book a Network Health Check', 'industry_health_check', '/contact'),
     
     # Case studies
     ('./case-studies/antal-international.html', 'Book Your Network Assessment', 'case_study_detail_assessment', '/contact.html'),
