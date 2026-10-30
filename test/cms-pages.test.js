@@ -64,7 +64,7 @@ test('dynamic page content accepts safe text and link fields', () => {
       'meta:title': 'About Network Consultancy',
       'meta:description': 'Network consultancy services.',
       't:section[1]/p[1]#0': 'Updated page copy',
-      'u:section[1]/a[1]': '/contact.html'
+      'u:section[1]/a[1]': '/contact'
     },
     sectionOrder: []
   });

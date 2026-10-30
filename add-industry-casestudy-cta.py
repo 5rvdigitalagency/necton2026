@@ -4,23 +4,23 @@ import re
 # Industries and case studies
 cta_updates = [
     # Industries
-    ('./industries/financial-services.html', 'Book a Network Health Check', 'industry_health_check', '/contact.html'),
-    ('./industries/healthcare-clinics.html', 'Book a Network Health Check', 'industry_health_check', '/contact.html'),
-    ('./industries/internal-it-teams.html', 'Book a Network Health Check', 'industry_health_check', '/contact.html'),
-    ('./industries/legal-firms.html', 'Book a Network Health Check', 'industry_health_check', '/contact.html'),
-    ('./industries/manufacturing.html', 'Book a Network Health Check', 'industry_health_check', '/contact.html'),
-    ('./industries/multi-site-businesses.html', 'Book a Network Health Check', 'industry_health_check', '/contact.html'),
-    ('./industries/educational-institutes.html', 'Book a Network Health Check', 'industry_health_check', '/contact.html'),
+    ('./industries/financial-services.html', 'Book a Network Health Check', 'industry_health_check', '/contact'),
+    ('./industries/healthcare-clinics.html', 'Book a Network Health Check', 'industry_health_check', '/contact'),
+    ('./industries/internal-it-teams.html', 'Book a Network Health Check', 'industry_health_check', '/contact'),
+    ('./industries/legal-firms.html', 'Book a Network Health Check', 'industry_health_check', '/contact'),
+    ('./industries/manufacturing.html', 'Book a Network Health Check', 'industry_health_check', '/contact'),
+    ('./industries/multi-site-businesses.html', 'Book a Network Health Check', 'industry_health_check', '/contact'),
+    ('./industries/educational-institutes.html', 'Book a Network Health Check', 'industry_health_check', '/contact'),
     ('./industries/recruitment-agencies.html', 'Book a Network Health Check', 'industry_health_check', '/contact'),
     ('./industries/index.html', 'Book a Network Health Check', 'industry_health_check', '/contact'),
     
     # Case studies
-    ('./case-studies/antal-international.html', 'Book Your Network Assessment', 'case_study_detail_assessment', '/contact.html'),
-    ('./case-studies/auriga-networks.html', 'Book Your Network Assessment', 'case_study_detail_assessment', '/contact.html'),
-    ('./case-studies/harry-dobbs-design.html', 'Book Your Network Assessment', 'case_study_detail_assessment', '/contact.html'),
-    ('./case-studies/nta-core-network-upgrade.html', 'Book Your Network Assessment', 'case_study_detail_assessment', '/contact.html'),
-    ('./case-studies/senate-computers.html', 'Book Your Network Assessment', 'case_study_detail_assessment', '/contact.html'),
-    ('./case-studies/index.html', 'Book Your Network Assessment', 'case_studies_assessment', '/contact.html'),
+    ('./case-studies/antal-international.html', 'Book Your Network Assessment', 'case_study_detail_assessment', '/contact'),
+    ('./case-studies/auriga-networks.html', 'Book Your Network Assessment', 'case_study_detail_assessment', '/contact'),
+    ('./case-studies/harry-dobbs-design.html', 'Book Your Network Assessment', 'case_study_detail_assessment', '/contact'),
+    ('./case-studies/nta-core-network-upgrade.html', 'Book Your Network Assessment', 'case_study_detail_assessment', '/contact'),
+    ('./case-studies/senate-computers.html', 'Book Your Network Assessment', 'case_study_detail_assessment', '/contact'),
+    ('./case-studies/index.html', 'Book Your Network Assessment', 'case_studies_assessment', '/contact'),
 ]
 
 os.chdir('/Users/navjotsinghhundal/Desktop/_Active/NetCon')

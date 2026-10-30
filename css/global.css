@@ -4455,6 +4455,7 @@ body.industry-detail-page #main > #contact {
  color: #0982c5;
  font-weight: 500;
  text-decoration: underline;
+     word-break: break-all;
 }
 .blog-main ul {
  margin: 0 0 28px;
