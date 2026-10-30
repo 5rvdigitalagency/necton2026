@@ -19,7 +19,9 @@
 html {
   scroll-padding-top: 100px;
 }
-
+#a11y-widget{
+      z-index: 9999;
+}
 
 /* ----------------------------------------------------------------
    2 · SKIP NAVIGATION LINK (WCAG 2.4.1)
