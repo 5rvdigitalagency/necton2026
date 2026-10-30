@@ -258,6 +258,11 @@ video.hero__bg {
  line-height: normal;
  transition: background 0.2s ease;
 }
+.view-service{
+  margin-top: 40px;
+  text-align: center;
+}
+
 .hero__btn:hover {
  background: #f0f0f0;
 }
