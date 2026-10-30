@@ -6263,6 +6263,9 @@ padding: 18px;
  }
 }
 @media (max-width: 768px) {
+  .hero__content {
+    gap: 10px;
+  }
   .blog-main p a, .blog-main li a {
         word-break: break-all;
   }
