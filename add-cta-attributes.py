@@ -82,10 +82,10 @@ def find_and_tag_ctas():
                 # Look for links/buttons with this text
                 # Pattern: find <a or <button with href or onclick containing contact, with the text
                 patterns_to_try = [
-                    # <a href="/contact" ...>Text</a>
+                    # <a href="/contact.html" ...>Text</a>
                     (r'(<a[^>]*href="[^"]*contact[^"]*"[^>]*)>(' + re.escape(text_pattern) + r')<', 
                      r'\1 data-source-cta="' + cta_id + r'">' + r'\2' + '<'),
-                    # <a href="/contact" ...>..Text..</a>
+                    # <a href="/contact.html" ...>..Text..</a>
                     (r'(<a[^>]*href="[^"]*contact[^"]*"[^>]*)>([^<]*' + re.escape(text_pattern) + r'[^<]*)<',
                      r'\1 data-source-cta="' + cta_id + r'">' + r'\2' + '<'),
                     # For buttons without href but with contact context
