@@ -27,6 +27,7 @@ jobs:
 
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_SCOPE: ${{ secrets.VERCEL_SCOPE }}
 
     steps:
       - name: Validate deployment URL
@@ -48,11 +49,20 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@50.10.1
 
+      - name: Verify Vercel authentication
+        run: |
+          set -euo pipefail
+          vercel whoami --token "$VERCEL_TOKEN"
+
       - name: Promote exact reviewed deployment
         shell: bash
         env:
           PREVIEW_URL: ${{ inputs.preview_url }}
         run: |
           set -euo pipefail
+
           PREVIEW_URL="${PREVIEW_URL%/}"
-          vercel promote "$PREVIEW_URL" --token "$VERCEL_TOKEN"
+
+          vercel promote "$PREVIEW_URL" \
+            --token "$VERCEL_TOKEN" \
+            --scope "$VERCEL_SCOPE"
