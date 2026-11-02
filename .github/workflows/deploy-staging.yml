@@ -1,3 +1,4 @@
+
 name: Deploy staging
 
 on:
@@ -47,33 +48,58 @@ jobs:
           set -euo pipefail
           vercel whoami --token "$VERCEL_TOKEN"
 
-      - name: Deploy to Vercel
-        id: deploy
+      - name: Pull Vercel preview configuration
         run: |
           set -euo pipefail
-          vercel pull --yes --environment=preview --token "$VERCEL_TOKEN"
-          output="$(vercel deploy --yes --token "$VERCEL_TOKEN")"
+
+          vercel pull --yes \
+            --environment=preview \
+            --token "$VERCEL_TOKEN" \
+            --scope "$VERCEL_ORG_ID"
+
+      - name: Deploy to Vercel
+        id: deploy
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          output="$(
+            vercel deploy --yes \
+              --token "$VERCEL_TOKEN" \
+              --scope "$VERCEL_ORG_ID" 2>&1
+          )"
+
           printf '%s\n' "$output"
 
           preview_url="$(
             printf '%s\n' "$output" |
-            grep -Eo 'https://[^[:space:]]+' |
-            tail -n 1
+            grep -Eo 'https://[A-Za-z0-9.-]+\.vercel\.app/?' |
+            head -n 1 || true
           )"
 
           if [[ -z "$preview_url" ]]; then
-            echo "Could not determine the Vercel deployment URL"
+            echo "Could not determine the Vercel deployment URL." >&2
             exit 1
           fi
 
+          preview_url="${preview_url%/}"
+
           echo "preview_url=$preview_url" >> "$GITHUB_OUTPUT"
 
-  
+          {
+            echo "## Staging deployment successful"
+            echo ""
+            echo "**Preview deployment:**"
+            echo "$preview_url"
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Point permanent staging URL at preview
+        env:
+          PREVIEW_URL: ${{ steps.deploy.outputs.preview_url }}
         run: |
           set -euo pipefail
-          vercel alias \
-            "${{ steps.deploy.outputs.preview_url }}" \
+
+          vercel alias "$PREVIEW_URL" \
             netcon-ivory.vercel.app \
             --token "$VERCEL_TOKEN" \
             --scope "$VERCEL_ORG_ID"
