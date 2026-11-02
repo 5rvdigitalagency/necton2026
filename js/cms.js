@@ -352,7 +352,9 @@
     }).join('\n');
 
     container.innerHTML = [
-      '<section class="nd-faq">',
+      '<section class="section-shell">',
+      '<div class="ab-inner">',
+      '<div class="nd-faq ">',
       '  <div class="nd-faq__left">',
       '    <h2 class="section-title">Frequently Asked Questions</h2>',
       '    <p>Still have questions? Get connected to our support team.</p>',
@@ -361,6 +363,8 @@
       '  <div class="nd-faq__right" data-faq-list>',
       items,
       '  </div>',
+      '  </div>',
+       '  </div>',
       '</section>'
     ].join('\n');
 

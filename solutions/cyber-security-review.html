@@ -100,9 +100,9 @@
 
 
 
-<section class="section-shell" aria-labelledby="ksa-title">
+<section class="section-shell" aria-labelledby="ksa-h">
   <div class="ab-inner">
-    <div class="ksa__card">
+    <div class="ksa__card" id="ksa">
 
       <div class="ksa__tabs animate-fade-up"
            role="tablist"
@@ -125,8 +125,8 @@
           class="ksa__tab"
           data-title="Access &amp; Permissions Analysis"
           data-copy="By analysing infrastructure security, user permissions, administrative access, and network services, the assessment uncovers potential weaknesses that could affect operational stability and resilience."
-          data-alt="Row of closed server cabinets in a data centre, representing access and permissions analysis as part of a cyber security review."
-          data-image="/images/pages/unique/solutions-cyber-security-review-nc-hero-person.webp">
+          data-alt="Two security analysts review critical error alerts across multiple screens during a cyber risk assessment to identify configuration and exposure gaps."
+          data-image="/images/pages/unique/access-permission.avif">
           Access &amp; Permissions Analysis
         </h3>
 
@@ -147,8 +147,8 @@
           class="ksa__tab"
           data-title="Configuration &amp; Exposure Assessment"
           data-copy="Configuration drift, unnecessary system exposure, inherited permissions, and policy inconsistencies are assessed against operational and business risk."
-          data-alt="Server room data center showing configuration and exposure assessment as part of a cyber risk assessment for IT infrastructure security."
-          data-image="/images/pages/unique/solutions-cyber-security-review-nc-hero-person.webp">
+          data-alt="An IT specialist stands in front of data centre server racks, checking backup and disaster recovery systems to protect business data."
+          data-image="/images/pages/unique/exposure.avif">
           Configuration &amp; Exposure Assessment
         </h3>
 
@@ -215,7 +215,7 @@
 
 
 
-   <section class="nhc-why section-shell" aria-labelledby="nhc-why-title">
+   <section class="nhc-why section-shell py-sm-0" aria-labelledby="nhc-why-title">
       <div class="nhc-why__inner ab-inner">
         <div class="nhc-why__copy animate-fade-up">
           <h2 id="nhc-why-title">Why Choose Us</h2>
@@ -235,7 +235,7 @@
 
  
 
-    <section class="section-shell">
+    <section class="section-shell mb-lg-100">
       <div class="ab-inner">
       <div class="nd-trusted"><div class="nd-trusted__head"><h2 class="nd-trusted__title">What our clients say</h2><div class="nd-trusted__controls"><button type="button" class="nd-trusted__nav nd-trusted__nav--prev" aria-label="Previous testimonial"><span aria-hidden="true">&#8249;</span></button><button type="button" class="nd-trusted__nav nd-trusted__nav--next" aria-label="Next testimonial"><span aria-hidden="true">&#8250;</span></button></div></div>
       <div class="nd-trusted__viewport"><div class="nd-trusted__track">
@@ -261,7 +261,7 @@
     </div>
     <div class="svc-cta-band__card">
       <p class="svc-cta-band__text">Identify security weaknesses before they become operational risks. Speak with our cybersecurity consultants and schedule your cyber risk assessment today.</p>
-      <a href="#contact" class="svc-cta-band__btn">Get Assessment</a>
+      <a href="/contact" class="svc-cta-band__btn">Get Assessment</a>
     </div>
   </section>
 
@@ -351,6 +351,51 @@
         });
       });
     })();
+  </script>
+      <script>
+  /* Key Solution Areas — mobile accordion (panel follows active tab, caret, progress) */
+  (function ksaMobile() {
+    var ksa = document.getElementById('ksa');
+    if (!ksa) return;
+    var tabs = Array.prototype.slice.call(ksa.querySelectorAll('.ksa__tab'));
+    var tabsWrap = ksa.querySelector('.ksa__tabs');
+    var panel = ksa.querySelector('.ksa__panel');
+    var card = ksa.querySelector('.ksa__panel-card');
+    if (!tabs.length || !tabsWrap || !panel || !card) return;
+    tabs.forEach(function (t) {
+      var c = document.createElement('span');
+      c.className = 'ksa__caret';
+      c.setAttribute('aria-hidden', 'true');
+      c.textContent = '\u2304';
+      t.appendChild(c);
+    });
+    var bar = document.createElement('div');
+    bar.className = 'ksa__bar';
+    bar.setAttribute('aria-hidden', 'true');
+    var fill = document.createElement('span');
+    bar.appendChild(fill);
+    card.appendChild(bar);
+    var mq = window.matchMedia('(max-width: 768px)');
+    function sync() {
+      var i = 0;
+      tabs.forEach(function (t, j) { if (t.classList.contains('active')) i = j; });
+      tabs.forEach(function (t, j) {
+        var c = t.querySelector('.ksa__caret');
+        if (c) c.textContent = j === i ? '^' : '\u2304';
+      });
+      fill.style.width = (((i + 1) / tabs.length) * 100) + '%';
+      if (mq.matches) {
+        tabs[i].insertAdjacentElement('afterend', panel);
+      } else if (panel.parentElement === tabsWrap) {
+        ksa.appendChild(panel);
+      }
+    }
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () { window.setTimeout(sync, 0); });
+    });
+    if (mq.addEventListener) { mq.addEventListener('change', sync); } else { mq.addListener(sync); }
+    sync();
+  })();
   </script>
   <script src="/js/animations.js" defer></script>
   <script src="/js/global.js" defer></script>

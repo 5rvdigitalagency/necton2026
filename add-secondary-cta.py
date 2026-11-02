@@ -4,10 +4,10 @@ import re
 # Secondary CTAs (buttons that are not the main hero CTA)
 secondary_ctas = [
     # Solutions secondary CTAs
-    ('./solutions/ai-ready-infrastructure.html', 'Get a Network Security Review', 'solution_secondary_review', '/contact.html'),
-    ('./solutions/cyber-security-review.html', 'Get a Security Assessment', 'solution_secondary_review', '/contact.html'),
-    ('./solutions/microsoft-365-network.html', 'Assess Microsoft 365 Readiness', 'solution_secondary_readiness', '/contact.html'),
-    ('./solutions/network-health-check.html', 'Book a Network Health Check', 'solution_secondary_health_check', '/contact.html'),
+    ('./solutions/ai-ready-infrastructure.html', 'Get a Network Security Review', 'solution_secondary_review', '/contact'),
+    ('./solutions/cyber-security-review.html', 'Get a Security Assessment', 'solution_secondary_review', '/contact'),
+    ('./solutions/microsoft-365-network.html', 'Assess Microsoft 365 Readiness', 'solution_secondary_readiness', '/contact'),
+    ('./solutions/network-health-check.html', 'Book a Network Health Check', 'solution_secondary_health_check', '/contact'),
 ]
 
 os.chdir('/Users/navjotsinghhundal/Desktop/_Active/NetCon')

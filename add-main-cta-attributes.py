@@ -5,26 +5,26 @@ import re
 # Each entry: (filepath, search_text, cta_id)
 cta_updates = [
     # About page
-    ('./about.html', 'BOOK A FREE', 'about_health_check', '/contact.html'),
+    ('./about.html', 'BOOK A FREE', 'about_health_check', '/contact'),
     
     # Services landing and individual services
-    ('./services/index.html', 'BOOK A FREE', 'services_landing_health_check', '#contact'),
-    ('./services/business-continuity.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '#contact'),
-    ('./services/firewall-network-security.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '#contact'),
-    ('./services/managed-network-support.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '#contact'),
-    ('./services/managed-wireless-lan.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '#contact'),
-    ('./services/network-consultancy.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '#contact'),
-    ('./services/network-design-deployment.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '#contact'),
-    ('./services/network-installations.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '#contact'),
-    ('./services/network-support.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '#contact'),
-    ('./services/remote-access-vpn.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '#contact'),
+    ('./services/index.html', 'BOOK A FREE', 'services_landing_health_check', '/contact'),
+    ('./services/business-continuity.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '/contact'),
+    ('./services/firewall-network-security.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '/contact'),
+    ('./services/managed-network-support.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '/contact'),
+    ('./services/managed-wireless-lan.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '/contact'),
+    ('./services/network-consultancy.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '/contact'),
+    ('./services/network-design-deployment.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '/contact'),
+    ('./services/network-installations.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '/contact'),
+    ('./services/network-support.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '/contact'),
+    ('./services/remote-access-vpn.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '/contact'),
     
     # Solutions
-    ('./solutions/index.html', 'BOOK A NETWORK HEALTH CHECK', 'solutions_landing_health_check', '#contact'),
-    ('./solutions/ai-ready-infrastructure.html', 'BOOK A NETWORK HEALTH CHECK', 'solution_hero_health_check', '/contact.html'),
-    ('./solutions/cyber-security-review.html', 'BOOK A NETWORK HEALTH CHECK', 'solution_hero_health_check', '/contact.html'),
-    ('./solutions/microsoft-365-network.html', 'BOOK A NETWORK HEALTH CHECK', 'solution_hero_health_check', '/contact.html'),
-    ('./solutions/network-health-check.html', 'BOOK A NETWORK HEALTH CHECK', 'solution_hero_health_check', '/contact.html'),
+    ('./solutions/index.html', 'BOOK A NETWORK HEALTH CHECK', 'solutions_landing_health_check', '/contact'),
+    ('./solutions/ai-ready-infrastructure.html', 'BOOK A NETWORK HEALTH CHECK', 'solution_hero_health_check', '/contact'),
+    ('./solutions/cyber-security-review.html', 'BOOK A NETWORK HEALTH CHECK', 'solution_hero_health_check', '/contact'),
+    ('./solutions/microsoft-365-network.html', 'BOOK A NETWORK HEALTH CHECK', 'solution_hero_health_check', '/contact'),
+    ('./solutions/network-health-check.html', 'BOOK A NETWORK HEALTH CHECK', 'solution_hero_health_check', '/contact'),
 ]
 
 os.chdir('/Users/navjotsinghhundal/Desktop/_Active/NetCon')

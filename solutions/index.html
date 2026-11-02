@@ -129,9 +129,7 @@
   --sol-card-radius: 24px;
 }
 
-.sol-head{
-  max-width: 80%;
-}
+
 
 /* ======== Solution Pages ======== */
 
@@ -159,7 +157,6 @@
 
 .sol-card-row {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--sol-gap);
 }
 
@@ -198,7 +195,7 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: 28px;
+  padding: 20px;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -256,14 +253,11 @@
   transform: rotate(-45deg);
 }
 
-.sol-card-row--single {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  max-width: none;
-}
 
-.sol-card-row--single .sol-card {
+
+/* .sol-card-row--single .sol-card {
   grid-column: 1 / -1;
-}
+} */
 
 /* ======== Benefits ======== */
 
@@ -271,7 +265,6 @@
   width: 100%;
   margin-top: 48px;
   display: grid;
-  grid-template-columns: 58% 42%;
   gap: var(--sol-gap);
 }
 
@@ -346,79 +339,77 @@
   transform: translateY(0);
 }
 
-
+    .sol-card-row {
+      display: grid;
+      gap: var(--sol-gap);
+    }
 /* ======== Responsive ======== */
 
-@media (max-width: 1440px) {
-  .sol-card h3 {
-    font-size: 34px;
-  }
-
-  .sol-benefit-tile__label {
-    font-size: 34px;
-  }
+@media (min-width: 1200px) {
+.sol-head{
+  max-width: 80%;
+}
+.sol-benefits__mosaic {
+  grid-template-columns: 58% 42%;
+}
+}
+@media (min-width: 1025px) {
+    .sol-card-row {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .sol-card-row--single {
+    grid-column: 1 / -1;
+      max-width: none;
+    }
+    
 }
 
+
+
 @media (max-width: 1200px) {
-  .sol-card-row {
+  /* .sol-card-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  } */
 
   .sol-card-row--single {
     max-width: none;
     grid-template-columns: minmax(0, 1fr);
   }
-
-  .sol-benefits__mosaic,
-  .sol-benefits__mosaic--second {
-    grid-template-columns: 1fr;
-  }
+.sol-benefits__mosaic, .sol-benefits__mosaic--second{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-@media (max-width: 768px) {
-  .sol-commit__head h2 {
-    font-size: 38px;
+}
+@media (max-width: 1024px) {
+    .sol-card-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
+@media (max-width: 768px) {
 
   .sol-card-row,
   .sol-card-row--single {
     grid-template-columns: 1fr;
   }
 
+      .sol-benefits__mosaic, .sol-benefits__mosaic--second {
+         grid-template-columns: 1fr;
+    }
   .sol-card {
     min-height: 380px;
   }
 
-  .sol-card h3 {
-    font-size: 30px;
-  }
-
-  .sol-card p {
-    font-size: 16px;
-  }
 
   .sol-benefit-tile {
     min-height: 300px;
   }
-
-  .sol-benefit-tile__label {
-    font-size: 30px;
-  }
+.section-shell.sol-benefits{
+  padding-block: 0;
 }
 
-@media (max-width: 480px) {
-  .sol-commit__head h2 {
-    font-size: 32px;
-  }
-
-  .sol-card h3 {
-    font-size: 26px;
-  }
-
-  .sol-benefit-tile__label {
-    font-size: 26px;
-  }
 }
+
+
 </style>
 </head>
 <body>
@@ -429,6 +420,10 @@
   <script src="/js/navbar.js"></script>
 
   <main id="main" class="sol-page">
+
+
+
+    
 
       <!-- ======== HERO ======== -->
   <section class="nc-hero">
@@ -509,9 +504,7 @@
                 </span>
               </div>
             </a>
-          </div>
-
-          <div class="sol-card-row">
+         
             <a class="sol-card" href="/services/network-design-and-deployment">
               <picture>
                 <source srcset="/images/pages/unique/solutions-network-health-check-managed-support.avif" type="image/avif">
@@ -566,9 +559,7 @@
                 </span>
               </div>
             </a>
-          </div>
-
-          <div class="sol-card-row">
+         
             <a class="sol-card" href="/solutions/cyber-security-review">
               <picture>
                 <source srcset="/images/pages/unique/solutions-cyber-security-review-nc-hero-person.avif" type="image/avif">
@@ -623,10 +614,8 @@
                 </span>
               </div>
             </a>
-          </div>
-
-          <div class="sol-card-row sol-card-row--single">
-            <a class="sol-card" href="/services/network-consultancy">
+    
+            <a class="sol-card sol-card-row--single" href="/services/network-consultancy">
               <picture>
                 <source srcset="/images/pages/unique/solutions-ai-ready-infrastructure-managed-support.avif" type="image/avif">
                 <img src="/images/pages/unique/solutions-ai-ready-infrastructure-managed-support.avif" alt="Close-up of hands pointing at charts and reports spread across a table during a business discussion with colleagues." loading="lazy">
@@ -644,6 +633,7 @@
                 </span>
               </div>
             </a>
+         
           </div>
         </div>
       </div>
@@ -782,7 +772,7 @@
       </div>
       </div>
     </section>
-   <section class="section-shell" aria-label="Contact Network Consultancy">
+   <section class="section-shell pt-sm-0" aria-label="Contact Network Consultancy">
     <div class="content-cta ab-inner">
         <div class="content-cta__copy"><h2 class="content-cta__title">Ready to choose the right solution?</h2><p class="content-cta__text">Speak with our team about the infrastructure priorities shaping your next step.</p></div>
         <a class="content-cta__button" href="/contact" data-source-cta="solutions_landing_testimonial_contact">Contact Us</a>
