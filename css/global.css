@@ -225,6 +225,7 @@ video.hero__bg {
  letter-spacing: -0.01em;
  color: #fff;
  text-transform: none;
+ margin-bottom: 0;
 }
 .hero__sub {
  font-family: var(--font-body);
@@ -7855,6 +7856,7 @@ padding: 18px;
  /* Hero */
  .hero__title {
   font-size: 28px;
+
  }
  .hero__sub {
   font-size: 16px;
@@ -7868,12 +7870,12 @@ padding: 18px;
  .hero__wrap {
   min-height: 290px;
  }
- .hero__slides {
+ /* .hero__slides {
   min-height: 290px;
- }
- .hero__slides article {
+ } */
+ /* .hero__slides article {
   min-height: 290px;
- }
+ } */
  .hero__content {
   padding: 36px var(--px) 28px;
  }
