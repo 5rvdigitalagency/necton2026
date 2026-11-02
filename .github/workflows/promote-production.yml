@@ -1,3 +1,4 @@
+
 name: Promote production
 
 on:
@@ -19,11 +20,14 @@ jobs:
   promote:
     name: Promote reviewed staging deployment
     runs-on: ubuntu-latest
+
     environment:
       name: production
       url: https://network-consultancy.com
+
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
     steps:
       - name: Validate deployment URL
         shell: bash
@@ -31,13 +35,24 @@ jobs:
           PREVIEW_URL: ${{ inputs.preview_url }}
         run: |
           set -euo pipefail
-          case "$PREVIEW_URL" in
-            https://*.vercel.app) ;;
-            *) echo 'Provide the exact Vercel preview URL, not a production domain.' >&2; exit 1 ;;
-          esac
+
+          PREVIEW_URL="${PREVIEW_URL%/}"
+
+          if [[ ! "$PREVIEW_URL" =~ ^https://[a-zA-Z0-9.-]+\.vercel\.app$ ]]; then
+            echo "Provide the exact Vercel preview URL, not a production domain." >&2
+            exit 1
+          fi
+
+          echo "Preview URL validation successful: $PREVIEW_URL"
 
       - name: Install Vercel CLI
         run: npm install --global vercel@50.10.1
 
       - name: Promote exact reviewed deployment
-        run: vercel promote "${{ inputs.preview_url }}" --token "$VERCEL_TOKEN"
+        shell: bash
+        env:
+          PREVIEW_URL: ${{ inputs.preview_url }}
+        run: |
+          set -euo pipefail
+          PREVIEW_URL="${PREVIEW_URL%/}"
+          vercel promote "$PREVIEW_URL" --token "$VERCEL_TOKEN"
