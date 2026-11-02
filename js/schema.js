@@ -598,6 +598,67 @@
 
   }
 
+ // ==========================================================
+  // Schema FAQ
+  // ==========================================================
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const faqSection = document.querySelector('.nd-faq__right');
+
+    if (!faqSection) return;
+
+    const faqItems = faqSection.querySelectorAll('.nd-faq');
+
+    if (!faqItems.length) return;
+
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": []
+    };
+
+    faqItems.forEach(function (item) {
+
+        const question = item.querySelector('.nd-faq__item span');
+        const answer = item.querySelector('.nd-faq__panel');
+
+        if (!question || !answer) return;
+
+        const questionText = question.textContent.trim();
+        const answerText = answer.textContent.trim();
+
+        if (!questionText || !answerText) return;
+
+        faqSchema.mainEntity.push({
+            "@type": "Question",
+            "name": questionText,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": answerText
+            }
+        });
+
+    });
+
+    if (faqSchema.mainEntity.length) {
+
+        const script = document.createElement('script');
+
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify(faqSchema);
+
+        document.head.appendChild(script);
+    }
+
+});
+
+
+
+
 
   // ==========================================================
   // RUN AFTER PAGE LOAD
