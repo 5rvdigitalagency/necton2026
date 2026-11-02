@@ -222,7 +222,7 @@
           </picture>
         </div>
         <div class="ctf-form-panel">
-          <form class="ctf-form" id="contact-form" method="post" action="https://api.web3forms.com/submit" novalidate>
+          <!-- <form class="ctf-form" id="contact-form" method="post" action="https://api.web3forms.com/submit" novalidate>
             <input type="hidden" name="access_key" value="fbcd4bae-c2e9-4e0c-9bf1-9576bef8625b">
             <input type="hidden" name="subject" id="cf-subject" value="NetCon website enquiry">
             <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" style="display:none">
@@ -245,7 +245,132 @@
             <button class="ctf-btn" type="submit">Submit</button>
             <div id="form-success" class="form-success" role="status" aria-live="polite">Thank you for your enquiry &mdash; we will be in touch shortly.</div>
             <div id="form-error" class="form-error" role="alert">Something went wrong. Please check the required fields and try again.</div>
-          </form>
+          </form> -->
+          
+<form class="ctf-form" id="contact-form" method="post" action="https://api.web3forms.com/submit" novalidate>
+
+    <!-- Web3Forms Configuration -->
+    <input type="hidden" name="access_key" value="fbcd4bae-c2e9-4e0c-9bf1-9576bef8625b">
+    <input type="hidden" name="subject" id="cf-subject" value="NetCon website enquiry">
+
+    <!-- Honeypot Spam Protection -->
+    <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" style="display:none">
+
+    <!-- Existing Lead Tracking Fields -->
+    <input type="hidden" name="source_page" id="cf-source-page" value="contact">
+    <input type="hidden" name="source_family" id="cf-source-family" value="contact">
+    <input type="hidden" name="source_cta" id="cf-source-cta" value="contact_consultation_form">
+    <input type="hidden" name="inquiry_type" id="cf-inquiry-type" value="general_inquiry">
+    <input type="hidden" name="lead_status" id="cf-lead-status" value="new_lead">
+    <input type="hidden" name="action_required" id="cf-action-required" value="review_and_route">
+    <input type="hidden" name="routing_team" id="cf-routing-team" value="admin">
+
+    <!-- Submission Tracking -->
+    <input type="hidden" name="submitted_at" id="submitted_at">
+    <input type="hidden" name="page_url" id="page_url">
+    <input type="hidden" name="page_title" id="page_title">
+
+    <!-- UTM Tracking -->
+    <input type="hidden" name="utm_source" id="utm_source">
+    <input type="hidden" name="utm_medium" id="utm_medium">
+
+    <!-- First-Touch Attribution Tracking -->
+    <input type="hidden" name="initial_landing_page" id="initial_landing_page">
+    <input type="hidden" name="initial_referrer" id="initial_referrer">
+    <input type="hidden" name="initial_traffic_source" id="initial_traffic_source">
+    <input type="hidden" name="landing_page_query" id="landing_page_query">
+
+    <div class="ctf-fields">
+
+        <label class="ctf-field">
+            <span class="ctf-label">Select the enquiry type</span>
+            <select class="ctf-select" name="enquiry_type" required>
+                <option value="" selected disabled>Select here</option>
+                <option value="General">General</option>
+                <option value="Support">Support</option>
+                <option value="Projects">Projects</option>
+                <option value="Appointment">Appointment</option>
+                <option value="Assistance">Assistance</option>
+                <option value="Consulting">Consulting</option>
+            </select>
+        </label>
+
+        <div class="ctf-row">
+            <label class="ctf-field">
+                <span class="ctf-label">Full name</span>
+                <input class="ctf-input" type="text" name="first_name" autocomplete="given-name" placeholder="Full name" required>
+            </label>
+
+            <label class="ctf-field">
+                <span class="ctf-label">Full name</span>
+                <input class="ctf-input" type="text" name="last_name" autocomplete="family-name" placeholder="Full name" required>
+            </label>
+        </div>
+
+        <div class="ctf-row">
+            <label class="ctf-field">
+                <span class="ctf-label">Phone number</span>
+                <input class="ctf-input" type="tel" name="phone" autocomplete="tel" placeholder="Phone number" required>
+            </label>
+
+            <label class="ctf-field">
+                <span class="ctf-label">Company name</span>
+                <input class="ctf-input" type="text" name="company" autocomplete="organization" placeholder="Company name" required>
+            </label>
+        </div>
+
+        <div class="ctf-row">
+            <label class="ctf-field">
+                <span class="ctf-label">Name of company</span>
+                <input class="ctf-input" type="text" name="company_contact" autocomplete="organization" placeholder="Name of company" required>
+            </label>
+
+            <label class="ctf-field">
+                <span class="ctf-label">Scale of business</span>
+                <select class="ctf-select" name="business_scale" required>
+                    <option value="" selected disabled>Select here</option>
+                    <option value="Small business">Small business</option>
+                    <option value="Medium business">Medium business</option>
+                    <option value="Large business">Large business</option>
+                </select>
+            </label>
+        </div>
+
+        <label class="ctf-field">
+            <span class="ctf-label">Message</span>
+            <textarea class="ctf-textarea" name="message" rows="4" placeholder="Tell us how we can help" required></textarea>
+        </label>
+
+        <label class="ctf-field">
+            <span class="ctf-label">Where did you hear about us?</span>
+            <select class="ctf-select" name="referral_source" required>
+                <option value="" selected disabled>Select here</option>
+                <option value="Search engine">Search engine</option>
+                <option value="Recommendation">Recommendation</option>
+                <option value="Social media">Social media</option>
+                <option value="Other">Other</option>
+            </select>
+        </label>
+
+    </div>
+
+    <button class="ctf-add-more" type="button">
+        <img src="/images/pages/contact-form-plus.svg" alt="" width="18" height="18">
+        <span>Add More Services</span>
+    </button>
+
+    <button class="ctf-btn" type="submit">Submit</button>
+
+    <div id="form-success" class="form-success" role="status" aria-live="polite">
+        Thank you for your enquiry &mdash; we will be in touch shortly.
+    </div>
+
+    <div id="form-error" class="form-error" role="alert">
+        Something went wrong. Please check the required fields and try again.
+    </div>
+
+</form>
+
         </div>
       </div>
     </div>
@@ -395,5 +520,135 @@
 
   <script src="/js/search-index.js" defer></script>
   <script src="/js/search.js" defer></script>
+  <script>
+(function () {
+    'use strict';
+
+    const form = document.getElementById('contact-form');
+
+    if (!form) return;
+
+    const STORAGE_KEY = 'netcon_first_touch_attribution';
+
+    function getField(name) {
+        return form.querySelector(`[name="${name}"]`);
+    }
+
+    function getTrafficSource(source, medium, referrer) {
+        if (medium) {
+            if (/^(cpc|ppc|paid|paid_social|display|affiliate)$/i.test(medium)) {
+                return 'paid';
+            }
+
+            if (/^(organic)$/i.test(medium)) {
+                return 'organic';
+            }
+
+            if (/^(social|social-media)$/i.test(medium)) {
+                return 'social';
+            }
+
+            if (/^(email)$/i.test(medium)) {
+                return 'email';
+            }
+
+            return medium;
+        }
+
+        if (source) {
+            return source;
+        }
+
+        if (referrer) {
+            try {
+                const host = new URL(referrer).hostname.toLowerCase();
+
+                if (/google\.|bing\.|yahoo\.|duckduckgo\./.test(host)) {
+                    return 'organic';
+                }
+
+                return 'referral';
+            } catch (error) {
+                return 'referral';
+            }
+        }
+
+        return 'direct';
+    }
+
+    function getFirstTouchData() {
+        let savedData = null;
+
+        try {
+            savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        } catch (error) {
+            savedData = null;
+        }
+
+        if (savedData) {
+            return savedData;
+        }
+
+        const currentUrl = new URL(window.location.href);
+        const referrer = document.referrer || '';
+        const source = currentUrl.searchParams.get('utm_source') || '';
+        const medium = currentUrl.searchParams.get('utm_medium') || '';
+
+        const firstTouch = {
+            initial_landing_page: window.location.href,
+            initial_referrer: referrer,
+            initial_traffic_source: getTrafficSource(source, medium, referrer),
+            landing_page_query: currentUrl.search,
+            utm_source: source,
+            utm_medium: medium
+        };
+
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(firstTouch));
+        } catch (error) {
+            // Continue without local storage if unavailable.
+        }
+
+        return firstTouch;
+    }
+
+    function populateTrackingFields() {
+        const firstTouch = getFirstTouchData();
+
+        Object.keys(firstTouch).forEach(function (fieldName) {
+            const field = getField(fieldName);
+
+            if (field) {
+                field.value = firstTouch[fieldName] || '';
+            }
+        });
+
+        const submittedAt = getField('submitted_at');
+        const pageUrl = getField('page_url');
+        const pageTitle = getField('page_title');
+
+        if (submittedAt) {
+            submittedAt.value = new Date().toISOString();
+        }
+
+        if (pageUrl) {
+            pageUrl.value = window.location.href;
+        }
+
+        if (pageTitle) {
+            pageTitle.value = document.title;
+        }
+    }
+
+    // Populate fields when the page loads.
+    populateTrackingFields();
+
+    // Populate again immediately before other submit handlers run.
+    form.addEventListener('submit', function () {
+        populateTrackingFields();
+    }, true);
+
+})();
+</script>
 </body>
 </html>
