@@ -54,7 +54,7 @@ jobs:
           set -euo pipefail
           vercel whoami --token "$VERCEL_TOKEN"
 
-      - name: Promote exact reviewed deployment
+      - name: Promote reviewed deployment
         shell: bash
         env:
           PREVIEW_URL: ${{ inputs.preview_url }}
@@ -64,5 +64,6 @@ jobs:
           PREVIEW_URL="${PREVIEW_URL%/}"
 
           vercel promote "$PREVIEW_URL" \
+            --yes \
             --token "$VERCEL_TOKEN" \
             --scope "$VERCEL_SCOPE"
