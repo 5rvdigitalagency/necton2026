@@ -8080,6 +8080,9 @@ padding: 18px;
 .nd-contact__tile a:hover{
   text-decoration: underline;
 }
-
+.ctu-contact-text a:hover{
+    text-decoration: underline;
+    color: #0982c5;
+}
 
 /*-----ccode up-*/
