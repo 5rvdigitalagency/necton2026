@@ -3750,8 +3750,7 @@ body.industry-detail-page .page-hero .page-hero__cta {
 /* Keep clear vertical rhythm between major industry sections */
 .industry-banner + .industry-testimonial,
 .industry-testimonial + .svc-cta-band,
-.svc-cta-band + .faq,
-.faq + #contact {
+.svc-cta-band + .faq{
  margin-top: 40px;
 }
 
@@ -3760,9 +3759,7 @@ body.industry-detail-page .page-hero .page-hero__cta {
   margin-top:40px !important;
 } */
 
-body.industry-detail-page #main > #contact {
- margin-top: 40px !important;
-}
+
 
 .industry-progress {
  width: 170px;
