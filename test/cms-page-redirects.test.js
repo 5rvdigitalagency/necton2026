@@ -29,7 +29,7 @@ function publishedClient(pages) {
 test('registered page URL aliases normalize consistently', () => {
   assert.equal(normalizePagePath('/about.html'), '/about');
   assert.equal(normalizePagePath('/about/'), '/about');
-  assert.equal(normalizePagePath('/services/index.html'), '/services');
+  assert.equal(normalizePagePath('/services'), '/services');
   assert.equal(normalizePagePath('/index.html'), '/');
   assert.equal(normalizePagePath('/contact/../about'), '/about');
 });

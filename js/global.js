@@ -442,7 +442,7 @@
       if (section.querySelector('.nc-service-floater')) return;
 
       var container = section.querySelector('.cs-blue-inner, .csd-cta-inner, .svc-cta-band__inner') || section;
-      var card = section.querySelector('.cs-center-panel, .csd-cta-card, .svc-cta-band__card, .nhc-cta-band__card, .csr-cta-band__card, .m365-cta-band__card, .aif-cta-band__card, .svc-cta-band__card');
+      var card = section.querySelector('.cs-center-panel, .csd-cta-card, .nhc-cta-band__card, .csr-cta-band__card, .m365-cta-band__card, .aif-cta-band__card');
       if (!card) return;
 
       /* Harvest labels from the section's own static chips (real service/solution
@@ -495,7 +495,7 @@
       blog: '.page-hero__cta-btn, .blog-cta a.btn-blue, a[data-source-cta]',
       // service: '.page-hero__cta-btn, .svcs-hero__cta, .content-cta__button, .svc-cta-band__btn, .acct__cta, a[data-source-cta]',
       solution: '.page-hero__cta-btn, .mnhc-hero__btn, .nhc-hero__btn, .mcsr-hero__btn, .csr-hero__btn, .maif-hero__btn, .aif-hero__btn, .sol-hero-landing__btn, .content-cta__button, .nhc-cta-band__card a, .csr-cta-band__card a, .aif-cta-band__card a, a[data-source-cta]',
-      industry: '.svcs-hero__cta, .svc-cta-band__card a, a[data-source-cta]'
+      industry: '.svcs-hero__cta, a[data-source-cta]'
     };
 
     if (path.indexOf('latest-articles') === 0) family = 'blog';
