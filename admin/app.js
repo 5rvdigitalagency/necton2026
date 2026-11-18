@@ -22,9 +22,51 @@
   let pendingDeletionSlug = null;
 
   function escapeHtml(value) { const node = document.createElement('div'); node.textContent = value || ''; return node.innerHTML; }
-  function syncArticleEditor() {
-    articleHtmlField.value = articleHtmlSourceOpen ? articleHtmlSource.value.trim() : articleEditor.innerHTML.trim();
-  }
+function syncArticleEditor() {
+    if (articleHtmlSourceOpen) {
+        articleHtmlField.value = articleHtmlSource.value.trim();
+        return;
+    }
+
+    const clone = articleEditor.cloneNode(true);
+    const blockTags = new Set([
+        'P', 'DIV', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6',
+        'BLOCKQUOTE', 'UL', 'OL', 'TABLE', 'HR',
+        'PRE', 'SECTION', 'FIGURE'
+    ]);
+
+    const fragment = document.createDocumentFragment();
+    let paragraph = document.createElement('p');
+
+    function flushParagraph() {
+        if (paragraph.hasChildNodes()) {
+            fragment.appendChild(paragraph);
+            paragraph = document.createElement('p');
+        }
+    }
+
+    [...clone.childNodes].forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE) {
+            if (node.textContent.trim()) {
+                paragraph.appendChild(node.cloneNode(true));
+            }
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+            if (blockTags.has(node.tagName)) {
+                flushParagraph();
+                fragment.appendChild(node.cloneNode(true));
+            } else {
+                paragraph.appendChild(node.cloneNode(true));
+            }
+        }
+    });
+
+    flushParagraph();
+
+    const container = document.createElement('div');
+    container.appendChild(fragment);
+
+    articleHtmlField.value = container.innerHTML.trim();
+}
   function rememberArticleEditorSelection() {
     const selection = window.getSelection();
     if (selection.rangeCount && articleEditor.contains(selection.anchorNode)) articleEditorSelection = selection.getRangeAt(0).cloneRange();
