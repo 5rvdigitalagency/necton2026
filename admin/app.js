@@ -14,12 +14,17 @@
   const articleEditor = document.getElementById('article-editor');
   const articleHtmlField = document.querySelector('[name="articleHtml"]');
   const articleEditorImage = document.getElementById('article-editor-image');
+  const articleHtmlSourcePanel = document.getElementById('article-html-source-panel');
+  const articleHtmlSource = document.getElementById('article-html-source');
+  let articleHtmlSourceOpen = false;
   const deleteArticleDialog = document.getElementById('delete-article-dialog');
   let articleEditorSelection = null;
   let pendingDeletionSlug = null;
 
   function escapeHtml(value) { const node = document.createElement('div'); node.textContent = value || ''; return node.innerHTML; }
-  function syncArticleEditor() { articleHtmlField.value = articleEditor.innerHTML.trim(); }
+  function syncArticleEditor() {
+    articleHtmlField.value = articleHtmlSourceOpen ? articleHtmlSource.value.trim() : articleEditor.innerHTML.trim();
+  }
   function rememberArticleEditorSelection() {
     const selection = window.getSelection();
     if (selection.rangeCount && articleEditor.contains(selection.anchorNode)) articleEditorSelection = selection.getRangeAt(0).cloneRange();
@@ -40,19 +45,23 @@
     });
   }
   function safePreviewHtml(value) {
-    const allowedTags = new Set(['A', 'BLOCKQUOTE', 'BR', 'EM', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'IMG', 'LI', 'OL', 'P', 'STRONG', 'UL']);
-    const allowedAttributes = { A: new Set(['href', 'target', 'rel', 'class']), IMG: new Set(['src', 'alt', 'width', 'height']) };
-    const documentFragment = new DOMParser().parseFromString(String(value || ''), 'text/html');
-    documentFragment.body.querySelectorAll('*').forEach((node) => {
+    const allowedTags = new Set(['A','ARTICLE','ASIDE','B','BLOCKQUOTE','BR','CAPTION','CODE','DD','DIV','DL','DT','EM','FIGCAPTION','FIGURE','H1','H2','H3','H4','H5','H6','HR','I','IMG','LI','OL','P','PRE','SECTION','SMALL','SPAN','STRONG','SUB','SUP','TABLE','TBODY','TD','TFOOT','TH','THEAD','TR','U','UL']);
+    const globalAttributes = new Set(['class','id','title','role','aria-label','style']);
+    const allowedAttributes = { A:new Set(['href','target','rel','class','title']), IMG:new Set(['src','alt','width','height','loading','class']), TD:new Set(['colspan','rowspan','scope']), TH:new Set(['colspan','rowspan','scope']), OL:new Set(['start','type']), LI:new Set(['value']) };
+    const parsed = new DOMParser().parseFromString(String(value || ''), 'text/html');
+    parsed.body.querySelectorAll('script,style,iframe,object,embed,form,input,button,textarea,select,meta,link').forEach(node => node.remove());
+    parsed.body.querySelectorAll('*').forEach(node => {
       if (!allowedTags.has(node.tagName)) { node.replaceWith(...node.childNodes); return; }
-      [...node.attributes].forEach((attribute) => {
-        if (!allowedAttributes[node.tagName]?.has(attribute.name.toLowerCase())) node.removeAttribute(attribute.name);
+      [...node.attributes].forEach(attribute => {
+        const name = attribute.name.toLowerCase();
+        if (!globalAttributes.has(name) && !allowedAttributes[node.tagName]?.has(name)) node.removeAttribute(attribute.name);
       });
-      if (node.tagName === 'A' && !/^(https?:|mailto:)/i.test(node.getAttribute('href') || '')) node.removeAttribute('href');
-      if (node.tagName === 'A' && node.getAttribute('class') !== 'article-cta') node.removeAttribute('class');
-      if (node.tagName === 'IMG' && !/^(https?:|\/)/i.test(node.getAttribute('src') || '')) node.remove();
+      if (node.hasAttribute('style') && /url\s*\(|expression\s*\(|javascript:/i.test(node.getAttribute('style'))) node.removeAttribute('style');
+      if (node.tagName === 'A' && !/^(https?:|mailto:|tel:|\x2f|#)/i.test(node.getAttribute('href') || '')) node.removeAttribute('href');
+      if (node.tagName === 'IMG' && !/^(https?:|\x2f)/i.test(node.getAttribute('src') || '')) node.remove();
+      if (node.tagName === 'A' && node.getAttribute('target') === '_blank') node.setAttribute('rel','noopener noreferrer');
     });
-    return documentFragment.body.innerHTML;
+    return parsed.body.innerHTML;
   }
   function setConnection(text, isReady) { elements.connection.textContent = text; elements.connection.style.color = isReady ? '#bce6c8' : '#f5d593'; }
   function clearValidationErrors() {
@@ -138,13 +147,13 @@
   function isEditableDraft(post) {
     return ['draft', 'changes_requested'].includes(post?.status);
   }
-  function closeEditor() { currentPost = null; elements.form.reset(); articleEditor.innerHTML = ''; articleEditorSelection = null; clearValidationErrors(); renderFeaturedImage('', ''); elements.editor.hidden = true; updatePublishingControls(null); elements.saveStatus.textContent = ''; document.getElementById('cms-lifecycle-actions').hidden = true; renderPosts(); }
-  function resetEditor() { currentPost = null; elements.form.reset(); articleEditor.innerHTML = ''; articleEditorSelection = null; clearValidationErrors(); renderFeaturedImage('', ''); elements.editor.hidden = false; updatePublishingControls(null); document.getElementById('editor-heading').textContent = 'New article'; elements.saveStatus.textContent = ''; }
+  function closeEditor() { currentPost = null; elements.form.reset(); articleEditor.innerHTML = ''; articleHtmlSource.value = ''; articleHtmlSourcePanel.hidden = true; articleEditor.hidden = false; articleHtmlSourceOpen = false; articleEditorSelection = null; clearValidationErrors(); renderFeaturedImage('', ''); elements.editor.hidden = true; updatePublishingControls(null); elements.saveStatus.textContent = ''; document.getElementById('cms-lifecycle-actions').hidden = true; renderPosts(); }
+  function resetEditor() { currentPost = null; elements.form.reset(); articleEditor.innerHTML = ''; articleHtmlSource.value = ''; articleHtmlSourcePanel.hidden = true; articleEditor.hidden = false; articleHtmlSourceOpen = false; articleEditorSelection = null; clearValidationErrors(); renderFeaturedImage('', ''); elements.editor.hidden = false; updatePublishingControls(null); document.getElementById('editor-heading').textContent = 'New article'; elements.saveStatus.textContent = ''; }
   async function openPost(slug) {
     const data = await api(`/api/cms/posts/${encodeURIComponent(slug)}`); currentPost = data.post; elements.editor.hidden = false;
     document.getElementById('editor-heading').textContent = `Edit: ${data.post.title}`;
     ['title', 'excerpt', 'category', 'articleHtml', 'featuredImageAlt', 'featuredImageUrl', 'seoTitle', 'seoDescription', 'schemaMarkup'].forEach((name) => { elements.form.elements[name].value = data.post[name] || ''; });
-    articleEditor.innerHTML = data.post.articleHtml || '';
+    articleEditor.innerHTML = data.post.articleHtml || ''; articleHtmlSource.value = data.post.articleHtml || ''; articleHtmlSourcePanel.hidden = true; articleEditor.hidden = false; articleHtmlSourceOpen = false;
     articleEditorSelection = null;
     elements.form.elements.publishedAt.value = data.post.publishedAt ? data.post.publishedAt.slice(0, 10) : '';
     elements.form.elements.isFeatured.checked = Boolean(data.post.isFeatured);
@@ -211,6 +220,25 @@
     const url = window.prompt('CTA button URL.', 'https://');
     if (!label || !url) return;
     insertArticleHtml(`<a class="article-cta" href="${escapeHtml(url)}">${escapeHtml(label)}</a>`);
+  });
+  document.querySelector('[data-editor-action="html"]').addEventListener('click', () => {
+    if (!articleHtmlSourceOpen) {
+      syncArticleEditor(); articleHtmlSource.value = articleHtmlField.value;
+      articleHtmlSourcePanel.hidden = false; articleEditor.hidden = true;
+      articleHtmlSourceOpen = true; articleHtmlSource.focus();
+    } else {
+      articleHtmlSourcePanel.hidden = true; articleEditor.hidden = false;
+      articleHtmlSourceOpen = false; rememberArticleEditorSelection();
+    }
+  });
+  document.getElementById('article-html-apply').addEventListener('click', () => {
+    articleEditor.innerHTML = articleHtmlSource.value;
+    articleHtmlSourcePanel.hidden = true; articleEditor.hidden = false;
+    articleHtmlSourceOpen = false; articleEditorSelection = null; syncArticleEditor();
+    elements.saveStatus.textContent = 'Custom HTML applied. Save the draft to keep your changes.';
+  });
+  document.getElementById('article-html-cancel').addEventListener('click', () => {
+    articleHtmlSourcePanel.hidden = true; articleEditor.hidden = false; articleHtmlSourceOpen = false;
   });
   articleEditorImage.addEventListener('change', async () => { try { await uploadArticleImage(articleEditorImage.files[0]); } catch (error) { elements.saveStatus.textContent = error.message; } finally { articleEditorImage.value = ''; } });
   articleEditor.addEventListener('dragover', (event) => event.preventDefault());
