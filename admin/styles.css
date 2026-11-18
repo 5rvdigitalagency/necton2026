@@ -53,3 +53,53 @@ dialog { border:0; padding:0; width:min(800px,calc(100% - 40px)); max-height:85v
 .cms-rich-editor__surface th,.cms-rich-editor__surface td { border:1px solid #c9d3e0; padding:8px; text-align:left; }
 .cms-rich-editor__surface pre { overflow:auto; padding:12px; background:#f1f4f8; }
 .cms-rich-editor__surface hr { border:0; border-top:1px solid var(--cms-line); margin:22px 0; }
+
+/* Rich editor: paragraph and table support */
+.cms-rich-editor__toolbar button[data-editor-action="paragraph"],
+.cms-rich-editor__toolbar button[data-editor-action="table"],
+.cms-rich-editor__toolbar button[data-editor-action="html"] {
+  display:inline-flex; width:auto; min-width:38px; padding:0 10px; gap:6px; align-items:center; justify-content:center;
+}
+.cms-rich-editor__toolbar button[data-editor-action="paragraph"] span,
+.cms-rich-editor__toolbar button[data-editor-action="table"] span,
+.cms-rich-editor__toolbar button[data-editor-action="html"] span { font-size:12px; font-weight:700; }
+.cms-rich-editor__surface p { margin:0 0 1em; }
+.cms-rich-editor__surface table,
+#preview-content table { width:100%; max-width:100%; border-collapse:collapse; margin:18px 0; }
+.cms-rich-editor__surface th,
+.cms-rich-editor__surface td,
+#preview-content th,
+#preview-content td { border:1px solid #c9d3e0; padding:9px 11px; text-align:left; vertical-align:top; }
+.cms-rich-editor__surface th,
+#preview-content th { background:#f1f5f9; font-weight:700; }
+.cms-rich-editor__surface table { table-layout:auto; }
+.cms-rich-editor__source textarea { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; }
+
+/* Keep Article body controls visible while scrolling long articles */
+.cms-rich-editor {
+  position: relative;
+  overflow: visible;
+}
+
+.cms-rich-editor legend {
+  position: sticky;
+  top: 0;
+  z-index: 31;
+  width: 100%;
+  padding: 8px 0;
+  background: #fff;
+}
+
+.cms-rich-editor__toolbar {
+  position: sticky;
+  top: 34px;
+  z-index: 30;
+  background: #f8fafc;
+  box-shadow: 0 2px 5px rgb(23 33 59 / 8%);
+}
+
+/* Keep sticky editor controls usable on narrow screens */
+@media (max-width: 700px) {
+  .cms-rich-editor legend { top: 0; }
+  .cms-rich-editor__toolbar { top: 34px; }
+}
