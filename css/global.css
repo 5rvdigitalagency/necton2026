@@ -4816,7 +4816,7 @@ body.industry-detail-page .page-hero .page-hero__cta {
  line-height: 1.55;
  margin-bottom: 32px;
 } */
-.svc-cta-band__btn {
+.svc-cta-band__btn ,.svc-cta-band__button  {
  display: inline-flex;
  align-items: center;
  justify-content: center;
@@ -4828,7 +4828,7 @@ body.industry-detail-page .page-hero .page-hero__cta {
  border-radius: 20px;
  transition: background 0.2s, transform 0.2s;
 }
-.svc-cta-band__btn:hover {
+.svc-cta-band__btn:hover ,.svc-cta-band__button:hover {
  background: #0f1c5a;
  transform: translateY(-1px);
 }
