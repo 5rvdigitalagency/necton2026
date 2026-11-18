@@ -8,7 +8,7 @@ cta_updates = [
     ('./about.html', 'BOOK A FREE', 'about_health_check', '/contact'),
     
     # Services landing and individual services
-    ('./services/index.html', 'BOOK A FREE', 'services_landing_health_check', '/contact'),
+    ('./services/', 'BOOK A FREE', 'services_landing_health_check', '/contact'),
     ('./services/business-continuity.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '/contact'),
     ('./services/firewall-network-security.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '/contact'),
     ('./services/managed-network-support.html', 'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check', '/contact'),
