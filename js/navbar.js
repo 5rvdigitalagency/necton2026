@@ -99,7 +99,7 @@
           '<span class="mm-promo__label">Services</span>' +
           '<p class="mm-promo__title">Managed Network Services</p>' +
           '<p class="mm-promo__desc">Expert-led, end-to-end IT network support for growing businesses.</p>' +
-          '<a href="/services/" class="mm-promo__cta">View All Services ' + arrowRight + '</a>' +
+          '<a href="/services" class="mm-promo__cta">View All Services ' + arrowRight + '</a>' +
         '</aside>' +
         '<div class="mm-grid mm-grid--services">' + SERVICES.map(linkRow).join('') + '</div>' +
       '</div>' +

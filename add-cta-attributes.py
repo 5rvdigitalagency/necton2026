@@ -14,7 +14,7 @@ cta_patterns = [
     (r'^./about\.html$', r'Get To Know More', 'about_consultation_cta'),
     
     # Services landing
-    (r'^./services/\.html$', r'BOOK A FREE NETWORK HEALTH CHECK', 'services_landing_health_check'),
+    (r'^./services\.html$', r'BOOK A FREE NETWORK HEALTH CHECK', 'services_landing_health_check'),
     (r'^./services/\.html$', r'REQUEST A CONSULTANCY BAND', 'services_landing_request_band'),
     
     # Individual service pages
