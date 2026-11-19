@@ -63,6 +63,116 @@
   <link rel="stylesheet" href="/css/animations.css">
   <link rel="stylesheet" href="/css/accessibility.css">
 <style>
+  /* Network Consultancy Overview */
+
+.network-overview {
+    width: 100%;
+    background: #ffffff;
+    padding: 75px 0 65px;
+}
+
+.network-overview__container {
+    width: calc(100% - 60px);
+    max-width: 1372px;
+    margin: 0 auto;
+}
+
+.network-overview__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.network-overview__title {
+    margin: 0;
+    color: #0788cc;
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.network-overview__button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 170px;
+    min-height: 44px;
+    padding: 12px 24px;
+    background: #0788cc;
+    color: #ffffff;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.3s ease;
+}
+
+.network-overview__button:hover {
+    background: #066da5;
+    color: #ffffff;
+}
+
+.network-overview__description {
+    max-width: 730px;
+    margin: 20px 0 0;
+    color: #202124;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.65;
+}
+
+/* Tablet */
+
+@media (max-width: 991px) {
+    .network-overview {
+        padding: 55px 0;
+    }
+
+    .network-overview__title {
+        font-size: 36px;
+    }
+
+    .network-overview__description {
+        font-size: 17px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 767px) {
+    .network-overview {
+        padding: 40px 0;
+    }
+
+    .network-overview__container {
+        width: calc(100% - 40px);
+    }
+
+    .network-overview__header {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .network-overview__title {
+        font-size: 30px;
+        line-height: 1.25;
+        letter-spacing: -0.5px;
+    }
+
+    .network-overview__button {
+        min-width: 150px;
+        font-size: 14px;
+    }
+
+    .network-overview__description {
+        margin-top: 18px;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+}
 .ab-page {
     background: #fff;
 }
@@ -1259,7 +1369,7 @@
       </div>
     </section>
 
-    <section class="ab-highligh  section-shell pb-sm-0">
+    <!-- <section class="ab-highligh  section-shell pb-sm-0">
       <div class="ab-inner animate-fade-up">
         <div class="ab-highlight__row">
           <h2 class="ab-highlight__title">Network Consultancy Overview</h2>
@@ -1267,7 +1377,29 @@
         </div>
         <p class="ab-highlight__body">Network Consultancy is a specialised network, security, and infrastructure company that helps businesses increase productivity, lower risk, and operate more confidently. We assist clients in moving from assessment to implementation to managed support, and hands-on engineering capabilities.</p>
       </div>
-    </section>
+    </section> -->
+    <section class="network-overview">
+    <div class="network-overview__container">
+
+        <div class="network-overview__header">
+            <h2 class="network-overview__title">
+                Network Consultancy Overview
+            </h2>
+
+            <a href="/services" class="network-overview__button">
+                See All Services
+            </a>
+        </div>
+
+        <p class="network-overview__description">
+            Network Consultancy is a specialised network, security, and infrastructure company that
+            helps businesses increase productivity, lower risk, and operate more confidently. We
+            assist clients in moving from assessment to implementation to managed support, and
+            hands-on engineering capabilities.
+        </p>
+
+    </div>
+</section>
 
     <section class="section-shell pt-0" aria-label="How Network Consultancy works">
       <div class="ab-inner">
