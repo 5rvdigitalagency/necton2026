@@ -4,50 +4,50 @@ import re
 # CTA pattern mapping based on file location and content
 # Format: (file_pattern, text_pattern, cta_id)
 cta_patterns = [
-    # Home page CTAs
-    (r'^./index\.html$', r'BOOK A FREE NETWORK HEALTH CHECK', 'hero_health_check'),
-    (r'^./index\.html$', r'Get Expert Insight', 'solutions_panel_cta'),
-    (r'^./index\.html$', r'Get a Free Network Assessment', 'scroll_banner_assessment'),
-    
-    # About page CTAs
-    (r'^./about\.html$', r'BOOK A FREE NETWORK HEALTH CHECK', 'about_health_check'),
-    (r'^./about\.html$', r'Get To Know More', 'about_consultation_cta'),
-    
+    # Home page
+    (r'^index\.html$', r'BOOK A FREE NETWORK HEALTH CHECK', 'hero_health_check'),
+    (r'^index\.html$', r'Get Expert Insight', 'solutions_panel_cta'),
+    (r'^index\.html$', r'Get a Free Network Assessment', 'scroll_banner_assessment'),
+
+    # About page
+    (r'^about\.html$', r'BOOK A FREE NETWORK HEALTH CHECK', 'about_health_check'),
+    (r'^about\.html$', r'Get To Know More', 'about_consultation_cta'),
+
     # Services landing
-    (r'^./services/index\.html$', r'BOOK A FREE NETWORK HEALTH CHECK', 'services_landing_health_check'),
-    (r'^./services/index\.html$', r'REQUEST A CONSULTANCY BAND', 'services_landing_request_band'),
-    
+    (r'^services/index\.html$', r'BOOK A FREE NETWORK HEALTH CHECK', 'services_landing_health_check'),
+    (r'^services/index\.html$', r'REQUEST A CONSULTANCY BAND', 'services_landing_request_band'),
+
     # Individual service pages
-    (r'^./services/[^/]+\.html$', r'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check'),
-    (r'^./services/[^/]+\.html$', r'REQUEST A BAND', 'service_cta_band_request'),
-    (r'^./services/[^/]+\.html$', r'REQUEST CONSULTANCY', 'service_cta_band_request'),
-    
+    (r'^services/[^/]+\.html$', r'BOOK A NETWORK HEALTH CHECK', 'service_hero_health_check'),
+    (r'^services/[^/]+\.html$', r'REQUEST A BAND', 'service_cta_band_request'),
+    (r'^services/[^/]+\.html$', r'REQUEST CONSULTANCY', 'service_cta_band_request'),
+
     # Solutions landing
-    (r'^./solutions/index\.html$', r'BOOK A NETWORK HEALTH CHECK', 'solutions_landing_health_check'),
-    (r'^./solutions/index\.html$', r'Book Your Network Assessment', 'solutions_landing_assessment'),
-    
+    (r'^solutions/index\.html$', r'BOOK A NETWORK HEALTH CHECK', 'solutions_landing_health_check'),
+    (r'^solutions/index\.html$', r'Book Your Network Assessment', 'solutions_landing_assessment'),
+
     # Individual solution pages
-    (r'^./solutions/[^/]+\.html$', r'BOOK A NETWORK HEALTH CHECK', 'solution_hero_health_check'),
-    (r'^./solutions/network-health-check\.html$', r'Book a Network Health Check', 'solution_secondary_health_check'),
-    (r'^./solutions/cyber-security-review\.html$', r'Get a Security Assessment', 'solution_secondary_review'),
-    (r'^./solutions/microsoft-365-network\.html$', r'Assess Microsoft 365 Readiness', 'solution_secondary_readiness'),
-    (r'^./solutions/ai-ready-infrastructure\.html$', r'Get a Network Security Review', 'solution_secondary_review'),
-    
+    (r'^solutions/[^/]+\.html$', r'BOOK A NETWORK HEALTH CHECK', 'solution_hero_health_check'),
+    (r'^solutions/network-health-check\.html$', r'Book a Network Health Check', 'solution_secondary_health_check'),
+    (r'^solutions/cyber-security-review\.html$', r'Get a Security Assessment', 'solution_secondary_review'),
+    (r'^solutions/microsoft-365-network\.html$', r'Assess Microsoft 365 Readiness', 'solution_secondary_readiness'),
+    (r'^solutions/ai-ready-infrastructure\.html$', r'Get a Network Security Review', 'solution_secondary_review'),
+
     # Industries
-    (r'^./industries/[^/]+\.html$', r'Book a Network Health Check', 'industry_health_check'),
-    (r'^./industries/[^/]+\.html$', r'Get In Touch', 'industry_get_in_touch'),
-    
+    (r'^industries/[^/]+\.html$', r'Book a Network Health Check', 'industry_health_check'),
+    (r'^industries/[^/]+\.html$', r'Get In Touch', 'industry_get_in_touch'),
+
     # Case studies
-    (r'^./case-studies/index\.html$', r'Book Your Network Assessment', 'case_studies_assessment'),
-    (r'^./case-studies/[^/]+\.html$', r'Book Your Network Assessment', 'case_study_detail_assessment'),
-    (r'^./case-studies/[^/]+\.html$', r'REQUEST A CONSULTATION', 'case_studies_consultation'),
-    
+    (r'^case-studies/index\.html$', r'Book Your Network Assessment', 'case_studies_assessment'),
+    (r'^case-studies/[^/]+\.html$', r'Book Your Network Assessment', 'case_study_detail_assessment'),
+    (r'^case-studies/[^/]+\.html$', r'REQUEST A CONSULTATION', 'case_studies_consultation'),
+
     # Blog
-    (r'^./resources/blog/[^/]+\.html$', r'REQUEST A CONSULTATION', 'blog_consultation'),
-    (r'^./resources/blog/[^/]+\.html$', r'Get Expert Guidance', 'blog_consultation'),
-    
+    (r'^resources/blog/[^/]+\.html$', r'REQUEST A CONSULTATION', 'blog_consultation'),
+    (r'^resources/blog/[^/]+\.html$', r'Get Expert Guidance', 'blog_consultation'),
+
     # Downloads
-    (r'^./resources/downloads\.html$', r'Download', 'downloads_inline_contact'),
+    (r'^resources/downloads\.html$', r'Download', 'downloads_inline_contact'),
 ]
 
 def find_and_tag_ctas():
