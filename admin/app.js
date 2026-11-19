@@ -14,12 +14,59 @@
   const articleEditor = document.getElementById('article-editor');
   const articleHtmlField = document.querySelector('[name="articleHtml"]');
   const articleEditorImage = document.getElementById('article-editor-image');
+  const articleHtmlSourcePanel = document.getElementById('article-html-source-panel');
+  const articleHtmlSource = document.getElementById('article-html-source');
+  let articleHtmlSourceOpen = false;
   const deleteArticleDialog = document.getElementById('delete-article-dialog');
   let articleEditorSelection = null;
   let pendingDeletionSlug = null;
 
   function escapeHtml(value) { const node = document.createElement('div'); node.textContent = value || ''; return node.innerHTML; }
-  function syncArticleEditor() { articleHtmlField.value = articleEditor.innerHTML.trim(); }
+function syncArticleEditor() {
+    if (articleHtmlSourceOpen) {
+        articleHtmlField.value = articleHtmlSource.value.trim();
+        return;
+    }
+
+    const clone = articleEditor.cloneNode(true);
+    const blockTags = new Set([
+        'P', 'DIV', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6',
+        'BLOCKQUOTE', 'UL', 'OL', 'TABLE', 'HR',
+        'PRE', 'SECTION', 'FIGURE'
+    ]);
+
+    const fragment = document.createDocumentFragment();
+    let paragraph = document.createElement('p');
+
+    function flushParagraph() {
+        if (paragraph.hasChildNodes()) {
+            fragment.appendChild(paragraph);
+            paragraph = document.createElement('p');
+        }
+    }
+
+    [...clone.childNodes].forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE) {
+            if (node.textContent.trim()) {
+                paragraph.appendChild(node.cloneNode(true));
+            }
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+            if (blockTags.has(node.tagName)) {
+                flushParagraph();
+                fragment.appendChild(node.cloneNode(true));
+            } else {
+                paragraph.appendChild(node.cloneNode(true));
+            }
+        }
+    });
+
+    flushParagraph();
+
+    const container = document.createElement('div');
+    container.appendChild(fragment);
+
+    articleHtmlField.value = container.innerHTML.trim();
+}
   function rememberArticleEditorSelection() {
     const selection = window.getSelection();
     if (selection.rangeCount && articleEditor.contains(selection.anchorNode)) articleEditorSelection = selection.getRangeAt(0).cloneRange();
@@ -40,20 +87,43 @@
     });
   }
   function safePreviewHtml(value) {
-    const allowedTags = new Set(['A', 'BLOCKQUOTE', 'BR', 'EM', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'IMG', 'LI', 'OL', 'P', 'STRONG', 'UL']);
-    const allowedAttributes = { A: new Set(['href', 'target', 'rel', 'class']), IMG: new Set(['src', 'alt', 'width', 'height']) };
-    const documentFragment = new DOMParser().parseFromString(String(value || ''), 'text/html');
-    documentFragment.body.querySelectorAll('*').forEach((node) => {
+    const allowedTags = new Set(['A','ARTICLE','ASIDE','B','BLOCKQUOTE','BR','CAPTION','CODE','DD','DIV','DL','DT','EM','FIGCAPTION','FIGURE','H1','H2','H3','H4','H5','H6','HR','I','IMG','LI','OL','P','PRE','SECTION','SMALL','SPAN','STRONG','SUB','SUP','TABLE','TBODY','TD','TFOOT','TH','THEAD','TR','U','UL']);
+    const globalAttributes = new Set(['class','id','title','role','aria-label','style']);
+    const tableAttributes = new Set(['border','cellpadding','cellspacing','width','height','align','valign','colspan','rowspan','scope']);
+    const allowedAttributes = { A:new Set(['href','target','rel','class','title']), IMG:new Set(['src','alt','width','height','loading','class']), TD:tableAttributes, TH:tableAttributes, TABLE:tableAttributes, TR:tableAttributes, THEAD:tableAttributes, TBODY:tableAttributes, TFOOT:tableAttributes, CAPTION:tableAttributes, OL:new Set(['start','type']), LI:new Set(['value']) };
+    const safeStyleProperties = new Set(['color','background-color','background','border','border-top','border-right','border-bottom','border-left','border-collapse','border-spacing','padding','padding-top','padding-right','padding-bottom','padding-left','text-align','vertical-align','font-weight','font-style','text-decoration','width','height','min-width','max-width']);
+    const parsed = new DOMParser().parseFromString(String(value || ''), 'text/html');
+    parsed.body.querySelectorAll('script,style,iframe,object,embed,form,input,button,textarea,select,meta,link').forEach(node => node.remove());
+    parsed.body.querySelectorAll('*').forEach(node => {
       if (!allowedTags.has(node.tagName)) { node.replaceWith(...node.childNodes); return; }
-      [...node.attributes].forEach((attribute) => {
-        if (!allowedAttributes[node.tagName]?.has(attribute.name.toLowerCase())) node.removeAttribute(attribute.name);
+      [...node.attributes].forEach(attribute => {
+        const name = attribute.name.toLowerCase();
+        if (name === 'style') {
+          const declarations = [...node.style].filter(property => safeStyleProperties.has(property) && !/url\s*\(|expression\s*\(|javascript:/i.test(node.style.getPropertyValue(property))).map(property => `${property}:${node.style.getPropertyValue(property).trim()}`);
+          if (declarations.length) node.setAttribute('style', declarations.join('; ')); else node.removeAttribute('style');
+        } else if (!globalAttributes.has(name) && !allowedAttributes[node.tagName]?.has(name)) node.removeAttribute(attribute.name);
       });
-      if (node.tagName === 'A' && !/^(https?:|mailto:)/i.test(node.getAttribute('href') || '')) node.removeAttribute('href');
-      if (node.tagName === 'A' && node.getAttribute('class') !== 'article-cta') node.removeAttribute('class');
-      if (node.tagName === 'IMG' && !/^(https?:|\/)/i.test(node.getAttribute('src') || '')) node.remove();
+      if (node.tagName === 'A' && !/^(https?:|mailto:|tel:|\x2f|#)/i.test(node.getAttribute('href') || '')) node.removeAttribute('href');
+      if (node.tagName === 'IMG' && !/^(https?:|\x2f)/i.test(node.getAttribute('src') || '')) node.remove();
+      if (node.tagName === 'A' && node.getAttribute('target') === '_blank') node.setAttribute('rel','noopener noreferrer');
     });
-    return documentFragment.body.innerHTML;
+    return parsed.body.innerHTML;
   }
+  function insertTable() {
+    const rows = Math.max(1, Math.min(20, Number(window.prompt('How many table rows?', '3')) || 0));
+    const columns = Math.max(1, Math.min(12, Number(window.prompt('How many table columns?', '3')) || 0));
+    if (!rows || !columns) return;
+    const head = window.confirm('Add a header row?');
+    let html = '<table border="1" cellpadding="8" cellspacing="0" style="width:100%;border-collapse:collapse"><tbody>';
+    for (let r = 0; r < rows; r++) {
+      html += '<tr>';
+      for (let c = 0; c < columns; c++) html += r === 0 && head ? '<th scope="col">Header</th>' : '<td>Cell</td>';
+      html += '</tr>';
+    }
+    html += '</tbody></table><p><br></p>';
+    insertArticleHtml(html);
+  }
+
   function setConnection(text, isReady) { elements.connection.textContent = text; elements.connection.style.color = isReady ? '#bce6c8' : '#f5d593'; }
   function clearValidationErrors() {
     document.getElementById('validation-errors').textContent = '';
@@ -138,13 +208,13 @@
   function isEditableDraft(post) {
     return ['draft', 'changes_requested'].includes(post?.status);
   }
-  function closeEditor() { currentPost = null; elements.form.reset(); articleEditor.innerHTML = ''; articleEditorSelection = null; clearValidationErrors(); renderFeaturedImage('', ''); elements.editor.hidden = true; updatePublishingControls(null); elements.saveStatus.textContent = ''; document.getElementById('cms-lifecycle-actions').hidden = true; renderPosts(); }
-  function resetEditor() { currentPost = null; elements.form.reset(); articleEditor.innerHTML = ''; articleEditorSelection = null; clearValidationErrors(); renderFeaturedImage('', ''); elements.editor.hidden = false; updatePublishingControls(null); document.getElementById('editor-heading').textContent = 'New article'; elements.saveStatus.textContent = ''; }
+  function closeEditor() { currentPost = null; elements.form.reset(); articleEditor.innerHTML = ''; articleHtmlSource.value = ''; articleHtmlSourcePanel.hidden = true; articleEditor.hidden = false; articleHtmlSourceOpen = false; articleEditorSelection = null; clearValidationErrors(); renderFeaturedImage('', ''); elements.editor.hidden = true; updatePublishingControls(null); elements.saveStatus.textContent = ''; document.getElementById('cms-lifecycle-actions').hidden = true; renderPosts(); }
+  function resetEditor() { currentPost = null; elements.form.reset(); articleEditor.innerHTML = ''; articleHtmlSource.value = ''; articleHtmlSourcePanel.hidden = true; articleEditor.hidden = false; articleHtmlSourceOpen = false; articleEditorSelection = null; clearValidationErrors(); renderFeaturedImage('', ''); elements.editor.hidden = false; updatePublishingControls(null); document.getElementById('editor-heading').textContent = 'New article'; elements.saveStatus.textContent = ''; }
   async function openPost(slug) {
     const data = await api(`/api/cms/posts/${encodeURIComponent(slug)}`); currentPost = data.post; elements.editor.hidden = false;
     document.getElementById('editor-heading').textContent = `Edit: ${data.post.title}`;
     ['title', 'excerpt', 'category', 'articleHtml', 'featuredImageAlt', 'featuredImageUrl', 'seoTitle', 'seoDescription', 'schemaMarkup'].forEach((name) => { elements.form.elements[name].value = data.post[name] || ''; });
-    articleEditor.innerHTML = data.post.articleHtml || '';
+    articleEditor.innerHTML = data.post.articleHtml || ''; articleHtmlSource.value = data.post.articleHtml || ''; articleHtmlSourcePanel.hidden = true; articleEditor.hidden = false; articleHtmlSourceOpen = false;
     articleEditorSelection = null;
     elements.form.elements.publishedAt.value = data.post.publishedAt ? data.post.publishedAt.slice(0, 10) : '';
     elements.form.elements.isFeatured.checked = Boolean(data.post.isFeatured);
@@ -212,7 +282,48 @@
     if (!label || !url) return;
     insertArticleHtml(`<a class="article-cta" href="${escapeHtml(url)}">${escapeHtml(label)}</a>`);
   });
+  document.querySelector('[data-editor-action="paragraph"]').addEventListener('click', () => {
+    insertArticleHtml('<p><br></p>');
+  });
+  document.querySelector('[data-editor-action="table"]').addEventListener('click', insertTable);
+  document.querySelector('[data-editor-action="html"]').addEventListener('click', () => {
+    if (!articleHtmlSourceOpen) {
+      syncArticleEditor(); articleHtmlSource.value = articleHtmlField.value;
+      articleHtmlSourcePanel.hidden = false; articleEditor.hidden = true;
+      articleHtmlSourceOpen = true; articleHtmlSource.focus();
+    } else {
+      articleHtmlSourcePanel.hidden = true; articleEditor.hidden = false;
+      articleHtmlSourceOpen = false; rememberArticleEditorSelection();
+    }
+  });
+  document.getElementById('article-html-apply').addEventListener('click', () => {
+    articleEditor.innerHTML = articleHtmlSource.value;
+    articleHtmlSourcePanel.hidden = true; articleEditor.hidden = false;
+    articleHtmlSourceOpen = false; articleEditorSelection = null; syncArticleEditor();
+    elements.saveStatus.textContent = 'Custom HTML applied. Save the draft to keep your changes.';
+  });
+  document.getElementById('article-html-cancel').addEventListener('click', () => {
+    articleHtmlSourcePanel.hidden = true; articleEditor.hidden = false; articleHtmlSourceOpen = false;
+  });
   articleEditorImage.addEventListener('change', async () => { try { await uploadArticleImage(articleEditorImage.files[0]); } catch (error) { elements.saveStatus.textContent = error.message; } finally { articleEditorImage.value = ''; } });
+  articleEditor.addEventListener('paste', (event) => {
+    const clipboard = event.clipboardData;
+    if (!clipboard) return;
+    const html = clipboard.getData('text/html');
+    if (html) {
+      event.preventDefault();
+      // Keep pasted Word/Google Docs tables as real HTML table elements.
+      insertArticleHtml(safePreviewHtml(html));
+      elements.saveStatus.textContent = 'Pasted content formatted. Check the table in Preview before publishing.';
+      return;
+    }
+    const plainText = clipboard.getData('text/plain');
+    if (plainText) {
+      event.preventDefault();
+      const paragraphs = plainText.split(/\r?\n/).map(line => `<p>${escapeHtml(line) || '<br>'}</p>`).join('');
+      insertArticleHtml(paragraphs);
+    }
+  });
   articleEditor.addEventListener('dragover', (event) => event.preventDefault());
   articleEditor.addEventListener('drop', async (event) => { event.preventDefault(); try { await uploadArticleImage([...event.dataTransfer.files].find((file) => file.type.startsWith('image/'))); } catch (error) { elements.saveStatus.textContent = error.message; } });
   elements.form.elements.featuredImage.addEventListener('change', () => { const file = elements.form.elements.featuredImage.files[0]; if (file) renderFeaturedImage(URL.createObjectURL(file), elements.form.elements.featuredImageAlt.value); });

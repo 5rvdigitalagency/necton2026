@@ -40,3 +40,66 @@ dialog { border:0; padding:0; width:min(800px,calc(100% - 40px)); max-height:85v
 #account-created-dialog,#delete-article-dialog { width:min(480px,calc(100% - 40px)); } .cms-dialog__body { padding:26px 22px; } .cms-dialog__body p { color:var(--cms-muted); line-height:1.5; margin:0 0 12px; } .cms-dialog__body .cms-button { margin-top:12px; } .cms-dialog__actions { display:flex; justify-content:flex-end; flex-wrap:wrap; gap:10px; }
 @media (max-width:900px) { .cms-onboarding { grid-template-columns:1fr; }.cms-workspace__body { grid-template-columns:1fr; }.cms-article-actions { max-width:none; }.cms-panel { position:static; } } @media (max-width:700px) { .cms-header { padding:0 20px; }.cms-main { width:min(100% - 32px,1200px); padding-top:32px; }.cms-welcome,.cms-panel__head { align-items:start; flex-direction:column; }.cms-onboarding ol { grid-template-columns:1fr; gap:14px; }.cms-stats,.cms-form-grid { grid-template-columns:1fr 1fr; }.cms-panel__head input { min-width:0; width:100%; }.cms-setup,.cms-auth,.cms-panel,.cms-onboarding { padding:20px; } h1 { font-size:36px; } }
 @media (max-width:420px) { .cms-stats,.cms-form-grid { grid-template-columns:1fr; }.cms-form-grid__wide { grid-column:auto; } .cms-brand { font-size:19px; } }
+/* Rich editor enhancements */
+.cms-rich-editor__toolbar button { width:auto; min-width:36px; padding:0 8px; display:flex; align-items:center; justify-content:center; gap:5px; }
+.cms-rich-editor__toolbar button span { font-size:12px; font-weight:700; }
+.cms-rich-editor__source { border:1px solid #c9d3e0; background:#f8fafc; padding:12px; }
+.cms-rich-editor__source-head { display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; margin-bottom:10px; color:var(--cms-navy); }
+.cms-rich-editor__source-head span { color:var(--cms-muted); font-size:12px; font-weight:400; }
+.cms-rich-editor__source textarea { width:100%; min-height:280px; font:13px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace; tab-size:2; }
+.cms-rich-editor__source-actions { display:flex; justify-content:flex-end; gap:8px; margin-top:10px; }
+.cms-rich-editor__surface blockquote { margin:16px 0; padding:10px 16px; border-left:4px solid var(--cms-blue); background:#f5f8fb; }
+.cms-rich-editor__surface table { width:100%; border-collapse:collapse; margin:16px 0; }
+.cms-rich-editor__surface th,.cms-rich-editor__surface td { border:1px solid #c9d3e0; padding:8px; text-align:left; }
+.cms-rich-editor__surface pre { overflow:auto; padding:12px; background:#f1f4f8; }
+.cms-rich-editor__surface hr { border:0; border-top:1px solid var(--cms-line); margin:22px 0; }
+
+/* Rich editor: paragraph and table support */
+.cms-rich-editor__toolbar button[data-editor-action="paragraph"],
+.cms-rich-editor__toolbar button[data-editor-action="table"],
+.cms-rich-editor__toolbar button[data-editor-action="html"] {
+  display:inline-flex; width:auto; min-width:38px; padding:0 10px; gap:6px; align-items:center; justify-content:center;
+}
+.cms-rich-editor__toolbar button[data-editor-action="paragraph"] span,
+.cms-rich-editor__toolbar button[data-editor-action="table"] span,
+.cms-rich-editor__toolbar button[data-editor-action="html"] span { font-size:12px; font-weight:700; }
+.cms-rich-editor__surface p { margin:0 0 1em; }
+.cms-rich-editor__surface table,
+#preview-content table { width:100%; max-width:100%; border-collapse:collapse; margin:18px 0; }
+.cms-rich-editor__surface th,
+.cms-rich-editor__surface td,
+#preview-content th,
+#preview-content td { border:1px solid #c9d3e0; padding:9px 11px; text-align:left; vertical-align:top; }
+.cms-rich-editor__surface th,
+#preview-content th { background:#f1f5f9; font-weight:700; }
+.cms-rich-editor__surface table { table-layout:auto; }
+.cms-rich-editor__source textarea { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; }
+
+/* Keep Article body controls visible while scrolling long articles */
+.cms-rich-editor {
+  position: relative;
+  overflow: visible;
+}
+
+.cms-rich-editor legend {
+  position: sticky;
+  top: 0;
+  z-index: 31;
+  width: 100%;
+  padding: 8px 0;
+  background: #fff;
+}
+
+.cms-rich-editor__toolbar {
+  position: sticky;
+  top: 34px;
+  z-index: 30;
+  background: #f8fafc;
+  box-shadow: 0 2px 5px rgb(23 33 59 / 8%);
+}
+
+/* Keep sticky editor controls usable on narrow screens */
+@media (max-width: 700px) {
+  .cms-rich-editor legend { top: 0; }
+  .cms-rich-editor__toolbar { top: 34px; }
+}
