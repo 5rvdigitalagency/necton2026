@@ -506,7 +506,6 @@
 
     var labels = {
       blog: 'Latest Article',
-      // service: 'Discuss Your Service Needs',
       solution: 'Explore Solution Options',
       industry: 'Discuss Your Industry Needs'
     };
