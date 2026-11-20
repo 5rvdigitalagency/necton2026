@@ -420,7 +420,7 @@ video.hero__bg {
 
 .partner-strip {
  max-width: var(--max-w);
- margin: 50px auto 0;
+ margin: 0px auto ;
  background: transparent;
 }
 .partner-strip__inner {
@@ -431,7 +431,7 @@ video.hero__bg {
 .partner-strip__track {
  display: flex;
  width: max-content;
- animation: partner-scroll 26s linear infinite;
+ animation: partner-scroll 60s linear infinite;
  will-change: transform;
 }
 .partner-strip__group {
@@ -441,7 +441,7 @@ video.hero__bg {
  padding-right: 96px;
  flex-shrink: 0;
 }
-.partner-strip__inner img {
+/* .partner-strip__inner img {
  width: auto;
  height: 50px;
  opacity: 0.95;
@@ -451,7 +451,7 @@ video.hero__bg {
 .partner-strip__inner img.partner-logo--sonicwall,
 .partner-strip__inner img.partner-logo--sophos {
  height: 60px;
-}
+} */
 @keyframes partner-scroll {
  from {
   transform: translateX(0);
@@ -5606,17 +5606,26 @@ padding: 18px;
 }
 
 .nhc-gains__card:nth-child(2) {
- top: 168px;
+ top: 155px;
  z-index: 2;
  margin-top: 150px;
 }
 
 .nhc-gains__card:nth-child(3) {
- top: 196px;
+ top: 170px;
  z-index: 3;
  margin-top: 150px;
 }
-
+.nhc-gains__card:nth-child(4) {
+ top: 185px;
+ z-index: 3;
+ margin-top: 150px;
+}
+.nhc-gains__card:nth-child(5) {
+ top: 200px;
+ z-index: 3;
+ margin-top: 150px;
+}
 .nhc-gains__card h3,
 .nhc-gains__card .nhc-gains__count {
  color: #0982c5;
@@ -8237,4 +8246,13 @@ padding: 18px;
     .net-cta-track {
         animation: none;
     }
+}
+
+
+.book-btn{
+  margin-top: 60px;
+  text-align: center;
+}
+.btn-light-card{
+  margin-top: 60px;
 }
