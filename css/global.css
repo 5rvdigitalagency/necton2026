@@ -420,7 +420,7 @@ video.hero__bg {
 
 .partner-strip {
  max-width: var(--max-w);
- margin: 0px auto ;
+ margin: 60px auto 0px;
  background: transparent;
 }
 .partner-strip__inner {
