@@ -113,6 +113,13 @@
         }
         if (isBlock(node)) {
           flush();
+          if (node.tagName === 'TABLE') {                                            // responsive wrapper for the public site
+            const wrap = document.createElement('div');
+            wrap.className = 'table-wrap';
+            wrap.appendChild(node);
+            out.appendChild(wrap);
+            return;
+          }
           const keepEmpty = !/^(P|H[1-6])$/.test(node.tagName);                     // only drop empty p/headings
           if (keepEmpty || hasContent(node)) out.appendChild(node);
           return;
@@ -181,9 +188,12 @@
     syncArticleEditor(); rememberArticleEditorSelection(); dirty = true;
   }
   function insertTable() {
-    const rows = Math.max(1, Math.min(20, Number(window.prompt('How many table rows?', '3')) || 0));
-    const columns = Math.max(1, Math.min(12, Number(window.prompt('How many table columns?', '3')) || 0));
-    if (!rows || !columns) return;
+    const rowsInput = parseInt(window.prompt('How many table rows?', '3'), 10);
+    if (!rowsInput) return;
+    const columnsInput = parseInt(window.prompt('How many table columns?', '3'), 10);
+    if (!columnsInput) return;
+    const rows = Math.min(20, Math.max(1, rowsInput));
+    const columns = Math.min(12, Math.max(1, columnsInput));
     const head = window.confirm('Add a header row?');
     let html = '<table border="1" cellpadding="8" cellspacing="0" style="width:100%;border-collapse:collapse"><tbody>';
     for (let r = 0; r < rows; r++) {
@@ -578,6 +588,95 @@
     if (!file) return;
     event.preventDefault();
     try { await uploadArticleImage(file); } catch (error) { elements.saveStatus.textContent = error.message; }
+  });
+
+  // Table tools: appear when the cursor is inside a table cell
+  const tableTools = document.createElement('div');
+  tableTools.className = 'cms-table-tools';
+  tableTools.setAttribute('role', 'toolbar');
+  tableTools.setAttribute('aria-label', 'Table tools');
+  tableTools.hidden = true;
+  tableTools.innerHTML = [
+    ['row-above', 'Row above'], ['row-below', 'Row below'],
+    ['col-left', 'Column left'], ['col-right', 'Column right'],
+    ['row-delete', 'Delete row'], ['col-delete', 'Delete column'],
+    ['header', 'Toggle header row'], ['table-delete', 'Delete table']
+  ].map(([action, label]) => `<button type="button" data-table-action="${action}">${label}</button>`).join('');
+  articleEditor.before(tableTools);
+
+  function currentCell() {
+    const selection = window.getSelection();
+    let node = selection.rangeCount ? selection.anchorNode : null;
+    if (node && node.nodeType === Node.TEXT_NODE) node = node.parentNode;
+    const cell = node && node.closest ? node.closest('td,th') : null;
+    return cell && articleEditor.contains(cell) ? cell : null;
+  }
+  function makeCell(tag) {
+    const cell = document.createElement(tag);
+    cell.innerHTML = '<br>';
+    if (tag === 'th') cell.setAttribute('scope', 'col');
+    return cell;
+  }
+  function tableAction(action) {
+    const cell = currentCell();
+    if (!cell) return;
+    const row = cell.parentElement;
+    const table = cell.closest('table');
+    const index = cell.cellIndex;
+    if (action === 'row-above' || action === 'row-below') {
+      const newRow = document.createElement('tr');
+      [...row.cells].forEach(() => newRow.appendChild(makeCell('td')));
+      row.parentNode.insertBefore(newRow, action === 'row-above' ? row : row.nextSibling);
+    } else if (action === 'col-left' || action === 'col-right') {
+      [...table.rows].forEach((r) => {
+        const ref = r.cells[index];
+        const tag = ref && ref.tagName === 'TH' ? 'th' : 'td';
+        const before = action === 'col-left' ? (ref || null) : (ref ? ref.nextSibling : null);
+        r.insertBefore(makeCell(tag), before);
+      });
+    } else if (action === 'row-delete') {
+      if (table.rows.length <= 1) table.remove(); else row.remove();
+    } else if (action === 'col-delete') {
+      if (row.cells.length <= 1) table.remove(); else [...table.rows].forEach((r) => r.cells[index] && r.cells[index].remove());
+    } else if (action === 'header') {
+      const first = table.rows[0];
+      const makeHeader = [...first.cells].some((c) => c.tagName !== 'TH');
+      [...first.cells].forEach((c) => {
+        const replacement = document.createElement(makeHeader ? 'th' : 'td');
+        if (makeHeader) replacement.setAttribute('scope', 'col');
+        replacement.append(...c.childNodes);
+        c.replaceWith(replacement);
+      });
+    } else if (action === 'table-delete') {
+      table.remove();
+    }
+    if (!articleEditor.innerHTML.trim()) ensureParagraph();
+    syncArticleEditor(); dirty = true;
+    tableTools.hidden = !currentCell();
+  }
+  tableTools.addEventListener('mousedown', (event) => event.preventDefault()); // keep the cursor in the cell
+  tableTools.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-table-action]');
+    if (button) tableAction(button.dataset.tableAction);
+  });
+  document.addEventListener('selectionchange', () => { tableTools.hidden = !currentCell(); });
+
+  // Tab / Shift+Tab moves between cells; Tab in the last cell adds a row
+  articleEditor.addEventListener('keydown', (event) => {
+    if (event.key !== 'Tab') return;
+    const cell = currentCell();
+    if (!cell) return;
+    event.preventDefault();
+    const table = cell.closest('table');
+    let cells = [...table.querySelectorAll('th,td')];
+    let next = cells.indexOf(cell) + (event.shiftKey ? -1 : 1);
+    if (next >= cells.length) { tableAction('row-below'); cells = [...table.querySelectorAll('th,td')]; }
+    const target = cells[Math.max(0, next)];
+    if (!target) return;
+    const range = document.createRange();
+    range.selectNodeContents(target); range.collapse(true);
+    const selection = window.getSelection();
+    selection.removeAllRanges(); selection.addRange(range);
   });
 
   // Featured image
