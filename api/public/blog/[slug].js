@@ -57,9 +57,8 @@ ${revision.updated_at ? `<meta property="article:modified_time" content="${new D
 <title>${escapeHtml(revision.seo_title)}</title>
 <meta name="description" content="${escapeHtml(revision.seo_description)}">
 ${schemaMarkup}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+
+
 <link rel="stylesheet" href="/css/global.css">
 <link rel="stylesheet" href="/css/blog-detail.css">
 <script src="/js/schema.js" defer></script>
