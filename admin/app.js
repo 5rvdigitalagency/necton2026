@@ -113,13 +113,6 @@
         }
         if (isBlock(node)) {
           flush();
-          if (node.tagName === 'TABLE') {                                            // responsive wrapper for the public site
-            const wrap = document.createElement('div');
-            wrap.className = 'table-wrap';
-            wrap.appendChild(node);
-            out.appendChild(wrap);
-            return;
-          }
           const keepEmpty = !/^(P|H[1-6])$/.test(node.tagName);                     // only drop empty p/headings
           if (keepEmpty || hasContent(node)) out.appendChild(node);
           return;
