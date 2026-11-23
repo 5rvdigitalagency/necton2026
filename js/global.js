@@ -500,14 +500,14 @@
 
     if (path.indexOf('latest-articles') === 0) family = 'blog';
     // else if (path.indexOf('/services') === 0) family = 'service';
-    else if (path.indexOf('/solutions') === 0) family = 'solution';
-    else if (path.indexOf('/industries') === 0) family = 'industry';
+    // else if (path.indexOf('/solutions') === 0) family = 'solution';
+    // else if (path.indexOf('/industries') === 0) family = 'industry';
     else return;
 
     var labels = {
       blog: 'Latest Article',
-      solution: 'Explore Solution Options',
-      industry: 'Discuss Your Industry Needs'
+      // solution: 'Explore Solution Options',
+      // industry: 'Discuss Your Industry Needs'
     };
     var links = document.querySelectorAll('#main ' + selectors[family]);
     Array.prototype.forEach.call(links, function (link) {
