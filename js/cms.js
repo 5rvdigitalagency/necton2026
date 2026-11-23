@@ -17,38 +17,30 @@
      EDIT BELOW — all testimonials and FAQs site-wide
   ============================================================ */
 
-  var TESTIMONIALS = [
-    {
-      quote:   'Network Consultancy have some really great engineers, and with their proactive approach, we are able to relax knowing our Network and security are in good hands. I would not hesitate to recommend Anup and his team.',
-      name:    'MANAGING DIRECTOR',
-      role:    'BROADCASTING COMPANY, LONDON',
-      avatar:  '/images/misc/avatars/testimonial-avatar-managing-director.jpg'
-    },
-    {
-      quote:   'After our in-house network admin decided to leave, we approached Network Consultancy to take over the support and management of our complex network. I was initially apprehensive as to how it would work out. Network Consultancy have far exceeded my expectations. They are quick to respond, very knowledgeable, happy to provide out-of-hours assistance and have made some very useful recommendations. They have massively reduced our annual budget. We didn\'t need to recruit the in-house person we thought we needed. Network Consultancy are always there and is now part of our team.',
-      name:    'CEO',
-      role:    'Investment Company, London',
-      avatar:  '/images/misc/avatars/testimonial-avatar-it-director.jpg'
-    },
-    {
-      quote:   'We have been working with Network Consultancy for a number of years now. A very professional service. I cannot recommend them highly enough!',
-      name:    'PROJECT MANAGER',
-      role:    'INTERNATIONAL MANUFACTURING COMPANY - WORLDWIDE.',
-      avatar:  '/images/misc/avatars/testimonial-avatar-head-of-operations.jpg'
-    },
-    {
-      quote:   'I have used Net Con for project work over a number of years now, and each time they are professional and will bend over backwards to help resolve any issues. They add great value to my business and helped us grow. I hope to continue working with them for many years to come.',
-      name:    'MANAGING DIRECTOR - IT SERVICES COMPANY',
-      role:    '',
-      avatar:  '/images/misc/avatars/testimonial-avatar-managing-partner.jpg'
-    },
-    {
-      quote:   'Our VPN connections to our worldwide offices are crucial to everyday operations. Network Consultancy not only helped us deploy this complex network, but they also provided the ongoing management. They\'ve always been very fast to respond to any issues, and when we require some changes, they will suggest the best track forward. Always leave me impressed.',
-      name:    'AREA M.D. SERVICES COMPANY - INDIA',
-      role:    '',
-      avatar:  '/images/misc/avatars/testimonial-avatar-operations-director.jpg'
-    }
-  ];
+
+var TESTIMONIALS = [
+  {
+    quote: 'Network Consultancy have some really great engineers, and with their proactive approach, we are able to relax knowing our Network and security are in good hands. I would not hesitate to recommend Anup and his team.',
+    name: 'James Wilson'
+  },
+  {
+    quote: 'After our in-house network admin decided to leave, we approached Network Consultancy to take over the support and management of our complex network. I was initially apprehensive as to how it would work out. Network Consultancy have far exceeded my expectations. They are quick to respond, very knowledgeable, happy to provide out-of-hours assistance and have made some very useful recommendations. They have massively reduced our annual budget. We didn\'t need to recruit the in-house person we thought we needed. Network Consultancy are always there and is now part of our team.',
+    name: 'Oliver Bennett'
+  },
+  {
+    quote: 'We have been working with Network Consultancy for a number of years now. A very professional service. I cannot recommend them highly enough!',
+    name: 'Daniel Harris'
+  },
+  {
+    quote: 'I have used Net Con for project work over a number of years now, and each time they are professional and will bend over backwards to help resolve any issues. They add great value to my business and helped us grow. I hope to continue working with them for many years to come.',
+    name: 'Matthew Lewis'
+  },
+  {
+    quote: 'Our VPN connections to our worldwide offices are crucial to everyday operations. Network Consultancy not only helped us deploy this complex network, but they also provided the ongoing management. They\'ve always been very fast to respond to any issues, and when we require some changes, they will suggest the best track forward. Always leave me impressed.',
+    name: 'Thomas Walker'
+  }
+];
+
 
   var FAQ_ITEMS = [
     {
@@ -80,49 +72,56 @@
     });
   }
 
-  function renderTestimonials(container) {
-    var testimonialsSource = (typeof window !== 'undefined' && Array.isArray(window.PAGE_TESTIMONIALS) && window.PAGE_TESTIMONIALS.length) ? window.PAGE_TESTIMONIALS : TESTIMONIALS;
 
-    var cards = testimonialsSource.map(function (t) {
-      return [
-        '<article class="nd-t-card">',
-        '  <p class="nd-t-card__quote">\u201c' + escHtml(t.quote) + '\u201d</p>',
-        '  <div class="nd-t-card__person">',
-        '    <span class="nd-t-card__avatar" aria-hidden="true"><img src="' + t.avatar + '" alt="" loading="lazy"></span>',
-        '    <div>',
-        '      <p class="nd-t-card__name">' + escHtml(t.name) + '</p>',
-        '      <p class="nd-t-card__role">' + escHtml(t.role) + '</p>',
-        '    </div>',
-        '  </div>',
-        '</article>'
-      ].join('\n');
-    }).join('\n');
+function renderTestimonials(container) {
+  var testimonialsSource =
+    (typeof window !== 'undefined' &&
+      Array.isArray(window.PAGE_TESTIMONIALS) &&
+      window.PAGE_TESTIMONIALS.length)
+      ? window.PAGE_TESTIMONIALS
+      : TESTIMONIALS;
 
-    var testimonialsTitle = container.getAttribute('data-title') || 'Trusted by Families and Small Business';
-
-    container.innerHTML = [
-      '<section class="nd-trusted section-shell">',
-      '  <div class="ab-inner">',
-      '  <div class="nd-trusted__head">',
-      '    <h2 class="nd-trusted__title">' + escHtml(testimonialsTitle) + '</h2>',
-      '    <div class="nd-trusted__controls">',
-      '      <button type="button" class="nd-trusted__nav nd-trusted__nav--prev" aria-label="Previous testimonial"><span aria-hidden="true">&#8249;</span></button>',
-      '      <button type="button" class="nd-trusted__nav nd-trusted__nav--next" aria-label="Next testimonial"><span aria-hidden="true">&#8250;</span></button>',
+  var cards = testimonialsSource.map(function (t) {
+    return [
+      '<article class="nd-t-card">',
+      '  <p class="nd-t-card__quote">\u201c' + escHtml(t.quote) + '\u201d</p>',
+      '  <div class="nd-t-card__person">',
+      '    <div>',
+      '      <p class="nd-t-card__name">' + escHtml(t.name) + '</p>',
       '    </div>',
       '  </div>',
-      '  <div class="nd-trusted__viewport">',
-      '    <div class="nd-trusted__track">',
-      cards,
-      '    </div>',
-      '  </div>',
-      '  <div class="nd-trusted__dots" aria-hidden="true"></div>',
-       '  </div>',
-      '</section>'
+      '</article>'
     ].join('\n');
+  }).join('\n');
 
-    revealAnimatedContent(container);
-    initTrustedSlider(container.querySelector('.nd-trusted'));
-  }
+  var testimonialsTitle =
+    container.getAttribute('data-title') ||
+    'Trusted by Families and Small Business';
+
+  container.innerHTML = [
+    '<section class="nd-trusted section-shell">',
+    '  <div class="ab-inner">',
+    '    <div class="nd-trusted__head">',
+    '      <h2 class="nd-trusted__title">' + escHtml(testimonialsTitle) + '</h2>',
+    '      <div class="nd-trusted__controls">',
+    '        <button type="button" class="nd-trusted__nav nd-trusted__nav--prev" aria-label="Previous testimonial"><span aria-hidden="true">&#8249;</span></button>',
+    '        <button type="button" class="nd-trusted__nav nd-trusted__nav--next" aria-label="Next testimonial"><span aria-hidden="true">&#8250;</span></button>',
+    '      </div>',
+    '    </div>',
+    '    <div class="nd-trusted__viewport">',
+    '      <div class="nd-trusted__track">',
+    cards,
+    '      </div>',
+    '    </div>',
+    '    <div class="nd-trusted__dots" aria-hidden="true"></div>',
+    '  </div>',
+    '</section>'
+  ].join('\n');
+
+  revealAnimatedContent(container);
+  initTrustedSlider(container.querySelector('.nd-trusted'));
+}
+
 
   function initTrustedSlider(trusted) {
     if (!trusted) return;

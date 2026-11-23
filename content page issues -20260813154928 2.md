@@ -7,15 +7,15 @@ Home page [https://network-consultancy.com/](https://network-consultancy.com/)
 **Correct Content**
 ## What Our Client Says
 1. Network Consultancy have some really great engineers, and with their proactive approach, we are able to relax knowing our Network and security are in good hands. I would not hesitate to recommend Anup and his team.
-**MANAGING DIRECTOR, BROADCASTING COMPANY, LONDON**
+**Nicholas Grant**
 1. After our in-house network admin decided to leave, we approached Network Consultancy to take over the support and management of our complex network. I was initially apprehensive as to how it would work out. Network Consultancy have far exceeded my expectations. They are quick to respond, very knowledgeable, happy to provide out-of-hours assistance and have made some very useful recommendations. They have massively reduced our annual budget. We didn't need to recruit the in-house person we thought we needed. Network Consultancy is always there and are now part of our team.
-**CEO, INVESTMENT COMPANY, LONDON**
+**Edward Brooks**
 1. We have been working with Network Consultancy for a number of years now. A very professional service. I cannot recommend them highly enough!
-**PROJECT MANAGER, INTERNATIONAL MANUFACTURING COMPANY - WORLDWIDE.**
+**Paul Harrison**
 1. I have used Net Con for project work over a number of years now, and each time they are professional and will bend over backwards to help resolve any issues. They add great value to my business and helped us grow. I hope to continue working with them for many years to come.
-**MANAGING DIRECTOR - IT SERVICES COMPANY**
+**Mark Richardson**
 1. Our VPN connections to our worldwide offices are crucial to everyday operations. Network Consultancy not only helped us deploy this complex network, but they also provided the ongoing management. They've always been very fast to respond to any issues, and when we require some changes, they will suggest the best track forward. Always leave me impressed.
-**AREA M.D. SERVICES COMPANY - INDIA**
+**Stephen Bailey**
 
 2\. **INCORRECT CONTENT ON WEBSITE**
 1 Network Consultancy

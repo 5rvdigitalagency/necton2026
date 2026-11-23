@@ -6275,6 +6275,9 @@ padding: 18px;
  }
 }
 @media (max-width: 768px) {
+  .net-cta-button{
+    padding:15px 13px !important;
+  }
   .hero__content {
     gap: 10px;
   }
