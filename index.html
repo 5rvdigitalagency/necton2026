@@ -78,6 +78,21 @@
   <link rel="stylesheet" href="/css/animations.css">
   <link rel="stylesheet" href="/css/accessibility.css">
   <script src="/js/schema.js" defer></script>
+  <style>
+
+.nd-highlight__media {
+  position: relative;
+  overflow: hidden;
+}
+
+.nd-highlight__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+</style>
 </head>
 <body>
 
@@ -391,12 +406,23 @@
           </ul>
         </div>
 
-        <div class="nd-highlight__media">
-          <video class="nd-highlight__video" autoplay muted loop playsinline
-            preload="metadata" aria-label="IT infrastructure video preview">
-            <source src="/videos/home-video-banner.mp4" type="video/mp4">
-          </video>
-        </div>
+     
+<div class="nd-highlight__media">
+<div class="nd-highlight__media">
+  <video
+    class="nd-highlight__video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    aria-label="IT infrastructure video preview"
+  >
+    <source src="/videos/home-video-banner-compatible.mp4" type="video/mp4">
+  </video>
+</div>
+</div>
+
 
       </div>
     </section>
@@ -482,9 +508,19 @@
             </h3>
 
             <div class="nd-figma-managed__video" aria-hidden="true">
-              <video autoplay muted loop playsinline preload="metadata">
-                <source src="/videos/home-video-banner.mp4" type="video/mp4">
-              </video>
+           <div class="nd-highlight__media">
+  <video
+    class="nd-highlight__video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    aria-label="IT infrastructure video preview"
+  >
+    <source src="/videos/home-video-banner-compatible.mp4" type="video/mp4">
+  </video>
+</div>
             </div>
 
             <div class="nd-figma-managed__bars" aria-hidden="true">
