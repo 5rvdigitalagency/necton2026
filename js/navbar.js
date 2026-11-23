@@ -170,19 +170,20 @@
     '</div>' +
   '</nav>' +
   '<div class="nav-mobile" id="nav-mobile" role="dialog" aria-modal="true" aria-label="Navigation">' +
-    '<button class="nav-mobile__close" id="nav-mobile-close" aria-label="Close menu">&times;</button>' +
-    '<div class="nav-mobile__brand"><img src="/images/misc/logo.png" alt="Network Consultancy" width="140" height="40" loading="lazy"></div>' +
-    '<nav class="nav-mobile__links">' +
-      '<a href="/about" class="nav-mobile__link">About</a>' +
-      drawerGroup('Services', '/services/', SERVICES) +
-      drawerGroup('Solutions', '/solutions/', SOLUTIONS) +
-      drawerGroup('Industries', '/industries/', INDUSTRIES) +
-      '<a href="/case-studies/" class="nav-mobile__link">Case Studies</a>' +
-      '<a href="/resources/blogs/" class="nav-mobile__link">Blog</a>' +
-      '<a href="/contact" class="nav-mobile__link">Contact</a>' +
-    '</nav>' +
-    '<a href="/contact" class="btn-blue">Enquire Here</a>' +
-  '</div>';
+  '<button class="nav-mobile__close" id="nav-mobile-close" aria-label="Close menu">&times;</button>' +
+  '<div class="nav-mobile__brand"><img src="/images/misc/logo.png" alt="Network Consultancy" width="140" height="40" loading="lazy"></div>' +
+  '<nav class="nav-mobile__links">' +
+    '<a href="/about" class="nav-mobile__link">About</a>' +
+    drawerGroup('Services', '/services/', SERVICES) +
+    drawerGroup('Solutions', '/solutions/', SOLUTIONS) +
+    drawerGroup('Industries', '/industries/', INDUSTRIES) +
+    '<a href="/case-studies/" class="nav-mobile__link">Case Studies</a>' +
+    '<a href="/resources/blogs/" class="nav-mobile__link">Blog</a>' +
+    '<a href="/contact" class="nav-mobile__link">Contact</a>' +
+    '<a href="tel:+442031501401" class="nav-mobile__link">Call: +44 20 3150 1401</a>' +
+  '</nav>' +
+  '<a href="/contact" class="btn-blue">Enquire Here</a>' +
+'</div>';
 
   /* ── Active state by current path ────────────────────────── */
   var path = window.location.pathname.replace(/index\.html$/, '').replace(/\/$/, '') || '/';
