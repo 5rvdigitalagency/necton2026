@@ -75,11 +75,7 @@ Deploys are no longer a single `vercel --prod` command. Every deploy goes throug
 | Fallback | Helvetica Neue, Helvetica, Arial, sans-serif | — |
 
 Google Fonts import (already in `index.html` — copy to every page):
-```html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-```
+
 
 ### Layout
 | Variable | Value | Purpose |
