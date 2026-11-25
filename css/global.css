@@ -95,6 +95,7 @@ p {
     font-family: 'Google Sans Flex';
     src: url('/fonts/Google-Sans-Flex-100.ttf') format('truetype');
     font-weight: 100;
+    font-style: normal;
     font-display: swap;
 }
 
@@ -102,6 +103,7 @@ p {
     font-family: 'Google Sans Flex';
     src: url('/fonts/Google-Sans-Flex-400.ttf') format('truetype');
     font-weight: 400;
+    font-style: normal;
     font-display: swap;
 }
 
@@ -109,6 +111,7 @@ p {
     font-family: 'Google Sans Flex';
     src: url('/fonts/Google-Sans-Flex-500.ttf') format('truetype');
     font-weight: 500;
+    font-style: normal;
     font-display: swap;
 }
 
@@ -116,6 +119,7 @@ p {
     font-family: 'Google Sans Flex';
     src: url('/fonts/Google-Sans-Flex-600.ttf') format('truetype');
     font-weight: 600;
+    font-style: normal;
     font-display: swap;
 }
 
@@ -123,6 +127,7 @@ p {
     font-family: 'Google Sans Flex';
     src: url('/fonts/Google-Sans-Flex-700.ttf') format('truetype');
     font-weight: 700;
+    font-style: normal;
     font-display: swap;
 }
 
@@ -130,6 +135,7 @@ p {
     font-family: 'Google Sans Flex';
     src: url('/fonts/Google-Sans-Flex-900.ttf') format('truetype');
     font-weight: 900;
+    font-style: normal;
     font-display: swap;
 }
 
@@ -1497,7 +1503,7 @@ main > div > [class*="-wrap"] {
 }
 .navbar__logo img {
  height: 44px;
- width: auto;
+ width: 181px;
  transition: transform 0.2s ease, filter 0.2s ease;
 }
 .navbar__logo:hover img {
@@ -9299,3 +9305,5 @@ body.a11y-big-cursor,
 body.a11y-big-cursor * {
   cursor: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M8 4L8 34L13 29L17 38L21 36L17 27L25 27Z' fill='%23000000' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E") 8 4, auto !important;
 }
+
+
