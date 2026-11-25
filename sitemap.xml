@@ -1,230 +1,279 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-       <loc>https://network-consultancy.com/</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>1.0000</priority>
+    <loc>https://network-consultancy.com/</loc>
+    <lastmod>2026-11-23T11:22:26.235Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/contact</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.8000</priority>
+    <loc>https://network-consultancy.com/about</loc>
+    <lastmod>2026-11-23T11:22:26.186Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/services/network-support</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.8000</priority>
+    <loc>https://network-consultancy.com/accessibility</loc>
+    <lastmod>2026-11-23T11:21:48.521Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/services/network-consultancy</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.8000</priority>
+    <loc>https://network-consultancy.com/case-studies</loc>
+    <lastmod>2026-11-23T11:22:26.235Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/services/network-design-and-deployment</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.8000</priority>
+    <loc>https://network-consultancy.com/case-studies/antal-international</loc>
+    <lastmod>2026-11-23T11:22:26.235Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/services/managed-network-support</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.8000</priority>
+    <loc>https://network-consultancy.com/case-studies/auriga-networks</loc>
+    <lastmod>2026-11-23T11:22:26.235Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/services/business-continuity-and-network-resilience</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.8000</priority>
+    <loc>https://network-consultancy.com/case-studies/harry-dobbs-design</loc>
+    <lastmod>2026-11-23T11:22:26.235Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/services/firewall-and-network-security</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.8000</priority>
+    <loc>https://network-consultancy.com/case-studies/nta-core-network-upgrade</loc>
+    <lastmod>2026-11-23T11:22:26.235Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/about</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.8000</priority>
+    <loc>https://network-consultancy.com/case-studies/senate-computers</loc>
+    <lastmod>2026-11-23T11:22:26.235Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/privacy-policy</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.8000</priority>
+    <loc>https://network-consultancy.com/complaint-form</loc>
+    <lastmod>2026-11-23T11:22:26.186Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/terms-of-service</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.8000</priority>
+    <loc>https://network-consultancy.com/contact</loc>
+    <lastmod>2026-11-23T11:22:26.211Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/services</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.6400</priority>
+    <loc>https://network-consultancy.com/contact-form</loc>
+    <lastmod>2026-11-23T11:34:33.758Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/services/remote-working-solutions</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.6400</priority>
+    <loc>https://network-consultancy.com/cookie-policy</loc>
+    <lastmod>2026-11-23T11:22:26.211Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/solutions/network-health-check</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.6400</priority>
+    <loc>https://network-consultancy.com/images/pages/unique/banner-icons/_verify</loc>
+    <lastmod>2026-08-06T08:48:28.155Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/cookie-policy</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.6400</priority>
+    <loc>https://network-consultancy.com/industries</loc>
+    <lastmod>2026-11-23T11:22:26.235Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/services/network-installations</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.4096</priority>
+    <loc>https://network-consultancy.com/industries/charity</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/services/managed-wireless-lan</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.4096</priority>
+    <loc>https://network-consultancy.com/industries/educational-institutes</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/solutions/ai-ready-infrastructure-review</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.4096</priority>
+    <loc>https://network-consultancy.com/industries/financial-services</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/solutions/cyber-security-review</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.4096</priority>
+    <loc>https://network-consultancy.com/industries/healthcare-and-clinics</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/industries/financial-services</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.4096</priority>
+    <loc>https://network-consultancy.com/industries/internal-it-teams</loc>
+    <lastmod>2026-11-23T11:22:26.235Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/industries/healthcare-and-clinics</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.4096</priority>
+    <loc>https://network-consultancy.com/industries/legal-firms</loc>
+    <lastmod>2026-11-23T11:22:26.235Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/industries/charity</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.4096</priority>
+    <loc>https://network-consultancy.com/industries/manufacturing</loc>
+    <lastmod>2026-11-23T11:22:26.235Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/industries/legal-firms</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.4096</priority>
+    <loc>https://network-consultancy.com/industries/multi-site-businesses</loc>
+    <lastmod>2026-11-23T11:22:26.235Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/industries/manufacturing</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.4096</priority>
+    <loc>https://network-consultancy.com/industries/recruitment-agencies</loc>
+    <lastmod>2026-11-23T11:22:26.235Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/industries/multi-site-businesses</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.4096</priority>
+    <loc>https://network-consultancy.com/NetCon-IconAssets/files/preview</loc>
+    <lastmod>2026-08-06T08:48:27.682Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/industries/educational-institutes</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.4096</priority>
+    <loc>https://network-consultancy.com/NetCon-x6Banners/NEWER-Banner-SVGs/_preview</loc>
+    <lastmod>2026-08-06T08:48:27.736Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/industries/recruitment-agencies</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.4096</priority>
+    <loc>https://network-consultancy.com/NetCon-x6Banners/NEWER-Banner-SVGs/cropped/_verify</loc>
+    <lastmod>2026-08-06T08:48:27.736Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/industries/internal-it-teams</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.4096</priority>
+    <loc>https://network-consultancy.com/privacy-policy</loc>
+    <lastmod>2026-11-23T11:32:46.656Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/resources/blogs</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.4096</priority>
+    <loc>https://network-consultancy.com/resources</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/accessibility</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.4096</priority>
+    <loc>https://network-consultancy.com/resources/blogs</loc>
+    <lastmod>2026-11-23T11:32:43.793Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/complaint-form</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.4096</priority>
+    <loc>https://network-consultancy.com/resources/blogs/business-network-components</loc>
+    <lastmod>2026-11-23T11:32:43.793Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/solutions</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.3277</priority>
+    <loc>https://network-consultancy.com/resources/blogs/cisco-network-convergence-system</loc>
+    <lastmod>2026-11-23T11:32:43.793Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/industries</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.3277</priority>
+    <loc>https://network-consultancy.com/resources/blogs/cisco-security-solutions</loc>
+    <lastmod>2026-11-23T11:32:43.793Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/case-studies</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.3277</priority>
+    <loc>https://network-consultancy.com/resources/blogs/cloud-networking-benefits</loc>
+    <lastmod>2026-11-23T11:32:43.793Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/resources/blogs/business-network-components</loc>
-       <lastmod>2026-10-16T11:30:35+00:00</lastmod>
-       <priority>0.3277</priority>
+    <loc>https://network-consultancy.com/resources/blogs/cloud-networking-efficiency</loc>
+    <lastmod>2026-11-23T11:32:43.793Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/resources/blogs/network-audit-timeline-uk-businesses</loc>
-       <lastmod>2026-10-16T11:30:36+00:00</lastmod>
-       <priority>0.3277</priority>
+    <loc>https://network-consultancy.com/resources/blogs/continuous-network-monitoring</loc>
+    <lastmod>2026-11-23T11:32:43.793Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/resources/blogs/resilient-network-design</loc>
-       <lastmod>2026-11-12T12:00:44+00:00</lastmod>
-       <priority>0.3277</priority>
+    <loc>https://network-consultancy.com/resources/blogs/network-audit-timeline-uk-businesses</loc>
+    <lastmod>2026-11-23T11:32:43.793Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/resources/blogs/wireless-vs-wired-networks</loc>
-       <lastmod>2026-10-23T09:32:26+00:00</lastmod>
-       <priority>0.3277</priority>
+    <loc>https://network-consultancy.com/resources/blogs/network-cabling-installation-uk-business-guide</loc>
+    <lastmod>2026-11-23T11:32:43.793Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/resources/blogs/wireless-security-solutions</loc>
-       <lastmod>2026-10-16T11:29:58+00:00</lastmod>
-       <priority>0.3277</priority>
+    <loc>https://network-consultancy.com/resources/blogs/network-consultancy-services</loc>
+    <lastmod>2026-11-23T11:32:43.793Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/resources/blogs/cloud-networking-benefits</loc>
-       <lastmod>2026-10-16T11:29:58+00:00</lastmod>
-       <priority>0.3277</priority>
+    <loc>https://network-consultancy.com/resources/blogs/network-consultant-benefits</loc>
+    <lastmod>2026-11-23T11:32:43.793Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/case-studies/nta-core-network-upgrade</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.2621</priority>
+    <loc>https://network-consultancy.com/resources/blogs/network-design-implementation</loc>
+    <lastmod>2026-11-23T11:32:43.793Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/case-studies/harry-dobbs-design</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.2621</priority>
+    <loc>https://network-consultancy.com/resources/blogs/network-upgrade-benefits</loc>
+    <lastmod>2026-11-23T11:32:43.793Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/case-studies/senate-computers</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.2621</priority>
+    <loc>https://network-consultancy.com/resources/blogs/network-validation</loc>
+    <lastmod>2026-11-23T11:32:43.793Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/case-studies/auriga-networks</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.2621</priority>
+    <loc>https://network-consultancy.com/resources/blogs/professional-it-services</loc>
+    <lastmod>2026-11-23T11:32:43.775Z</lastmod>
   </url>
   <url>
-       <loc>https://network-consultancy.com/case-studies/antal-international</loc>
-       <lastmod>2026-11-13T06:29:39+00:00</lastmod>
-       <priority>0.2621</priority>
+    <loc>https://network-consultancy.com/resources/blogs/remote-work-network-security</loc>
+    <lastmod>2026-11-23T11:32:43.775Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/resources/blogs/resilient-network-design</loc>
+    <lastmod>2026-11-23T11:32:43.775Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/resources/blogs/secure-hybrid-workspace</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/resources/blogs/shadow-ai-cybersecurity-risk-uk-businesses</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/resources/blogs/sme-network-consultancy</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/resources/blogs/wireless-security-solutions</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/resources/blogs/wireless-vs-wired-networks</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/resources/blogs/wlan-guide</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/resources/downloads</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/resources/guides</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/services</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/services/business-continuity-and-network-resilience</loc>
+    <lastmod>2026-11-23T11:33:46.745Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/services/firewall-and-network-security</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/services/managed-network-support</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/services/managed-wireless-lan</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/services/network-consultancy</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/services/network-design-and-deployment</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/services/network-installations</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/services/network-support</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/services/remote-working-solutions</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/solutions</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/solutions/ai-ready-infrastructure-review</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/solutions/cyber-security-review</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/solutions/network-health-check</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://network-consultancy.com/terms-of-service</loc>
+    <lastmod>2026-11-23T11:22:26.236Z</lastmod>
   </url>
 </urlset>
