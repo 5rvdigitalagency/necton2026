@@ -383,17 +383,7 @@
       color: #fff;
     }
 
-    /* ===== CTA band (shared with services family; global.js animates chips) ===== */
-    .svc-cta-band { background: var(--blue); padding: 80px 0; position: relative; overflow: hidden; margin: 0 auto 100px; max-width: var(--section-w); }
-    .svc-cta-band__tags { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 24px; padding: 0 var(--px); pointer-events: none; }
-    .svc-cta-band__row { display: flex; gap: 20px; flex-wrap: wrap; }
-    .svc-cta-band__row span { background: #fff; color: var(--blue); opacity: .5; font-family: 'Google Sans Flex', sans-serif; font-size: 18px; font-weight: 500; padding: 12px 32px; border-radius: 20px; white-space: nowrap; }
-    .svc-cta-band__card { position: relative; z-index: 2; background: #fff; border-radius: 20px; padding: 46px 84px; max-width: 660px; margin: 0 auto; text-align: center; }
-    .svc-cta-band__card h3 { font-family: 'Google Sans Flex', sans-serif; font-size: 34px; font-weight: 600; color: #1f1f1f; margin-bottom: 12px; }
-    .svc-cta-band__text { font-family: 'Google Sans Flex', sans-serif; font-size: 20px; font-weight: 500; color: var(--sub); line-height: 1.55; margin-bottom: 32px; }
-    .svc-cta-band__btn { display: inline-flex; align-items: center; justify-content: center; background: var(--navy); color: #fff; font-family: 'Google Sans Flex', sans-serif; font-size: 20px; font-weight: 500; padding: 16px 50px; border-radius: 20px; transition: background .2s; }
-    .svc-cta-band__btn:hover { background: #0f1c5a; }
-    @media (max-width: 768px) { .svc-cta-band__card { padding: 32px 28px; margin: 0 var(--px); } .svc-cta-band__text { font-size: 18px; } .svc-cta-band__card h3 { font-size: 24px; } .svc-cta-band__row span { white-space: normal; text-align: center; padding: 10px 20px; font-size: 16px; } }
+    
 
     .faq-divider--hidden {
       display: none;
@@ -537,7 +527,7 @@
         <div class="nc-hero__content">
           <h1 class="nc-hero__title" id="blogs-heading">Networking &amp; IT Articles for Businesses</h1>
           <p class="nc-hero__sub">Stay up to date with practical blogs and market updates on networking, cybersecurity, cloud solutions, and managed IT services.</p>
-          <a href="#latest-articles" class="page-hero__cta-btn">Latest Article</a>
+          <a href="#latest-articles" class="page-hero__cta-btn">Talk to a Network Specialist</a>
         </div>
       </div>
     </section>
@@ -685,14 +675,61 @@
     </section>
 
     <section class="svc-cta-band" aria-label="Need advice section">
-      <div class="svc-cta-band__tags" aria-hidden="true">
-        <div class="svc-cta-band__row">
-          <span>Servers</span><span>Switches</span><span>Wireless</span>
-        </div>
-        <div class="svc-cta-band__row">
-          <span>Cloud</span><span>VPN</span><span>Security</span>
-        </div>
-      </div>
+ <div class="net-cta-tags" aria-hidden="true">
+
+  <div class="net-cta-track net-cta-track-left">
+    <div class="net-cta-tag-group">
+      <span>Servers</span>
+      <span>Switches</span>
+      <span>Wireless</span>
+           <span>Servers</span>
+      <span>Switches</span>
+      <span>Wireless</span>
+           <span>Servers</span>
+      <span>Switches</span>
+      <span>Wireless</span>
+    </div>
+
+    <div class="net-cta-tag-group">
+      <span>Servers</span>
+      <span>Switches</span>
+      <span>Wireless</span>
+                 <span>Servers</span>
+      <span>Switches</span>
+      <span>Wireless</span>
+           <span>Servers</span>
+      <span>Switches</span>
+      <span>Wireless</span>
+    </div>
+  </div>
+
+  <div class="net-cta-track net-cta-track-right">
+    <div class="net-cta-tag-group">
+      <span>Servers</span>
+      <span>Switches</span>
+      <span>Wireless</span>
+                 <span>Servers</span>
+      <span>Switches</span>
+      <span>Wireless</span>
+           <span>Servers</span>
+      <span>Switches</span>
+      <span>Wireless</span>
+    </div>
+
+    <div class="net-cta-tag-group">
+      <span>Servers</span>
+      <span>Switches</span>
+      <span>Wireless</span>
+                 <span>Servers</span>
+      <span>Switches</span>
+      <span>Wireless</span>
+           <span>Servers</span>
+      <span>Switches</span>
+      <span>Wireless</span>
+    </div>
+  </div>
+
+</div>
       <div class="svc-cta-band__card animate-fade-up">
         <h2>Need Advice on Your Network?</h2>
         <p class="svc-cta-band__text">Whether you are troubleshooting an existing environment, planning a new deployment or reviewing your security strategy, our experienced consultants are ready to help with practical recommendations tailored to your business.</p>
@@ -704,7 +741,7 @@
   <div class="nd-faq__left">
     <h2 class="section-title" id="faq-h">Frequently asked questions</h2>
     <p>Still have questions? Get connected to our support team.</p>
-    <a href="../../contact" class="nd-faq__cta">Ask Our Engineers a Question</a>
+    <a href="/contact" class="nd-faq__cta">Ask Our Engineers a Question</a>
   </div>
 <div class="nd-faq__right" >
 

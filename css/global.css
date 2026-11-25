@@ -8305,3 +8305,78 @@ padding: 18px;
 .nd-faq .nd-faq__panel a{
   color: #066fa8;
 }
+
+/*------Marquee-------*/
+
+/* CTA FULL WIDTH MARQUEE */
+
+.svc-cta-band {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.svc-cta-band__tags {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.svc-cta-band__track {
+  display: flex;
+  width: max-content;
+  flex-shrink: 0;
+  will-change: transform;
+}
+
+.svc-cta-band__track--left {
+  animation: cta-move-left 25s linear infinite !important;
+}
+
+.svc-cta-band__track--right {
+  animation: cta-move-right 25s linear infinite !important;
+}
+
+.svc-cta-band__row {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 20px;
+  padding-right: 20px;
+}
+
+.svc-cta-band__row span {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+/* First row: right to left */
+@keyframes cta-move-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Second row: left to right */
+@keyframes cta-move-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.svc-cta-band__card {
+  position: relative;
+  z-index: 2;
+}
