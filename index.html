@@ -16,6 +16,12 @@
   <meta property="og:description" content="High-performance, secure networks for thriving UK SMEs.">
   <meta property="og:site_name" content="Network Consultancy">
   <meta property="og:image" content="https://network-consultancy.com/images/misc/it-networking.jpg">
+  <link
+  rel="preload"
+  as="image"
+  href="/images/hero/hero-slide-1.png"
+  fetchpriority="high"
+>
     <!-- Preload Google Sans Flex -->
   <link
     rel="preload"
@@ -94,10 +100,19 @@
         <div class="hero__slides" data-hero-slides>
 
           <article class="hero__slide is-active" data-hero-slide="0">
-            <video class="hero__bg" autoplay muted loop playsinline preload="auto"
-              poster="/images/hero/hero-slide-1.png" aria-hidden="true">
-              <source src="/videos/hero-slide-1-cisco.mp4" type="video/mp4">
-            </video>
+      
+            <video
+  class="hero__bg"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="metadata"
+  poster="/images/hero/hero-slide-1.png"
+  aria-hidden="true">
+  <source src="/videos/hero-slide-1-cisco.mp4" type="video/mp4">
+</video>
+            
 
             <div class="hero__overlay"></div>
 
@@ -118,10 +133,18 @@
           </article>
 
           <article class="hero__slide" data-hero-slide="1">
-            <video class="hero__bg" autoplay muted loop playsinline preload="auto"
-              poster="/images/hero/hero-slide-2.png" aria-hidden="true">
-              <source src="/videos/NetworkConsultancy-HeroBanner%202.mp4" type="video/mp4">
-            </video>
+       
+            <video
+  class="hero__bg"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="metadata"
+  poster="/images/hero/hero-slide-2.png"
+  aria-hidden="true">
+  <source src="/videos/NetworkConsultancy-HeroBanner%202.mp4" type="video/mp4">
+</video>
 
             <div class="hero__overlay"></div>
 
@@ -848,16 +871,11 @@
     extraScripts: ['/js/contact-form.js']
   };
 </script>
-<script src="/js/foot.js"></script>
-  <!-- <div id="site-footer"></div>
-  <script src="/js/footer.js"></script>
-  <script src="/js/cms.js" defer></script>
-  <script src="/js/form-source-tracking.js" defer></script>
-  <script src="/js/animations.js" defer></script>
-  <script src="/js/parallax.js" defer></script>
-  <script src="/js/accessibility.js" defer></script>
-  <script src="/js/search-index.js" defer></script>
-  <script src="/js/search.js" defer></script> -->
+<!-- Footer container -->
+<div id="site-footer"></div>
+<!-- Load footer and shared scripts -->
+<script src="/js/footer.js" defer></script>
+<script src="/js/foot.js" defer></script>
 
   <script>
   (function () {

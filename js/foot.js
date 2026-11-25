@@ -1,41 +1,51 @@
+
 /**
- * /js/foot.js: shared end-of-body block.
+ * /js/foot.js
+ * Shared end-of-body scripts for all pages.
  *
- * Put this as the LAST thing in <body> on every page:
- *   <script src="/js/foot.js"></script>      <!-- synchronous, NOT defer -->
- *
- * Optional per-page settings (set before this script):
- *   window.PAGE = {
- *     skipScripts:  ['/js/parallax.js'],        // don't load these on this page
- *     extraScripts: ['/js/contact-form.js']     // load these after the defaults
- *   };
+ * Place this as the last script before </body>:
+ * <script src="/js/foot.js"></script>
  */
 (function () {
   var P = window.PAGE || {};
   var skip = P.skipScripts || [];
   var extra = P.extraScripts || [];
 
-  // Order matters: search-index.js must come before search.js.
-  var scripts = [
-    { src: '/js/footer.js', defer: false },   // fills #site-footer, so it runs immediately
-    { src: '/js/cms.js', defer: true },
-    { src: '/js/form-source-tracking.js', defer: true },
-    { src: '/js/animations.js', defer: true },
-    { src: '/js/parallax.js', defer: true },
-    { src: '/js/accessibility.js', defer: true },
-    { src: '/js/search-index.js', defer: true },
-    { src: '/js/search.js', defer: true }
-  ];
+  // Create footer container before loading footer.js
+  if (!document.getElementById('site-footer')) {
+    var footer = document.createElement('div');
+    footer.id = 'site-footer';
+    document.body.appendChild(footer);
+  }
 
-  extra.forEach(function (src) { scripts.push({ src: src, defer: true }); });
+  // Maintain execution order while allowing parallel downloads
+var scripts = [
+  { src: '/js/cms.js', defer: true },
+  { src: '/js/form-source-tracking.js', defer: true },
+  { src: '/js/animations.js', defer: true },
+  { src: '/js/parallax.js', defer: true },
+  { src: '/js/accessibility.js', defer: true },
+  { src: '/js/search-index.js', defer: true },
+  { src: '/js/search.js', defer: true }
+];
 
-  var html = '<div id="site-footer"></div>';
-  scripts.forEach(function (s) {
-    if (skip.indexOf(s.src) !== -1) return;
-    html += '<script src="' + s.src + '"' + (s.defer ? ' defer' : '') + '><\/script>';
+  // Add additional page-specific scripts
+  extra.forEach(function (src) {
+    scripts.push(src);
   });
 
-  // document.write keeps the scripts "parser-inserted", so defer ordering and
-  // DOMContentLoaded timing behave exactly as if they were written in the HTML.
-  document.write(html);
+  // Remove scripts excluded on individual pages
+  scripts = scripts.filter(function (src, index) {
+    return skip.indexOf(src) === -1 &&
+           scripts.indexOf(src) === index;
+  });
+
+  // Load scripts in order; downloads can happen in parallel
+  scripts.forEach(function (src) {
+    var script = document.createElement('script');
+    script.src = src;
+    script.async = false;
+    document.body.appendChild(script);
+  });
+
 })();
