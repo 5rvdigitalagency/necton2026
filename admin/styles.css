@@ -165,3 +165,58 @@ dialog { border:0; padding:0; width:min(800px,calc(100% - 40px)); max-height:85v
   text-decoration: none;
   font-weight: 600;
 }
+
+
+
+/* Blog tables: scroll wrapper */
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 24px 0;
+}
+
+/* Reset anything the site applies to table elements */
+.table-wrap table {
+  display: table;
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  font-family: Barlow, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #1f2937;
+}
+.table-wrap thead { display: table-header-group; }
+.table-wrap tbody { display: table-row-group; }
+.table-wrap tr    { display: table-row; }
+
+.table-wrap th,
+.table-wrap td {
+  display: table-cell;
+  border: 1px solid #d5dbe3;
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  text-transform: none;
+  letter-spacing: normal;
+  background: #fff;
+  color: #1f2937;
+  font-weight: 400;
+}
+
+.table-wrap th {
+  font-weight: 600;
+  color: #111827;
+  background: #f3f5f8;
+}
+
+/* Tables saved before this change (no wrapper) */
+article table:not(.table-wrap table) {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  border-collapse: collapse;
+}
