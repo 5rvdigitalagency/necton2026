@@ -16,6 +16,14 @@
   <meta property="og:description" content="High-performance, secure networks for thriving UK SMEs.">
   <meta property="og:site_name" content="Network Consultancy">
   <meta property="og:image" content="https://network-consultancy.com/images/misc/it-networking.jpg">
+    <!-- Preload Google Sans Flex -->
+  <link
+    rel="preload"
+    href="/fonts/Google-Sans-Flex-400.ttf"
+    as="font"
+    type="font/ttf"
+    crossorigin
+  >
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -47,10 +55,12 @@
     ]
   }
   </script>
- <script src="/js/head.js"></script>
+ <script src="/js/head.js" defer></script>
 
   <style>
-
+#main {
+  min-height: 100vh;
+}
 .nd-highlight__media {
   position: relative;
   overflow: hidden;
