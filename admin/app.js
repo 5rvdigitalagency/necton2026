@@ -66,7 +66,7 @@
     const globalAttributes = new Set(['class','id','title','role','aria-label','style']);
     const tableAttributes = new Set(['border','cellpadding','cellspacing','width','height','align','valign','colspan','rowspan','scope']);
     const allowedAttributes = { A:new Set(['href','target','rel','class','title']), IMG:new Set(['src','alt','width','height','loading','class']), TD:tableAttributes, TH:tableAttributes, TABLE:tableAttributes, TR:tableAttributes, THEAD:tableAttributes, TBODY:tableAttributes, TFOOT:tableAttributes, CAPTION:tableAttributes, OL:new Set(['start','type']), LI:new Set(['value']) };
-    const safeStyleProperties = new Set(['color','background-color','background','border','border-top','border-right','border-bottom','border-left','border-collapse','border-spacing','padding','padding-top','padding-right','padding-bottom','padding-left','text-align','vertical-align','font-weight','font-style','text-decoration','width','height','min-width','max-width']);
+    const safeStyleProperties = new Set(['color','background-color','background','border','border-top','border-right','border-bottom','border-left','border-collapse','border-spacing','padding','padding-top','padding-right','padding-bottom','padding-left','margin','margin-top','margin-bottom','text-align','vertical-align','font-weight','font-style','font-size','font-family','line-height','text-decoration','width','height','min-width','max-width','overflow-x','table-layout','word-break','overflow-wrap']);
     const parsed = new DOMParser().parseFromString(String(value || ''), 'text/html');
     parsed.body.querySelectorAll('script,style,iframe,object,embed,form,input,button,textarea,select,meta,link').forEach((node) => node.remove());
     parsed.body.querySelectorAll('*').forEach((node) => {
@@ -74,9 +74,11 @@
       [...node.attributes].forEach((attribute) => {
         const name = attribute.name.toLowerCase();
         if (name === 'style') {
-          const declarations = [...node.style]
-            .filter((property) => safeStyleProperties.has(property) && !/url\s*\(|expression\s*\(|javascript:/i.test(node.style.getPropertyValue(property)))
-            .map((property) => `${property}:${node.style.getPropertyValue(property).trim()}`);
+          // Read the raw declarations: node.style expands shorthands (border -> border-top-width...), which dropped them.
+          const declarations = (node.getAttribute('style') || '').split(';')
+            .map((declaration) => { const i = declaration.indexOf(':'); return i > 0 ? [declaration.slice(0, i).trim().toLowerCase(), declaration.slice(i + 1).trim()] : null; })
+            .filter((pair) => pair && safeStyleProperties.has(pair[0]) && !/url\s*\(|expression\s*\(|javascript:|@import|[<>]/i.test(pair[1]))
+            .map(([property, val]) => `${property}:${val}`);
           if (declarations.length) node.setAttribute('style', declarations.join('; ')); else node.removeAttribute('style');
         } else if (!globalAttributes.has(name) && !allowedAttributes[node.tagName]?.has(name)) node.removeAttribute(attribute.name);
       });
@@ -113,6 +115,14 @@
         }
         if (isBlock(node)) {
           flush();
+          if (node.tagName === 'TABLE') {                                            // responsive wrapper for the public site
+            const wrap = document.createElement('div');
+            wrap.className = 'table-wrap';
+            wrap.setAttribute('style', 'overflow-x:auto;margin:24px 0');
+            wrap.appendChild(node);
+            out.appendChild(wrap);
+            return;
+          }
           const keepEmpty = !/^(P|H[1-6])$/.test(node.tagName);                     // only drop empty p/headings
           if (keepEmpty || hasContent(node)) out.appendChild(node);
           return;
@@ -180,6 +190,12 @@
     document.execCommand('insertHTML', false, html);
     syncArticleEditor(); rememberArticleEditorSelection(); dirty = true;
   }
+  // Custom table code: inline styles so tables look right on the live site regardless of site CSS.
+  const TABLE_WRAP_STYLE = 'overflow-x:auto;margin:24px 0';
+  const TABLE_STYLE = 'width:100%;min-width:480px;border-collapse:collapse;font-family:Barlow,Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;color:#1f2937;table-layout:auto';
+  const TH_STYLE = 'border:1px solid #d5dbe3;padding:10px 14px;text-align:left;vertical-align:top;font-family:Barlow,Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;font-weight:600;color:#111827;background-color:#f3f5f8';
+  const TD_STYLE = 'border:1px solid #d5dbe3;padding:10px 14px;text-align:left;vertical-align:top;font-family:Barlow,Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;font-weight:400;color:#1f2937;background-color:#ffffff';
+
   function insertTable() {
     const rowsInput = parseInt(window.prompt('How many table rows?', '3'), 10);
     if (!rowsInput) return;
@@ -188,13 +204,13 @@
     const rows = Math.min(20, Math.max(1, rowsInput));
     const columns = Math.min(12, Math.max(1, columnsInput));
     const head = window.confirm('Add a header row?');
-    let html = '<table border="1" cellpadding="8" cellspacing="0" style="width:100%;border-collapse:collapse"><tbody>';
+    let html = `<div class="table-wrap" style="${TABLE_WRAP_STYLE}"><table style="${TABLE_STYLE}"><tbody>`;
     for (let r = 0; r < rows; r++) {
       html += '<tr>';
-      for (let c = 0; c < columns; c++) html += r === 0 && head ? '<th scope="col">Header</th>' : '<td>Cell</td>';
+      for (let c = 0; c < columns; c++) html += r === 0 && head ? `<th scope="col" style="${TH_STYLE}">Header</th>` : `<td style="${TD_STYLE}">Cell</td>`;
       html += '</tr>';
     }
-    html += '</tbody></table><p><br></p>';
+    html += '</tbody></table></div><p><br></p>';
     insertArticleHtml(html);
   }
 
@@ -608,6 +624,7 @@
     const cell = document.createElement(tag);
     cell.innerHTML = '<br>';
     if (tag === 'th') cell.setAttribute('scope', 'col');
+    cell.setAttribute('style', tag === 'th' ? TH_STYLE : TD_STYLE);
     return cell;
   }
   function tableAction(action) {
@@ -637,6 +654,7 @@
       [...first.cells].forEach((c) => {
         const replacement = document.createElement(makeHeader ? 'th' : 'td');
         if (makeHeader) replacement.setAttribute('scope', 'col');
+        replacement.setAttribute('style', makeHeader ? TH_STYLE : TD_STYLE);
         replacement.append(...c.childNodes);
         c.replaceWith(replacement);
       });
