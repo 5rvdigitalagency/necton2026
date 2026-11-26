@@ -61,6 +61,7 @@ ${schemaMarkup}
 
 <link rel="stylesheet" href="/css/global.css">
 <link rel="stylesheet" href="/css/blog-detail.css">
+<script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
 <script src="/js/schema.js" defer></script>
 <link rel="stylesheet" href="/css/animations.css">
 <link rel="stylesheet" href="/css/accessibility.css">
