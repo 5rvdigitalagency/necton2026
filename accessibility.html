@@ -115,10 +115,7 @@
   <div class="tos-hero-wrap">
     <div class="tos-hero">
       <div class="tos-hero-bg">
-        <picture>
-          <source srcset="/images/pages/legal-hero-accessibility.webp" type="image/webp">
-          <img src="/images/pages/legal-hero-accessibility.jpg" alt="" loading="eager" width="1440" height="618">
-        </picture>
+ 
       </div>
       <div class="tos-hero-overlay" aria-hidden="true"></div>
       <div class="tos-hero-content">
@@ -143,7 +140,7 @@
       <div class="tos-section">
         <h2 class="tos-h2">2. Conformance Status</h2>
         <div class="tos-body">
-          <h3><strong>Partially conformant — actively improving.</strong> </h3>
+          <h3><strong>Partially Conformant: Actively Improving</strong> </h3>
           <p>This means some parts of the site do not yet fully meet WCAG 2.2 Level AA. The specific gaps are listed in Section 5 (Known Limitations) below. A formal, tool-verified colour contrast audit and a full interactive-component review have not yet been completed; everything else has been assessed through developer self-review and browser-based accessibility tooling.</p>
           <div class="pp-table-wrap">
             <table class="pp-table">
@@ -216,31 +213,31 @@
         <div class="a11y-limitation-list">
 
           <div class="a11y-limitation">
-            <h3 class="tos-h3">Colour contrast — not formally tool-verified</h3>
+            <h3 class="tos-h3">Colour Contrast: Not formally tool-verified</h3>
             <div class="tos-body"><p>Our primary body text and link colours have not yet been run through an automated contrast checker (such as axe or the WCAG Contrast Analyser) across every colour pairing on every page. We expect most combinations meet the 4.5:1 minimum, but this has not been formally confirmed.</p></div>
             <span class="a11y-tag">WCAG 2.2 &sect;1.4.3 &middot; &sect;1.4.11 (AA)</span>
           </div>
 
           <div class="a11y-limitation">
-            <h3 class="tos-h3">Newer form status messages — ARIA live region not yet confirmed</h3>
+            <h3 class="tos-h3">Newer Form Status Messages:  ARIA live region not yet confirmed</h3>
             <div class="tos-body"><p>Some newer forms added to the site (including specialist enquiry forms outside our main contact form) display a success or error message after submission, but it has not yet been confirmed that every one of these is exposed as an ARIA live region. Screen reader users may not always be notified automatically that a submission succeeded or failed.</p></div>
             <span class="a11y-tag">WCAG 2.2 &sect;4.1.3 (AA)</span>
           </div>
 
           <div class="a11y-limitation">
-            <h3 class="tos-h3">Touch target size — not fully verified</h3>
+            <h3 class="tos-h3">Touch Target Size: Not fully verified</h3>
             <div class="tos-body"><p>Some smaller interface elements, such as footer icon links, have not been formally measured against the 24&times;24 CSS pixel minimum required by WCAG 2.2.</p></div>
             <span class="a11y-tag">WCAG 2.2 &sect;2.5.8 (AA)</span>
           </div>
 
           <div class="a11y-limitation">
-            <h3 class="tos-h3">Google Tag Manager iframe — title attribute being rolled out</h3>
+            <h3 class="tos-h3">Google Tag Manager Iframe: Title attribute being rolled out</h3>
             <div class="tos-body"><p>Every page includes a hidden, zero-dimension Google Tag Manager <code>&lt;noscript&gt;</code> iframe. A <code>title="Google Tag Manager"</code> attribute is being added across the site; its impact is negligible since the element is never visible, but it is a technical non-conformance until complete.</p></div>
             <span class="a11y-tag">WCAG 2.2 &sect;4.1.2 (A)</span>
           </div>
 
           <div class="a11y-limitation">
-            <h3 class="tos-h3">No formal third-party audit</h3>
+            <h3 class="tos-h3">No Formal Third-Party Audit</h3>
             <div class="tos-body"><p>Our assessment to date is based on developer self-review and automated browser tooling rather than an independent, accredited accessibility audit. We plan to commission a full third-party review in the future.</p></div>
             <span class="a11y-tag">Assessment methodology</span>
           </div>
@@ -256,9 +253,9 @@
         <div class="tos-body">
           <p>WCAG 2.2 explicitly excludes the following from the colour contrast requirements (criteria 1.4.3 and 1.4.11). These are not limitations — they are specified exceptions in the standard itself:</p>
           <ul>
-            <li><strong>Disabled interface elements</strong> — a greyed-out submit button on an incomplete form is exempt; its reduced contrast intentionally signals that the control is not yet active.</li>
-            <li><strong>Purely decorative or hidden text</strong> — text that conveys no information, or is hidden from all users, is exempt. Background imagery used purely for visual texture falls into this category on our site.</li>
-            <li><strong>Logotypes</strong> — text that forms part of a brand logo is exempt. The Network Consultancy logo is treated as a logotype under WCAG 2.2 and is not subject to the 4.5:1 minimum.</li>
+            <li><strong>Disabled Interface Elements: </strong> — A greyed-out submit button on an incomplete form is exempt; its reduced contrast intentionally signals that the control is not yet active.</li>
+            <li><strong>Purely Decorative or Hidden Text: </strong> — Text that conveys no information, or is hidden from all users, is exempt. Background imagery used purely for visual texture falls into this category on our site.</li>
+            <li><strong>Logotypes</strong> — Text that forms part of a brand logo is exempt. The Network Consultancy logo is treated as a logotype under WCAG 2.2 and is not subject to the 4.5:1 minimum.</li>
           </ul>
         </div>
       </div>

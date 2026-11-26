@@ -180,7 +180,7 @@ Network Consultancy allocates data pathways and IP configurations with open capa
 It creates separate virtual networks to wall off your financial data from standard employee web traffic. If a staff member clicks a malicious link, the threat remains confined to that device and cannot access your corporate accounts.
 
 5\. **Missing one client review content**
-## What our clients say
+## What Our Clients Say
 James Carter, Logistics Ltd.'s Manager in Manchester:
 "Network Consultancy's **network design services** produced a very robust infrastructure. The implementation process enhanced our logistics operations' multi-site connectivity and uptime."
 
@@ -702,7 +702,7 @@ Bandwidth bottlenecks
 User access and permission issues
 
 **5\.** **Missing one client review content**
-## What our clients say
+## What Our Clients Say
 1\. James Carter, IT Logistics UK in London
 "The team's **network consulting services** revolutionised our entire infrastructure. Our operations were streamlined, security was strengthened, and uptime was improved thanks to their network consulting expertise. We were able to modernise legacy systems without any disruptions thanks to their innovative network consulting approach.
 
