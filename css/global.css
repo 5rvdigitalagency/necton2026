@@ -4917,7 +4917,7 @@ body.industry-detail-page .page-hero .page-hero__cta {
  display: flex;
  flex-direction: column;
  gap: 16px;
- max-width: 908px;
+ max-width: 1000px;
 }
 .nc-hero__title {
  font-size: 64px;
