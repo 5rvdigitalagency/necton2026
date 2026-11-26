@@ -9307,3 +9307,9 @@ body.a11y-big-cursor * {
 }
 
 
+.nd-faq h2 ,#biz-title ,.nd-trusted__title ,.csd-metric strong{
+  text-transform: capitalize;
+}
+#biz-title.no-style{
+  text-transform:none ;
+}
