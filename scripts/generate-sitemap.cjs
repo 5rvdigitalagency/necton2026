@@ -21,6 +21,18 @@ const EXCLUDED_FILES = new Set([
   "test.html"
 ]);
 
+// CMS blog URLs that are not represented by physical HTML files.
+const CMS_BLOG_SLUGS = [
+  "identify-network-security-weaknesses",
+  "network-infrastructure-decisions-before-scaling",
+  "identify-network-capacity-problems-before-downtime",
+  "it-support-companies-birmingham-break-fix-managed-it",
+  "business-network-slows-down-as-company-grows",
+  "remote-team-connectivity-problems",
+  "network-design-deployment-services",
+  "network-design-and-implementation"
+];
+
 // Read all HTML files recursively.
 function getHtmlFiles(directory, results = []) {
   const entries = fs.readdirSync(directory, {
@@ -49,7 +61,7 @@ function getHtmlFiles(directory, results = []) {
 
 // Escape XML special characters.
 function escapeXml(value) {
-  return value.replace(/[<>&'"]/g, character => ({
+  return String(value).replace(/[<>&'"]/g, character => ({
     "<": "&lt;",
     ">": "&gt;",
     "&": "&amp;",
@@ -75,23 +87,19 @@ function getAttributes(tag) {
   return attributes;
 }
 
-// Check whether the page should be excluded.
+// Check whether a page should be excluded.
 function isNoindex(html) {
   const metaTags = html.match(/<meta\b[^>]*>/gi) || [];
 
   for (const tag of metaTags) {
     const attributes = getAttributes(tag);
+    const name = (attributes.name || "").toLowerCase();
 
-    if (attributes.name?.toLowerCase() === "robots") {
-      if (/\bnoindex\b/i.test(attributes.content || "")) {
-        return true;
-      }
-    }
-
-    if (attributes.name?.toLowerCase() === "googlebot") {
-      if (/\bnoindex\b/i.test(attributes.content || "")) {
-        return true;
-      }
+    if (
+      ["robots", "googlebot"].includes(name) &&
+      /\bnoindex\b/i.test(attributes.content || "")
+    ) {
+      return true;
     }
   }
 
@@ -121,7 +129,7 @@ function getCanonical(html) {
   return null;
 }
 
-// Convert physical HTML file paths into website URLs.
+// Convert physical HTML paths into website URLs.
 function getPageUrl(file) {
   const relativePath = path.relative(ROOT_DIR, file)
     .split(path.sep)
@@ -140,10 +148,20 @@ function getPageUrl(file) {
   return new URL(urlPath, BASE_URL).href;
 }
 
-// Main sitemap generation.
+// Generate the sitemap.
 function generateSitemap() {
-  const files = getHtmlFiles(ROOT_DIR);
   const urlMap = new Map();
+  const excludedUrls = new Set();
+
+  // ----------------------------------
+  // 1. Collect static HTML pages
+  // ----------------------------------
+
+  console.log("Scanning static HTML pages...");
+
+  const files = getHtmlFiles(ROOT_DIR);
+
+  let staticCount = 0;
 
   for (const file of files) {
     const filename = path.basename(file).toLowerCase();
@@ -152,13 +170,21 @@ function generateSitemap() {
 
     const html = fs.readFileSync(file, "utf8");
 
-    // Exclude noindex pages.
-    if (isNoindex(html)) continue;
-
-    // Prefer canonical URL.
     const canonical = getCanonical(html);
+    const physicalUrl = getPageUrl(file);
 
-    const pageUrl = canonical || getPageUrl(file);
+    // Exclude noindex pages.
+    if (isNoindex(html)) {
+      excludedUrls.add(physicalUrl);
+
+      if (canonical) {
+        excludedUrls.add(canonical);
+      }
+
+      continue;
+    }
+
+    const pageUrl = canonical || physicalUrl;
 
     let parsedUrl;
 
@@ -169,29 +195,57 @@ function generateSitemap() {
       continue;
     }
 
-    // Only include URLs from the production domain.
     if (parsedUrl.origin !== BASE_URL) continue;
-
-    // Exclude URLs with query strings or fragments.
     if (parsedUrl.search || parsedUrl.hash) continue;
 
-    // Normalise trailing slash for the homepage and directory URLs.
     const finalUrl = parsedUrl.href;
 
-    // Use file modification date.
     const lastModified = fs.statSync(file).mtime.toISOString();
 
-    // Prevent duplicate URLs.
     urlMap.set(finalUrl, {
       loc: finalUrl,
       lastmod: lastModified
     });
+
+    staticCount++;
   }
+
+  // ----------------------------------
+  // 2. Add manually maintained CMS blogs
+  // ----------------------------------
+
+  let blogCount = 0;
+
+  console.log("Adding manually maintained CMS blog URLs...");
+
+  for (const slug of CMS_BLOG_SLUGS) {
+    const blogUrl = new URL(
+      "/resources/blogs/" + encodeURIComponent(slug),
+      BASE_URL
+    ).href;
+
+    if (excludedUrls.has(blogUrl)) {
+      console.log("Skipping noindex blog:", blogUrl);
+      continue;
+    }
+
+    if (!urlMap.has(blogUrl)) {
+      blogCount++;
+
+      urlMap.set(blogUrl, {
+        loc: blogUrl,
+        lastmod: null
+      });
+    }
+  }
+
+  // ----------------------------------
+  // 3. Sort and prepare XML
+  // ----------------------------------
 
   const pages = [...urlMap.values()]
     .sort((a, b) => a.loc.localeCompare(b.loc));
 
-  // Sitemap protocol supports a maximum of 50,000 URLs.
   if (pages.length > 50000) {
     throw new Error(
       "More than 50,000 URLs found. A sitemap index is required."
@@ -201,22 +255,29 @@ function generateSitemap() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages.map(page => `  <url>
-    <loc>${escapeXml(page.loc)}</loc>
-    <lastmod>${page.lastmod}</lastmod>
+    <loc>${escapeXml(page.loc)}</loc>${page.lastmod ? `
+    <lastmod>${escapeXml(page.lastmod)}</lastmod>` : ""}
   </url>`).join("\n")}
 </urlset>
 `;
+
+  // ----------------------------------
+  // 4. Write sitemap.xml
+  // ----------------------------------
 
   fs.writeFileSync(OUTPUT_FILE, xml, "utf8");
 
   console.log("-----------------------------------");
   console.log("XML Sitemap generated successfully");
   console.log("Website:", BASE_URL);
-  console.log("Total URLs:", pages.length);
+  console.log("Static HTML URLs:", staticCount);
+  console.log("CMS blog URLs added:", blogCount);
+  console.log("Total unique URLs:", pages.length);
   console.log("Output:", OUTPUT_FILE);
   console.log("-----------------------------------");
 }
 
+// Run sitemap generation.
 try {
   generateSitemap();
 } catch (error) {
